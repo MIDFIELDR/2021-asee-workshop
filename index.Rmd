@@ -16,19 +16,33 @@ cover-image: "figures/midfield-grad-logo.png"
 
 # Introduction
 
+```{r echo = FALSE}
+library(knitr)
+opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+opts_chunk$set(echo = FALSE) 
+knit_hooks$set(inline = function(x) {
+	if (!is.numeric(x)) { 
+		x 
+	} else if (x >= 10000) { 
+		prettyNum(round(x, 2), big.mark = ",")
+	} else {
+		prettyNum(round(x, 2))
+	}
+})
+```
+
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'data.table', 'wrapr', 'midfieldr', 'midfielddata', 'ggplot2'
+	.packages(), 'bookdown', 'knitr', 'rmarkdown', 'data.table', 'wrapr', 'midfieldr', 'midfielddata', 'ggplot2'
 ), 'packages.bib')
 ```
 
-
-```{r include=FALSE}
+```{r}
 htmltools::img(src = knitr::include_graphics("figures/midfield-grad-logo.png"), 
-        alt = 'midfield logo', 
-        style = 'left:0px; padding:10px;',
-        width = 200)
+							 alt = 'midfield logo', 
+							 style = 'left:0px; padding:10px;',
+							 width = 200)
 ```
 
 
