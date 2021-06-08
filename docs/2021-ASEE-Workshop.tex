@@ -4,14 +4,17 @@
 %
 \documentclass[
 ]{book}
+\title{Engaging with MIDFIELD Data}
+\author{Susan Lord, Matthew Ohland, Marisa Orr, Richard Layton, and Russell Long}
+\date{2021-07-26}
+
+\usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{amsmath}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
-  \usepackage{amssymb}
 \else % if luatex or xetex
   \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
@@ -38,11 +41,11 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={Engaging with MIDFIELD Data},
-  pdfauthor={Richard Layton, Russell Long, Susan Lord, Matthew Ohland, and Marisa Orr},
+  pdfauthor={Susan Lord, Matthew Ohland, Marisa Orr, Richard Layton, and Russell Long},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
-\usepackage{longtable,booktabs}
+\usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -69,6 +72,29 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 \usepackage{booktabs}
 \usepackage{amsthm}
 \makeatletter
@@ -77,15 +103,11 @@
   \thm@postskip=\thm@preskip
 }
 \makeatother
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
-
-\title{Engaging with MIDFIELD Data}
-\author{Richard Layton, Russell Long, Susan Lord, Matthew Ohland, and Marisa Orr}
-\date{2021-07-26}
 
 \begin{document}
 \maketitle
@@ -154,6 +176,23 @@ Min & Topic\\
 \section*{Before you arrive}\label{before-you-arrive}}
 \addcontentsline{toc}{section}{Before you arrive}
 
+\hypertarget{facilitators}{%
+\section*{Facilitators}\label{facilitators}}
+\addcontentsline{toc}{section}{Facilitators}
+
+\begin{description}
+\item[Susan Lord]
+Director of the MIDFIELD Institute and Professor and Chair of Integrated Engineering at the University of San Diego. She is a Fellow of the IEEE and the ASEE. Dr.~Lord has considerable experience facilitating workshops including the National Effective Teaching Institute (NETI) and special sessions at FIE. (\href{mailto:slord@sandiego.edu}{\nolinkurl{slord@sandiego.edu}})
+\item[Matthew Ohland]
+MIDFIELD Director and Principal Investigator. He is Professor and Associate Head of Engineering Education at Purdue University and a Fellow of IEEE, ASEE, and AAAS. Dr.~Ohland has considerable experience facilitating workshops including the NETI and CATME training. (\href{mailto:ohland@purdue.edu}{\nolinkurl{ohland@purdue.edu}})
+\item[Marisa Orr]
+MIDFIELD Associate Director and Associate Professor in Engineering and Science Education with a joint appointment in Mechanical Engineering at Clemson University. She received the 2009 Helen Plants Award for the best nontraditional session at FIE, ``Enhancing Student Learning Using SCALE-UP Format.'' (\href{mailto:marisak@clemson.edu}{\nolinkurl{marisak@clemson.edu}})
+\item[Richard Layton]
+MIDFIELD Data Visualization Specialist and Professor Emeritus of Mechanical Engineering at Rose-Hulman Institute of Technology. He is the lead developer of the R packages used in this workshop. Dr.~Layton has considerable experience facilitating workshops, including FIE workshops on data visualization (2014) and midfieldr (2018). (\href{mailto:graphdoctor@gmail.com}{\nolinkurl{graphdoctor@gmail.com}})
+\item[Russell Long]
+MIDFIELD Managing Director and Data Steward. He developed the stratified data sample for the R packages used in this workshop. Mr.~Long is a SAS expert with over twenty years of experience in institutional research and assessment. (\href{mailto:ralong@purdue.edu}{\nolinkurl{ralong@purdue.edu}})
+\end{description}
+
 \hypertarget{licenses}{%
 \section*{Licenses}\label{licenses}}
 \addcontentsline{toc}{section}{Licenses}
@@ -175,6 +214,8 @@ The following licenses apply to the text, data, and code in these workshops. Our
 \addcontentsline{toc}{section}{Acknowledgement}
 
 Funding provided by the National Science Foundation Grant 1545667 ``Expanding Access to and Participation in the Multiple-Institution Database for Investigating Engineering Longitudinal Development.''
+
+\protect\hyperlink{introduction}{▲ top of page}
 
 \hypertarget{get-start-r}{%
 \chapter{Get started with R}\label{get-start-r}}
@@ -207,7 +248,7 @@ RStudio, an integrated development environment (IDE) for R, includes a console, 
 
 Unless noted otherwise, we assume the reader is an R novice. Thus the first steps are to install R and RStudio.
 
-Windows users may have to login as an Administrator (localmgr) before installing the software.
+Windows users may have to login as an Administrator before installing the software.
 
 \begin{itemize}
 \tightlist
@@ -220,6 +261,12 @@ Windows users may have to login as an Administrator (localmgr) before installing
 \hypertarget{references}{%
 \section*{References}\label{references}}
 \addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{0}{0}
+\end{CSLReferences}
+
+\protect\hyperlink{get-start-r}{▲ top of page}
 
   \bibliography{book.bib,packages.bib,references.bib}
 

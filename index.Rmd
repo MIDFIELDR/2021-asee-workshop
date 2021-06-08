@@ -1,7 +1,7 @@
 --- 
 title: "Engaging with MIDFIELD Data"
 description: "Workshop at the 2021 ASEE Annual Conference"
-author: "Richard Layton, Russell Long, Susan Lord, Matthew Ohland, and Marisa Orr"
+author: " Susan Lord, Matthew Ohland, Marisa Orr, Richard Layton, and Russell Long"
 date: "2021-07-26"
 site: bookdown::bookdown_site
 output: 
@@ -14,7 +14,7 @@ github-repo: MIDFIELDR/2021-asee-workshop
 cover-image: "figures/midfield-grad-logo.png"
 ---
 
-# Introduction
+# Introduction {#introduction}
 
 ```{r echo = FALSE}
 library(knitr)
@@ -90,6 +90,28 @@ knitr::kable(df, booktabs = TRUE)
 ## Before you arrive {-} 
 
 
+## Facilitators{-} 
+
+Susan Lord 
+
+: Director of the MIDFIELD Institute and Professor and Chair of Integrated Engineering at the University of San Diego.  She is a Fellow of the IEEE and the ASEE. Dr. Lord has considerable experience facilitating workshops including the National Effective Teaching Institute (NETI) and special sessions at FIE. (slord@sandiego.edu) 
+
+Matthew Ohland 
+
+: MIDFIELD Director and Principal Investigator. He is Professor and Associate Head of Engineering Education at Purdue University and a Fellow of IEEE, ASEE, and AAAS. Dr. Ohland has considerable experience facilitating workshops including the NETI and CATME training.   (ohland@purdue.edu)
+
+Marisa Orr
+
+: MIDFIELD Associate Director and Associate Professor in Engineering and Science Education with a joint appointment in Mechanical Engineering at Clemson University. She received the 2009 Helen Plants Award for the best nontraditional session at FIE, "Enhancing Student Learning Using SCALE-UP Format." (marisak@clemson.edu)
+
+Richard Layton 
+
+: MIDFIELD  Data Visualization Specialist and Professor Emeritus of Mechanical Engineering at Rose-Hulman Institute of Technology. He is the lead developer of the R packages used in this workshop. Dr. Layton has considerable experience facilitating workshops, including FIE workshops on data visualization (2014) and midfieldr (2018). (graphdoctor@gmail.com) 
+
+Russell Long 
+
+: MIDFIELD Managing Director and Data Steward. He developed the stratified data sample for the R packages used in this workshop. Mr. Long is a SAS expert with over twenty years of experience in institutional research and assessment. (ralong@purdue.edu)
+
 
 
 
@@ -115,5 +137,6 @@ knitr::include_graphics("figures/NSF_4-Color_bitmap_Logo.png"),
 
 
 
-
+<br>
+[&#9650; top of page](#introduction)
 

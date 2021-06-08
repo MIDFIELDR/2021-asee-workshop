@@ -1,7 +1,5 @@
 # Get started with R {#get-start-r}
 
-<!-- This file is included in the book only if it is listed in the _bookdown.yml file. -->
-
 ```{r echo = FALSE}
 library(knitr)
 opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
@@ -66,10 +64,16 @@ RStudio, an integrated development environment (IDE) for R, includes a console, 
 
 Unless noted otherwise, we assume the reader is an R novice. Thus the first steps are to install R and RStudio. 
 
-Windows users may have to login as an Administrator (localmgr) before installing the software. 
+Windows users may have to login as an Administrator before installing the software. 
 
 - [Install R](https://cloud.r-project.org){target="_blank"} for your operating system  
 - [Install RStudio](https://www.rstudio.com/products/rstudio/#Desktop){target="_blank"}, a user interface for R  
 
-
 ## References {-}
+
+<div id="refs"></div>
+
+
+
+<br>
+[&#9650; top of page](#get-start-r)
