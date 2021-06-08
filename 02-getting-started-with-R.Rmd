@@ -62,12 +62,28 @@ RStudio, an integrated development environment (IDE) for R, includes a console, 
 
 ## Install R and RStudio {- #install-R-and-RStudio}
 
-Unless noted otherwise, we assume the reader is an R novice. Thus the first steps are to install R and RStudio. 
-
-Windows users may have to login as an Administrator before installing the software. 
+Unless noted otherwise, we assume the reader is an R novice. Thus the first steps are to install R and RStudio. Windows users may have to login as an Administrator before installing the software. 
 
 - [Install R](https://cloud.r-project.org){target="_blank"} for your operating system  
 - [Install RStudio](https://www.rstudio.com/products/rstudio/#Desktop){target="_blank"}, a user interface for R  
+
+Once the installation is complete, you can take a 2-minute tour of the RStudio interface.
+
+- [Let's start (00:57--02:32)](https://www.youtube.com/embed/kfcX5DEMAp4?start=57&end=152){target="_blank"} by R Ladies Sydney [@RLadiesSydney:2018:Lesson1]   
+
+The same video includes a longer (7 minute) tour of the four quadrants (panes) in RStudio if you are interested. 
+
+- [The RStudio quadrants (07:21--14:40)](https://www.youtube.com/embed/kfcX5DEMAp4?start=441&end=880){target="_blank"} by R Ladies Sydney [@RLadiesSydney:2018:Lesson1] 
+
+
+
+
+
+
+
+## Install packages {-}
+
+
 
 ## References {-}
 

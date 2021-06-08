@@ -46,17 +46,24 @@ htmltools::img(src = knitr::include_graphics("figures/midfield-grad-logo.png"),
 ```
 
 
+
 ## Objectives {-} 
 
-The main goal of the workshop is making MIDFIELD more accessible to the ASEE community. The workshop introduces *midfieldr* (a package in the R software environment) that provides access to a MIDFIELD student-record data sample and tools to analyze and graph persistence metrics such as graduation rates. The workshop is designed for R beginners. 
+MIDFIELD---The *Multiple-Institution Database for Investigating Engineering Longitudinal Development*---is a partnership of higher education institutions with engineering programs. MIDFIELD contains student record data from 1988--2017 for approximately one million undergraduate, degree-seeking students at the partner institutions.
+
+The goal of this workshop is to make MIDFIELD more accessible to the ASEE community. The workshop introduces *midfieldr* (a package in the R software environment) that provides access to a MIDFIELD student-record data sample and tools to analyze and graph persistence metrics such as graduation rates. The workshop is designed for R beginners. 
 
 By the end of the workshop, participants should be able to:
 
-- Describe key variables in MIDFIELD 
+- Describe key variables in MIDFIELD data tables 
 - Select academic programs and populations to study
-- Use midfieldr, an R package specifically designed for use with MIDFIELD, to compute persistence metrics
+- Use midfieldr, an R package specifically designed for use with MIDFIELD
 - Explore and tell a story from MIDFIELD data
 - Explain key features of effective data displays 
+
+
+
+
 
 ## Description {-} 
 
@@ -68,7 +75,19 @@ For more experienced R users or anyone working at a faster pace, we offer a seri
 
 We also discuss the merits of the multiway graph design that is recommended for displaying results of this type. The agenda includes an interactive session to demonstrate contemporary principles of effective data display. 
 
+
+
+## Pre-conference homework {-} 
+
+To get the most out of the workshop, you should have the essential software installed and running several days before the workshop to give you time to contact us with questions if anything goes amiss. 
+
+Your homework is to install R and RStudio and the MIDFIELD R packages midfielddata and midfieldr. Instructions are given on the [Get started with R](#get-start-r) page. 
+
+
+
 ## Agenda {-} 
+
+Our three hours are organized approximately as shown. 
 
 ```{r echo = FALSE}
 df <- wrapr::build_frame(
@@ -87,7 +106,7 @@ knitr::kable(df, booktabs = TRUE)
 
 
 
-## Before you arrive {-} 
+
 
 
 ## Facilitators{-} 
