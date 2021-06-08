@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="index.html"/>
-
+<link rel="next" href="about-R.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -169,14 +169,18 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#licenses"><i class="fa fa-check"></i>Licenses</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i>Acknowledgement</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="get-start-r.html"><a href="get-start-r.html"><i class="fa fa-check"></i><b>2</b> Install everything</a>
+<li class="chapter" data-level="2" data-path="install-everything.html"><a href="install-everything.html"><i class="fa fa-check"></i><b>2</b> Install everything</a>
 <ul>
-<li class="chapter" data-level="" data-path="get-start-r.html"><a href="get-start-r.html#install-R-and-RStudio"><i class="fa fa-check"></i>Install R and RStudio</a></li>
-<li class="chapter" data-level="" data-path="get-start-r.html"><a href="get-start-r.html#install-an-r-package"><i class="fa fa-check"></i>Install an R package</a></li>
-<li class="chapter" data-level="" data-path="get-start-r.html"><a href="get-start-r.html#install-midfielddata"><i class="fa fa-check"></i>Install midfielddata</a></li>
-<li class="chapter" data-level="" data-path="get-start-r.html"><a href="get-start-r.html#install-midfieldr"><i class="fa fa-check"></i>Install midfieldr</a></li>
-<li class="chapter" data-level="" data-path="get-start-r.html"><a href="get-start-r.html#why-r"><i class="fa fa-check"></i>Why R?</a></li>
-<li class="chapter" data-level="" data-path="get-start-r.html"><a href="get-start-r.html#references"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="install-everything.html"><a href="install-everything.html#install-r-and-rstudio"><i class="fa fa-check"></i>Install R and RStudio</a></li>
+<li class="chapter" data-level="" data-path="install-everything.html"><a href="install-everything.html#install-the-remotes-package"><i class="fa fa-check"></i>Install the remotes package</a></li>
+<li class="chapter" data-level="" data-path="install-everything.html"><a href="install-everything.html#install-midfielddata"><i class="fa fa-check"></i>Install midfielddata</a></li>
+<li class="chapter" data-level="" data-path="install-everything.html"><a href="install-everything.html#install-midfieldr"><i class="fa fa-check"></i>Install midfieldr</a></li>
+<li class="chapter" data-level="" data-path="install-everything.html"><a href="install-everything.html#references"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="about-R.html"><a href="about-R.html"><i class="fa fa-check"></i><b>3</b> About R</a>
+<ul>
+<li class="chapter" data-level="" data-path="about-R.html"><a href="about-R.html#why-r"><i class="fa fa-check"></i>Why R?</a></li>
+<li class="chapter" data-level="" data-path="about-R.html"><a href="about-R.html#references-1"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/MIDFIELDR/2021-asee-workshop" target="blank">Published with bookdown</a></li>
@@ -198,16 +202,16 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="get-start-r" class="section level1" number="2">
+<div id="install-everything" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Install everything</h1>
 <p><img src="figures/logo-R.png" alt="logo" style="left:0px; padding:5px;" height="110px"/><img src="figures/logo-RStudio.png" alt="logo" style="left:0px; padding:5px;" height="110px"/></p>
 <p>If you are trying R for the first time, it is vital that you attempt to set up your computer with the necessary software in advance or it will be difficult to keep up.</p>
 <p>Your pre-workshop homework:</p>
 <ul>
-<li>Install R and RStudio</li>
-<li>Install a package</li>
-<li>Install midfielddata</li>
-<li>Install midfieldr</li>
+<li><a href="install-everything.html#install-r-and-rstudio">Install R and RStudio</a></li>
+<li><a href="install-everything.html#install-the-remotes-package">Install the remotes package</a></li>
+<li><a href="install-everything.html#install-midfielddata">Install midfielddata</a></li>
+<li><a href="install-everything.html#install-midfieldr">Install midfieldr</a></li>
 </ul>
 <p>If you already have R and RStudio installed, this is a great time to</p>
 <ul>
@@ -215,8 +219,8 @@ div.csl-indent {
 <li>Make sure your RStudio installation is current</li>
 <li>Update your packages by running:</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="get-start-r.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="at">ask =</span> <span class="cn">FALSE</span>, <span class="at">checkBuilt =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<div id="install-R-and-RStudio" class="section level2 unnumbered">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="install-everything.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="at">ask =</span> <span class="cn">FALSE</span>, <span class="at">checkBuilt =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div id="install-r-and-rstudio" class="section level2 unnumbered">
 <h2>Install R and RStudio</h2>
 <p>The first steps are to install R and RStudio. Windows users may have to login as an Administrator before installing the software.</p>
 <ul>
@@ -226,17 +230,17 @@ div.csl-indent {
 </ul>
 <p>Once the installation is complete, you can take a 2-minute tour of the RStudio interface.</p>
 <ul>
-<li><a href="https://www.youtube.com/embed/kfcX5DEMAp4?start=57&amp;end=152" target="_blank">Let’s start (00:57–02:32)</a> by R Ladies Sydney <span class="citation">(<a href="get-start-r.html#ref-RLadiesSydney:2018:Lesson1" role="doc-biblioref">Richmond, 2018</a>)</span></li>
+<li><a href="https://www.youtube.com/embed/kfcX5DEMAp4?start=57&amp;end=152" target="_blank">Let’s start (00:57–02:32)</a> by R Ladies Sydney <span class="citation">(<a href="install-everything.html#ref-RLadiesSydney:2018:Lesson1" role="doc-biblioref">Richmond, 2018</a>)</span></li>
 </ul>
 <p>The same video includes a longer (7 minute) tour of the four quadrants (panes) in RStudio if you are interested.</p>
 <ul>
-<li><a href="https://www.youtube.com/embed/kfcX5DEMAp4?start=441&amp;end=880" target="_blank">The RStudio quadrants (07:21–14:40)</a> by R Ladies Sydney <span class="citation">(<a href="get-start-r.html#ref-RLadiesSydney:2018:Lesson1" role="doc-biblioref">Richmond, 2018</a>)</span></li>
+<li><a href="https://www.youtube.com/embed/kfcX5DEMAp4?start=441&amp;end=880" target="_blank">The RStudio quadrants (07:21–14:40)</a> by R Ladies Sydney <span class="citation">(<a href="install-everything.html#ref-RLadiesSydney:2018:Lesson1" role="doc-biblioref">Richmond, 2018</a>)</span></li>
 </ul>
 </div>
-<div id="install-an-r-package" class="section level2 unnumbered">
-<h2>Install an R package</h2>
-<p>The fundamental unit of shareable code in R is the <em>package.</em> For the R novice, an R package is like an “app” for R—a collection of functions, data, and documentation for doing work in R that is easily shared with others <span class="citation">(<a href="get-start-r.html#ref-wickham2014advanced" role="doc-biblioref">Wickham, 2014</a>)</span>.</p>
-<p>Most packages are obtained from the <a href="https://cran.r-project.org/" target="_blank">CRAN</a> website <span class="citation">(<a href="get-start-r.html#ref-cranweb" role="doc-biblioref"><span>The Comprehensive R Archive Network</span>, 2018-04-22</a>)</span>. To install a CRAN package using RStudio:</p>
+<div id="install-the-remotes-package" class="section level2 unnumbered">
+<h2>Install the remotes package</h2>
+<p>The fundamental unit of shareable code in R is the <em>package.</em> For the R novice, an R package is like an “app” for R—a collection of functions, data, and documentation for doing work in R that is easily shared with others <span class="citation">(<a href="install-everything.html#ref-wickham2014advanced" role="doc-biblioref">Wickham, 2014</a>)</span>.</p>
+<p>Most packages are obtained from the <a href="https://cran.r-project.org/" target="_blank">CRAN</a> website <span class="citation">(<a href="install-everything.html#ref-cranweb" role="doc-biblioref"><span>The Comprehensive R Archive Network</span>, 2018-04-22</a>)</span>. To install a CRAN package using RStudio:</p>
 <ul>
 <li>Launch RStudio</li>
 </ul>
@@ -249,63 +253,61 @@ div.csl-indent {
 Next,</p>
 <ul>
 <li>Click <em>Install</em> on the ribbon</li>
-<li>In the dialog box, type the name of the package. For our first package, type <strong>remotes</strong><br />
-</li>
+<li>In the dialog box, type the name of the package. For our first package, type <code>remotes</code> to install the remoptes package <span class="citation">(<a href="install-everything.html#ref-R-remotes" role="doc-biblioref">Hester and others, 2021</a>)</span></li>
 <li>Check the <em>Install dependencies</em> box</li>
 <li>Click the <em>Install</em> button</li>
 </ul>
 <p>In the RStudio Console, you should see a message like this one,</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="get-start-r.html#cb2-1" aria-hidden="true" tabindex="-1"></a>    package <span class="st">&#39;remotes&#39;</span> successfully unpacked and MD5 sums checked</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="install-everything.html#cb2-1" aria-hidden="true" tabindex="-1"></a>    package <span class="st">&#39;remotes&#39;</span> successfully unpacked and MD5 sums checked</span></code></pre></div>
 <p>If successful, the package will appear in the Packages pane, e.g.,</p>
 <p><img src="figures/rstudio-packages-2.png" alt="rstudio packages pane" style="left:0px; padding:20px;" width="700px"/></p>
 </div>
 <div id="install-midfielddata" class="section level2 unnumbered">
 <h2>Install midfielddata</h2>
-<p>Install midfielddata first.</p>
+<p>Install the midfielddata package first <span class="citation">(<a href="install-everything.html#ref-R-midfielddata" role="doc-biblioref">Layton and others, 2021a</a>)</span>.</p>
 <p>Because of its size, the data package is stored in a <code>drat</code> repository instead of CRAN. Installation takes time; please be patient and wait for the Console prompt “&gt;” to reappear.</p>
 <p>Type (or copy and paste) the following lines in the RStudio Console.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="get-start-r.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the RStudio Console  </span></span>
-<span id="cb3-2"><a href="get-start-r.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;midfielddata&quot;</span>, </span>
-<span id="cb3-3"><a href="get-start-r.html#cb3-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repos =</span> <span class="st">&quot;https://MIDFIELDR.github.io/drat/&quot;</span>, </span>
-<span id="cb3-4"><a href="get-start-r.html#cb3-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">type =</span> <span class="st">&quot;source&quot;</span>)</span>
-<span id="cb3-5"><a href="get-start-r.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># be patient</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="install-everything.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the RStudio Console  </span></span>
+<span id="cb3-2"><a href="install-everything.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;midfielddata&quot;</span>, </span>
+<span id="cb3-3"><a href="install-everything.html#cb3-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repos =</span> <span class="st">&quot;https://MIDFIELDR.github.io/drat/&quot;</span>, </span>
+<span id="cb3-4"><a href="install-everything.html#cb3-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">type =</span> <span class="st">&quot;source&quot;</span>)</span>
+<span id="cb3-5"><a href="install-everything.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># be patient</span></span></code></pre></div>
 <p>Once the Console prompt “&gt;” reappears, you can confirm a successful installation by viewing the package help page. In the Console, run:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="get-start-r.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the RStudio Console  </span></span>
-<span id="cb4-2"><a href="get-start-r.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;midfielddata&quot;</span>)</span>
-<span id="cb4-3"><a href="get-start-r.html#cb4-3" aria-hidden="true" tabindex="-1"></a>? midfielddata</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="install-everything.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the RStudio Console  </span></span>
+<span id="cb4-2"><a href="install-everything.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;midfielddata&quot;</span>)</span>
+<span id="cb4-3"><a href="install-everything.html#cb4-3" aria-hidden="true" tabindex="-1"></a>? midfielddata</span></code></pre></div>
 <p>If the installation is successful, the code chunk above should produce a view of the help page as shown here. If this step is successful, you can go on to the next step.</p>
 <p><img src="figures/README-midfielddata-help-page-2.png" alt="midfiedldata help page pane" style="left:0px; padding:20px;" width="700px"/></p>
 </div>
 <div id="install-midfieldr" class="section level2 unnumbered">
 <h2>Install midfieldr</h2>
 <p>Earlier we installed the remotes package. To access its functions we use the <code>library()</code> function.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="get-start-r.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the RStudio Console  </span></span>
-<span id="cb5-2"><a href="get-start-r.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;remotes&quot;</span>)</span></code></pre></div>
-<p>Now we can use the <code>install_github()</code> function in the remotes package to install midfieldr from GitHub.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="get-start-r.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the RStudio Console  </span></span>
-<span id="cb6-2"><a href="get-start-r.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;MIDFIELDR/midfieldr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="install-everything.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the RStudio Console  </span></span>
+<span id="cb5-2"><a href="install-everything.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;remotes&quot;</span>)</span></code></pre></div>
+<p>Now we can use the <code>install_github()</code> function in the remotes package to install the midfieldr package from GitHub <span class="citation">(<a href="install-everything.html#ref-R-midfieldr" role="doc-biblioref">Layton and others, 2021b</a>)</span>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="install-everything.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the RStudio Console  </span></span>
+<span id="cb6-2"><a href="install-everything.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;MIDFIELDR/midfieldr&quot;</span>)</span></code></pre></div>
 <p>You can confirm a successful installation by viewing the package help page. In the Console, run:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="get-start-r.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the RStudio Console </span></span>
-<span id="cb7-2"><a href="get-start-r.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;midfieldr&quot;</span>)</span>
-<span id="cb7-3"><a href="get-start-r.html#cb7-3" aria-hidden="true" tabindex="-1"></a>? midfieldr</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="install-everything.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the RStudio Console </span></span>
+<span id="cb7-2"><a href="install-everything.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;midfieldr&quot;</span>)</span>
+<span id="cb7-3"><a href="install-everything.html#cb7-3" aria-hidden="true" tabindex="-1"></a>? midfieldr</span></code></pre></div>
 <p>If the installation is successful, the code chunk above should produce a view of the help page as shown here.</p>
 <p><img src="figures/README-midfieldr-help-page-2.png" alt="midfiedr help page pane" style="left:0px; padding:20px;" width="700px"/></p>
-</div>
-<div id="why-r" class="section level2 unnumbered">
-<h2>Why R?</h2>
-<p>R is an open source language and environment for statistical computing and graphics <span class="citation">(<a href="get-start-r.html#ref-R-base" role="doc-biblioref">R Core Team, 2021</a>)</span>, ranked by IEEE in 2020 as the 6th most popular programming language (Python, Java, and C are the top three) <span class="citation">(<a href="get-start-r.html#ref-Cass:2020" role="doc-biblioref">Cass, 2020</a>)</span>. If you are new to R, some of its best features, paraphrasing Wickham <span class="citation">(<a href="get-start-r.html#ref-wickham2014advanced" role="doc-biblioref">2014</a>)</span>, are:</p>
-<ul>
-<li>R is free, open source, and available on every major platform, making it easy for others to replicate your work.</li>
-<li>More than 17,500 open-source R packages are available (Jun 2021). Many are cutting-edge tools.</li>
-<li>R packages provide deep-seated support for data analysis, e.g., missing values, data frames, and subsetting.</li>
-</ul>
-<p>RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control <span class="citation">(<a href="get-start-r.html#ref-2016rstudio" role="doc-biblioref">RStudio Team, 2016</a>)</span>.</p>
 </div>
 <div id="references" class="section level2 unnumbered">
 <h2>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent references csl-bib-body hanging-indent">
 <div id="ref-Cass:2020" class="csl-entry">
 Cass S (2020) <span class="nocase">Top programming languages</span>. <em>IEEE Spectrum</em> <a href="https://spectrum.ieee.org/at-work/tech-careers/top-programming-language-2020">https://spectrum.ieee.org/at-work/tech-careers/top-programming-language-2020</a>
+</div>
+<div id="ref-R-remotes" class="csl-entry">
+Hester J, Csárdi G, Wickham H, Chang W, Morgan M and Tenenbaum D (2021) <em>Remotes: R package installation from remote repositories, including GitHub.</em> <a href="https://CRAN.R-project.org/package=remotes">https://CRAN.R-project.org/package=remotes</a>
+</div>
+<div id="ref-R-midfielddata" class="csl-entry">
+Layton R, Long R and Ohland M (2021a) <em>Midfielddata: Student record data for 98,000 undergraduates.</em> <a href="https://github.com/MIDFIELDR/midfielddata">https://github.com/MIDFIELDR/midfielddata</a>
+</div>
+<div id="ref-R-midfieldr" class="csl-entry">
+Layton R, Long R and Ohland M (2021b) <em>Midfieldr: Tools for student records research.</em> <a href="https://github.com/MIDFIELDR/midfieldr">https://github.com/MIDFIELDR/midfieldr</a>
 </div>
 <div id="ref-R-base" class="csl-entry">
 R Core Team (2021) <em>R: A language and environment for statistical computing.</em> R Foundation for Statistical Computing, Vienna, Austria <a href="https://www.R-project.org/">https://www.R-project.org/</a>
@@ -324,7 +326,7 @@ Wickham H (2014) <em><span>Advanced R</span>.</em> Taylor &amp; Francis
 </div>
 </div>
 <p><br>
-<a href="get-start-r.html#get-start-r">▲ top of page</a></p>
+<a href="#get-start-r">▲ top of page</a></p>
 
 </div>
 </div>
@@ -333,8 +335,8 @@ Wickham H (2014) <em><span>Advanced R</span>.</em> Taylor &amp; Francis
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="about-R.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -366,7 +368,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/MIDFIELDR/2021-asee-workshop/edit/main/02-getting-started-with-R.Rmd",
+"link": "https://github.com/MIDFIELDR/2021-asee-workshop/edit/main/02-install-everything.Rmd",
 "text": "Edit"
 },
 "history": {

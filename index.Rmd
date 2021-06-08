@@ -34,7 +34,7 @@ knit_hooks$set(inline = function(x) {
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
-	.packages(), 'bookdown', 'knitr', 'rmarkdown', 'data.table', 'wrapr', 'midfieldr', 'midfielddata', 'ggplot2'
+	.packages(), 'bookdown', 'knitr', 'rmarkdown', 'data.table', 'wrapr', 'midfieldr', 'midfielddata', 'ggplot2', 'remotes'
 ), 'packages.bib')
 ```
 
@@ -77,11 +77,11 @@ We also discuss the merits of the multiway graph design that is recommended for 
 
 
 
-## Pre-conference homework {-} 
+## Pre-workshop homework {-} 
 
 To get the most out of the workshop, you should have the essential software installed and running several days before the workshop to give you time to contact us with questions if anything goes amiss. 
 
-Your homework is to install R and RStudio and the MIDFIELD R packages midfielddata and midfieldr. Instructions are given on the [Get started with R](#get-start-r) page. 
+Your homework is to install R and RStudio and the MIDFIELD R packages midfielddata and midfieldr. Instructions are given on the [Install everything](#install-everything) page. 
 
 
 

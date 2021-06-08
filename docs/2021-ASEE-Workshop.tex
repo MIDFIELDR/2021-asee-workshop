@@ -45,6 +45,46 @@
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -155,13 +195,13 @@ For more experienced R users or anyone working at a faster pace, we offer a seri
 
 We also discuss the merits of the multiway graph design that is recommended for displaying results of this type. The agenda includes an interactive session to demonstrate contemporary principles of effective data display.
 
-\hypertarget{pre-conference-homework}{%
-\section*{Pre-conference homework}\label{pre-conference-homework}}
-\addcontentsline{toc}{section}{Pre-conference homework}
+\hypertarget{pre-workshop-homework}{%
+\section*{Pre-workshop homework}\label{pre-workshop-homework}}
+\addcontentsline{toc}{section}{Pre-workshop homework}
 
 To get the most out of the workshop, you should have the essential software installed and running several days before the workshop to give you time to contact us with questions if anything goes amiss.
 
-Your homework is to install R and RStudio and the MIDFIELD R packages midfielddata and midfieldr. Instructions are given on the \protect\hyperlink{get-start-r}{Get started with R} page.
+Your homework is to install R and RStudio and the MIDFIELD R packages midfielddata and midfieldr. Instructions are given on the \protect\hyperlink{install-everything}{Install everything} page.
 
 \hypertarget{agenda}{%
 \section*{Agenda}\label{agenda}}
@@ -225,36 +265,48 @@ Funding provided by the National Science Foundation Grant 1545667 ``Expanding Ac
 
 \protect\hyperlink{introduction}{▲ top of page}
 
-\hypertarget{get-start-r}{%
-\chapter{Get started with R}\label{get-start-r}}
-
-If you already have R and RStudio installed, please update to the most recent releases and update your R packages as well.
+\hypertarget{install-everything}{%
+\chapter{Install everything}\label{install-everything}}
 
 If you are trying R for the first time, it is vital that you attempt to set up your computer with the necessary software in advance or it will be difficult to keep up.
 
-\hypertarget{why-r}{%
-\section*{Why R?}\label{why-r}}
-\addcontentsline{toc}{section}{Why R?}
-
-R is an open source language and environment for statistical computing and graphics \citep{R-base}, ranked by IEEE in 2020 as the 6th most popular programming language (Python, Java, and C are the top three) \citep{Cass:2020}. If you are new to R, some of its best features, paraphrasing Wickham \citeyearpar{wickham2014advanced}, are:
+Your pre-workshop homework:
 
 \begin{itemize}
 \tightlist
 \item
-  R is free, open source, and available on every major platform, making it easy for others to replicate your work.
+  \protect\hyperlink{install-r-and-rstudio}{Install R and RStudio}
 \item
-  More than 17,500 open-source R packages are available (Jun 2021). Many are cutting-edge tools.
+  \protect\hyperlink{install-the-remotes-package}{Install the remotes package}
 \item
-  R packages provide deep-seated support for data analysis, e.g., missing values, data frames, and subsetting.
+  \protect\hyperlink{install-midfielddata}{Install midfielddata}
+\item
+  \protect\hyperlink{install-midfieldr}{Install midfieldr}
 \end{itemize}
 
-RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control \citep{2016rstudio}.
+If you already have R and RStudio installed, this is a great time to
 
-\hypertarget{install-R-and-RStudio}{%
-\section*{Install R and RStudio}\label{install-R-and-RStudio}}
+\begin{itemize}
+\tightlist
+\item
+  Make sure your R installation is current
+\item
+  Make sure your RStudio installation is current
+\item
+  Update your packages by running:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{update.packages}\NormalTok{(}\AttributeTok{ask =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{checkBuilt =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{install-r-and-rstudio}{%
+\section*{Install R and RStudio}\label{install-r-and-rstudio}}
 \addcontentsline{toc}{section}{Install R and RStudio}
 
-Unless noted otherwise, we assume the reader is an R novice. Thus the first steps are to install R and RStudio. Windows users may have to login as an Administrator before installing the software.
+The first steps are to install R and RStudio. Windows users may have to login as an Administrator before installing the software.
 
 \begin{itemize}
 \tightlist
@@ -280,12 +332,151 @@ The same video includes a longer (7 minute) tour of the four quadrants (panes) i
   \href{https://www.youtube.com/embed/kfcX5DEMAp4?start=441\&end=880}{The RStudio quadrants (07:21--14:40)} by R Ladies Sydney \citep{RLadiesSydney:2018:Lesson1}
 \end{itemize}
 
-\hypertarget{install-packages}{%
-\section*{Install packages}\label{install-packages}}
-\addcontentsline{toc}{section}{Install packages}
+\hypertarget{install-the-remotes-package}{%
+\section*{Install the remotes package}\label{install-the-remotes-package}}
+\addcontentsline{toc}{section}{Install the remotes package}
+
+The fundamental unit of shareable code in R is the \emph{package.} For the R novice, an R package is like an ``app'' for R---a collection of functions, data, and documentation for doing work in R that is easily shared with others \citep{wickham2014advanced}.
+
+Most packages are obtained from the \href{https://cran.r-project.org/}{CRAN} website \citep{cranweb}. To install a CRAN package using RStudio:
+
+\begin{itemize}
+\tightlist
+\item
+  Launch RStudio
+\end{itemize}
+
+The RStudio interface has several panes. We want the \emph{Files/Plots/Packages} pane.
+
+\begin{itemize}
+\tightlist
+\item
+  Select the \emph{Packages} tab
+\end{itemize}
+
+Next,
+
+\begin{itemize}
+\tightlist
+\item
+  Click \emph{Install} on the ribbon
+\item
+  In the dialog box, type the name of the package. For our first package, type \texttt{remotes} to install the remoptes package \citep{R-remotes}
+\item
+  Check the \emph{Install dependencies} box
+\item
+  Click the \emph{Install} button
+\end{itemize}
+
+In the RStudio Console, you should see a message like this one,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    package }\StringTok{\textquotesingle{}remotes\textquotesingle{}}\NormalTok{ successfully unpacked and MD5 sums checked}
+\end{Highlighting}
+\end{Shaded}
+
+If successful, the package will appear in the Packages pane, e.g.,
+
+\hypertarget{install-midfielddata}{%
+\section*{Install midfielddata}\label{install-midfielddata}}
+\addcontentsline{toc}{section}{Install midfielddata}
+
+Install the midfielddata package first \citep{R-midfielddata}.
+
+Because of its size, the data package is stored in a \texttt{drat} repository instead of CRAN. Installation takes time; please be patient and wait for the Console prompt ``\textgreater{}'' to reappear.
+
+Type (or copy and paste) the following lines in the RStudio Console.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# type in the RStudio Console  }
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"midfielddata"}\NormalTok{, }
+                 \AttributeTok{repos =} \StringTok{"https://MIDFIELDR.github.io/drat/"}\NormalTok{, }
+                 \AttributeTok{type =} \StringTok{"source"}\NormalTok{)}
+\CommentTok{\# be patient}
+\end{Highlighting}
+\end{Shaded}
+
+Once the Console prompt ``\textgreater{}'' reappears, you can confirm a successful installation by viewing the package help page. In the Console, run:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# type in the RStudio Console  }
+\FunctionTok{library}\NormalTok{(}\StringTok{"midfielddata"}\NormalTok{)}
+\NormalTok{? midfielddata}
+\end{Highlighting}
+\end{Shaded}
+
+If the installation is successful, the code chunk above should produce a view of the help page as shown here. If this step is successful, you can go on to the next step.
+
+\hypertarget{install-midfieldr}{%
+\section*{Install midfieldr}\label{install-midfieldr}}
+\addcontentsline{toc}{section}{Install midfieldr}
+
+Earlier we installed the remotes package. To access its functions we use the \texttt{library()} function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# type in the RStudio Console  }
+\FunctionTok{library}\NormalTok{(}\StringTok{"remotes"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Now we can use the \texttt{install\_github()} function in the remotes package to install the midfieldr package from GitHub \citep{R-midfieldr}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# type in the RStudio Console  }
+\FunctionTok{install\_github}\NormalTok{(}\StringTok{"MIDFIELDR/midfieldr"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+You can confirm a successful installation by viewing the package help page. In the Console, run:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# type in the RStudio Console }
+\FunctionTok{library}\NormalTok{(}\StringTok{"midfieldr"}\NormalTok{)}
+\NormalTok{? midfieldr}
+\end{Highlighting}
+\end{Shaded}
+
+If the installation is successful, the code chunk above should produce a view of the help page as shown here.
 
 \hypertarget{references}{%
 \section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{0}{0}
+\end{CSLReferences}
+
+\protect\hyperlink{get-start-r}{▲ top of page}
+
+\hypertarget{about-R}{%
+\chapter{About R}\label{about-R}}
+
+\hypertarget{why-r}{%
+\section*{Why R?}\label{why-r}}
+\addcontentsline{toc}{section}{Why R?}
+
+R is an open source language and environment for statistical computing and graphics \citep{R-base}, ranked by IEEE in 2020 as the 6th most popular programming language (Python, Java, and C are the top three) \citep{Cass:2020}. If you are new to R, some of its best features, paraphrasing Wickham \citeyearpar{wickham2014advanced}, are:
+
+\begin{itemize}
+\tightlist
+\item
+  R is free, open source, and available on every major platform, making it easy for others to replicate your work.
+\item
+  More than 17,500 open-source R packages are available (Jun 2021). Many are cutting-edge tools.
+\item
+  R packages provide deep-seated support for data analysis, e.g., missing values, data frames, and subsetting.
+\end{itemize}
+
+RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control \citep{2016rstudio}.
+
+\hypertarget{references-1}{%
+\section*{References}\label{references-1}}
 \addcontentsline{toc}{section}{References}
 
 \hypertarget{refs}{}

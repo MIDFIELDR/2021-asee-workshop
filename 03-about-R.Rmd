@@ -1,4 +1,4 @@
-# Get started with R {#get-start-r}
+# About R {#about-R}
 
 ```{r echo = FALSE}
 library(knitr)
@@ -15,20 +15,6 @@ knit_hooks$set(inline = function(x) {
 })
 ```
 
-```{r}
-htmltools::img(src = knitr::include_graphics("figures/logo-R.png"), 
-        alt    = "logo", 
-        style  = "left:0px; padding:5px;", 
-        height = "110px")
-htmltools::img(src = knitr::include_graphics("figures/logo-RStudio.png"), 
-        alt    = "logo", 
-        style  = "left:0px; padding:5px;", 
-        height = "110px")
-```
-
-If you already have R and RStudio installed, please update to the most recent releases and update your R packages as well.
-
-If you are trying R for the first time, it is vital that you attempt to set up your computer with the necessary software in advance or it will be difficult to keep up. 
 
 ## Why R? {-} 
 
@@ -58,31 +44,6 @@ R is an open source language and environment for statistical computing and graph
 - R packages provide deep-seated support for data analysis, e.g., missing values, data frames, and subsetting.
 
 RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control  [@2016rstudio]. 
-
-
-## Install R and RStudio {- #install-R-and-RStudio}
-
-Unless noted otherwise, we assume the reader is an R novice. Thus the first steps are to install R and RStudio. Windows users may have to login as an Administrator before installing the software. 
-
-- [Install R](https://cloud.r-project.org){target="_blank"} for your operating system  
-- [Install RStudio](https://www.rstudio.com/products/rstudio/#Desktop){target="_blank"}, a user interface for R  
-
-Once the installation is complete, you can take a 2-minute tour of the RStudio interface.
-
-- [Let's start (00:57--02:32)](https://www.youtube.com/embed/kfcX5DEMAp4?start=57&end=152){target="_blank"} by R Ladies Sydney [@RLadiesSydney:2018:Lesson1]   
-
-The same video includes a longer (7 minute) tour of the four quadrants (panes) in RStudio if you are interested. 
-
-- [The RStudio quadrants (07:21--14:40)](https://www.youtube.com/embed/kfcX5DEMAp4?start=441&end=880){target="_blank"} by R Ladies Sydney [@RLadiesSydney:2018:Lesson1] 
-
-
-
-
-
-
-
-## Install packages {-}
-
 
 
 ## References {-}
