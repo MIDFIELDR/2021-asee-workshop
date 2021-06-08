@@ -112,29 +112,6 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newlength{\cslentryspacingunit} % times entry-spacing
-\setlength{\cslentryspacingunit}{\parskip}
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1
-  \let\oldpar\par
-  \def\par{\hangindent=\cslhangindent\oldpar}
-  \fi
-  % set entry spacing
-  \setlength{\parskip}{#2\cslentryspacingunit}
- }%
- {}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 \usepackage{booktabs}
 \usepackage{amsthm}
 \makeatletter
@@ -201,7 +178,7 @@ We also discuss the merits of the multiway graph design that is recommended for 
 
 To get the most out of the workshop, you should have the essential software installed and running several days before the workshop to give you time to contact us with questions if anything goes amiss.
 
-Your homework is to install R and RStudio and the MIDFIELD R packages midfielddata and midfieldr. Instructions are given on the \protect\hyperlink{install-everything}{Install everything} page.
+Your homework is explained on the \protect\hyperlink{install-everything}{Install everything} page.
 
 \hypertarget{agenda}{%
 \section*{Agenda}\label{agenda}}
@@ -215,11 +192,11 @@ Min & Topic\\
 \midrule
 10 & Introduction\\
 35 & Finding stories in the data\\
-35 & Getting started with R\\
+35 & Starting with R\\
 15 & Break\\
 20 & Designing effective displays\\
 \addlinespace
-55 & Getting started with midfieldr\\
+55 & Starting with midfieldr\\
 10 & Next steps \& assessing the workshop\\
 \bottomrule
 \end{tabular}
@@ -531,14 +508,6 @@ We use the folders as follows:
 
 You finished your homework!
 
-\hypertarget{references}{%
-\section*{References}\label{references}}
-\addcontentsline{toc}{section}{References}
-
-\hypertarget{refs}{}
-\begin{CSLReferences}{0}{0}
-\end{CSLReferences}
-
 \protect\hyperlink{install-everything}{▲ top of page}
 
 \hypertarget{about-R}{%
@@ -572,15 +541,72 @@ The graphics tools in R provide the means to control every pixel in the service 
 
 \href{https://www.r-graph-gallery.com/}{{[}For a gallery of R graphics{]}}
 
-\hypertarget{references-1}{%
-\section*{References}\label{references-1}}
-\addcontentsline{toc}{section}{References}
-
-\hypertarget{refs}{}
-\begin{CSLReferences}{0}{0}
-\end{CSLReferences}
-
 \protect\hyperlink{about-R}{▲ top of page}
+
+\hypertarget{materials}{%
+\chapter{Workshop materials}\label{materials}}
+
+\begin{itemize}
+\tightlist
+\item
+  stuff
+\item
+  more stuff
+\end{itemize}
+
+\protect\hyperlink{materials}{▲ top of page}
+
+\hypertarget{stories}{%
+\chapter{Stories in the data}\label{stories}}
+
+\begin{itemize}
+\tightlist
+\item
+  stuff
+\item
+  more stuff
+\end{itemize}
+
+\protect\hyperlink{stories}{▲ top of page}
+
+\hypertarget{start-with-R}{%
+\chapter{Starting with R}\label{start-with-R}}
+
+\begin{itemize}
+\tightlist
+\item
+  stuff
+\item
+  more stuff
+\end{itemize}
+
+\protect\hyperlink{start-with-R}{▲ top of page}
+
+\hypertarget{display-design}{%
+\chapter{Designing effective displays}\label{display-design}}
+
+\begin{itemize}
+\tightlist
+\item
+  stuff
+\item
+  more stuff
+\end{itemize}
+
+\protect\hyperlink{display-design}{▲ top of page}
+
+\hypertarget{start-with-midfieldr}{%
+\chapter{Starting with midfieldr}\label{start-with-midfieldr}}
+
+\begin{itemize}
+\tightlist
+\item
+  stuff
+\item
+  more stuff
+\end{itemize}
+
+\protect\hyperlink{start-with-midfieldr}{▲ top of page}
 
   \bibliography{book.bib,packages.bib,references.bib}
 

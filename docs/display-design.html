@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Engaging with MIDFIELD Data</title>
+  <title>7 Designing effective displays | Engaging with MIDFIELD Data</title>
   <meta name="description" content="Workshop at the 2021 ASEE Annual Conference" />
   <meta name="generator" content="bookdown 0.22.3 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Engaging with MIDFIELD Data" />
+  <meta property="og:title" content="7 Designing effective displays | Engaging with MIDFIELD Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="/figures/midfield-grad-logo.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="MIDFIELDR/2021-asee-workshop" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Engaging with MIDFIELD Data" />
+  <meta name="twitter:title" content="7 Designing effective displays | Engaging with MIDFIELD Data" />
   
   <meta name="twitter:description" content="Workshop at the 2021 ASEE Annual Conference" />
   <meta name="twitter:image" content="/figures/midfield-grad-logo.png" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="install-everything.html"/>
+<link rel="prev" href="start-with-R.html"/>
+<link rel="next" href="start-with-midfieldr.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -209,128 +209,23 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Engaging with MIDFIELD Data</h1>
-<p class="author"><em>Susan Lord, Matthew Ohland, Marisa Orr, Richard Layton, and Russell Long</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-07-26</em></p>
-</div>
-<div id="introduction" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Introduction</h1>
-<p><img src="figures/midfield-grad-logo.png" alt="midfield logo" style="left:0px; padding:10px;" width="200"/></p>
-<div id="objectives" class="section level2 unnumbered">
-<h2>Objectives</h2>
-<p>MIDFIELD—The <em>Multiple-Institution Database for Investigating Engineering Longitudinal Development</em>—is a partnership of higher education institutions with engineering programs. MIDFIELD contains student record data from 1988–2017 for approximately one million undergraduate, degree-seeking students at the partner institutions.</p>
-<p>The goal of this workshop is to make MIDFIELD more accessible to the ASEE community. The workshop introduces <em>midfieldr</em> (a package in the R software environment) that provides access to a MIDFIELD student-record data sample and tools to analyze and graph persistence metrics such as graduation rates. The workshop is designed for R beginners.</p>
-<p>By the end of the workshop, participants should be able to:</p>
+<div id="display-design" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Designing effective displays</h1>
 <ul>
-<li>Describe key variables in MIDFIELD data tables</li>
-<li>Select academic programs and populations to study</li>
-<li>Use midfieldr, an R package specifically designed for use with MIDFIELD</li>
-<li>Explore and tell a story from MIDFIELD data</li>
-<li>Explain key features of effective data displays</li>
+<li>stuff</li>
+<li>more stuff</li>
 </ul>
-</div>
-<div id="description" class="section level2 unnumbered">
-<h2>Description</h2>
-<p>The robustness of the MIDFIELD data allows us to emphasize an intersectional approach to the study of student records, permitting multiple categories of inequity such as race/ethnicity and sex to be considered simultaneously.</p>
-<p>To introduce beginners to R, participants work through a self-paced tutorial covering basic elements of the R computing language and environment. To introduce midfieldr and using it to work with student record data, participants work through a “Get started” tutorial in which they determine the numbers of students ever enrolled in two programs, group and summarize the data, and graph the results.</p>
-<p>For more experienced R users or anyone working at a faster pace, we offer a series of self-paced tutorials that introduce key features of midfieldr and how they are applied to compute persistence metrics and graph results.</p>
-<p>We also discuss the merits of the multiway graph design that is recommended for displaying results of this type. The agenda includes an interactive session to demonstrate contemporary principles of effective data display.</p>
-</div>
-<div id="pre-workshop-homework" class="section level2 unnumbered">
-<h2>Pre-workshop homework</h2>
-<p>To get the most out of the workshop, you should have the essential software installed and running several days before the workshop to give you time to contact us with questions if anything goes amiss.</p>
-<p>Your homework is explained on the <a href="install-everything.html#install-everything">Install everything</a> page.</p>
-</div>
-<div id="agenda" class="section level2 unnumbered">
-<h2>Agenda</h2>
-<p>Our three hours are organized approximately as shown.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Min</th>
-<th align="left">Topic</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">10</td>
-<td align="left">Introduction</td>
-</tr>
-<tr class="even">
-<td align="left">35</td>
-<td align="left">Finding stories in the data</td>
-</tr>
-<tr class="odd">
-<td align="left">35</td>
-<td align="left">Starting with R</td>
-</tr>
-<tr class="even">
-<td align="left">15</td>
-<td align="left">Break</td>
-</tr>
-<tr class="odd">
-<td align="left">20</td>
-<td align="left">Designing effective displays</td>
-</tr>
-<tr class="even">
-<td align="left">55</td>
-<td align="left">Starting with midfieldr</td>
-</tr>
-<tr class="odd">
-<td align="left">10</td>
-<td align="left">Next steps &amp; assessing the workshop</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="facilitators" class="section level2 unnumbered">
-<h2>Facilitators</h2>
-<dl>
-<dt>Susan Lord</dt>
-<dd><p>Director of the MIDFIELD Institute and Professor and Chair of Integrated Engineering at the University of San Diego. She is a Fellow of the IEEE and the ASEE. Dr. Lord has considerable experience facilitating workshops including the National Effective Teaching Institute (NETI) and special sessions at FIE. (<a href="mailto:slord@sandiego.edu" class="email">slord@sandiego.edu</a>)</p>
-</dd>
-<dt>Matthew Ohland</dt>
-<dd><p>MIDFIELD Director and Principal Investigator. He is Professor and Associate Head of Engineering Education at Purdue University and a Fellow of IEEE, ASEE, and AAAS. Dr. Ohland has considerable experience facilitating workshops including the NETI and CATME training. (<a href="mailto:ohland@purdue.edu" class="email">ohland@purdue.edu</a>)</p>
-</dd>
-<dt>Marisa Orr</dt>
-<dd><p>MIDFIELD Associate Director and Associate Professor in Engineering and Science Education with a joint appointment in Mechanical Engineering at Clemson University. She received the 2009 Helen Plants Award for the best nontraditional session at FIE, “Enhancing Student Learning Using SCALE-UP Format.” (<a href="mailto:marisak@clemson.edu" class="email">marisak@clemson.edu</a>)</p>
-</dd>
-<dt>Richard Layton</dt>
-<dd><p>MIDFIELD Data Visualization Specialist and Professor Emeritus of Mechanical Engineering at Rose-Hulman Institute of Technology. He is the lead developer of the R packages used in this workshop. Dr. Layton has considerable experience facilitating workshops, including FIE workshops on data visualization (2014) and midfieldr (2018). (<a href="mailto:graphdoctor@gmail.com" class="email">graphdoctor@gmail.com</a>)</p>
-</dd>
-<dt>Russell Long</dt>
-<dd><p>MIDFIELD Managing Director and Data Steward. He developed the stratified data sample for the R packages used in this workshop. Mr. Long is a SAS expert with over twenty years of experience in institutional research and assessment. (<a href="mailto:ralong@purdue.edu" class="email">ralong@purdue.edu</a>)</p>
-</dd>
-</dl>
-</div>
-<div id="licenses" class="section level2 unnumbered">
-<h2>Licenses</h2>
-<p>The following licenses apply to the text, data, and code in these workshops. Our goal is to minimize legal encumbrances to the dissemination, sharing, use, and re-use of this work. However, the existing rights of authors whose work is cited (text, code, or data) are reserved to those authors.</p>
-<ul>
-<li><a href="https://creativecommons.org/licenses/by/4.0/legalcode">CC-BY 4.0</a> for all text<br />
-</li>
-<li><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a> for all code<br />
-</li>
-<li><a href="https://wiki.creativecommons.org/wiki/CC0_use_for_data">CC0</a> for all data</li>
-</ul>
-</div>
-<div id="acknowledgement" class="section level2 unnumbered">
-<h2>Acknowledgement</h2>
-<p>Funding provided by the National Science Foundation Grant 1545667 “Expanding Access to and Participation in the Multiple-Institution Database for Investigating Engineering Longitudinal Development.”</p>
-<p><img src="figures/NSF_4-Color_bitmap_Logo.png" alt="NSF logo" width="90"/></p>
 <p><br>
-<a href="index.html#introduction">▲ top of page</a></p>
+<a href="display-design.html#display-design">▲ top of page</a></p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="install-everything.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="start-with-R.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="start-with-midfieldr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -362,7 +257,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/MIDFIELDR/2021-asee-workshop/edit/main/index.Rmd",
+"link": "https://github.com/MIDFIELDR/2021-asee-workshop/edit/main/07-display-design.Rmd",
 "text": "Edit"
 },
 "history": {

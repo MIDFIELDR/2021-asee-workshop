@@ -254,19 +254,7 @@ We use the folders as follows:
 - `scripts` for R scripts that operate on data to produce results  
 
 
-
-
 You finished your homework!
-
-
-
-
-
-## References {-}
-
-<div id="refs"></div>
-
-
 
 <br>
 [&#9650; top of page](#install-everything)

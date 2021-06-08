@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="install-everything.html"/>
-
+<link rel="next" href="materials.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -177,14 +177,18 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="install-everything.html"><a href="install-everything.html#install-midfieldr"><i class="fa fa-check"></i>Install midfieldr</a></li>
 <li class="chapter" data-level="" data-path="install-everything.html"><a href="install-everything.html#create-a-project"><i class="fa fa-check"></i>Create a project</a></li>
 <li class="chapter" data-level="" data-path="install-everything.html"><a href="install-everything.html#add-some-folders"><i class="fa fa-check"></i>Add some folders</a></li>
-<li class="chapter" data-level="" data-path="install-everything.html"><a href="install-everything.html#references"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="about-R.html"><a href="about-R.html"><i class="fa fa-check"></i><b>3</b> About R</a>
 <ul>
 <li class="chapter" data-level="" data-path="about-R.html"><a href="about-R.html#features"><i class="fa fa-check"></i>Features</a></li>
 <li class="chapter" data-level="" data-path="about-R.html"><a href="about-R.html#data-visualization"><i class="fa fa-check"></i>Data visualization</a></li>
-<li class="chapter" data-level="" data-path="about-R.html"><a href="about-R.html#references-1"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="materials.html"><a href="materials.html"><i class="fa fa-check"></i><b>4</b> Workshop materials</a></li>
+<li class="chapter" data-level="5" data-path="stories.html"><a href="stories.html"><i class="fa fa-check"></i><b>5</b> Stories in the data</a></li>
+<li class="chapter" data-level="6" data-path="start-with-R.html"><a href="start-with-R.html"><i class="fa fa-check"></i><b>6</b> Starting with R</a></li>
+<li class="chapter" data-level="7" data-path="display-design.html"><a href="display-design.html"><i class="fa fa-check"></i><b>7</b> Designing effective displays</a></li>
+<li class="chapter" data-level="8" data-path="start-with-midfieldr.html"><a href="start-with-midfieldr.html"><i class="fa fa-check"></i><b>8</b> Starting with midfieldr</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/MIDFIELDR/2021-asee-workshop" target="blank">Published with bookdown</a></li>
 
@@ -209,54 +213,19 @@ div.csl-indent {
 <h1><span class="header-section-number">3</span> About R</h1>
 <div id="features" class="section level2 unnumbered">
 <h2>Features</h2>
-<p>R is an open source language and environment for statistical computing and graphics <span class="citation">(<a href="install-everything.html#ref-R-base" role="doc-biblioref">R Core Team, 2021</a>)</span>, ranked by IEEE in 2020 as the 6th most popular programming language (Python, Java, and C are the top three) <span class="citation">(<a href="install-everything.html#ref-Cass:2020" role="doc-biblioref">Cass, 2020</a>)</span>. If you are new to R, some of its best features, paraphrasing Wickham <span class="citation">(<a href="install-everything.html#ref-wickham2014advanced" role="doc-biblioref">2014</a>)</span>, are:</p>
+<p>R is an open source language and environment for statistical computing and graphics <span class="citation"><a href="references.html#ref-R-base" role="doc-biblioref">[7]</a></span>, ranked by IEEE in 2020 as the 6th most popular programming language (Python, Java, and C are the top three) <span class="citation"><a href="references.html#ref-Cass:2020" role="doc-biblioref">[8]</a></span>. If you are new to R, some of its best features, paraphrasing Wickham <span class="citation"><a href="references.html#ref-wickham2014advanced" role="doc-biblioref">[2]</a></span>, are:</p>
 <ul>
 <li>R is free, open source, and available on every major platform, making it easy for others to replicate your work.</li>
 <li>More than 17,500 open-source R packages are available (Jun 2021). Many are cutting-edge tools.</li>
 <li>R packages provide deep-seated support for data analysis, e.g., missing values, data frames, and subsetting.</li>
 </ul>
-<p>RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control <span class="citation">(<a href="install-everything.html#ref-2016rstudio" role="doc-biblioref">RStudio Team, 2016</a>)</span>.</p>
+<p>RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control <span class="citation"><a href="references.html#ref-2016rstudio" role="doc-biblioref">[9]</a></span>.</p>
 </div>
 <div id="data-visualization" class="section level2 unnumbered">
 <h2>Data visualization</h2>
-<p>Charles Kostelnick <span class="citation">(<a href="install-everything.html#ref-kostelnick2007" role="doc-biblioref">2007</a>)</span> writes, “The array of design options in software like Microsoft Excel and PowerPoint creates the <strong>illusion</strong> of flexibility. … So marvelously malleable are these graphical effects—but for whom and to what end? Paradoxically, then, even as the technology for visualizing data has become more sophisticated, it does not necessarily engender rhetorically sensitive design.”</p>
+<p>Charles Kostelnick <span class="citation"><a href="references.html#ref-kostelnick2007" role="doc-biblioref">[10]</a></span> writes, “The array of design options in software like Microsoft Excel and PowerPoint creates the <strong>illusion</strong> of flexibility. … So marvelously malleable are these graphical effects—but for whom and to what end? Paradoxically, then, even as the technology for visualizing data has become more sophisticated, it does not necessarily engender rhetorically sensitive design.”</p>
 <p>The graphics tools in R provide the means to control every pixel in the service of “rhetorically sensitive design.” Designers can craft their visual arguments to balance logos, ethos, pathos, and kairos as appropriate for a given audience in a given rhetorical situation.</p>
 <p><a href="https://www.r-graph-gallery.com/" target="_blank">[For a gallery of R graphics]</a></p>
-</div>
-<div id="references-1" class="section level2 unnumbered">
-<h2>References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent references csl-bib-body hanging-indent">
-<div id="ref-Cass:2020" class="csl-entry">
-Cass S (2020) <span class="nocase">Top programming languages</span>. <em>IEEE Spectrum</em> <a href="https://spectrum.ieee.org/at-work/tech-careers/top-programming-language-2020">https://spectrum.ieee.org/at-work/tech-careers/top-programming-language-2020</a>
-</div>
-<div id="ref-R-remotes" class="csl-entry">
-Hester J, Csárdi G, Wickham H, Chang W, Morgan M and Tenenbaum D (2021) <em>Remotes: R package installation from remote repositories, including GitHub.</em> <a href="https://CRAN.R-project.org/package=remotes">https://CRAN.R-project.org/package=remotes</a>
-</div>
-<div id="ref-kostelnick2007" class="csl-entry">
-Kostelnick C (2007) <span class="nocase">The visual rhetoric of data displays: The conundrum of clarity</span>. <em>IEEE Transactions on Professional Communication</em> <strong>50</strong>(2), 280–294
-</div>
-<div id="ref-R-midfielddata" class="csl-entry">
-Layton R, Long R and Ohland M (2021a) <em>Midfielddata: Student record data for 98,000 undergraduates.</em> <a href="https://github.com/MIDFIELDR/midfielddata">https://github.com/MIDFIELDR/midfielddata</a>
-</div>
-<div id="ref-R-midfieldr" class="csl-entry">
-Layton R, Long R and Ohland M (2021b) <em>Midfieldr: Tools for student records research.</em> <a href="https://github.com/MIDFIELDR/midfieldr">https://github.com/MIDFIELDR/midfieldr</a>
-</div>
-<div id="ref-R-base" class="csl-entry">
-R Core Team (2021) <em>R: A language and environment for statistical computing.</em> R Foundation for Statistical Computing, Vienna, Austria <a href="https://www.R-project.org/">https://www.R-project.org/</a>
-</div>
-<div id="ref-RLadiesSydney:2018:Lesson1" class="csl-entry">
-Richmond J (2018) <span class="nocase">Basic Basics Lesson 1: An opinionated tour of RStudio</span>. <a href="https://youtu.be/kfcX5DEMAp4">https://youtu.be/kfcX5DEMAp4</a>
-</div>
-<div id="ref-2016rstudio" class="csl-entry">
-RStudio Team (2016) <em><span class="nocase">RStudio: Integrated Development Environment for R</span>.</em> RStudio, Inc., Boston, MA <a href="http://www.rstudio.com/">http://www.rstudio.com/</a>
-</div>
-<div id="ref-cranweb" class="csl-entry">
-<span>The Comprehensive R Archive Network</span> (2018-04-22) <a href="https://cran.r-project.org/">https://cran.r-project.org/</a>
-</div>
-<div id="ref-wickham2014advanced" class="csl-entry">
-Wickham H (2014) <em><span>Advanced R</span>.</em> Taylor &amp; Francis
-</div>
-</div>
 <p><br>
 <a href="about-R.html#about-R">▲ top of page</a></p>
 
@@ -267,8 +236,8 @@ Wickham H (2014) <em><span>Advanced R</span>.</em> Taylor &amp; Francis
           </div>
         </div>
       </div>
-<a href="install-everything.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="install-everything.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="materials.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

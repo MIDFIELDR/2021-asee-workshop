@@ -1,3 +1,8 @@
 introduction
 install-everything
 about-R
+materials
+stories
+start-with-R
+display-design
+start-with-midfieldr

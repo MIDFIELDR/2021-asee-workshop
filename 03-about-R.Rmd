@@ -52,9 +52,5 @@ The graphics tools in R provide the means to control every pixel in the service 
 
 [[For a gallery of R graphics]](https://www.r-graph-gallery.com/){target="_blank"} 
 
-## References {-}
-
-<div id="refs"></div>
-
 <br>
 [&#9650; top of page](#about-R)
