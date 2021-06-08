@@ -1,4 +1,7 @@
 ---
+title: "Engaging with MIDFIELD Data"
+author: "2021 ASEE Workshop"
+date: "2021-07"
 output: github_document
 ---
 
