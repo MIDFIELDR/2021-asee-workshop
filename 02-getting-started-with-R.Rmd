@@ -1,0 +1,75 @@
+# Get started with R {#get-start-r}
+
+<!-- This file is included in the book only if it is listed in the _bookdown.yml file. -->
+
+```{r echo = FALSE}
+library(knitr)
+opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+opts_chunk$set(echo = FALSE) 
+knit_hooks$set(inline = function(x) {
+        if (!is.numeric(x)) { 
+                x 
+        } else if (x >= 10000) { 
+                prettyNum(round(x, 2), big.mark = ",")
+        } else {
+                prettyNum(round(x, 2))
+        }
+})
+```
+
+```{r}
+htmltools::img(src = knitr::include_graphics("figures/logo-R.png"), 
+        alt    = "logo", 
+        style  = "left:0px; padding:5px;", 
+        height = "110px")
+htmltools::img(src = knitr::include_graphics("figures/logo-RStudio.png"), 
+        alt    = "logo", 
+        style  = "left:0px; padding:5px;", 
+        height = "110px")
+```
+
+If you already have R and RStudio installed, please update to the most recent releases and update your R packages as well.
+
+If you are trying R for the first time, it is vital that you attempt to set up your computer with the necessary software in advance or it will be difficult to keep up. 
+
+## Why R? {-} 
+
+```{r}
+# if internet available, find and save current number of R packages
+library("pingr")
+if (pingr::is_online()) {
+	n_pkg <- nrow(available.packages(contrib.url("https://cloud.r-project.org/")))
+	# round down to nearest 250
+	n_pkg <- 250 * floor(n_pkg / 250)
+	n_pkg <- format(n_pkg, big.mark = ",", trim = TRUE, digits = 0, scientific = FALSE)
+	date_pkg <- format(Sys.Date(), "%b %Y")
+	info_pkg <- c(n_pkg, date_pkg)
+	saveRDS(info_pkg, "data/info_pkg.rds")
+}
+
+# use saved values 
+info_pkg <- readRDS("data/info_pkg.rds")
+n_pkg    <- info_pkg[1]
+date_pkg <- info_pkg[2]
+```
+
+R is an open source language and environment for statistical computing and graphics [@R-base], ranked by IEEE in 2020 as the 6th most popular programming language (Python, Java, and C are the top three) [@Cass:2020]. If you are new to R, some of its best features, paraphrasing Wickham  [-@wickham2014advanced], are: 
+
+- R is free, open source, and available on every major platform, making it easy for others to replicate your work.
+- More than `r n_pkg` open-source R packages are available (`r date_pkg`). Many are cutting-edge tools. 
+- R packages provide deep-seated support for data analysis, e.g., missing values, data frames, and subsetting.
+
+RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control  [@2016rstudio]. 
+
+
+## Install R and RStudio {- #install-R-and-RStudio}
+
+Unless noted otherwise, we assume the reader is an R novice. Thus the first steps are to install R and RStudio. 
+
+Windows users may have to login as an Administrator (localmgr) before installing the software. 
+
+- [Install R](https://cloud.r-project.org){target="_blank"} for your operating system  
+- [Install RStudio](https://www.rstudio.com/products/rstudio/#Desktop){target="_blank"}, a user interface for R  
+
+
+## References {-}

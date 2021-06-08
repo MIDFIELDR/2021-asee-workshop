@@ -121,18 +121,11 @@
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
-\bibliographystyle{apalike}
+\bibliographystyle{plainnat}
 
 \title{Engaging with MIDFIELD Data}
-\usepackage{etoolbox}
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-}
-\makeatother
-\subtitle{2021 ASEE Workshop}
 \author{Richard Layton, Russell Long, Susan Lord, Matthew Ohland, and Marisa Orr}
-\date{2021-06-08}
+\date{2021-07-26}
 
 \begin{document}
 \maketitle
@@ -141,122 +134,142 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\hypertarget{prerequisites}{%
-\chapter{Prerequisites}\label{prerequisites}}
+\hypertarget{introduction}{%
+\chapter{Introduction}\label{introduction}}
 
-This is a \emph{sample} book written in \textbf{Markdown}. You can use anything that Pandoc's Markdown supports, e.g., a math equation \(a^2 + b^2 = c^2\).
+\hypertarget{objectives}{%
+\section*{Objectives}\label{objectives}}
+\addcontentsline{toc}{section}{Objectives}
 
-The \textbf{bookdown} package can be installed from CRAN or Github:
+The main goal of the workshop is making MIDFIELD more accessible to the ASEE community. The workshop introduces \emph{midfieldr} (a package in the R software environment) that provides access to a MIDFIELD student-record data sample and tools to analyze and graph persistence metrics such as graduation rates. The workshop is designed for R beginners.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{)}
-\CommentTok{\# or the development version}
-\CommentTok{\# devtools::install\_github("rstudio/bookdown")}
-\end{Highlighting}
-\end{Shaded}
+By the end of the workshop, participants should be able to:
 
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading \texttt{\#}.
+\begin{itemize}
+\tightlist
+\item
+  Describe key variables in MIDFIELD
+\item
+  Select academic programs and populations to study
+\item
+  Use midfieldr, an R package specifically designed for use with MIDFIELD, to compute persistence metrics
+\item
+  Explore and tell a story from MIDFIELD data
+\item
+  Explain key features of effective data displays
+\end{itemize}
 
-To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): \url{https://yihui.name/tinytex/}.
+\hypertarget{description}{%
+\section*{Description}\label{description}}
+\addcontentsline{toc}{section}{Description}
 
-\hypertarget{intro}{%
-\chapter{Introduction}\label{intro}}
+The robustness of the MIDFIELD data allows us to emphasize an intersectional approach to the study of student records, permitting multiple categories of inequity such as race/ethnicity and sex to be considered simultaneously.
 
-You can label chapter and section titles using \texttt{\{\#label\}} after them, e.g., we can reference Chapter \ref{intro}. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \ref{methods}.
+To introduce beginners to R, participants work through a self-paced tutorial covering basic elements of the R computing language and environment. To introduce midfieldr and using it to work with student record data, participants work through a ``Get started'' tutorial in which they determine the numbers of students ever enrolled in two programs, group and summarize the data, and graph the results.
 
-Figures and tables with captions will be placed in \texttt{figure} and \texttt{table} environments, respectively.
+For more experienced R users or anyone working at a faster pace, we offer a series of self-paced tutorials that introduce key features of midfieldr and how they are applied to compute persistence metrics and graph results.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, .}\DecValTok{1}\NormalTok{, .}\DecValTok{1}\NormalTok{))}
-\FunctionTok{plot}\NormalTok{(pressure, }\AttributeTok{type =} \StringTok{\textquotesingle{}b\textquotesingle{}}\NormalTok{, }\AttributeTok{pch =} \DecValTok{19}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+We also discuss the merits of the multiway graph design that is recommended for displaying results of this type. The agenda includes an interactive session to demonstrate contemporary principles of effective data display.
 
-\begin{figure}
+\hypertarget{agenda}{%
+\section*{Agenda}\label{agenda}}
+\addcontentsline{toc}{section}{Agenda}
 
-{\centering \includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/nice-fig-1} 
-
-}
-
-\caption{Here is a nice figure!}\label{fig:nice-fig}
-\end{figure}
-
-Reference a figure by its code chunk label with the \texttt{fig:} prefix, e.g., see Figure \ref{fig:nice-fig}. Similarly, you can reference tables generated from \texttt{knitr::kable()}, e.g., see Table \ref{tab:nice-tab}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(}
-  \FunctionTok{head}\NormalTok{(iris, }\DecValTok{20}\NormalTok{), }\AttributeTok{caption =} \StringTok{\textquotesingle{}Here is a nice table!\textquotesingle{}}\NormalTok{,}
-  \AttributeTok{booktabs =} \ConstantTok{TRUE}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{table}
-
-\caption{\label{tab:nice-tab}Here is a nice table!}
-\centering
-\begin{tabular}[t]{rrrrl}
+\begin{tabular}{ll}
 \toprule
-Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
+Min & Topic\\
 \midrule
-5.1 & 3.5 & 1.4 & 0.2 & setosa\\
-4.9 & 3.0 & 1.4 & 0.2 & setosa\\
-4.7 & 3.2 & 1.3 & 0.2 & setosa\\
-4.6 & 3.1 & 1.5 & 0.2 & setosa\\
-5.0 & 3.6 & 1.4 & 0.2 & setosa\\
+10 & Introduction\\
+35 & Finding stories in the data\\
+35 & Getting started with R\\
+15 & Break\\
+20 & Designing effective displays\\
 \addlinespace
-5.4 & 3.9 & 1.7 & 0.4 & setosa\\
-4.6 & 3.4 & 1.4 & 0.3 & setosa\\
-5.0 & 3.4 & 1.5 & 0.2 & setosa\\
-4.4 & 2.9 & 1.4 & 0.2 & setosa\\
-4.9 & 3.1 & 1.5 & 0.1 & setosa\\
-\addlinespace
-5.4 & 3.7 & 1.5 & 0.2 & setosa\\
-4.8 & 3.4 & 1.6 & 0.2 & setosa\\
-4.8 & 3.0 & 1.4 & 0.1 & setosa\\
-4.3 & 3.0 & 1.1 & 0.1 & setosa\\
-5.8 & 4.0 & 1.2 & 0.2 & setosa\\
-\addlinespace
-5.7 & 4.4 & 1.5 & 0.4 & setosa\\
-5.4 & 3.9 & 1.3 & 0.4 & setosa\\
-5.1 & 3.5 & 1.4 & 0.3 & setosa\\
-5.7 & 3.8 & 1.7 & 0.3 & setosa\\
-5.1 & 3.8 & 1.5 & 0.3 & setosa\\
+55 & Getting started with midfieldr\\
+10 & Next steps \& assessing the workshop\\
 \bottomrule
 \end{tabular}
-\end{table}
 
-You can write citations, too. For example, we are using the \textbf{bookdown} package \citep{R-bookdown} in this sample book, which was built on top of R Markdown and \textbf{knitr} \citep{xie2015}.
+\hypertarget{before-you-arrive}{%
+\section*{Before you arrive}\label{before-you-arrive}}
+\addcontentsline{toc}{section}{Before you arrive}
 
-\hypertarget{literature}{%
-\chapter{Literature}\label{literature}}
+\hypertarget{licenses}{%
+\section*{Licenses}\label{licenses}}
+\addcontentsline{toc}{section}{Licenses}
 
-Here is a review of existing methods.
+The following licenses apply to the text, data, and code in these workshops. Our goal is to minimize legal encumbrances to the dissemination, sharing, use, and re-use of this work. However, the existing rights of authors whose work is cited (text, code, or data) are reserved to those authors.
 
-\hypertarget{methods}{%
-\chapter{Methods}\label{methods}}
+\begin{itemize}
+\tightlist
+\item
+  \href{https://creativecommons.org/licenses/by/4.0/legalcode}{CC-BY 4.0} for all text\\
+\item
+  \href{https://www.r-project.org/Licenses/GPL-3}{GPL-3} for all code\\
+\item
+  \href{https://wiki.creativecommons.org/wiki/CC0_use_for_data}{CC0} for all data
+\end{itemize}
 
-We describe our methods in this chapter.
+\hypertarget{acknowledgement}{%
+\section*{Acknowledgement}\label{acknowledgement}}
+\addcontentsline{toc}{section}{Acknowledgement}
 
-\hypertarget{applications}{%
-\chapter{Applications}\label{applications}}
+Funding provided by the National Science Foundation Grant 1545667 ``Expanding Access to and Participation in the Multiple-Institution Database for Investigating Engineering Longitudinal Development.''
 
-Some \emph{significant} applications are demonstrated in this chapter.
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{htmltools}\SpecialCharTok{::}\FunctionTok{img}\NormalTok{(}\AttributeTok{src =} 
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{"figures/NSF\_4{-}Color\_bitmap\_Logo.png"}\NormalTok{), }
+               \AttributeTok{alt =} \StringTok{\textquotesingle{}NSF logo\textquotesingle{}}\NormalTok{, }
+               \AttributeTok{width =} \DecValTok{90}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
-\hypertarget{example-one}{%
-\section{Example one}\label{example-one}}
+\hypertarget{get-start-r}{%
+\chapter{Get started with R}\label{get-start-r}}
 
-\hypertarget{example-two}{%
-\section{Example two}\label{example-two}}
+If you already have R and RStudio installed, please update to the most recent releases and update your R packages as well.
 
-\hypertarget{final-words}{%
-\chapter{Final Words}\label{final-words}}
+If you are trying R for the first time, it is vital that you attempt to set up your computer with the necessary software in advance or it will be difficult to keep up.
 
-We have finished a nice book.
+\hypertarget{why-r}{%
+\section*{Why R?}\label{why-r}}
+\addcontentsline{toc}{section}{Why R?}
 
-  \bibliography{book.bib,packages.bib}
+R is an open source language and environment for statistical computing and graphics \citep{R-base}, ranked by IEEE in 2020 as the 6th most popular programming language (Python, Java, and C are the top three) \citep{Cass:2020}. If you are new to R, some of its best features, paraphrasing Wickham \citeyearpar{wickham2014advanced}, are:
+
+\begin{itemize}
+\tightlist
+\item
+  R is free, open source, and available on every major platform, making it easy for others to replicate your work.
+\item
+  More than 17,500 open-source R packages are available (Jun 2021). Many are cutting-edge tools.
+\item
+  R packages provide deep-seated support for data analysis, e.g., missing values, data frames, and subsetting.
+\end{itemize}
+
+RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control \citep{2016rstudio}.
+
+\hypertarget{install-R-and-RStudio}{%
+\section*{Install R and RStudio}\label{install-R-and-RStudio}}
+\addcontentsline{toc}{section}{Install R and RStudio}
+
+Unless noted otherwise, we assume the reader is an R novice. Thus the first steps are to install R and RStudio.
+
+Windows users may have to login as an Administrator (localmgr) before installing the software.
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://cloud.r-project.org}{Install R} for your operating system\\
+\item
+  \href{https://www.rstudio.com/products/rstudio/\#Desktop}{Install RStudio}, a user interface for R
+\end{itemize}
+
+\hypertarget{references}{%
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
+
+  \bibliography{book.bib,packages.bib,references.bib}
 
 \end{document}

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Engaging with MIDFIELD Data</title>
+  <title>2 Get started with R | Engaging with MIDFIELD Data</title>
   <meta name="description" content="Workshop at the 2021 ASEE Annual Conference" />
   <meta name="generator" content="bookdown 0.22.3 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Engaging with MIDFIELD Data" />
+  <meta property="og:title" content="2 Get started with R | Engaging with MIDFIELD Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="/figures/midfield-grad-logo.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="MIDFIELDR/2021-asee-workshop" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Engaging with MIDFIELD Data" />
+  <meta name="twitter:title" content="2 Get started with R | Engaging with MIDFIELD Data" />
   
   <meta name="twitter:description" content="Workshop at the 2021 ASEE Annual Conference" />
   <meta name="twitter:image" content="/figures/midfield-grad-logo.png" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="index.html"/>
 
-<link rel="next" href="get-start-r.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -193,96 +193,64 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Engaging with MIDFIELD Data</h1>
-<p class="author"><em>Richard Layton, Russell Long, Susan Lord, Matthew Ohland, and Marisa Orr</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-07-26</em></p>
-</div>
-<div id="introduction" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Introduction</h1>
-<div id="objectives" class="section level2 unnumbered">
-<h2>Objectives</h2>
-<p>The main goal of the workshop is making MIDFIELD more accessible to the ASEE community. The workshop introduces <em>midfieldr</em> (a package in the R software environment) that provides access to a MIDFIELD student-record data sample and tools to analyze and graph persistence metrics such as graduation rates. The workshop is designed for R beginners.</p>
-<p>By the end of the workshop, participants should be able to:</p>
+<div id="get-start-r" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Get started with R</h1>
+<!-- This file is included in the book only if it is listed in the _bookdown.yml file. -->
+<p><img src="figures/logo-R.png" alt="logo" style="left:0px; padding:5px;" height="110px"/><img src="figures/logo-RStudio.png" alt="logo" style="left:0px; padding:5px;" height="110px"/></p>
+<p>If you already have R and RStudio installed, please update to the most recent releases and update your R packages as well.</p>
+<p>If you are trying R for the first time, it is vital that you attempt to set up your computer with the necessary software in advance or it will be difficult to keep up.</p>
+<div id="why-r" class="section level2 unnumbered">
+<h2>Why R?</h2>
+<p>R is an open source language and environment for statistical computing and graphics <span class="citation">(<a href="#ref-R-base" role="doc-biblioref">R Core Team, 2021</a>)</span>, ranked by IEEE in 2020 as the 6th most popular programming language (Python, Java, and C are the top three) <span class="citation">(<a href="#ref-Cass:2020" role="doc-biblioref">Cass, 2020</a>)</span>. If you are new to R, some of its best features, paraphrasing Wickham <span class="citation">(<a href="#ref-wickham2014advanced" role="doc-biblioref">2014</a>)</span>, are:</p>
 <ul>
-<li>Describe key variables in MIDFIELD</li>
-<li>Select academic programs and populations to study</li>
-<li>Use midfieldr, an R package specifically designed for use with MIDFIELD, to compute persistence metrics</li>
-<li>Explore and tell a story from MIDFIELD data</li>
-<li>Explain key features of effective data displays</li>
+<li>R is free, open source, and available on every major platform, making it easy for others to replicate your work.</li>
+<li>More than 17,500 open-source R packages are available (Jun 2021). Many are cutting-edge tools.</li>
+<li>R packages provide deep-seated support for data analysis, e.g., missing values, data frames, and subsetting.</li>
+</ul>
+<p>RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control <span class="citation">(<a href="#ref-2016rstudio" role="doc-biblioref">RStudio Team, 2016</a>)</span>.</p>
+</div>
+<div id="install-R-and-RStudio" class="section level2 unnumbered">
+<h2>Install R and RStudio</h2>
+<p>Unless noted otherwise, we assume the reader is an R novice. Thus the first steps are to install R and RStudio.</p>
+<p>Windows users may have to login as an Administrator (localmgr) before installing the software.</p>
+<ul>
+<li><a href="https://cloud.r-project.org" target="_blank">Install R</a> for your operating system<br />
+</li>
+<li><a href="https://www.rstudio.com/products/rstudio/#Desktop" target="_blank">Install RStudio</a>, a user interface for R</li>
 </ul>
 </div>
-<div id="description" class="section level2 unnumbered">
-<h2>Description</h2>
-<p>The robustness of the MIDFIELD data allows us to emphasize an intersectional approach to the study of student records, permitting multiple categories of inequity such as race/ethnicity and sex to be considered simultaneously.</p>
-<p>To introduce beginners to R, participants work through a self-paced tutorial covering basic elements of the R computing language and environment. To introduce midfieldr and using it to work with student record data, participants work through a “Get started” tutorial in which they determine the numbers of students ever enrolled in two programs, group and summarize the data, and graph the results.</p>
-<p>For more experienced R users or anyone working at a faster pace, we offer a series of self-paced tutorials that introduce key features of midfieldr and how they are applied to compute persistence metrics and graph results.</p>
-<p>We also discuss the merits of the multiway graph design that is recommended for displaying results of this type. The agenda includes an interactive session to demonstrate contemporary principles of effective data display.</p>
-</div>
-<div id="agenda" class="section level2 unnumbered">
-<h2>Agenda</h2>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Min</th>
-<th align="left">Topic</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">10</td>
-<td align="left">Introduction</td>
-</tr>
-<tr class="even">
-<td align="left">35</td>
-<td align="left">Finding stories in the data</td>
-</tr>
-<tr class="odd">
-<td align="left">35</td>
-<td align="left">Getting started with R</td>
-</tr>
-<tr class="even">
-<td align="left">15</td>
-<td align="left">Break</td>
-</tr>
-<tr class="odd">
-<td align="left">20</td>
-<td align="left">Designing effective displays</td>
-</tr>
-<tr class="even">
-<td align="left">55</td>
-<td align="left">Getting started with midfieldr</td>
-</tr>
-<tr class="odd">
-<td align="left">10</td>
-<td align="left">Next steps &amp; assessing the workshop</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="before-you-arrive" class="section level2 unnumbered">
-<h2>Before you arrive</h2>
-</div>
-<div id="licenses" class="section level2 unnumbered">
-<h2>Licenses</h2>
-<p>The following licenses apply to the text, data, and code in these workshops. Our goal is to minimize legal encumbrances to the dissemination, sharing, use, and re-use of this work. However, the existing rights of authors whose work is cited (text, code, or data) are reserved to those authors.</p>
-<ul>
-<li><a href="https://creativecommons.org/licenses/by/4.0/legalcode">CC-BY 4.0</a> for all text<br />
-</li>
-<li><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a> for all code<br />
-</li>
-<li><a href="https://wiki.creativecommons.org/wiki/CC0_use_for_data">CC0</a> for all data</li>
-</ul>
-</div>
-<div id="acknowledgement" class="section level2 unnumbered">
-<h2>Acknowledgement</h2>
-<p>Funding provided by the National Science Foundation Grant 1545667 “Expanding Access to and Participation in the Multiple-Institution Database for Investigating Engineering Longitudinal Development.”</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">img</span>(<span class="at">src =</span> </span>
-<span id="cb1-2"><a href="index.html#cb1-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;figures/NSF_4-Color_bitmap_Logo.png&quot;</span>), </span>
-<span id="cb1-3"><a href="index.html#cb1-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">alt =</span> <span class="st">&#39;NSF logo&#39;</span>, </span>
-<span id="cb1-4"><a href="index.html#cb1-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">width =</span> <span class="dv">90</span>)</span></code></pre></div>
-<p><img src="figures/NSF_4-Color_bitmap_Logo.png" alt="NSF logo" width="90"/></p>
+<div id="references" class="section level2 unnumbered">
+<h2>References</h2>
 
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Cass S (2020) <span class="nocase">Top programming languages</span>. <em>IEEE Spectrum</em> <a href="https://spectrum.ieee.org/at-work/tech-careers/top-programming-language-2020">https://spectrum.ieee.org/at-work/tech-careers/top-programming-language-2020</a>
+</div>
+<div class="csl-entry">
+R Core Team (2021) <em>R: A language and environment for statistical computing.</em> R Foundation for Statistical Computing, Vienna, Austria <a href="https://www.R-project.org/">https://www.R-project.org/</a>
+</div>
+<div class="csl-entry">
+RStudio Team (2016) <em><span class="nocase">RStudio: Integrated Development Environment for R</span>.</em> RStudio, Inc., Boston, MA <a href="http://www.rstudio.com/">http://www.rstudio.com/</a>
+</div>
+<div class="csl-entry">
+Wickham H (2014) <em><span>Advanced R</span>.</em> Taylor &amp; Francis
+</div>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Cass:2020" class="csl-entry">
+Cass S (2020) <span class="nocase">Top programming languages</span>. <em>IEEE Spectrum</em> <a href="https://spectrum.ieee.org/at-work/tech-careers/top-programming-language-2020">https://spectrum.ieee.org/at-work/tech-careers/top-programming-language-2020</a>
+</div>
+<div id="ref-R-base" class="csl-entry">
+R Core Team (2021) <em>R: A language and environment for statistical computing.</em> R Foundation for Statistical Computing, Vienna, Austria <a href="https://www.R-project.org/">https://www.R-project.org/</a>
+</div>
+<div id="ref-2016rstudio" class="csl-entry">
+RStudio Team (2016) <em><span class="nocase">RStudio: Integrated Development Environment for R</span>.</em> RStudio, Inc., Boston, MA <a href="http://www.rstudio.com/">http://www.rstudio.com/</a>
+</div>
+<div id="ref-wickham2014advanced" class="csl-entry">
+Wickham H (2014) <em><span>Advanced R</span>.</em> Taylor &amp; Francis
 </div>
 </div>
             </section>
@@ -290,8 +258,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="get-start-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -323,7 +291,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/MIDFIELDR/2021-asee-workshop/edit/main/index.Rmd",
+"link": "https://github.com/MIDFIELDR/2021-asee-workshop/edit/main/02-getting-started-with-R.Rmd",
 "text": "Edit"
 },
 "history": {
