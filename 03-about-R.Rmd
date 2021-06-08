@@ -1,4 +1,4 @@
-# About R {#about-r}
+# About R {#about-R}
 
 ```{r echo = FALSE}
 library(knitr)
@@ -57,4 +57,4 @@ The graphics tools in R provide the means to control every pixel in the service 
 <div id="refs"></div>
 
 <br>
-[&#9650; top of page](#about-r)
+[&#9650; top of page](#about-R)
