@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="about-R.html"/>
+<link rel="next" href="why-r.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -175,12 +175,15 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="install-everything.html"><a href="install-everything.html#install-the-remotes-package"><i class="fa fa-check"></i>Install the remotes package</a></li>
 <li class="chapter" data-level="" data-path="install-everything.html"><a href="install-everything.html#install-midfielddata"><i class="fa fa-check"></i>Install midfielddata</a></li>
 <li class="chapter" data-level="" data-path="install-everything.html"><a href="install-everything.html#install-midfieldr"><i class="fa fa-check"></i>Install midfieldr</a></li>
+<li class="chapter" data-level="" data-path="install-everything.html"><a href="install-everything.html#create-a-project"><i class="fa fa-check"></i>Create a project</a></li>
+<li class="chapter" data-level="" data-path="install-everything.html"><a href="install-everything.html#add-some-folders"><i class="fa fa-check"></i>Add some folders</a></li>
 <li class="chapter" data-level="" data-path="install-everything.html"><a href="install-everything.html#references"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="about-R.html"><a href="about-R.html"><i class="fa fa-check"></i><b>3</b> About R</a>
+<li class="chapter" data-level="3" data-path="why-r.html"><a href="why-r.html"><i class="fa fa-check"></i><b>3</b> Why R?</a>
 <ul>
-<li class="chapter" data-level="" data-path="about-R.html"><a href="about-R.html#why-r"><i class="fa fa-check"></i>Why R?</a></li>
-<li class="chapter" data-level="" data-path="about-R.html"><a href="about-R.html#references-1"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="why-r.html"><a href="why-r.html#features"><i class="fa fa-check"></i>Features</a></li>
+<li class="chapter" data-level="" data-path="why-r.html"><a href="why-r.html#data-visualization"><i class="fa fa-check"></i>Data visualization</a></li>
+<li class="chapter" data-level="" data-path="why-r.html"><a href="why-r.html#references-1"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/MIDFIELDR/2021-asee-workshop" target="blank">Published with bookdown</a></li>
@@ -212,6 +215,9 @@ div.csl-indent {
 <li><a href="install-everything.html#install-the-remotes-package">Install the remotes package</a></li>
 <li><a href="install-everything.html#install-midfielddata">Install midfielddata</a></li>
 <li><a href="install-everything.html#install-midfieldr">Install midfieldr</a></li>
+<li><a href="install-everything.html#create-a-project">Create a project</a><br />
+</li>
+<li><a href="install-everything.html#add-some-folders">Add some folders</a></li>
 </ul>
 <p>If you already have R and RStudio installed, this is a great time to</p>
 <ul>
@@ -253,7 +259,7 @@ div.csl-indent {
 Next,</p>
 <ul>
 <li>Click <em>Install</em> on the ribbon</li>
-<li>In the dialog box, type the name of the package. For our first package, type <code>remotes</code> to install the remoptes package <span class="citation">(<a href="install-everything.html#ref-R-remotes" role="doc-biblioref">Hester and others, 2021</a>)</span></li>
+<li>In the dialog box, type the name of the package. For our first package, type <code>remotes</code> to install the remotes package <span class="citation">(<a href="install-everything.html#ref-R-remotes" role="doc-biblioref">Hester and others, 2021</a>)</span></li>
 <li>Check the <em>Install dependencies</em> box</li>
 <li>Click the <em>Install</em> button</li>
 </ul>
@@ -294,6 +300,59 @@ Next,</p>
 <p>If the installation is successful, the code chunk above should produce a view of the help page as shown here.</p>
 <p><img src="figures/README-midfieldr-help-page-2.png" alt="midfiedr help page pane" style="left:0px; padding:20px;" width="700px"/></p>
 </div>
+<div id="create-a-project" class="section level2 unnumbered">
+<h2>Create a project</h2>
+<p>To begin any project, we create an RStudio <em>Project</em> file and directory. You can recognize an R project file by its <em>.Rproj</em> suffix.</p>
+<p>If you prefer your instructions with commentary,</p>
+<ul>
+<li><a href="https://www.youtube.com/embed/kfcX5DEMAp4?start=154&amp;end=290" target="_blank">Start with a Project (02:34–04:50)</a> by R Ladies Sydney <span class="citation">(<a href="install-everything.html#ref-RLadiesSydney:2018:Lesson1" role="doc-biblioref">Richmond, 2018</a>)</span></li>
+</ul>
+<p>If you prefer basic written instructions,</p>
+<ul>
+<li>RStudio, <em>File &gt; New Project… &gt; New Directory &gt; New Project</em></li>
+<li>Or, click the <em>New Project</em> button in the Console ribbon,</li>
+</ul>
+<p><img src="figures/rstudio-new-project.png" alt="rstudio new project button" style="left:0px; padding:20px;" width="700px"/></p>
+<p><br>
+In the dialog box that appears,</p>
+<ul>
+<li>Type the workshop name as the directory name, for example, <code>workshop</code>, or if you like more detail, <code>midfield-workshop-asee-2021</code><br />
+</li>
+<li>Use the browse button to select a location on your computer to create the project folder<br />
+</li>
+<li>Click the <em>Create Project</em> button</li>
+</ul>
+<p>Whenever you work with the workshop materials, launch the <code>workshop.Rproj</code> file (using the name you actually used) to start the session.</p>
+</div>
+<div id="add-some-folders" class="section level2 unnumbered">
+<h2>Add some folders</h2>
+<p>While file organization is a matter of personal preference, we ask that you use the directory structure shown here for your work in the workshop. Assuming we called our project <code>workshop</code>, the minimal directory structure has three folders in it plus the <code>.Rproj</code> file at the top level.</p>
+<p>  <code>workshop\</code><br />
+   ├─ <code>data\</code><br />
+   ├─ <code>results\</code><br />
+   ├─ <code>scripts\</code><br />
+   └─ <code>workshop.Rproj</code><br />
+ </p>
+<p>If you prefer your instructions with commentary,</p>
+<ul>
+<li><a href="https://www.youtube.com/embed/kfcX5DEMAp4?start=290&amp;end=368" target="_blank">Make some folders (04:50–06:08)</a> by R Ladies Sydney <span class="citation">(<a href="install-everything.html#ref-RLadiesSydney:2018:Lesson1" role="doc-biblioref">Richmond, 2018</a>)</span></li>
+</ul>
+<p>If you prefer basic written instructions,</p>
+<ul>
+<li>use your usual method of creating new folders on your machine</li>
+<li>or you can use the <em>New Folder</em> button in the Files pane</li>
+</ul>
+<p><img src="figures/rstudio-new-folder.png" alt="rstudio new folder" style="left:0px; padding:20px;" width="700px"/></p>
+<p><br>
+We use the folders as follows:</p>
+<ul>
+<li><code>data</code> for data files</li>
+<li><code>figures</code> for finished data displays<br />
+</li>
+<li><code>scripts</code> for R scripts that operate on data to produce results</li>
+</ul>
+<p>You finished your homework!</p>
+</div>
 <div id="references" class="section level2 unnumbered">
 <h2>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent references csl-bib-body hanging-indent">
@@ -302,6 +361,9 @@ Cass S (2020) <span class="nocase">Top programming languages</span>. <em>IEEE Sp
 </div>
 <div id="ref-R-remotes" class="csl-entry">
 Hester J, Csárdi G, Wickham H, Chang W, Morgan M and Tenenbaum D (2021) <em>Remotes: R package installation from remote repositories, including GitHub.</em> <a href="https://CRAN.R-project.org/package=remotes">https://CRAN.R-project.org/package=remotes</a>
+</div>
+<div id="ref-kostelnick2007" class="csl-entry">
+Kostelnick C (2007) <span class="nocase">The visual rhetoric of data displays: The conundrum of clarity</span>. <em>IEEE Transactions on Professional Communication</em> <strong>50</strong>(2), 280–294
 </div>
 <div id="ref-R-midfielddata" class="csl-entry">
 Layton R, Long R and Ohland M (2021a) <em>Midfielddata: Student record data for 98,000 undergraduates.</em> <a href="https://github.com/MIDFIELDR/midfielddata">https://github.com/MIDFIELDR/midfielddata</a>
@@ -336,7 +398,7 @@ Wickham H (2014) <em><span>Advanced R</span>.</em> Taylor &amp; Francis
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="about-R.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="why-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

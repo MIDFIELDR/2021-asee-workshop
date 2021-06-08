@@ -1,4 +1,4 @@
-# About R {#about-R}
+# Why R?
 
 ```{r echo = FALSE}
 library(knitr)
@@ -15,8 +15,7 @@ knit_hooks$set(inline = function(x) {
 })
 ```
 
-
-## Why R? {-} 
+## Features {-}
 
 ```{r}
 # if internet available, find and save current number of R packages
@@ -45,12 +44,17 @@ R is an open source language and environment for statistical computing and graph
 
 RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control  [@2016rstudio]. 
 
+## Data visualization {-}
+
+Charles Kostelnick [-@kostelnick2007] writes, "The array of design options in software like Microsoft Excel and PowerPoint creates the **illusion** of flexibility. ... So marvelously malleable are these graphical effects---but for whom and to what end? Paradoxically, then, even as the technology for visualizing data has become more sophisticated, it does not necessarily engender rhetorically sensitive design."
+
+The graphics tools in R provide the means to control every pixel in the service of "rhetorically sensitive design." Designers can craft their visual arguments to balance  logos, ethos, pathos, and kairos as appropriate for a given audience in a given rhetorical situation. 
+
+[[For a gallery of R graphics]](https://www.r-graph-gallery.com/){target="_blank"} 
 
 ## References {-}
 
 <div id="refs"></div>
-
-
 
 <br>
 [&#9650; top of page](#get-start-r)

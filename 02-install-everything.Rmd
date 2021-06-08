@@ -34,6 +34,8 @@ Your pre-workshop homework:
 - [Install the remotes package]
 - [Install midfielddata] 
 - [Install midfieldr] 
+- [Create a project]  
+- [Add some folders] 
 
 If you already have R and RStudio installed, this is a great time to 
 
@@ -91,7 +93,7 @@ htmltools::img(src = knitr::include_graphics("figures/rstudio-packages.png"),
 Next, 
 
 - Click *Install* on the ribbon 
-- In the dialog box, type the name of the package. For our first package, type  `remotes` to install the remoptes package [@R-remotes]
+- In the dialog box, type the name of the package. For our first package, type  `remotes` to install the remotes package [@R-remotes]
 - Check the *Install dependencies* box 
 - Click the  *Install* button 
 
@@ -177,7 +179,84 @@ htmltools::img(src = knitr::include_graphics("figures/README-midfieldr-help-page
         width = "700px")
 ```
 
+## Create a project {-}
 
+To begin any project, we create an RStudio *Project* file and directory. You can recognize an R project file by its *.Rproj* suffix. 
+
+If you prefer your instructions with commentary, 
+
+- [Start with a Project (02:34--04:50)](https://www.youtube.com/embed/kfcX5DEMAp4?start=154&end=290){target="_blank"} by R Ladies Sydney [@RLadiesSydney:2018:Lesson1] 
+
+
+If you prefer basic written instructions, 
+
+- RStudio, *File &gt; New Project... &gt; New Directory &gt; New Project* 
+- Or, click the *New Project* button in the Console ribbon, 
+
+
+```{r echo = FALSE}
+htmltools::img(src = knitr::include_graphics("figures/rstudio-new-project.png"), 
+        alt   = "rstudio new project button", 
+        style = "left:0px; padding:20px;", 
+        width = "700px")
+```
+
+<br>
+In the dialog box that appears, 
+  
+- Type the workshop name as the directory name, for example, `workshop`, or if you like more detail, `midfield-workshop-asee-2021`    
+- Use the browse button to select a location on your computer to create the project  folder  
+- Click the *Create Project* button  
+ 
+
+
+
+
+
+Whenever you work with the workshop materials, launch the `workshop.Rproj` file (using the name you actually used) to start the session. 
+
+
+
+
+## Add some folders {-}
+
+While file organization is a matter of personal preference, we ask that you use the directory structure shown here for your work in the workshop. Assuming we called our project `workshop`, the minimal directory structure has three folders in it plus the `.Rproj` file at the top level. 
+
+`r "\U2003"`                          `workshop\`  
+`r "\U2003\U2003\U2003\U251C\U2500"`  `data\`  
+`r "\U2003\U2003\U2003\U251C\U2500"`  `results\`  
+`r "\U2003\U2003\U2003\U251C\U2500"`  `scripts\`  
+`r "\U2003\U2003\U2003\U2514\U2500"`  `workshop.Rproj`  
+`r "\U2003"`
+
+
+If you prefer your instructions with commentary,  
+
+- [Make some folders  (04:50--06:08)](https://www.youtube.com/embed/kfcX5DEMAp4?start=290&end=368){target="_blank"} by R Ladies Sydney [@RLadiesSydney:2018:Lesson1] 
+
+If you prefer basic written instructions, 
+
+- use your usual method of creating new folders on your machine 
+- or you can use the *New Folder* button in the Files pane 
+
+```{r echo = FALSE}
+htmltools::img(src = knitr::include_graphics("figures/rstudio-new-folder.png"), 
+        alt   = "rstudio new folder", 
+        style = "left:0px; padding:20px;", 
+        width = "700px")
+```
+
+<br>
+We use the folders as follows: 
+
+- `data` for data files 
+- `figures` for finished data displays  
+- `scripts` for R scripts that operate on data to produce results  
+
+
+
+
+You finished your homework!
 
 
 

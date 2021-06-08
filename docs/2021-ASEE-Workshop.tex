@@ -282,6 +282,10 @@ Your pre-workshop homework:
   \protect\hyperlink{install-midfielddata}{Install midfielddata}
 \item
   \protect\hyperlink{install-midfieldr}{Install midfieldr}
+\item
+  \protect\hyperlink{create-a-project}{Create a project}\\
+\item
+  \protect\hyperlink{add-some-folders}{Add some folders}
 \end{itemize}
 
 If you already have R and RStudio installed, this is a great time to
@@ -361,7 +365,7 @@ Next,
 \item
   Click \emph{Install} on the ribbon
 \item
-  In the dialog box, type the name of the package. For our first package, type \texttt{remotes} to install the remoptes package \citep{R-remotes}
+  In the dialog box, type the name of the package. For our first package, type \texttt{remotes} to install the remotes package \citep{R-remotes}
 \item
   Check the \emph{Install dependencies} box
 \item
@@ -444,6 +448,89 @@ You can confirm a successful installation by viewing the package help page. In t
 
 If the installation is successful, the code chunk above should produce a view of the help page as shown here.
 
+\hypertarget{create-a-project}{%
+\section*{Create a project}\label{create-a-project}}
+\addcontentsline{toc}{section}{Create a project}
+
+To begin any project, we create an RStudio \emph{Project} file and directory. You can recognize an R project file by its \emph{.Rproj} suffix.
+
+If you prefer your instructions with commentary,
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.youtube.com/embed/kfcX5DEMAp4?start=154\&end=290}{Start with a Project (02:34--04:50)} by R Ladies Sydney \citep{RLadiesSydney:2018:Lesson1}
+\end{itemize}
+
+If you prefer basic written instructions,
+
+\begin{itemize}
+\tightlist
+\item
+  RStudio, \emph{File \textgreater{} New Project\ldots{} \textgreater{} New Directory \textgreater{} New Project}
+\item
+  Or, click the \emph{New Project} button in the Console ribbon,
+\end{itemize}
+
+In the dialog box that appears,
+
+\begin{itemize}
+\tightlist
+\item
+  Type the workshop name as the directory name, for example, \texttt{workshop}, or if you like more detail, \texttt{midfield-workshop-asee-2021}\\
+\item
+  Use the browse button to select a location on your computer to create the project folder\\
+\item
+  Click the \emph{Create Project} button
+\end{itemize}
+
+Whenever you work with the workshop materials, launch the \texttt{workshop.Rproj} file (using the name you actually used) to start the session.
+
+\hypertarget{add-some-folders}{%
+\section*{Add some folders}\label{add-some-folders}}
+\addcontentsline{toc}{section}{Add some folders}
+
+While file organization is a matter of personal preference, we ask that you use the directory structure shown here for your work in the workshop. Assuming we called our project \texttt{workshop}, the minimal directory structure has three folders in it plus the \texttt{.Rproj} file at the top level.
+
+  \texttt{workshop\textbackslash{}}\\
+   ├─ \texttt{data\textbackslash{}}\\
+   ├─ \texttt{results\textbackslash{}}\\
+   ├─ \texttt{scripts\textbackslash{}}\\
+   └─ \texttt{workshop.Rproj}\\
+ 
+
+If you prefer your instructions with commentary,
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.youtube.com/embed/kfcX5DEMAp4?start=290\&end=368}{Make some folders (04:50--06:08)} by R Ladies Sydney \citep{RLadiesSydney:2018:Lesson1}
+\end{itemize}
+
+If you prefer basic written instructions,
+
+\begin{itemize}
+\tightlist
+\item
+  use your usual method of creating new folders on your machine
+\item
+  or you can use the \emph{New Folder} button in the Files pane
+\end{itemize}
+
+We use the folders as follows:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{data} for data files
+\item
+  \texttt{figures} for finished data displays\\
+\item
+  \texttt{scripts} for R scripts that operate on data to produce results
+\end{itemize}
+
+You finished your homework!
+
 \hypertarget{references}{%
 \section*{References}\label{references}}
 \addcontentsline{toc}{section}{References}
@@ -454,12 +541,12 @@ If the installation is successful, the code chunk above should produce a view of
 
 \protect\hyperlink{get-start-r}{▲ top of page}
 
-\hypertarget{about-R}{%
-\chapter{About R}\label{about-R}}
-
 \hypertarget{why-r}{%
-\section*{Why R?}\label{why-r}}
-\addcontentsline{toc}{section}{Why R?}
+\chapter{Why R?}\label{why-r}}
+
+\hypertarget{features}{%
+\section*{Features}\label{features}}
+\addcontentsline{toc}{section}{Features}
 
 R is an open source language and environment for statistical computing and graphics \citep{R-base}, ranked by IEEE in 2020 as the 6th most popular programming language (Python, Java, and C are the top three) \citep{Cass:2020}. If you are new to R, some of its best features, paraphrasing Wickham \citeyearpar{wickham2014advanced}, are:
 
@@ -474,6 +561,16 @@ R is an open source language and environment for statistical computing and graph
 \end{itemize}
 
 RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control \citep{2016rstudio}.
+
+\hypertarget{data-visualization}{%
+\section*{Data visualization}\label{data-visualization}}
+\addcontentsline{toc}{section}{Data visualization}
+
+Charles Kostelnick \citeyearpar{kostelnick2007} writes, ``The array of design options in software like Microsoft Excel and PowerPoint creates the \textbf{illusion} of flexibility. \ldots{} So marvelously malleable are these graphical effects---but for whom and to what end? Paradoxically, then, even as the technology for visualizing data has become more sophisticated, it does not necessarily engender rhetorically sensitive design.''
+
+The graphics tools in R provide the means to control every pixel in the service of ``rhetorically sensitive design.'' Designers can craft their visual arguments to balance logos, ethos, pathos, and kairos as appropriate for a given audience in a given rhetorical situation.
+
+\href{https://www.r-graph-gallery.com/}{{[}For a gallery of R graphics{]}}
 
 \hypertarget{references-1}{%
 \section*{References}\label{references-1}}
