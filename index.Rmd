@@ -56,9 +56,8 @@ The goal of this workshop is to make MIDFIELD more accessible to the ASEE commun
 By the end of the workshop, participants should be able to:
 
 - Describe key variables in MIDFIELD data tables 
-- Select academic programs and populations to study
-- Use midfieldr, an R package specifically designed for use with MIDFIELD
 - Explore and tell a story from MIDFIELD data
+- Use midfieldr, an R package specifically designed for use with MIDFIELD 
 - Explain key features of effective data displays 
 
 
