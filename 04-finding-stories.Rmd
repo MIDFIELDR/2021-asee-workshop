@@ -1,4 +1,4 @@
-# Stories in the data {#stories}
+# Exploring the data structure {#stories}
 
 ```{r echo = FALSE}
 library(knitr)
