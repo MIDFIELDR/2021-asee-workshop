@@ -15,8 +15,10 @@ knit_hooks$set(inline = function(x) {
 })
 ```
 
-- stuff 
-- more stuff 
+## Stuff
+
+
+## More stuff
 
 
 

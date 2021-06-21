@@ -39,3 +39,11 @@ graduation-rate
 program-codes
 install-midfieldr-install-midfieldr
 install-midfielddata-install-midfielddata
+new-to-r
+new-to-midfieldr
+additional-material-for-beginners
+additional-midfieldr-tutorials
+stuff
+more-stuff
+stuff-1
+more-stuff-1

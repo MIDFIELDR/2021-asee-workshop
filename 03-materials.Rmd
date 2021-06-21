@@ -16,8 +16,10 @@ knit_hooks$set(inline = function(x) {
 ```
 
 
-- stuff 
-- more stuff 
+## Stuff
+
+
+## More stuff
 
 <br>
 [&#9650; top of page](#materials)
