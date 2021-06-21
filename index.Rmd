@@ -92,12 +92,12 @@ Our three hours are organized approximately as shown.
 ```{r echo = FALSE}
 df <- wrapr::build_frame(
 	"Min", "Topic" |
-		"10", "Introduction" |
+		"15", "Introduction" |
 		"35", "Finding stories in the data" |
 		"35", "Working with R" |
 		"15", "Break" |
 		"20", "Designing effective displays" |
-		"55", "Working with R (continued)" |
+		"50", "Working with R (continued)" |
 		"10", "Next steps & assessing the workshop" 
 )
 knitr::kable(df, booktabs = TRUE)
