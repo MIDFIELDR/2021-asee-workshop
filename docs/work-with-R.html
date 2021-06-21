@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Engaging with MIDFIELD Data</title>
+  <title>5 Working with R | Engaging with MIDFIELD Data</title>
   <meta name="description" content="Workshop at the 2021 ASEE Annual Conference" />
   <meta name="generator" content="bookdown 0.22.3 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Engaging with MIDFIELD Data" />
+  <meta property="og:title" content="5 Working with R | Engaging with MIDFIELD Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="/figures/midfield-grad-logo.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="MIDFIELDR/2021-asee-workshop" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Engaging with MIDFIELD Data" />
+  <meta name="twitter:title" content="5 Working with R | Engaging with MIDFIELD Data" />
   
   <meta name="twitter:description" content="Workshop at the 2021 ASEE Annual Conference" />
   <meta name="twitter:image" content="/figures/midfield-grad-logo.png" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="install-everything.html"/>
+<link rel="prev" href="stories.html"/>
+<link rel="next" href="display-design.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -56,6 +56,28 @@
 
 
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -131,118 +153,89 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Engaging with MIDFIELD Data</h1>
-<p class="author"><em>Susan Lord, Matthew Ohland, Marisa Orr, Richard Layton, and Russell Long</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-07-26</em></p>
-</div>
-<div id="introduction" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Introduction</h1>
-<p><img src="figures/midfield-grad-logo.png" alt="midfield logo" style="left:0px; padding:10px;" width="200"/></p>
-<div id="objectives" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Objectives</h2>
-<p>MIDFIELD—The <em>Multiple-Institution Database for Investigating Engineering Longitudinal Development</em>—is a partnership of higher education institutions with engineering programs. MIDFIELD contains student record data from 1988–2017 for approximately one million undergraduate, degree-seeking students at the partner institutions.</p>
-<p>The goal of this workshop is to make MIDFIELD more accessible to the ASEE community. The workshop introduces <em>midfieldr</em> (a package in the R software environment) that provides access to a MIDFIELD student-record data sample and tools to analyze and graph persistence metrics such as graduation rates. The workshop is designed for R beginners.</p>
-<p>By the end of the workshop, participants should be able to:</p>
+<div id="work-with-R" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Working with R</h1>
+<p>R is an open source language and environment for statistical computing and graphics <span class="citation"><a href="references.html#ref-R-base" role="doc-biblioref">[1]</a></span>, ranked by IEEE in 2020 as the 6th most popular programming language (Python, Java, and C are the top three) <span class="citation"><a href="references.html#ref-Cass:2020" role="doc-biblioref">[2]</a></span>. If you are new to R, some of its best features, paraphrasing Wickham <span class="citation"><a href="references.html#ref-wickham2014advanced" role="doc-biblioref">[3]</a></span>, are:</p>
 <ul>
-<li>Describe key variables in MIDFIELD data tables</li>
-<li>Select academic programs and populations to study</li>
-<li>Use midfieldr, an R package specifically designed for use with MIDFIELD</li>
-<li>Explore and tell a story from MIDFIELD data</li>
-<li>Explain key features of effective data displays</li>
+<li>R is free, open source, and available on every major platform, making it easy for others to replicate your work.</li>
+<li>More than 17,500 open-source R packages are available (Jun 2021). Many are cutting-edge tools.</li>
+<li>R packages provide deep-seated support for data analysis, e.g., missing values, data frames, and subsetting.</li>
+</ul>
+<p>RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control <span class="citation"><a href="references.html#ref-2016rstudio" role="doc-biblioref">[4]</a></span>.</p>
+<div id="r-basics" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> R basics</h2>
+<p><a href="https://midfieldr.github.io/workshops/r-basics.html">R basics</a> from the 2019 MIDFIELD Institute (editing required)</p>
+</div>
+<div id="graph-basics" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Graph basics</h2>
+<p><a href="https://midfieldr.github.io/workshops/graph-basics.html">Graph basics</a> from the 2019 MIDFIELD Institute (editing required)</p>
+</div>
+<div id="data-basics" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Data basics</h2>
+<p><a href="https://midfieldr.github.io/workshops/data-basics.html">Data basics</a> from the 2019 MIDFIELD Institute (editing required)</p>
+</div>
+<div id="introduction-to-midfieldr" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Introduction to midfieldr</h2>
+<p>To proceed, both the midfieldr and midfielddata packages must be installed. If you haven’t done so, please complete:</p>
+<ul>
+<li><a href="#install-midfieldr">Install midfieldr</a></li>
+<li><a href="#install-midfielddata">Install midfielddata</a></li>
+</ul>
+<p>Tutorial</p>
+<ul>
+<li><a href="https://midfieldr.github.io/midfieldr/articles/art-00-midfield-data.html">Introduction to midfieldr</a>: a midfieldr vignette</li>
 </ul>
 </div>
-<div id="description" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Description</h2>
-<p>The robustness of the MIDFIELD data allows us to emphasize an intersectional approach to the study of student records, permitting multiple categories of inequity such as race/ethnicity and sex to be considered simultaneously.</p>
-<p>To introduce beginners to R, participants work through a self-paced tutorial covering basic elements of the R computing language and environment. To introduce midfieldr and using it to work with student record data, participants work through a “Get started” tutorial in which they determine the numbers of students ever enrolled in two programs, group and summarize the data, and graph the results.</p>
-<p>For more experienced R users or anyone working at a faster pace, we offer a series of self-paced tutorials that introduce key features of midfieldr and how they are applied to compute persistence metrics and graph results.</p>
-<p>We also discuss the merits of the multiway graph design that is recommended for displaying results of this type. The agenda includes an interactive session to demonstrate contemporary principles of effective data display.</p>
+<div id="multiway-graphs-and-tables" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Multiway graphs and tables</h2>
+<p>We take some time in this early tutorial to create some graphs because, as Wickham and Grolemund state <span class="citation"><a href="#ref-Wickham+Grolemund:2017" role="doc-biblioref"><strong>Wickham+Grolemund:2017?</strong></a></span>,</p>
+<blockquote>
+<p>Visualization is a great place to start with R programming, because the payoff is so clear; you get to make elegant and informative plots that help you understand the data.</p>
+</blockquote>
+<p>In particular, we introduce graphs of <em>multiway data</em> in which there is is one quantitative variable and two categorical variables. As explained by Cleveland <span class="citation"><a href="#ref-Cleveland:1993" role="doc-biblioref"><strong>Cleveland:1993?</strong></a></span>,</p>
+<blockquote>
+<p>… the quantitative variable is a response, and the goal is to study how it depends on the categorical variables, which are factors. What distinguishes multiway data is the cross-classification of the categorical variables; there is a value of the response for each combination of levels of the two categorical variables.</p>
+</blockquote>
+<p>The structure of multiway data is specific: a categorical variable with <span class="math inline">\(m\)</span> levels; an independent categorical variable with <span class="math inline">\(n\)</span> levels; and a single quantitative value associated with every combinations of levels of the two categories. Multiway data are typically organized as three columns with <span class="math inline">\(m \times n\)</span> rows.</p>
+<p>Note that “multiway” in our context refers to the data structure and graph design defined by Cleveland, not to the methods of analysis described by Kroonenberg <span class="citation"><a href="#ref-Kroonenberg:2008" role="doc-biblioref"><strong>Kroonenberg:2008?</strong></a></span>.</p>
+<p>Tutorial</p>
+<p><a href="https://midfieldr.github.io/midfieldr/articles/art-01-multiway.html">Multiway graphs and tables</a>: a midfieldr vignette</p>
 </div>
-<div id="pre-workshop-homework" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Pre-workshop homework</h2>
-<p>To get the most out of the workshop, you should have the essential software installed and running several days before the workshop to give you time to contact us with questions if anything goes amiss.</p>
-<p>Your homework is explained on the <a href="install-everything.html#install-everything">Install everything</a> page.</p>
+<div id="program-codes" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Program codes</h2>
+<p>Tutorial</p>
+<p><a href="https://midfieldr.github.io/midfieldr/articles/art-02-program-codes.html">Program codes</a>: a midfieldr vignette</p>
 </div>
-<div id="agenda" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Agenda</h2>
-<p>Our three hours are organized approximately as shown.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Min</th>
-<th align="left">Topic</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">10</td>
-<td align="left">Introduction</td>
-</tr>
-<tr class="even">
-<td align="left">35</td>
-<td align="left">Finding stories in the data</td>
-</tr>
-<tr class="odd">
-<td align="left">35</td>
-<td align="left">Working with R</td>
-</tr>
-<tr class="even">
-<td align="left">15</td>
-<td align="left">Break</td>
-</tr>
-<tr class="odd">
-<td align="left">20</td>
-<td align="left">Designing effective displays</td>
-</tr>
-<tr class="even">
-<td align="left">55</td>
-<td align="left">Working with R (continued)</td>
-</tr>
-<tr class="odd">
-<td align="left">10</td>
-<td align="left">Next steps &amp; assessing the workshop</td>
-</tr>
-</tbody>
-</table>
+<div id="case-selection" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> Case selection</h2>
+<p><a href="https://midfieldr.github.io/midfieldr/articles/art-03-case-selection.html">Case selection</a>: a midfieldr vignette</p>
 </div>
-<div id="facilitators" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Facilitators</h2>
-<dl>
-<dt>Susan Lord</dt>
-<dd><p>Director of the MIDFIELD Institute and Professor and Chair of Integrated Engineering at the University of San Diego. She is a Fellow of the IEEE and the ASEE. Dr. Lord has considerable experience facilitating workshops including the National Effective Teaching Institute (NETI) and special sessions at FIE. (<a href="mailto:slord@sandiego.edu" class="email">slord@sandiego.edu</a>)</p>
-</dd>
-<dt>Matthew Ohland</dt>
-<dd><p>MIDFIELD Director and Principal Investigator. He is Professor and Associate Head of Engineering Education at Purdue University and a Fellow of IEEE, ASEE, and AAAS. Dr. Ohland has considerable experience facilitating workshops including the NETI and CATME training. (<a href="mailto:ohland@purdue.edu" class="email">ohland@purdue.edu</a>)</p>
-</dd>
-<dt>Marisa Orr</dt>
-<dd><p>MIDFIELD Associate Director and Associate Professor in Engineering and Science Education with a joint appointment in Mechanical Engineering at Clemson University. She received the 2009 Helen Plants Award for the best nontraditional session at FIE, “Enhancing Student Learning Using SCALE-UP Format.” (<a href="mailto:marisak@clemson.edu" class="email">marisak@clemson.edu</a>)</p>
-</dd>
-<dt>Richard Layton</dt>
-<dd><p>MIDFIELD Data Visualization Specialist and Professor Emeritus of Mechanical Engineering at Rose-Hulman Institute of Technology. He is the lead developer of the R packages used in this workshop. Dr. Layton has considerable experience facilitating workshops, including FIE workshops on data visualization (2014) and midfieldr (2018). (<a href="mailto:graphdoctor@gmail.com" class="email">graphdoctor@gmail.com</a>)</p>
-</dd>
-<dt>Russell Long</dt>
-<dd><p>MIDFIELD Managing Director and Data Steward. He developed the stratified data sample for the R packages used in this workshop. Mr. Long is a SAS expert with over twenty years of experience in institutional research and assessment. (<a href="mailto:ralong@purdue.edu" class="email">ralong@purdue.edu</a>)</p>
-</dd>
-</dl>
+<div id="data-sufficiency" class="section level2" number="5.8">
+<h2><span class="header-section-number">5.8</span> Data sufficiency</h2>
+<p>Tutorial</p>
+<p><a href="https://midfieldr.github.io/midfieldr/articles/art-04-data-sufficiency.html">Data sufficiency</a>: a midfieldr vignette</p>
 </div>
-<div id="licenses" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Licenses</h2>
-<p>The following licenses apply to the text, data, and code in these workshops. Our goal is to minimize legal encumbrances to the dissemination, sharing, use, and re-use of this work. However, the existing rights of authors whose work is cited (text, code, or data) are reserved to those authors.</p>
-<ul>
-<li><a href="https://creativecommons.org/licenses/by/4.0/legalcode">CC-BY 4.0</a> for all text<br />
-</li>
-<li><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a> for all code<br />
-</li>
-<li><a href="https://wiki.creativecommons.org/wiki/CC0_use_for_data">CC0</a> for all data</li>
-</ul>
+<div id="timely-completion" class="section level2" number="5.9">
+<h2><span class="header-section-number">5.9</span> Timely completion</h2>
+<p>Tutorial</p>
+<p><a href="https://midfieldr.github.io/midfieldr/articles/art-06-timely-completion.html">Timely completion</a>: a midfieldr vignette</p>
 </div>
-<div id="acknowledgement" class="section level2" number="1.7">
-<h2><span class="header-section-number">1.7</span> Acknowledgement</h2>
-<p>Funding provided by the National Science Foundation Grant 1545667 “Expanding Access to and Participation in the Multiple-Institution Database for Investigating Engineering Longitudinal Development.”</p>
-<p><img src="figures/NSF_4-Color_bitmap_Logo.png" alt="NSF logo" width="90"/></p>
+<div id="stickiness" class="section level2" number="5.10">
+<h2><span class="header-section-number">5.10</span> Stickiness</h2>
+<p>Tutorial</p>
+<p><a href="https://midfieldr.github.io/midfieldr/articles/art-05-stickiness.html">Stickiness</a>: a midfieldr vignette</p>
+</div>
+<div id="fye-programs" class="section level2" number="5.11">
+<h2><span class="header-section-number">5.11</span> FYE programs</h2>
+<p>Tutorial</p>
+<p><a href="https://midfieldr.github.io/midfieldr/articles/art-07-fye-programs.html">FYE programs</a>: a midfieldr vignette</p>
+</div>
+<div id="graduation-rate" class="section level2" number="5.12">
+<h2><span class="header-section-number">5.12</span> Graduation rate</h2>
+<p>Tutorial</p>
+<p><a href="https://midfieldr.github.io/midfieldr/articles/art-08-graduation-rate.html">Graduation rate</a>: a midfieldr vignette</p>
 <p><br>
-<a href="index.html#introduction">▲ top of page</a></p>
+<a href="#start-with-R">▲ top of page</a></p>
 
 </div>
 </div>
@@ -251,8 +244,8 @@
           </div>
         </div>
       </div>
-
-<a href="install-everything.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="stories.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="display-design.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -284,7 +277,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/MIDFIELDR/2021-asee-workshop/edit/main/index.Rmd",
+"link": "https://github.com/MIDFIELDR/2021-asee-workshop/edit/main/05-working-with-R.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -303,6 +296,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

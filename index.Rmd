@@ -1,7 +1,7 @@
 --- 
 title: "Engaging with MIDFIELD Data"
 description: "Workshop at the 2021 ASEE Annual Conference"
-author: " Susan Lord, Matthew Ohland, Marisa Orr, Richard Layton, and Russell Long"
+author: "Susan Lord, Matthew Ohland, Marisa Orr, Richard Layton, and Russell Long"
 date: "2021-07-26"
 site: bookdown::bookdown_site
 output: 
@@ -47,7 +47,7 @@ htmltools::img(src = knitr::include_graphics("figures/midfield-grad-logo.png"),
 
 
 
-## Objectives {-} 
+## Objectives 
 
 MIDFIELD---The *Multiple-Institution Database for Investigating Engineering Longitudinal Development*---is a partnership of higher education institutions with engineering programs. MIDFIELD contains student record data from 1988--2017 for approximately one million undergraduate, degree-seeking students at the partner institutions.
 
@@ -65,7 +65,7 @@ By the end of the workshop, participants should be able to:
 
 
 
-## Description {-} 
+## Description 
 
 The robustness of the MIDFIELD data allows us to emphasize an intersectional approach to the study of student records, permitting multiple categories of inequity such as race/ethnicity and sex to be considered simultaneously. 
 
@@ -77,7 +77,7 @@ We also discuss the merits of the multiway graph design that is recommended for 
 
 
 
-## Pre-workshop homework {-} 
+## Pre-workshop homework 
 
 To get the most out of the workshop, you should have the essential software installed and running several days before the workshop to give you time to contact us with questions if anything goes amiss. 
 
@@ -85,7 +85,7 @@ Your homework is explained on the [Install everything](#install-everything) page
 
 
 
-## Agenda {-} 
+## Agenda 
 
 Our three hours are organized approximately as shown. 
 
@@ -94,10 +94,10 @@ df <- wrapr::build_frame(
 	"Min", "Topic" |
 		"10", "Introduction" |
 		"35", "Finding stories in the data" |
-		"35", "Working with R, part 1" |
+		"35", "Working with R" |
 		"15", "Break" |
 		"20", "Designing effective displays" |
-		"55", "Working with R, part 2" |
+		"55", "Working with R (continued)" |
 		"10", "Next steps & assessing the workshop" 
 )
 knitr::kable(df, booktabs = TRUE)
@@ -109,7 +109,7 @@ knitr::kable(df, booktabs = TRUE)
 
 
 
-## Facilitators{-} 
+## Facilitators
 
 Susan Lord 
 
@@ -134,7 +134,7 @@ Russell Long
 
 
 
-## Licenses {-} 
+## Licenses 
 
 The following licenses apply to the text, data, and code in these workshops. Our goal is to minimize legal encumbrances to the dissemination, sharing, use, and re-use of this work. However, the existing rights of authors whose work is cited (text, code, or data) are reserved to those authors.
 
@@ -143,7 +143,7 @@ The following licenses apply to the text, data, and code in these workshops. Our
 - [CC0](https://wiki.creativecommons.org/wiki/CC0_use_for_data) for all data    
 
 
-## Acknowledgement {-} 
+## Acknowledgement 
 
 Funding provided by the National Science Foundation Grant 1545667 "Expanding Access to and Participation in the Multiple-Institution Database for Investigating Engineering Longitudinal Development." 
 

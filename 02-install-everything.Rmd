@@ -49,7 +49,7 @@ update.packages(ask = FALSE, checkBuilt = TRUE)
 ```
 
 
-## Install R and RStudio {-}
+## Install R and RStudio 
 
 The first steps are to install R and RStudio. Windows users may have to login as an Administrator before installing the software. 
 
@@ -70,7 +70,7 @@ The same video includes a longer (7 minute) tour of the four quadrants (panes) i
 
 
 
-## Install the remotes package {-}
+## Install the remotes package 
 
 The fundamental unit of shareable code in R is the *package.* For the R novice, an R package is like an "app" for R---a collection of functions, data, and documentation for doing work in R that is easily shared with others  [@wickham2014advanced]. 
 
@@ -112,41 +112,7 @@ htmltools::img(src = knitr::include_graphics("figures/rstudio-packages-2.png"),
         width = "700px")
 ```
 
-
-## Install midfielddata {-}
-
-Install the midfielddata package first [@R-midfielddata]. 
-
-Because of its size, the data package is stored in a `drat` repository instead of CRAN. Installation takes time; please be patient and wait for the Console prompt ">" to reappear. 
-
-Type (or copy and paste) the following lines in the RStudio Console. 
-
-```r
-# type in the RStudio Console  
-install.packages("midfielddata", 
-                 repos = "https://MIDFIELDR.github.io/drat/", 
-                 type = "source")
-# be patient
-```
-
-Once the Console prompt ">" reappears, you can confirm a successful installation by viewing the package help page. In the Console, run:
-
-```r
-# type in the RStudio Console  
-library("midfielddata")
-? midfielddata
-```
-
-If the installation is successful, the code chunk above should produce a view of the help page as shown here.  If this step is successful, you can go on to the next step. 
-
-```{r echo = FALSE}
-htmltools::img(src = knitr::include_graphics("figures/README-midfielddata-help-page-2.png"), 
-        alt   = "midfiedldata help page pane", 
-        style = "left:0px; padding:20px;", 
-        width = "700px")
-```
-
-## Install midfieldr {-}
+## Install midfieldr [#install-midfieldr]
 
 Earlier we installed the remotes package. To access its functions we use the `library()` function. 
 
@@ -179,7 +145,40 @@ htmltools::img(src = knitr::include_graphics("figures/README-midfieldr-help-page
         width = "700px")
 ```
 
-## Create a project {-}
+
+## Install midfielddata  [#install-midfielddata]
+
+Because of its size, the data package is stored in a `drat` repository instead of CRAN. Installation takes time; please be patient and wait for the Console prompt ">" to reappear. 
+
+Type (or copy and paste) the following lines in the RStudio Console. 
+
+```r
+# type in the RStudio Console  
+install.packages("midfielddata", 
+                 repos = "https://MIDFIELDR.github.io/drat/", 
+                 type = "source")
+# be patient
+```
+
+Once the Console prompt ">" reappears, you can confirm a successful installation by viewing the package help page. In the Console, run:
+
+```r
+# type in the RStudio Console  
+library("midfielddata")
+? midfielddata
+```
+
+If the installation is successful, the code chunk above should produce a view of the help page as shown here.  If this step is successful, you can go on to the next step. 
+
+```{r echo = FALSE}
+htmltools::img(src = knitr::include_graphics("figures/README-midfielddata-help-page-2.png"), 
+        alt   = "midfiedldata help page pane", 
+        style = "left:0px; padding:20px;", 
+        width = "700px")
+```
+
+
+## Create a project 
 
 To begin any project, we create an RStudio *Project* file and directory. You can recognize an R project file by its *.Rproj* suffix. 
 
@@ -218,17 +217,23 @@ Whenever you work with the workshop materials, launch the `workshop.Rproj` file 
 
 
 
-## Add some folders {-}
+## Add some folders 
 
 While file organization is a matter of personal preference, we ask that you use the directory structure shown here for your work in the workshop. Assuming we called our project `workshop`, the minimal directory structure has three folders in it plus the `.Rproj` file at the top level. 
 
-`r "\U2003"`                          `workshop\`  
-`r "\U2003\U2003\U2003\U251C\U2500"`  `data\`  
-`r "\U2003\U2003\U2003\U251C\U2500"`  `results\`  
-`r "\U2003\U2003\U2003\U251C\U2500"`  `scripts\`  
-`r "\U2003\U2003\U2003\U2514\U2500"`  `workshop.Rproj`  
-`r "\U2003"`
+```r
+\workshop
+    \data
+    \results
+    \scripts
+    workshop.Rproj
+```
 
+We use the folders as follows: 
+
+- `data` data files 
+- `results` finished graphs and tabulated data formatted for display  
+- `scripts` R scripts that operate on data to produce results  
 
 If you prefer your instructions with commentary,  
 
@@ -245,13 +250,8 @@ htmltools::img(src = knitr::include_graphics("figures/rstudio-new-folder.png"),
         style = "left:0px; padding:20px;", 
         width = "700px")
 ```
-
 <br>
-We use the folders as follows: 
 
-- `data` for data files 
-- `figures` for finished data displays  
-- `scripts` for R scripts that operate on data to produce results  
 
 
 You finished your homework!
