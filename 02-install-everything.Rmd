@@ -30,12 +30,12 @@ If you are trying R for the first time, it is vital that you attempt to set up y
 
 Your pre-workshop homework:  
 
-- [Install R and RStudio]
-- [Install the remotes package]
-- [Install midfielddata] 
-- [Install midfieldr] 
-- [Create a project]  
-- [Add some folders] 
+- 2.1 [Install R and RStudio]
+- 2.2 [Install the remotes package]
+- 2.3 [Install midfielddata] 
+- 2.4 [Install midfieldr] 
+- 3.1 [Create a project]  
+- 3.2 [Add some folders] 
 
 If you already have R and RStudio installed, this is a great time to 
 
@@ -112,7 +112,7 @@ htmltools::img(src = knitr::include_graphics("figures/rstudio-packages-2.png"),
         width = "700px")
 ```
 
-## Install midfieldr [#install-midfieldr]
+## Install midfieldr {#install-midfieldr}
 
 Earlier we installed the remotes package. To access its functions we use the `library()` function. 
 
@@ -146,7 +146,7 @@ htmltools::img(src = knitr::include_graphics("figures/README-midfieldr-help-page
 ```
 
 
-## Install midfielddata  [#install-midfielddata]
+## Install midfielddata  {#install-midfielddata}
 
 Because of its size, the data package is stored in a `drat` repository instead of CRAN. Installation takes time; please be patient and wait for the Console prompt ">" to reappear. 
 
@@ -168,7 +168,7 @@ library("midfielddata")
 ? midfielddata
 ```
 
-If the installation is successful, the code chunk above should produce a view of the help page as shown here.  If this step is successful, you can go on to the next step. 
+If the installation is successful, the code chunk above should produce a view of the help page as shown here.  
 
 ```{r echo = FALSE}
 htmltools::img(src = knitr::include_graphics("figures/README-midfielddata-help-page-2.png"), 
@@ -178,83 +178,13 @@ htmltools::img(src = knitr::include_graphics("figures/README-midfielddata-help-p
 ```
 
 
-## Create a project 
 
-To begin any project, we create an RStudio *Project* file and directory. You can recognize an R project file by its *.Rproj* suffix. 
+If this step is successful, please continue your homework by completing: 
 
-If you prefer your instructions with commentary, 
-
-- [Start with a Project (02:34--04:50)](https://www.youtube.com/embed/kfcX5DEMAp4?start=154&end=290){target="_blank"} by R Ladies Sydney [@RLadiesSydney:2018:Lesson1] 
+- 3.1 [Create a project]  
+- 3.2 [Add some folders] 
 
 
-If you prefer basic written instructions, 
-
-- RStudio, *File &gt; New Project... &gt; New Directory &gt; New Project* 
-- Or, click the *New Project* button in the Console ribbon, 
-
-
-```{r echo = FALSE}
-htmltools::img(src = knitr::include_graphics("figures/rstudio-new-project.png"), 
-        alt   = "rstudio new project button", 
-        style = "left:0px; padding:20px;", 
-        width = "700px")
-```
-
-<br>
-In the dialog box that appears, 
-  
-- Type the workshop name as the directory name, for example, `workshop`, or if you like more detail, `midfield-workshop-asee-2021`    
-- Use the browse button to select a location on your computer to create the project  folder  
-- Click the *Create Project* button  
- 
-
-
-
-
-
-Whenever you work with the workshop materials, launch the `workshop.Rproj` file (using the name you actually used) to start the session. 
-
-
-
-
-## Add some folders 
-
-While file organization is a matter of personal preference, we ask that you use the directory structure shown here for your work in the workshop. Assuming we called our project `workshop`, the minimal directory structure has three folders in it plus the `.Rproj` file at the top level. 
-
-```r
-\workshop
-    \data
-    \results
-    \scripts
-    workshop.Rproj
-```
-
-We use the folders as follows: 
-
-- `data` data files 
-- `results` finished graphs and tabulated data formatted for display  
-- `scripts` R scripts that operate on data to produce results  
-
-If you prefer your instructions with commentary,  
-
-- [Make some folders  (04:50--06:08)](https://www.youtube.com/embed/kfcX5DEMAp4?start=290&end=368){target="_blank"} by R Ladies Sydney [@RLadiesSydney:2018:Lesson1] 
-
-If you prefer basic written instructions, 
-
-- use your usual method of creating new folders on your machine 
-- or you can use the *New Folder* button in the Files pane 
-
-```{r echo = FALSE}
-htmltools::img(src = knitr::include_graphics("figures/rstudio-new-folder.png"), 
-        alt   = "rstudio new folder", 
-        style = "left:0px; padding:20px;", 
-        width = "700px")
-```
-<br>
-
-
-
-You finished your homework!
 
 <br>
 [&#9650; top of page](#install-everything)

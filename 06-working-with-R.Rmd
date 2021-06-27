@@ -1,0 +1,149 @@
+# Working with R {#work-with-R}
+
+```{r echo = FALSE}
+library(knitr)
+opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+opts_chunk$set(echo = FALSE) 
+knit_hooks$set(inline = function(x) {
+        if (!is.numeric(x)) { 
+                x 
+        } else if (x >= 10000) { 
+                prettyNum(round(x, 2), big.mark = ",")
+        } else {
+                prettyNum(round(x, 2))
+        }
+})
+```
+
+```{r}
+# if internet available, find and save current number of R packages
+library("pingr")
+if (pingr::is_online()) {
+	n_pkg <- nrow(available.packages(contrib.url("https://cloud.r-project.org/")))
+	# round down to nearest 250
+	n_pkg <- 250 * floor(n_pkg / 250)
+	n_pkg <- format(n_pkg, big.mark = ",", trim = TRUE, digits = 0, scientific = FALSE)
+	date_pkg <- format(Sys.Date(), "%b %Y")
+	info_pkg <- c(n_pkg, date_pkg)
+	saveRDS(info_pkg, "data/info_pkg.rds")
+}
+
+# use saved values 
+info_pkg <- readRDS("data/info_pkg.rds")
+n_pkg    <- info_pkg[1]
+date_pkg <- info_pkg[2]
+```
+
+R is an open source language and environment for statistical computing and graphics [@R-base], ranked by IEEE in 2020 as the 6th most popular programming language (Python, Java, and C are the top three) [@Cass:2020]. If you are new to R, some of its best features, paraphrasing Wickham  [-@wickham2014advanced], are: 
+
+- R is free, open source, and available on every major platform. 
+- R packages provide effective tools for data analysis and visualization. 
+- More than `r n_pkg` open-source R packages are available (`r date_pkg`). Many are cutting-edge tools. 
+
+RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control  [@2016rstudio]. 
+
+
+
+
+
+
+## New to R? 
+
+This is the workshop tutorial entry point for the R beginner. Before proceeding, you should have completed
+
+- [Install everything]
+- [Set up a project]
+
+
+Launched your workshop project (`workshop.Rproj` or the name you used) to start the R session 
+
+By the end of the workshop, our R beginners will have made substantive progress on three tutorials: 
+
+- [R basics] A short introduction to R (in the next section) 
+- [Getting started](https://midfieldr.github.io/midfieldr/articles/art-00-midfield-data.html): An introduction to the MIDFIELD practice data tables  
+- [Multiway graphs and tables](https://midfieldr.github.io/midfieldr/articles/art-01-multiway.html):  Practice working with a data structure commonly encountered when preparing graphs and tables.  
+
+
+
+
+
+
+
+
+
+
+
+
+## Familiar with R? 
+
+This is the entry point for participants who are familiar with R. Reminder: You should have completed
+
+- [Install everything]
+- [Set up a project]
+
+By the end of the workshop, our more experienced R users will have made substantive progress on three tutorials: 
+
+- [Getting started](https://midfieldr.github.io/midfieldr/articles/art-00-midfield-data.html): An introduction to the MIDFIELD practice data tables  
+- [Multiway graphs and tables](https://midfieldr.github.io/midfieldr/articles/art-01-multiway.html):  Practice working with a data structure commonly encountered when preparing graphs and tables.
+- [Program codes](https://midfieldr.github.io/midfieldr/articles/art-02-program-codes.html): Explore strategies of searching CIP codes for programs you want to study. 
+
+## After the workshop 
+
+For additional basic skills in R: 
+
+- [Graph basics] 
+- [Data basics]  
+
+To continue the midfieldr vignette sequence:  
+
+- [Case selection](https://midfieldr.github.io/midfieldr/articles/art-03-case-selection.html): Select and name a specific set of programs to explore. 
+- [Data sufficiency](https://midfieldr.github.io/midfieldr/articles/art-04-data-sufficiency.html): Limited a study to students whose timely completion term is within the range of data provided by their institution.  
+- [Timely completion](https://midfieldr.github.io/midfieldr/articles/art-06-timely-completion.html): Graduates completing their program later than their timely completion term are grouped with non-graduates for purposes of computing a persistence metric.  
+- [Stickiness](https://midfieldr.github.io/midfieldr/articles/art-05-stickiness.html): Compute longitudinal “stickiness”, the ratio of the number of students graduating in a program to the number of students ever enrolled in that program.  
+- [FYE programs](https://midfieldr.github.io/midfieldr/articles/art-07-fye-programs.html): Predict the engineering program the FYE student would have declared had they not been required to enroll in FYE.  
+- [Graduation rate](https://midfieldr.github.io/midfieldr/articles/art-08-graduation-rate.html): Compute graduation rate with a more inclusive definition.  
+
+
+
+## R basics
+
+text
+
+
+### Style guide {#style-guide}
+
+### Everything in R has a name 
+
+### Everything in R is an object 
+
+### Use functions to do things
+
+### R functions come in packages
+
+### R objects have class
+
+### R objects have structure
+
+### R only does what you tell it
+
+### Keyboard shortcuts
+
+### What's next?
+
+
+
+## Graph basics
+
+
+## Data basics
+
+
+
+
+
+
+
+
+
+<br>
+[&#9650; top of page](#start-with-R)

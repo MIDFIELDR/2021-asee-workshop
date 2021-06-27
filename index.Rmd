@@ -80,7 +80,10 @@ We also discuss the merits of the multiway graph design that is recommended for 
 
 To get the most out of the workshop, you should have the essential software installed and running several days before the workshop to give you time to contact us with questions if anything goes amiss. 
 
-Your homework is explained on the [Install everything](#install-everything) page. 
+Your homework is explained on the pages:
+
+- [Install everything]
+- [Setup a project] 
 
 
 

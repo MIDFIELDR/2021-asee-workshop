@@ -1,0 +1,123 @@
+% packages
+\usepackage[]{graphicx}
+  \graphicspath{{../visuals/}}  % relative path
+\usepackage{color}
+  \definecolor{myviolet}{HTML}{3333B2}
+\usepackage{etex}     % corrects a "new \dimen" problem
+\usepackage{bibentry} % for full-text at the point of citation
+\usepackage{natbib}
+  \bibliographystyle{plain}
+\usepackage[latin1]{inputenc} % typeface
+\usepackage{times}            % typeface
+\usepackage[T1]{fontenc}      % typeface
+\usepackage{enumitem} % for lists
+% set enumitem symbol, margins, and spacing between items
+\setlist[itemize]{label=\color{myviolet}$\blacktriangleright$, itemsep=1\baselineskip, leftmargin=*, font=\large}
+\usepackage{bold-extra} % for bold tt font
+
+\usepackage{booktabs} % for tables
+% \usepackage{ctable}   % for use with xtable printing
+
+% if I need math
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% a separate file for creating drop shadow under a figure
+% (The script is included at the end of this file)
+% then use \shadowimage[]{} instead of \includegraphics[]{}
+% \input{../Design/test_drop_shadow}
+
+% reset the beamer template
+\usetheme{default}
+\beamertemplatenavigationsymbolsempty % omit navigation symbols
+\setbeamercolor{title}{fg=myviolet} % title slide main title text
+\setbeamercolor{frametitle}{fg=myviolet} % slide headline
+% \setbeamercolor{structure}{fg=red} % bullets
+
+% this chunk needs more work, but when working I can use [12pt] in the
+% document class and ersase all the \large commands in the
+% individual slides AND I can use the chunk below to reduce the [12pt]
+% frametitle font size (default is too big)
+% \setbeamertemplate{frametitle}
+% {
+%     \nointerlineskip
+%     \begin{beamercolorbox}[sep=3mm,ht=3.5em,wd=\paperwidth]{frametitle}
+%         \vbox{}\vskip-0ex%
+%         \strut\insertframetitle\strut
+%         \vskip-0ex%
+%         \vfill%
+%     \end{beamercolorbox}
+% }
+
+% eliminate the "newblocks" (\par) in the full-text citations
+\setbeamertemplate{bibliography entry author} {\color{gray}}
+\setbeamertemplate{bibliography entry title}  {\color{gray}}
+\setbeamertemplate{bibliography entry journal}{\color{gray}}
+\setbeamertemplate{bibliography entry year}   {\color{gray}}
+\setbeamertemplate{bibliography entry volume} {\color{gray}}
+\setbeamertemplate{bibliography entry number} {\color{gray}}
+\setbeamertemplate{bibliography entry month}  {\color{gray}}
+\setbeamertemplate{bibliography entry pages}  {\color{gray}}
+\setbeamertemplate{bibliography entry location}{\color{gray}}
+\setbeamertemplate{bibliography entry note}   {\color{gray}}
+
+% custom footline with note on left and page number on the right
+\makeatother%
+\setbeamertemplate{footline}%
+{%
+\leavevmode%
+\hbox{\fontsize{6}{12}\selectfont% in a 10pt document, 7pt is about 16pt on the slide. the {12} linespacing option does not seem to work yet
+% on the right, I have a space for permissions note or full citation
+\begin{beamercolorbox}[wd=.88\paperwidth,ht=10ex,dp=3mm,leftskip=3mm,rightskip=0mm]{}\color{gray}\foottext%
+\end{beamercolorbox}%
+% on the left is the slide number
+\begin{beamercolorbox}[wd=.12\paperwidth,ht=10ex,dp=3mm,leftskip=0mm,rightskip=3mm]{}\hfill\insertpagenumber\ / \inserttotalframenumber%
+\end{beamercolorbox}%
+}%
+\vskip0pt%
+}%
+\makeatletter%
+
+% set parameters for the PDF file
+\hypersetup{
+pdftitle={\talktitle},
+pdfauthor={\talkauthor},
+pdfkeywords={persistence,} {student record data},
+pdfnewwindow=true,  % links in new PDF window
+colorlinks=true,    % false: boxed links; true: colored links
+linkcolor=myviolet, % internal links (change box color w/ linkbordercolor)
+citecolor=myviolet, % color of links to bibliography
+filecolor=myviolet, % color of file links
+urlcolor=myviolet   % color of external links
+}
+
+% new commands and definitions
+% headline for a slide (creates an argument for \title{})
+\newcommand\headline{}
+
+% used for text in a footer, e.g., a full citation or permissions
+\newcommand\foottext{}
+
+% a black-out slide
+\newcommand{\blackoutslide}{%
+{% this bracket makes the black background apply just once
+\setbeamercolor{background canvas}{bg=black}
+\renewcommand\headline{}
+\renewcommand\foottext{}
+\begin{frame}[t]
+\end{frame}
+}
+}
+
+% ensures that graphics do not exceed slide margins
+% maxwidth is the least of original width or linewidth
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother

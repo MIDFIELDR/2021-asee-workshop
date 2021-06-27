@@ -1,0 +1,26 @@
+# Exploring the data structure {#stories}
+
+```{r echo = FALSE}
+library(knitr)
+opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+opts_chunk$set(echo = FALSE) 
+knit_hooks$set(inline = function(x) {
+        if (!is.numeric(x)) { 
+                x 
+        } else if (x >= 10000) { 
+                prettyNum(round(x, 2), big.mark = ",")
+        } else {
+                prettyNum(round(x, 2))
+        }
+})
+```
+
+## Stuff
+
+
+## More stuff
+
+
+
+<br>
+[&#9650; top of page](#stories)
