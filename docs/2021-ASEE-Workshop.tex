@@ -137,8 +137,7 @@
 \chapter{Introduction}\label{introduction}}
 
 \hypertarget{objectives}{%
-\section*{Objectives}\label{objectives}}
-\addcontentsline{toc}{section}{Objectives}
+\section{Objectives}\label{objectives}}
 
 MIDFIELD---The \emph{Multiple-Institution Database for Investigating Engineering Longitudinal Development}---is a partnership of higher education institutions with engineering programs. MIDFIELD contains student record data from 1988--2017 for approximately one million undergraduate, degree-seeking students at the partner institutions.
 
@@ -151,18 +150,15 @@ By the end of the workshop, participants should be able to:
 \item
   Describe key variables in MIDFIELD data tables
 \item
-  Select academic programs and populations to study
+  Explore and tell a story from MIDFIELD data
 \item
   Use midfieldr, an R package specifically designed for use with MIDFIELD
-\item
-  Explore and tell a story from MIDFIELD data
 \item
   Explain key features of effective data displays
 \end{itemize}
 
 \hypertarget{description}{%
-\section*{Description}\label{description}}
-\addcontentsline{toc}{section}{Description}
+\section{Description}\label{description}}
 
 The robustness of the MIDFIELD data allows us to emphasize an intersectional approach to the study of student records, permitting multiple categories of inequity such as race/ethnicity and sex to be considered simultaneously.
 
@@ -173,16 +169,22 @@ For more experienced R users or anyone working at a faster pace, we offer a seri
 We also discuss the merits of the multiway graph design that is recommended for displaying results of this type. The agenda includes an interactive session to demonstrate contemporary principles of effective data display.
 
 \hypertarget{pre-workshop-homework}{%
-\section*{Pre-workshop homework}\label{pre-workshop-homework}}
-\addcontentsline{toc}{section}{Pre-workshop homework}
+\section{Pre-workshop homework}\label{pre-workshop-homework}}
 
 To get the most out of the workshop, you should have the essential software installed and running several days before the workshop to give you time to contact us with questions if anything goes amiss.
 
-Your homework is explained on the \protect\hyperlink{install-everything}{Install everything} page.
+Your homework is explained on the pages:
+
+\begin{itemize}
+\tightlist
+\item
+  \protect\hyperlink{install-everything}{Install everything}
+\item
+  {[}Setup a project{]}
+\end{itemize}
 
 \hypertarget{agenda}{%
-\section*{Agenda}\label{agenda}}
-\addcontentsline{toc}{section}{Agenda}
+\section{Agenda}\label{agenda}}
 
 Our three hours are organized approximately as shown.
 
@@ -190,20 +192,19 @@ Our three hours are organized approximately as shown.
 \toprule
 Min & Topic\\
 \midrule
-10 & Introduction\\
-35 & Finding stories in the data\\
-35 & Starting with R\\
+15 & Introduction\\
+35 & Exploring the data structure\\
+35 & Working with R\\
 15 & Break\\
 20 & Designing effective displays\\
 \addlinespace
-55 & Starting with midfieldr\\
+50 & Working with R (continued)\\
 10 & Next steps \& assessing the workshop\\
 \bottomrule
 \end{tabular}
 
 \hypertarget{facilitators}{%
-\section*{Facilitators}\label{facilitators}}
-\addcontentsline{toc}{section}{Facilitators}
+\section{Facilitators}\label{facilitators}}
 
 \begin{description}
 \item[Susan Lord]
@@ -219,8 +220,7 @@ MIDFIELD Managing Director and Data Steward. He developed the stratified data sa
 \end{description}
 
 \hypertarget{licenses}{%
-\section*{Licenses}\label{licenses}}
-\addcontentsline{toc}{section}{Licenses}
+\section{Licenses}\label{licenses}}
 
 The following licenses apply to the text, data, and code in these workshops. Our goal is to minimize legal encumbrances to the dissemination, sharing, use, and re-use of this work. However, the existing rights of authors whose work is cited (text, code, or data) are reserved to those authors.
 
@@ -235,8 +235,7 @@ The following licenses apply to the text, data, and code in these workshops. Our
 \end{itemize}
 
 \hypertarget{acknowledgement}{%
-\section*{Acknowledgement}\label{acknowledgement}}
-\addcontentsline{toc}{section}{Acknowledgement}
+\section{Acknowledgement}\label{acknowledgement}}
 
 Funding provided by the National Science Foundation Grant 1545667 ``Expanding Access to and Participation in the Multiple-Institution Database for Investigating Engineering Longitudinal Development.''
 
@@ -252,17 +251,17 @@ Your pre-workshop homework:
 \begin{itemize}
 \tightlist
 \item
-  \protect\hyperlink{install-r-and-rstudio}{Install R and RStudio}
+  2.1 \protect\hyperlink{install-r-and-rstudio}{Install R and RStudio}
 \item
-  \protect\hyperlink{install-the-remotes-package}{Install the remotes package}
+  2.2 \protect\hyperlink{install-the-remotes-package}{Install the remotes package}
 \item
-  \protect\hyperlink{install-midfielddata}{Install midfielddata}
+  2.3 \protect\hyperlink{install-midfielddata}{Install midfielddata}
 \item
-  \protect\hyperlink{install-midfieldr}{Install midfieldr}
+  2.4 \protect\hyperlink{install-midfieldr}{Install midfieldr}
 \item
-  \protect\hyperlink{create-a-project}{Create a project}\\
+  3.1 \protect\hyperlink{create-a-project}{Create a project}\\
 \item
-  \protect\hyperlink{add-some-folders}{Add some folders}
+  3.2 \protect\hyperlink{add-some-folders}{Add some folders}
 \end{itemize}
 
 If you already have R and RStudio installed, this is a great time to
@@ -284,8 +283,7 @@ If you already have R and RStudio installed, this is a great time to
 \end{Shaded}
 
 \hypertarget{install-r-and-rstudio}{%
-\section*{Install R and RStudio}\label{install-r-and-rstudio}}
-\addcontentsline{toc}{section}{Install R and RStudio}
+\section{Install R and RStudio}\label{install-r-and-rstudio}}
 
 The first steps are to install R and RStudio. Windows users may have to login as an Administrator before installing the software.
 
@@ -314,8 +312,7 @@ The same video includes a longer (7 minute) tour of the four quadrants (panes) i
 \end{itemize}
 
 \hypertarget{install-the-remotes-package}{%
-\section*{Install the remotes package}\label{install-the-remotes-package}}
-\addcontentsline{toc}{section}{Install the remotes package}
+\section{Install the remotes package}\label{install-the-remotes-package}}
 
 The fundamental unit of shareable code in R is the \emph{package.} For the R novice, an R package is like an ``app'' for R---a collection of functions, data, and documentation for doing work in R that is easily shared with others \citep{wickham2014advanced}.
 
@@ -359,41 +356,8 @@ In the RStudio Console, you should see a message like this one,
 
 If successful, the package will appear in the Packages pane, e.g.,
 
-\hypertarget{install-midfielddata}{%
-\section*{Install midfielddata}\label{install-midfielddata}}
-\addcontentsline{toc}{section}{Install midfielddata}
-
-Install the midfielddata package first \citep{R-midfielddata}.
-
-Because of its size, the data package is stored in a \texttt{drat} repository instead of CRAN. Installation takes time; please be patient and wait for the Console prompt ``\textgreater{}'' to reappear.
-
-Type (or copy and paste) the following lines in the RStudio Console.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# type in the RStudio Console  }
-\FunctionTok{install.packages}\NormalTok{(}\StringTok{"midfielddata"}\NormalTok{, }
-                 \AttributeTok{repos =} \StringTok{"https://MIDFIELDR.github.io/drat/"}\NormalTok{, }
-                 \AttributeTok{type =} \StringTok{"source"}\NormalTok{)}
-\CommentTok{\# be patient}
-\end{Highlighting}
-\end{Shaded}
-
-Once the Console prompt ``\textgreater{}'' reappears, you can confirm a successful installation by viewing the package help page. In the Console, run:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# type in the RStudio Console  }
-\FunctionTok{library}\NormalTok{(}\StringTok{"midfielddata"}\NormalTok{)}
-\NormalTok{? midfielddata}
-\end{Highlighting}
-\end{Shaded}
-
-If the installation is successful, the code chunk above should produce a view of the help page as shown here. If this step is successful, you can go on to the next step.
-
 \hypertarget{install-midfieldr}{%
-\section*{Install midfieldr}\label{install-midfieldr}}
-\addcontentsline{toc}{section}{Install midfieldr}
+\section{Install midfieldr}\label{install-midfieldr}}
 
 Earlier we installed the remotes package. To access its functions we use the \texttt{library()} function.
 
@@ -425,11 +389,54 @@ You can confirm a successful installation by viewing the package help page. In t
 
 If the installation is successful, the code chunk above should produce a view of the help page as shown here.
 
-\hypertarget{create-a-project}{%
-\section*{Create a project}\label{create-a-project}}
-\addcontentsline{toc}{section}{Create a project}
+\hypertarget{install-midfielddata}{%
+\section{Install midfielddata}\label{install-midfielddata}}
+
+Because of its size, the data package is stored in a \texttt{drat} repository instead of CRAN. Installation takes time; please be patient and wait for the Console prompt ``\textgreater{}'' to reappear.
+
+Type (or copy and paste) the following lines in the RStudio Console.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# type in the RStudio Console  }
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"midfielddata"}\NormalTok{, }
+                 \AttributeTok{repos =} \StringTok{"https://MIDFIELDR.github.io/drat/"}\NormalTok{, }
+                 \AttributeTok{type =} \StringTok{"source"}\NormalTok{)}
+\CommentTok{\# be patient}
+\end{Highlighting}
+\end{Shaded}
+
+Once the Console prompt ``\textgreater{}'' reappears, you can confirm a successful installation by viewing the package help page. In the Console, run:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# type in the RStudio Console  }
+\FunctionTok{library}\NormalTok{(}\StringTok{"midfielddata"}\NormalTok{)}
+\NormalTok{? midfielddata}
+\end{Highlighting}
+\end{Shaded}
+
+If the installation is successful, the code chunk above should produce a view of the help page as shown here.
+
+If this step is successful, please continue your homework by completing:
+
+\begin{itemize}
+\tightlist
+\item
+  3.1 \protect\hyperlink{create-a-project}{Create a project}\\
+\item
+  3.2 \protect\hyperlink{add-some-folders}{Add some folders}
+\end{itemize}
+
+\protect\hyperlink{install-everything}{▲ top of page}
+
+\hypertarget{setup-project}{%
+\chapter{Set up a project}\label{setup-project}}
 
 To begin any project, we create an RStudio \emph{Project} file and directory. You can recognize an R project file by its \emph{.Rproj} suffix.
+
+\hypertarget{create-a-project}{%
+\section{Create a project}\label{create-a-project}}
 
 If you prefer your instructions with commentary,
 
@@ -464,17 +471,31 @@ In the dialog box that appears,
 Whenever you work with the workshop materials, launch the \texttt{workshop.Rproj} file (using the name you actually used) to start the session.
 
 \hypertarget{add-some-folders}{%
-\section*{Add some folders}\label{add-some-folders}}
-\addcontentsline{toc}{section}{Add some folders}
+\section{Add some folders}\label{add-some-folders}}
 
 While file organization is a matter of personal preference, we ask that you use the directory structure shown here for your work in the workshop. Assuming we called our project \texttt{workshop}, the minimal directory structure has three folders in it plus the \texttt{.Rproj} file at the top level.
 
-  \texttt{workshop\textbackslash{}}\\
-   ├─ \texttt{data\textbackslash{}}\\
-   ├─ \texttt{results\textbackslash{}}\\
-   ├─ \texttt{scripts\textbackslash{}}\\
-   └─ \texttt{workshop.Rproj}\\
- 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textbackslash{}workshop}
+\NormalTok{    \textbackslash{}data}
+\NormalTok{    \textbackslash{}results}
+\NormalTok{    \textbackslash{}scripts}
+\NormalTok{    workshop.Rproj}
+\end{Highlighting}
+\end{Shaded}
+
+We use the folders as follows:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{data} data files
+\item
+  \texttt{results} finished graphs and tabulated data formatted for display\\
+\item
+  \texttt{scripts} R scripts that operate on data to produce results
+\end{itemize}
 
 If you prefer your instructions with commentary,
 
@@ -494,119 +515,234 @@ If you prefer basic written instructions,
   or you can use the \emph{New Folder} button in the Files pane
 \end{itemize}
 
-We use the folders as follows:
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{data} for data files
-\item
-  \texttt{figures} for finished data displays\\
-\item
-  \texttt{scripts} for R scripts that operate on data to produce results
-\end{itemize}
-
 You finished your homework!
 
-\protect\hyperlink{install-everything}{▲ top of page}
+\protect\hyperlink{setup-project}{▲ top of page}
 
-\hypertarget{about-R}{%
-\chapter{About R}\label{about-R}}
+\hypertarget{materials}{%
+\chapter{Workshop materials}\label{materials}}
 
-\hypertarget{features}{%
-\section*{Features}\label{features}}
-\addcontentsline{toc}{section}{Features}
+\hypertarget{stuff}{%
+\section{Stuff}\label{stuff}}
+
+\hypertarget{more-stuff}{%
+\section{More stuff}\label{more-stuff}}
+
+\protect\hyperlink{materials}{▲ top of page}
+
+\hypertarget{stories}{%
+\chapter{Exploring the data structure}\label{stories}}
+
+\hypertarget{stuff-1}{%
+\section{Stuff}\label{stuff-1}}
+
+\hypertarget{more-stuff-1}{%
+\section{More stuff}\label{more-stuff-1}}
+
+\protect\hyperlink{stories}{▲ top of page}
+
+\hypertarget{work-with-R}{%
+\chapter{Working with R}\label{work-with-R}}
 
 R is an open source language and environment for statistical computing and graphics \citep{R-base}, ranked by IEEE in 2020 as the 6th most popular programming language (Python, Java, and C are the top three) \citep{Cass:2020}. If you are new to R, some of its best features, paraphrasing Wickham \citeyearpar{wickham2014advanced}, are:
 
 \begin{itemize}
 \tightlist
 \item
-  R is free, open source, and available on every major platform, making it easy for others to replicate your work.
+  R is free, open source, and available on every major platform.
 \item
-  More than 17,500 open-source R packages are available (Jun 2021). Many are cutting-edge tools.
+  R packages provide effective tools for data analysis and visualization.
 \item
-  R packages provide deep-seated support for data analysis, e.g., missing values, data frames, and subsetting.
+  More than 17,750 open-source R packages are available (Jun 2021). Many are cutting-edge tools.
 \end{itemize}
 
 RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control \citep{2016rstudio}.
 
-\hypertarget{data-visualization}{%
-\section*{Data visualization}\label{data-visualization}}
-\addcontentsline{toc}{section}{Data visualization}
+\hypertarget{prerequisites}{%
+\section{Prerequisites}\label{prerequisites}}
 
-Charles Kostelnick \citeyearpar{kostelnick2007} writes, ``The array of design options in software like Microsoft Excel and PowerPoint creates the \textbf{illusion} of flexibility. \ldots{} So marvelously malleable are these graphical effects---but for whom and to what end? Paradoxically, then, even as the technology for visualizing data has become more sophisticated, it does not necessarily engender rhetorically sensitive design.''
-
-The graphics tools in R provide the means to control every pixel in the service of ``rhetorically sensitive design.'' Designers can craft their visual arguments to balance logos, ethos, pathos, and kairos as appropriate for a given audience in a given rhetorical situation.
-
-\href{https://www.r-graph-gallery.com/}{{[}For a gallery of R graphics{]}}
-
-\protect\hyperlink{about-R}{▲ top of page}
-
-\hypertarget{materials}{%
-\chapter{Workshop materials}\label{materials}}
+Before proceeding, you should have completed
 
 \begin{itemize}
 \tightlist
 \item
-  stuff
+  \protect\hyperlink{install-everything}{Install everything}\\
 \item
-  more stuff
+  \protect\hyperlink{setup-project}{Set up a project}\\
+\item
+  Launched your workshop project---\texttt{workshop.Rproj} or other name that you selected---to start the R session\\
+\item
+  We suggest you start a new R script for each tutorial and save it to the \texttt{scripts} directory. For example, at the end of the workshop, your scripts directory might contain the following files:
 \end{itemize}
 
-\protect\hyperlink{materials}{▲ top of page}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{        \textbackslash{}scripts    }
+\NormalTok{            \textbackslash{}R}\SpecialCharTok{{-}}\NormalTok{basics.R    }
+\NormalTok{            \textbackslash{}getting}\SpecialCharTok{{-}}\NormalTok{started.R    }
+\NormalTok{            \textbackslash{}case}\SpecialCharTok{{-}}\NormalTok{study}\SpecialCharTok{{-}}\NormalTok{programs.R    }
+\NormalTok{            \textbackslash{}case}\SpecialCharTok{{-}}\NormalTok{study}\SpecialCharTok{{-}}\NormalTok{students.R     }
+\NormalTok{            etc.  }
+\end{Highlighting}
+\end{Shaded}
 
-\hypertarget{stories}{%
-\chapter{Stories in the data}\label{stories}}
+\hypertarget{new-to-r}{%
+\section{New to R?}\label{new-to-r}}
+
+\protect\hyperlink{prerequisites}{Prerequisites} should be completed before proceeding. By the end of the workshop, our R beginners will have made progress on two or possibly three tutorials:
 
 \begin{itemize}
 \tightlist
 \item
-  stuff
+  \protect\hyperlink{r-basics}{R basics} An introduction to R, generally less than an hour.
 \item
-  more stuff
+  \href{https://midfieldr.github.io/midfieldr/articles/art-000-getting-started.html}{Getting started}: An introduction to the MIDFIELD practice data tables.
+\item
+  \href{https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html}{Case study programs} Construct a data frame of program CIP codes and program names for four engineering programs (Civil, Electrical, Industrial, and Mechanical)
 \end{itemize}
 
-\protect\hyperlink{stories}{▲ top of page}
+If you complete these tutorials and there is still time remaining, please consider moving on the to tutorials listed in the \protect\hyperlink{after-the-workshop}{After the workshop} section.
 
-\hypertarget{start-with-R}{%
-\chapter{Starting with R}\label{start-with-R}}
+\hypertarget{familiar-with-r}{%
+\section{Familiar with R?}\label{familiar-with-r}}
+
+\protect\hyperlink{prerequisites}{Prerequisites} should be completed before proceeding. By the end of the workshop, our more experienced R users will have made substantive progress on two or possibly three tutorials:
 
 \begin{itemize}
 \tightlist
 \item
-  stuff
+  \href{https://midfieldr.github.io/midfieldr/articles/art-000-getting-started.html}{Getting started}: An introduction to the MIDFIELD practice data tables\\
 \item
-  more stuff
+  \href{https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html}{Case study programs} Construct a data frame of program CIP codes and program names for four engineering programs (Civil, Electrical, Industrial, and Mechanical)
+\item
+  \href{https://midfieldr.github.io/midfieldr/articles/art-120-case-study-students.html}{Case study students} Develop a data frame of the case study students who pass the data sufficiency criterion.
 \end{itemize}
+
+If you complete these tutorials and there is still time remaining, please consider moving on the to tutorials listed in the \protect\hyperlink{after-the-workshop}{After the workshop} section.
+
+\hypertarget{after-the-workshop}{%
+\section{After the workshop}\label{after-the-workshop}}
+
+At his point, the learning is self-directed. Choose the skills you want to continue working on. We have a set of tutorials for
+
+\begin{itemize}
+\tightlist
+\item
+  \protect\hyperlink{developing-r-skills}{Developing R skills}
+\item
+  \protect\hyperlink{continuing-the-case-study}{Continuing the case study}
+\item
+  \protect\hyperlink{exploring-midfieldr-functions}{Exploring midfieldr functions}
+\end{itemize}
+
+\hypertarget{developing-r-skills}{%
+\subsection{Developing R skills}\label{developing-r-skills}}
+
+The basic skills tutorials take about 50 minutes each.
+
+\begin{itemize}
+\tightlist
+\item
+  \protect\hyperlink{r-basics}{R basics}
+\item
+  \protect\hyperlink{graph-basics}{Graph basics}\\
+\item
+  \protect\hyperlink{data-basics}{Data basics}
+\end{itemize}
+
+\hypertarget{continuing-the-case-study}{%
+\subsection{Continuing the case study}\label{continuing-the-case-study}}
+
+The case study is a quick tour of a typical workflow using student unit record data. This is a ``big picture'' development---functions are used without detailed explanations or development so that we can get to the results with as little distraction as possible. Anyone wanting more detail will find it in the detailed vignettes (links below in \protect\hyperlink{exploring-midfieldr-functions}{Exploring midfieldr functions}).
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html}{Case study programs}
+\item
+  \href{https://midfieldr.github.io/midfieldr/articles/art-120-case-study-students.html}{Case study students}
+\item
+  \href{https://midfieldr.github.io/midfieldr/articles/art-130-case-study-stickiness.html}{Case study stickiness}
+\item
+  \href{https://midfieldr.github.io/midfieldr/articles/art-140-case-study-grad-rate.html}{Case study graduation rate}
+\end{itemize}
+
+\hypertarget{exploring-midfieldr-functions}{%
+\subsection{Exploring midfieldr functions}\label{exploring-midfieldr-functions}}
+
+Deep dive into the midfieldr functionality. The work flow follows the same general pattern as the quicker case study, but pauses to explore each function in more detail, exploring the arguments and strategies for use. In general, each tutorial is self-contained so you may enter at almost any point.
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://midfieldr.github.io/midfieldr/articles/art-010-program-codes.html}{Program codes and names} Practice strategies of searching \texttt{cip} for programs we want to study.
+\item
+  \href{https://midfieldr.github.io/midfieldr/articles/art-015-subsetting-midfield-data.html}{Subsetting MIDFIELD data} Use programs codes to subset the MIDFIELD data tables.
+\item
+  \href{https://midfieldr.github.io/midfieldr/articles/art-020-data-sufficiency.html}{Data sufficiency} What it is and how it is applied to student unit-record (SUR) data.
+\item
+  \href{https://midfieldr.github.io/midfieldr/articles/art-030-timely-completion.html}{Timely completion} What it is and how it is applied to SUR data.
+\item
+  \href{https://midfieldr.github.io/midfieldr/articles/art-040-fye-programs.html}{FYE programs} What they are and how they are accommodated with SUR data.
+\item
+  \href{https://midfieldr.github.io/midfieldr/articles/art-050-multiway-graphs.html}{Multiway graphs} How to graph and interpret a common data structure encountered when working with SUR data.
+\item
+  \href{https://midfieldr.github.io/midfieldr/articles/art-060-tabulating-data.html}{Tabulating data} How to tabulate multiway data for publication.
+\end{itemize}
+
+\hypertarget{r-basics}{%
+\section{R basics}\label{r-basics}}
+
+text
+
+\hypertarget{style-guide}{%
+\subsection{Style guide}\label{style-guide}}
+
+\hypertarget{everything-in-r-has-a-name}{%
+\subsection{Everything in R has a name}\label{everything-in-r-has-a-name}}
+
+\hypertarget{everything-in-r-is-an-object}{%
+\subsection{Everything in R is an object}\label{everything-in-r-is-an-object}}
+
+\hypertarget{use-functions-to-do-things}{%
+\subsection{Use functions to do things}\label{use-functions-to-do-things}}
+
+\hypertarget{r-functions-come-in-packages}{%
+\subsection{R functions come in packages}\label{r-functions-come-in-packages}}
+
+\hypertarget{r-objects-have-class}{%
+\subsection{R objects have class}\label{r-objects-have-class}}
+
+\hypertarget{r-objects-have-structure}{%
+\subsection{R objects have structure}\label{r-objects-have-structure}}
+
+\hypertarget{r-only-does-what-you-tell-it}{%
+\subsection{R only does what you tell it}\label{r-only-does-what-you-tell-it}}
+
+\hypertarget{keyboard-shortcuts}{%
+\subsection{Keyboard shortcuts}\label{keyboard-shortcuts}}
+
+\hypertarget{whats-next}{%
+\subsection{What's next?}\label{whats-next}}
+
+\hypertarget{graph-basics}{%
+\section{Graph basics}\label{graph-basics}}
+
+\hypertarget{data-basics}{%
+\section{Data basics}\label{data-basics}}
 
 \protect\hyperlink{start-with-R}{▲ top of page}
 
 \hypertarget{display-design}{%
 \chapter{Designing effective displays}\label{display-design}}
 
-\begin{itemize}
-\tightlist
-\item
-  stuff
-\item
-  more stuff
-\end{itemize}
+\hypertarget{stuff-2}{%
+\section{Stuff}\label{stuff-2}}
+
+\hypertarget{more-stuff-2}{%
+\section{More stuff}\label{more-stuff-2}}
 
 \protect\hyperlink{display-design}{▲ top of page}
-
-\hypertarget{start-with-midfieldr}{%
-\chapter{Starting with midfieldr}\label{start-with-midfieldr}}
-
-\begin{itemize}
-\tightlist
-\item
-  stuff
-\item
-  more stuff
-\end{itemize}
-
-\protect\hyperlink{start-with-midfieldr}{▲ top of page}
 
   \bibliography{book.bib,packages.bib,references.bib}
 
