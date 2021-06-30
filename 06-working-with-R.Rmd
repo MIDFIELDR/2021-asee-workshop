@@ -42,6 +42,25 @@ R is an open source language and environment for statistical computing and graph
 
 RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control  [@2016rstudio]. 
 
+## Prerequisites
+
+Before proceeding, you should have completed
+
+- [Install everything]    
+- [Set up a project]    
+- Launched your workshop project---`workshop.Rproj` or other name that you selected---to start the R session     
+- We suggest you start a new R script for each tutorial and save it to the `scripts` directory. For example, at the end of the workshop, your scripts directory might contain the following files:     
+
+``` r
+        \scripts    
+            \R-basics.R    
+            \getting-started.R    
+            \case-study-programs.R    
+            \case-study-students.R     
+            etc.  
+```
+
+
 
 
 
@@ -49,19 +68,14 @@ RStudio, an integrated development environment (IDE) for R, includes a console, 
 
 ## New to R? 
 
-This is the workshop tutorial entry point for the R beginner. Before proceeding, you should have completed
+[Prerequisites] should be completed before proceeding. By the end of the workshop, our R beginners will have made progress on two or possibly three tutorials:  
 
-- [Install everything]
-- [Set up a project]
+- [R basics] An introduction to R, generally less than an hour. 
+- [Getting started](https://midfieldr.github.io/midfieldr/articles/art-000-getting-started.html): An introduction to the MIDFIELD practice data tables. 
+- [Case study programs](https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html) Construct a data frame of program CIP codes and program names for four engineering programs (Civil, Electrical, Industrial, and Mechanical) 
 
 
-Launched your workshop project (`workshop.Rproj` or the name you used) to start the R session 
-
-By the end of the workshop, our R beginners will have made substantive progress on three tutorials: 
-
-- [R basics] A short introduction to R (in the next section) 
-- [Getting started](https://midfieldr.github.io/midfieldr/articles/art-00-midfield-data.html): An introduction to the MIDFIELD practice data tables  
-- [Multiway graphs and tables](https://midfieldr.github.io/midfieldr/articles/art-01-multiway.html):  Practice working with a data structure commonly encountered when preparing graphs and tables.  
+If you complete these tutorials and there is still time remaining, please consider moving on the to tutorials listed in the [After the workshop] section. 
 
 
 
@@ -76,32 +90,68 @@ By the end of the workshop, our R beginners will have made substantive progress 
 
 ## Familiar with R? 
 
-This is the entry point for participants who are familiar with R. Reminder: You should have completed
+[Prerequisites] should be completed before proceeding. By the end of the workshop, our more experienced R users will have made substantive progress on two or possibly three tutorials: 
 
-- [Install everything]
-- [Set up a project]
+- [Getting started](https://midfieldr.github.io/midfieldr/articles/art-000-getting-started.html): An introduction to the MIDFIELD practice data tables  
+- [Case study programs](https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html) Construct a data frame of program CIP codes and program names for four engineering programs (Civil, Electrical, Industrial, and Mechanical) 
+- [Case study students](https://midfieldr.github.io/midfieldr/articles/art-120-case-study-students.html) Develop a data frame of the case study students who pass the data sufficiency criterion. 
 
-By the end of the workshop, our more experienced R users will have made substantive progress on three tutorials: 
 
-- [Getting started](https://midfieldr.github.io/midfieldr/articles/art-00-midfield-data.html): An introduction to the MIDFIELD practice data tables  
-- [Multiway graphs and tables](https://midfieldr.github.io/midfieldr/articles/art-01-multiway.html):  Practice working with a data structure commonly encountered when preparing graphs and tables.
-- [Program codes](https://midfieldr.github.io/midfieldr/articles/art-02-program-codes.html): Explore strategies of searching CIP codes for programs you want to study. 
 
+If you complete these tutorials and there is still time remaining, please consider moving on the to tutorials listed in the [After the workshop] section. 
+ 
+ 
+ 
+ 
+ 
 ## After the workshop 
 
-For additional basic skills in R: 
+At his point, the learning is self-directed. Choose the skills you want to continue working on. We have a set of tutorials for 
 
-- [Graph basics] 
-- [Data basics]  
+- [Developing R skills] 
+- [Continuing the case study]
+- [Exploring midfieldr functions]
 
-To continue the midfieldr vignette sequence:  
 
-- [Case selection](https://midfieldr.github.io/midfieldr/articles/art-03-case-selection.html): Select and name a specific set of programs to explore. 
-- [Data sufficiency](https://midfieldr.github.io/midfieldr/articles/art-04-data-sufficiency.html): Limited a study to students whose timely completion term is within the range of data provided by their institution.  
-- [Timely completion](https://midfieldr.github.io/midfieldr/articles/art-06-timely-completion.html): Graduates completing their program later than their timely completion term are grouped with non-graduates for purposes of computing a persistence metric.  
-- [Stickiness](https://midfieldr.github.io/midfieldr/articles/art-05-stickiness.html): Compute longitudinal “stickiness”, the ratio of the number of students graduating in a program to the number of students ever enrolled in that program.  
-- [FYE programs](https://midfieldr.github.io/midfieldr/articles/art-07-fye-programs.html): Predict the engineering program the FYE student would have declared had they not been required to enroll in FYE.  
-- [Graduation rate](https://midfieldr.github.io/midfieldr/articles/art-08-graduation-rate.html): Compute graduation rate with a more inclusive definition.  
+
+
+
+### Developing R skills
+
+The basic skills tutorials take about 50 minutes each. 
+
+- [R basics] 
+- [Graph basics]  
+- [Data basics]   
+
+
+
+
+
+### Continuing the case study
+
+The case study is a quick tour of a typical workflow using student unit record data. This is a "big picture" development---functions are used without detailed explanations or development so that we can get to the results with as little distraction as possible. Anyone wanting more detail will find it in the detailed vignettes (links below in [Exploring midfieldr functions]).  
+
+- [Case study programs](https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html)
+- [Case study students](https://midfieldr.github.io/midfieldr/articles/art-120-case-study-students.html) 
+- [Case study stickiness](https://midfieldr.github.io/midfieldr/articles/art-130-case-study-stickiness.html) 
+- [Case study graduation rate](https://midfieldr.github.io/midfieldr/articles/art-140-case-study-grad-rate.html)
+
+
+
+
+
+### Exploring midfieldr functions
+
+Deep dive into the midfieldr functionality. The work flow follows the same general pattern as the quicker case study, but pauses to explore each function in more detail, exploring the arguments and strategies for use. In general, each tutorial is self-contained so you may enter at almost any point. 
+
+- [Program codes and names](https://midfieldr.github.io/midfieldr/articles/art-010-program-codes.html) Practice strategies of searching `cip` for programs we want to study. 
+- [Subsetting MIDFIELD data](https://midfieldr.github.io/midfieldr/articles/art-015-subsetting-midfield-data.html) Use programs codes to subset the MIDFIELD data tables. 
+- [Data sufficiency](https://midfieldr.github.io/midfieldr/articles/art-020-data-sufficiency.html) What it is and how it is applied to student unit-record (SUR) data. 
+- [Timely completion](https://midfieldr.github.io/midfieldr/articles/art-030-timely-completion.html) What it is and how it is applied to SUR data. 
+- [FYE programs](https://midfieldr.github.io/midfieldr/articles/art-040-fye-programs.html) What they are and how they are accommodated with SUR data. 
+- [Multiway graphs](https://midfieldr.github.io/midfieldr/articles/art-050-multiway-graphs.html) How to graph and interpret a common data structure encountered when working with SUR data. 
+- [Tabulating data](https://midfieldr.github.io/midfieldr/articles/art-060-tabulating-data.html) How to tabulate multiway data for publication. 
 
 
 

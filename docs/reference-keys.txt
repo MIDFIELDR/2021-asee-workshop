@@ -71,3 +71,15 @@ add-some-folders-1
 setup-project
 start-the-midfieldr-vignette-sequence
 familiar-with-r
+r-skills-development
+case-study
+midfieldr-functionality
+prerequisites
+continue-working-on-basic-r-skills
+continue-the-case-study
+detailed-exploration-of-midfieldr-functions
+explore-midfieldr-functions
+develop-r-skills
+developing-r-skills
+continuing-the-case-study
+exploring-midfieldr-functions

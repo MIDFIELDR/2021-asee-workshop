@@ -55,6 +55,70 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
@@ -129,24 +193,30 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6" data-path="work-with-R.html"><a href="work-with-R.html"><i class="fa fa-check"></i><b>6</b> Working with R</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="work-with-R.html"><a href="work-with-R.html#new-to-r"><i class="fa fa-check"></i><b>6.1</b> New to R?</a></li>
-<li class="chapter" data-level="6.2" data-path="work-with-R.html"><a href="work-with-R.html#familiar-with-r"><i class="fa fa-check"></i><b>6.2</b> Familiar with R?</a></li>
-<li class="chapter" data-level="6.3" data-path="work-with-R.html"><a href="work-with-R.html#after-the-workshop"><i class="fa fa-check"></i><b>6.3</b> After the workshop</a></li>
-<li class="chapter" data-level="6.4" data-path="work-with-R.html"><a href="work-with-R.html#r-basics"><i class="fa fa-check"></i><b>6.4</b> R basics</a>
+<li class="chapter" data-level="6.1" data-path="work-with-R.html"><a href="work-with-R.html#prerequisites"><i class="fa fa-check"></i><b>6.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="6.2" data-path="work-with-R.html"><a href="work-with-R.html#new-to-r"><i class="fa fa-check"></i><b>6.2</b> New to R?</a></li>
+<li class="chapter" data-level="6.3" data-path="work-with-R.html"><a href="work-with-R.html#familiar-with-r"><i class="fa fa-check"></i><b>6.3</b> Familiar with R?</a></li>
+<li class="chapter" data-level="6.4" data-path="work-with-R.html"><a href="work-with-R.html#after-the-workshop"><i class="fa fa-check"></i><b>6.4</b> After the workshop</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="work-with-R.html"><a href="work-with-R.html#style-guide"><i class="fa fa-check"></i><b>6.4.1</b> Style guide</a></li>
-<li class="chapter" data-level="6.4.2" data-path="work-with-R.html"><a href="work-with-R.html#everything-in-r-has-a-name"><i class="fa fa-check"></i><b>6.4.2</b> Everything in R has a name</a></li>
-<li class="chapter" data-level="6.4.3" data-path="work-with-R.html"><a href="work-with-R.html#everything-in-r-is-an-object"><i class="fa fa-check"></i><b>6.4.3</b> Everything in R is an object</a></li>
-<li class="chapter" data-level="6.4.4" data-path="work-with-R.html"><a href="work-with-R.html#use-functions-to-do-things"><i class="fa fa-check"></i><b>6.4.4</b> Use functions to do things</a></li>
-<li class="chapter" data-level="6.4.5" data-path="work-with-R.html"><a href="work-with-R.html#r-functions-come-in-packages"><i class="fa fa-check"></i><b>6.4.5</b> R functions come in packages</a></li>
-<li class="chapter" data-level="6.4.6" data-path="work-with-R.html"><a href="work-with-R.html#r-objects-have-class"><i class="fa fa-check"></i><b>6.4.6</b> R objects have class</a></li>
-<li class="chapter" data-level="6.4.7" data-path="work-with-R.html"><a href="work-with-R.html#r-objects-have-structure"><i class="fa fa-check"></i><b>6.4.7</b> R objects have structure</a></li>
-<li class="chapter" data-level="6.4.8" data-path="work-with-R.html"><a href="work-with-R.html#r-only-does-what-you-tell-it"><i class="fa fa-check"></i><b>6.4.8</b> R only does what you tell it</a></li>
-<li class="chapter" data-level="6.4.9" data-path="work-with-R.html"><a href="work-with-R.html#keyboard-shortcuts"><i class="fa fa-check"></i><b>6.4.9</b> Keyboard shortcuts</a></li>
-<li class="chapter" data-level="6.4.10" data-path="work-with-R.html"><a href="work-with-R.html#whats-next"><i class="fa fa-check"></i><b>6.4.10</b> What’s next?</a></li>
+<li class="chapter" data-level="6.4.1" data-path="work-with-R.html"><a href="work-with-R.html#developing-r-skills"><i class="fa fa-check"></i><b>6.4.1</b> Developing R skills</a></li>
+<li class="chapter" data-level="6.4.2" data-path="work-with-R.html"><a href="work-with-R.html#continuing-the-case-study"><i class="fa fa-check"></i><b>6.4.2</b> Continuing the case study</a></li>
+<li class="chapter" data-level="6.4.3" data-path="work-with-R.html"><a href="work-with-R.html#exploring-midfieldr-functions"><i class="fa fa-check"></i><b>6.4.3</b> Exploring midfieldr functions</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="work-with-R.html"><a href="work-with-R.html#graph-basics"><i class="fa fa-check"></i><b>6.5</b> Graph basics</a></li>
-<li class="chapter" data-level="6.6" data-path="work-with-R.html"><a href="work-with-R.html#data-basics"><i class="fa fa-check"></i><b>6.6</b> Data basics</a></li>
+<li class="chapter" data-level="6.5" data-path="work-with-R.html"><a href="work-with-R.html#r-basics"><i class="fa fa-check"></i><b>6.5</b> R basics</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="work-with-R.html"><a href="work-with-R.html#style-guide"><i class="fa fa-check"></i><b>6.5.1</b> Style guide</a></li>
+<li class="chapter" data-level="6.5.2" data-path="work-with-R.html"><a href="work-with-R.html#everything-in-r-has-a-name"><i class="fa fa-check"></i><b>6.5.2</b> Everything in R has a name</a></li>
+<li class="chapter" data-level="6.5.3" data-path="work-with-R.html"><a href="work-with-R.html#everything-in-r-is-an-object"><i class="fa fa-check"></i><b>6.5.3</b> Everything in R is an object</a></li>
+<li class="chapter" data-level="6.5.4" data-path="work-with-R.html"><a href="work-with-R.html#use-functions-to-do-things"><i class="fa fa-check"></i><b>6.5.4</b> Use functions to do things</a></li>
+<li class="chapter" data-level="6.5.5" data-path="work-with-R.html"><a href="work-with-R.html#r-functions-come-in-packages"><i class="fa fa-check"></i><b>6.5.5</b> R functions come in packages</a></li>
+<li class="chapter" data-level="6.5.6" data-path="work-with-R.html"><a href="work-with-R.html#r-objects-have-class"><i class="fa fa-check"></i><b>6.5.6</b> R objects have class</a></li>
+<li class="chapter" data-level="6.5.7" data-path="work-with-R.html"><a href="work-with-R.html#r-objects-have-structure"><i class="fa fa-check"></i><b>6.5.7</b> R objects have structure</a></li>
+<li class="chapter" data-level="6.5.8" data-path="work-with-R.html"><a href="work-with-R.html#r-only-does-what-you-tell-it"><i class="fa fa-check"></i><b>6.5.8</b> R only does what you tell it</a></li>
+<li class="chapter" data-level="6.5.9" data-path="work-with-R.html"><a href="work-with-R.html#keyboard-shortcuts"><i class="fa fa-check"></i><b>6.5.9</b> Keyboard shortcuts</a></li>
+<li class="chapter" data-level="6.5.10" data-path="work-with-R.html"><a href="work-with-R.html#whats-next"><i class="fa fa-check"></i><b>6.5.10</b> What’s next?</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="work-with-R.html"><a href="work-with-R.html#graph-basics"><i class="fa fa-check"></i><b>6.6</b> Graph basics</a></li>
+<li class="chapter" data-level="6.7" data-path="work-with-R.html"><a href="work-with-R.html#data-basics"><i class="fa fa-check"></i><b>6.7</b> Data basics</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="display-design.html"><a href="display-design.html"><i class="fa fa-check"></i><b>7</b> Designing effective displays</a>
 <ul>
@@ -183,97 +253,127 @@ div.csl-indent {
 <li>More than 17,750 open-source R packages are available (Jun 2021). Many are cutting-edge tools.</li>
 </ul>
 <p>RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control <span class="citation"><a href="references.html#ref-2016rstudio" role="doc-biblioref">[4]</a></span>.</p>
-<div id="new-to-r" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> New to R?</h2>
-<p>This is the workshop tutorial entry point for the R beginner. Before proceeding, you should have completed</p>
+<div id="prerequisites" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Prerequisites</h2>
+<p>Before proceeding, you should have completed</p>
 <ul>
-<li><a href="install-everything.html#install-everything">Install everything</a></li>
-<li><a href="setup-project.html#setup-project">Set up a project</a></li>
-</ul>
-<p>Launched your workshop project (<code>workshop.Rproj</code> or the name you used) to start the R session</p>
-<p>By the end of the workshop, our R beginners will have made substantive progress on three tutorials:</p>
-<ul>
-<li><a href="work-with-R.html#r-basics">R basics</a> A short introduction to R (in the next section)</li>
-<li><a href="https://midfieldr.github.io/midfieldr/articles/art-00-midfield-data.html">Getting started</a>: An introduction to the MIDFIELD practice data tables<br />
+<li><a href="install-everything.html#install-everything">Install everything</a><br />
 </li>
-<li><a href="https://midfieldr.github.io/midfieldr/articles/art-01-multiway.html">Multiway graphs and tables</a>: Practice working with a data structure commonly encountered when preparing graphs and tables.</li>
-</ul>
-</div>
-<div id="familiar-with-r" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Familiar with R?</h2>
-<p>This is the entry point for participants who are familiar with R. Reminder: You should have completed</p>
-<ul>
-<li><a href="install-everything.html#install-everything">Install everything</a></li>
-<li><a href="setup-project.html#setup-project">Set up a project</a></li>
-</ul>
-<p>By the end of the workshop, our more experienced R users will have made substantive progress on three tutorials:</p>
-<ul>
-<li><a href="https://midfieldr.github.io/midfieldr/articles/art-00-midfield-data.html">Getting started</a>: An introduction to the MIDFIELD practice data tables<br />
+<li><a href="setup-project.html#setup-project">Set up a project</a><br />
 </li>
-<li><a href="https://midfieldr.github.io/midfieldr/articles/art-01-multiway.html">Multiway graphs and tables</a>: Practice working with a data structure commonly encountered when preparing graphs and tables.</li>
-<li><a href="https://midfieldr.github.io/midfieldr/articles/art-02-program-codes.html">Program codes</a>: Explore strategies of searching CIP codes for programs you want to study.</li>
+<li>Launched your workshop project—<code>workshop.Rproj</code> or other name that you selected—to start the R session<br />
+</li>
+<li>We suggest you start a new R script for each tutorial and save it to the <code>scripts</code> directory. For example, at the end of the workshop, your scripts directory might contain the following files:</li>
 </ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="work-with-R.html#cb1-1" aria-hidden="true" tabindex="-1"></a>        \scripts    </span>
+<span id="cb1-2"><a href="work-with-R.html#cb1-2" aria-hidden="true" tabindex="-1"></a>            \R<span class="sc">-</span>basics.R    </span>
+<span id="cb1-3"><a href="work-with-R.html#cb1-3" aria-hidden="true" tabindex="-1"></a>            \getting<span class="sc">-</span>started.R    </span>
+<span id="cb1-4"><a href="work-with-R.html#cb1-4" aria-hidden="true" tabindex="-1"></a>            \case<span class="sc">-</span>study<span class="sc">-</span>programs.R    </span>
+<span id="cb1-5"><a href="work-with-R.html#cb1-5" aria-hidden="true" tabindex="-1"></a>            \case<span class="sc">-</span>study<span class="sc">-</span>students.R     </span>
+<span id="cb1-6"><a href="work-with-R.html#cb1-6" aria-hidden="true" tabindex="-1"></a>            etc.  </span></code></pre></div>
 </div>
-<div id="after-the-workshop" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> After the workshop</h2>
-<p>For additional basic skills in R:</p>
+<div id="new-to-r" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> New to R?</h2>
+<p><a href="work-with-R.html#prerequisites">Prerequisites</a> should be completed before proceeding. By the end of the workshop, our R beginners will have made progress on two or possibly three tutorials:</p>
 <ul>
-<li><a href="work-with-R.html#graph-basics">Graph basics</a></li>
+<li><a href="work-with-R.html#r-basics">R basics</a> An introduction to R, generally less than an hour.</li>
+<li><a href="https://midfieldr.github.io/midfieldr/articles/art-000-getting-started.html">Getting started</a>: An introduction to the MIDFIELD practice data tables.</li>
+<li><a href="https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html">Case study programs</a> Construct a data frame of program CIP codes and program names for four engineering programs (Civil, Electrical, Industrial, and Mechanical)</li>
+</ul>
+<p>If you complete these tutorials and there is still time remaining, please consider moving on the to tutorials listed in the <a href="work-with-R.html#after-the-workshop">After the workshop</a> section.</p>
+</div>
+<div id="familiar-with-r" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Familiar with R?</h2>
+<p><a href="work-with-R.html#prerequisites">Prerequisites</a> should be completed before proceeding. By the end of the workshop, our more experienced R users will have made substantive progress on two or possibly three tutorials:</p>
+<ul>
+<li><a href="https://midfieldr.github.io/midfieldr/articles/art-000-getting-started.html">Getting started</a>: An introduction to the MIDFIELD practice data tables<br />
+</li>
+<li><a href="https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html">Case study programs</a> Construct a data frame of program CIP codes and program names for four engineering programs (Civil, Electrical, Industrial, and Mechanical)</li>
+<li><a href="https://midfieldr.github.io/midfieldr/articles/art-120-case-study-students.html">Case study students</a> Develop a data frame of the case study students who pass the data sufficiency criterion.</li>
+</ul>
+<p>If you complete these tutorials and there is still time remaining, please consider moving on the to tutorials listed in the <a href="work-with-R.html#after-the-workshop">After the workshop</a> section.</p>
+</div>
+<div id="after-the-workshop" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> After the workshop</h2>
+<p>At his point, the learning is self-directed. Choose the skills you want to continue working on. We have a set of tutorials for</p>
+<ul>
+<li><a href="work-with-R.html#developing-r-skills">Developing R skills</a></li>
+<li><a href="work-with-R.html#continuing-the-case-study">Continuing the case study</a></li>
+<li><a href="work-with-R.html#exploring-midfieldr-functions">Exploring midfieldr functions</a></li>
+</ul>
+<div id="developing-r-skills" class="section level3" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Developing R skills</h3>
+<p>The basic skills tutorials take about 50 minutes each.</p>
+<ul>
+<li><a href="work-with-R.html#r-basics">R basics</a></li>
+<li><a href="work-with-R.html#graph-basics">Graph basics</a><br />
+</li>
 <li><a href="work-with-R.html#data-basics">Data basics</a></li>
 </ul>
-<p>To continue the midfieldr vignette sequence:</p>
+</div>
+<div id="continuing-the-case-study" class="section level3" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> Continuing the case study</h3>
+<p>The case study is a quick tour of a typical workflow using student unit record data. This is a “big picture” development—functions are used without detailed explanations or development so that we can get to the results with as little distraction as possible. Anyone wanting more detail will find it in the detailed vignettes (links below in <a href="work-with-R.html#exploring-midfieldr-functions">Exploring midfieldr functions</a>).</p>
 <ul>
-<li><a href="https://midfieldr.github.io/midfieldr/articles/art-03-case-selection.html">Case selection</a>: Select and name a specific set of programs to explore.</li>
-<li><a href="https://midfieldr.github.io/midfieldr/articles/art-04-data-sufficiency.html">Data sufficiency</a>: Limited a study to students whose timely completion term is within the range of data provided by their institution.<br />
-</li>
-<li><a href="https://midfieldr.github.io/midfieldr/articles/art-06-timely-completion.html">Timely completion</a>: Graduates completing their program later than their timely completion term are grouped with non-graduates for purposes of computing a persistence metric.<br />
-</li>
-<li><a href="https://midfieldr.github.io/midfieldr/articles/art-05-stickiness.html">Stickiness</a>: Compute longitudinal “stickiness,” the ratio of the number of students graduating in a program to the number of students ever enrolled in that program.<br />
-</li>
-<li><a href="https://midfieldr.github.io/midfieldr/articles/art-07-fye-programs.html">FYE programs</a>: Predict the engineering program the FYE student would have declared had they not been required to enroll in FYE.<br />
-</li>
-<li><a href="https://midfieldr.github.io/midfieldr/articles/art-08-graduation-rate.html">Graduation rate</a>: Compute graduation rate with a more inclusive definition.</li>
+<li><a href="https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html">Case study programs</a></li>
+<li><a href="https://midfieldr.github.io/midfieldr/articles/art-120-case-study-students.html">Case study students</a></li>
+<li><a href="https://midfieldr.github.io/midfieldr/articles/art-130-case-study-stickiness.html">Case study stickiness</a></li>
+<li><a href="https://midfieldr.github.io/midfieldr/articles/art-140-case-study-grad-rate.html">Case study graduation rate</a></li>
 </ul>
 </div>
-<div id="r-basics" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> R basics</h2>
+<div id="exploring-midfieldr-functions" class="section level3" number="6.4.3">
+<h3><span class="header-section-number">6.4.3</span> Exploring midfieldr functions</h3>
+<p>Deep dive into the midfieldr functionality. The work flow follows the same general pattern as the quicker case study, but pauses to explore each function in more detail, exploring the arguments and strategies for use. In general, each tutorial is self-contained so you may enter at almost any point.</p>
+<ul>
+<li><a href="https://midfieldr.github.io/midfieldr/articles/art-010-program-codes.html">Program codes and names</a> Practice strategies of searching <code>cip</code> for programs we want to study.</li>
+<li><a href="https://midfieldr.github.io/midfieldr/articles/art-015-subsetting-midfield-data.html">Subsetting MIDFIELD data</a> Use programs codes to subset the MIDFIELD data tables.</li>
+<li><a href="https://midfieldr.github.io/midfieldr/articles/art-020-data-sufficiency.html">Data sufficiency</a> What it is and how it is applied to student unit-record (SUR) data.</li>
+<li><a href="https://midfieldr.github.io/midfieldr/articles/art-030-timely-completion.html">Timely completion</a> What it is and how it is applied to SUR data.</li>
+<li><a href="https://midfieldr.github.io/midfieldr/articles/art-040-fye-programs.html">FYE programs</a> What they are and how they are accommodated with SUR data.</li>
+<li><a href="https://midfieldr.github.io/midfieldr/articles/art-050-multiway-graphs.html">Multiway graphs</a> How to graph and interpret a common data structure encountered when working with SUR data.</li>
+<li><a href="https://midfieldr.github.io/midfieldr/articles/art-060-tabulating-data.html">Tabulating data</a> How to tabulate multiway data for publication.</li>
+</ul>
+</div>
+</div>
+<div id="r-basics" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> R basics</h2>
 <p>text</p>
-<div id="style-guide" class="section level3" number="6.4.1">
-<h3><span class="header-section-number">6.4.1</span> Style guide</h3>
+<div id="style-guide" class="section level3" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> Style guide</h3>
 </div>
-<div id="everything-in-r-has-a-name" class="section level3" number="6.4.2">
-<h3><span class="header-section-number">6.4.2</span> Everything in R has a name</h3>
+<div id="everything-in-r-has-a-name" class="section level3" number="6.5.2">
+<h3><span class="header-section-number">6.5.2</span> Everything in R has a name</h3>
 </div>
-<div id="everything-in-r-is-an-object" class="section level3" number="6.4.3">
-<h3><span class="header-section-number">6.4.3</span> Everything in R is an object</h3>
+<div id="everything-in-r-is-an-object" class="section level3" number="6.5.3">
+<h3><span class="header-section-number">6.5.3</span> Everything in R is an object</h3>
 </div>
-<div id="use-functions-to-do-things" class="section level3" number="6.4.4">
-<h3><span class="header-section-number">6.4.4</span> Use functions to do things</h3>
+<div id="use-functions-to-do-things" class="section level3" number="6.5.4">
+<h3><span class="header-section-number">6.5.4</span> Use functions to do things</h3>
 </div>
-<div id="r-functions-come-in-packages" class="section level3" number="6.4.5">
-<h3><span class="header-section-number">6.4.5</span> R functions come in packages</h3>
+<div id="r-functions-come-in-packages" class="section level3" number="6.5.5">
+<h3><span class="header-section-number">6.5.5</span> R functions come in packages</h3>
 </div>
-<div id="r-objects-have-class" class="section level3" number="6.4.6">
-<h3><span class="header-section-number">6.4.6</span> R objects have class</h3>
+<div id="r-objects-have-class" class="section level3" number="6.5.6">
+<h3><span class="header-section-number">6.5.6</span> R objects have class</h3>
 </div>
-<div id="r-objects-have-structure" class="section level3" number="6.4.7">
-<h3><span class="header-section-number">6.4.7</span> R objects have structure</h3>
+<div id="r-objects-have-structure" class="section level3" number="6.5.7">
+<h3><span class="header-section-number">6.5.7</span> R objects have structure</h3>
 </div>
-<div id="r-only-does-what-you-tell-it" class="section level3" number="6.4.8">
-<h3><span class="header-section-number">6.4.8</span> R only does what you tell it</h3>
+<div id="r-only-does-what-you-tell-it" class="section level3" number="6.5.8">
+<h3><span class="header-section-number">6.5.8</span> R only does what you tell it</h3>
 </div>
-<div id="keyboard-shortcuts" class="section level3" number="6.4.9">
-<h3><span class="header-section-number">6.4.9</span> Keyboard shortcuts</h3>
+<div id="keyboard-shortcuts" class="section level3" number="6.5.9">
+<h3><span class="header-section-number">6.5.9</span> Keyboard shortcuts</h3>
 </div>
-<div id="whats-next" class="section level3" number="6.4.10">
-<h3><span class="header-section-number">6.4.10</span> What’s next?</h3>
+<div id="whats-next" class="section level3" number="6.5.10">
+<h3><span class="header-section-number">6.5.10</span> What’s next?</h3>
 </div>
 </div>
-<div id="graph-basics" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Graph basics</h2>
+<div id="graph-basics" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> Graph basics</h2>
 </div>
-<div id="data-basics" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> Data basics</h2>
+<div id="data-basics" class="section level2" number="6.7">
+<h2><span class="header-section-number">6.7</span> Data basics</h2>
 <p><br>
 <a href="#start-with-R">▲ top of page</a></p>
 
