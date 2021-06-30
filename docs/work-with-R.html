@@ -172,16 +172,18 @@ div.csl-indent {
 <li class="chapter" data-level="2" data-path="install-everything.html"><a href="install-everything.html"><i class="fa fa-check"></i><b>2</b> Install everything</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="install-everything.html"><a href="install-everything.html#install-r-and-rstudio"><i class="fa fa-check"></i><b>2.1</b> Install R and RStudio</a></li>
-<li class="chapter" data-level="2.2" data-path="install-everything.html"><a href="install-everything.html#create-a-library-for-packages"><i class="fa fa-check"></i><b>2.2</b> Create a library for packages</a></li>
-<li class="chapter" data-level="2.3" data-path="install-everything.html"><a href="install-everything.html#create-the-.renviron-file"><i class="fa fa-check"></i><b>2.3</b> Create the .Renviron file</a></li>
-<li class="chapter" data-level="2.4" data-path="install-everything.html"><a href="install-everything.html#install-packages-we-need"><i class="fa fa-check"></i><b>2.4</b> Install packages we need</a></li>
-<li class="chapter" data-level="2.5" data-path="install-everything.html"><a href="install-everything.html#install-midfieldr"><i class="fa fa-check"></i><b>2.5</b> Install midfieldr</a></li>
-<li class="chapter" data-level="2.6" data-path="install-everything.html"><a href="install-everything.html#install-midfielddata"><i class="fa fa-check"></i><b>2.6</b> Install midfielddata</a></li>
+<li class="chapter" data-level="2.2" data-path="install-everything.html"><a href="install-everything.html#create-a-project"><i class="fa fa-check"></i><b>2.2</b> Create a project</a></li>
+<li class="chapter" data-level="2.3" data-path="install-everything.html"><a href="install-everything.html#add-some-folders"><i class="fa fa-check"></i><b>2.3</b> Add some folders</a></li>
+<li class="chapter" data-level="2.4" data-path="install-everything.html"><a href="install-everything.html#create-a-library-for-packages"><i class="fa fa-check"></i><b>2.4</b> Create a library for packages</a></li>
+<li class="chapter" data-level="2.5" data-path="install-everything.html"><a href="install-everything.html#create-the-.renviron-file"><i class="fa fa-check"></i><b>2.5</b> Create the .Renviron file</a></li>
+<li class="chapter" data-level="2.6" data-path="install-everything.html"><a href="install-everything.html#install-packages-we-need"><i class="fa fa-check"></i><b>2.6</b> Install packages we need</a></li>
+<li class="chapter" data-level="2.7" data-path="install-everything.html"><a href="install-everything.html#install-midfieldr"><i class="fa fa-check"></i><b>2.7</b> Install midfieldr</a></li>
+<li class="chapter" data-level="2.8" data-path="install-everything.html"><a href="install-everything.html#install-midfielddata"><i class="fa fa-check"></i><b>2.8</b> Install midfielddata</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="setup-project.html"><a href="setup-project.html"><i class="fa fa-check"></i><b>3</b> Set up a project</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="setup-project.html"><a href="setup-project.html#create-a-project"><i class="fa fa-check"></i><b>3.1</b> Create a project</a></li>
-<li class="chapter" data-level="3.2" data-path="setup-project.html"><a href="setup-project.html#add-some-folders"><i class="fa fa-check"></i><b>3.2</b> Add some folders</a></li>
+<li class="chapter" data-level="3.1" data-path="setup-project.html"><a href="setup-project.html#create-a-project-1"><i class="fa fa-check"></i><b>3.1</b> Create a project</a></li>
+<li class="chapter" data-level="3.2" data-path="setup-project.html"><a href="setup-project.html#add-some-folders-1"><i class="fa fa-check"></i><b>3.2</b> Add some folders</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="materials.html"><a href="materials.html"><i class="fa fa-check"></i><b>4</b> Workshop materials</a>
 <ul>
@@ -248,13 +250,13 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="work-with-R" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Working with R</h1>
-<p>R is an open source language and environment for statistical computing and graphics <span class="citation"><a href="references.html#ref-R-base" role="doc-biblioref">[1]</a></span>, ranked by IEEE in 2020 as the 6th most popular programming language (Python, Java, and C are the top three) <span class="citation"><a href="references.html#ref-Cass:2020" role="doc-biblioref">[2]</a></span>. If you are new to R, some of its best features, paraphrasing Wickham <span class="citation"><a href="references.html#ref-wickham2014advanced" role="doc-biblioref">[3]</a></span>, are:</p>
+<p>R is an open source language and environment for statistical computing and graphics <span class="citation"><a href="references.html#ref-R-base" role="doc-biblioref">[5]</a></span>, ranked by IEEE in 2020 as the 6th most popular programming language (Python, Java, and C are the top three) <span class="citation"><a href="references.html#ref-Cass:2020" role="doc-biblioref">[6]</a></span>. If you are new to R, some of its best features, paraphrasing Wickham <span class="citation"><a href="references.html#ref-wickham2014advanced" role="doc-biblioref">[2]</a></span>, are:</p>
 <ul>
 <li>R is free, open source, and available on every major platform.</li>
 <li>R packages provide effective tools for data analysis and visualization.</li>
 <li>More than 17,750 open-source R packages are available (Jun 2021). Many are cutting-edge tools.</li>
 </ul>
-<p>RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control <span class="citation"><a href="references.html#ref-2016rstudio" role="doc-biblioref">[4]</a></span>.</p>
+<p>RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control <span class="citation"><a href="references.html#ref-2016rstudio" role="doc-biblioref">[7]</a></span>.</p>
 <div id="prerequisites" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Prerequisites</h2>
 <p>Before proceeding, you should have completed</p>
@@ -267,12 +269,12 @@ div.csl-indent {
 </li>
 <li>We suggest you start a new R script for each tutorial and save it to the <code>scripts</code> directory. For example, at the end of the workshop, your scripts directory might contain the following files:</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="work-with-R.html#cb1-1" aria-hidden="true" tabindex="-1"></a>        \scripts    </span>
-<span id="cb1-2"><a href="work-with-R.html#cb1-2" aria-hidden="true" tabindex="-1"></a>            \R<span class="sc">-</span>basics.R    </span>
-<span id="cb1-3"><a href="work-with-R.html#cb1-3" aria-hidden="true" tabindex="-1"></a>            \getting<span class="sc">-</span>started.R    </span>
-<span id="cb1-4"><a href="work-with-R.html#cb1-4" aria-hidden="true" tabindex="-1"></a>            \case<span class="sc">-</span>study<span class="sc">-</span>programs.R    </span>
-<span id="cb1-5"><a href="work-with-R.html#cb1-5" aria-hidden="true" tabindex="-1"></a>            \case<span class="sc">-</span>study<span class="sc">-</span>students.R     </span>
-<span id="cb1-6"><a href="work-with-R.html#cb1-6" aria-hidden="true" tabindex="-1"></a>            etc.  </span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="work-with-R.html#cb13-1" aria-hidden="true" tabindex="-1"></a>        \scripts    </span>
+<span id="cb13-2"><a href="work-with-R.html#cb13-2" aria-hidden="true" tabindex="-1"></a>            \R<span class="sc">-</span>basics.R    </span>
+<span id="cb13-3"><a href="work-with-R.html#cb13-3" aria-hidden="true" tabindex="-1"></a>            \getting<span class="sc">-</span>started.R    </span>
+<span id="cb13-4"><a href="work-with-R.html#cb13-4" aria-hidden="true" tabindex="-1"></a>            \case<span class="sc">-</span>study<span class="sc">-</span>programs.R    </span>
+<span id="cb13-5"><a href="work-with-R.html#cb13-5" aria-hidden="true" tabindex="-1"></a>            \case<span class="sc">-</span>study<span class="sc">-</span>students.R     </span>
+<span id="cb13-6"><a href="work-with-R.html#cb13-6" aria-hidden="true" tabindex="-1"></a>            etc.  </span></code></pre></div>
 </div>
 <div id="new-to-r" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> New to R?</h2>
@@ -339,7 +341,7 @@ div.csl-indent {
 </div>
 <div id="r-basics" class="section level2" number="6.5">
 <h2><span class="header-section-number">6.5</span> R basics</h2>
-<p>This tutorial is an introduction to R adapted from <span class="citation"><a href="references.html#ref-Healy:2019:Ch.2" role="doc-biblioref">[5]</a></span> with extra material from <span class="citation"><a href="references.html#ref-Matloff:2019" role="doc-biblioref">[6]</a></span>. If you already have R experience, you might still want to browse this section in case you find something new.</p>
+<p>This tutorial is an introduction to R adapted from <span class="citation"><a href="references.html#ref-Healy:2019:Ch.2" role="doc-biblioref">[8]</a></span> with extra material from <span class="citation"><a href="references.html#ref-Matloff:2019" role="doc-biblioref">[9]</a></span>. If you already have R experience, you might still want to browse this section in case you find something new.</p>
 <p><a href="work-with-R.html#prerequisites">Prerequisites</a> should be completed before proceeding. After that, the tutorial should take no longer than 50 minutes.</p>
 <div id="style-guide" class="section level3" number="6.5.1">
 <h3><span class="header-section-number">6.5.1</span> Style guide</h3>

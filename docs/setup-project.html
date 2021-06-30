@@ -172,14 +172,18 @@ div.csl-indent {
 <li class="chapter" data-level="2" data-path="install-everything.html"><a href="install-everything.html"><i class="fa fa-check"></i><b>2</b> Install everything</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="install-everything.html"><a href="install-everything.html#install-r-and-rstudio"><i class="fa fa-check"></i><b>2.1</b> Install R and RStudio</a></li>
-<li class="chapter" data-level="2.2" data-path="install-everything.html"><a href="install-everything.html#install-the-remotes-package"><i class="fa fa-check"></i><b>2.2</b> Install the remotes package</a></li>
-<li class="chapter" data-level="2.3" data-path="install-everything.html"><a href="install-everything.html#install-midfieldr"><i class="fa fa-check"></i><b>2.3</b> Install midfieldr</a></li>
-<li class="chapter" data-level="2.4" data-path="install-everything.html"><a href="install-everything.html#install-midfielddata"><i class="fa fa-check"></i><b>2.4</b> Install midfielddata</a></li>
+<li class="chapter" data-level="2.2" data-path="install-everything.html"><a href="install-everything.html#create-a-project"><i class="fa fa-check"></i><b>2.2</b> Create a project</a></li>
+<li class="chapter" data-level="2.3" data-path="install-everything.html"><a href="install-everything.html#add-some-folders"><i class="fa fa-check"></i><b>2.3</b> Add some folders</a></li>
+<li class="chapter" data-level="2.4" data-path="install-everything.html"><a href="install-everything.html#create-a-library-for-packages"><i class="fa fa-check"></i><b>2.4</b> Create a library for packages</a></li>
+<li class="chapter" data-level="2.5" data-path="install-everything.html"><a href="install-everything.html#create-the-.renviron-file"><i class="fa fa-check"></i><b>2.5</b> Create the .Renviron file</a></li>
+<li class="chapter" data-level="2.6" data-path="install-everything.html"><a href="install-everything.html#install-packages-we-need"><i class="fa fa-check"></i><b>2.6</b> Install packages we need</a></li>
+<li class="chapter" data-level="2.7" data-path="install-everything.html"><a href="install-everything.html#install-midfieldr"><i class="fa fa-check"></i><b>2.7</b> Install midfieldr</a></li>
+<li class="chapter" data-level="2.8" data-path="install-everything.html"><a href="install-everything.html#install-midfielddata"><i class="fa fa-check"></i><b>2.8</b> Install midfielddata</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="setup-project.html"><a href="setup-project.html"><i class="fa fa-check"></i><b>3</b> Set up a project</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="setup-project.html"><a href="setup-project.html#create-a-project"><i class="fa fa-check"></i><b>3.1</b> Create a project</a></li>
-<li class="chapter" data-level="3.2" data-path="setup-project.html"><a href="setup-project.html#add-some-folders"><i class="fa fa-check"></i><b>3.2</b> Add some folders</a></li>
+<li class="chapter" data-level="3.1" data-path="setup-project.html"><a href="setup-project.html#create-a-project-1"><i class="fa fa-check"></i><b>3.1</b> Create a project</a></li>
+<li class="chapter" data-level="3.2" data-path="setup-project.html"><a href="setup-project.html#add-some-folders-1"><i class="fa fa-check"></i><b>3.2</b> Add some folders</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="materials.html"><a href="materials.html"><i class="fa fa-check"></i><b>4</b> Workshop materials</a>
 <ul>
@@ -248,7 +252,7 @@ div.csl-indent {
 <h1><span class="header-section-number">3</span> Set up a project</h1>
 <p><img src="figures/logo-R.png" alt="logo" style="left:0px; padding:5px;" height="110px"/><img src="figures/logo-RStudio.png" alt="logo" style="left:0px; padding:5px;" height="110px"/></p>
 <p>To begin any project, we create an RStudio <em>Project</em> file and directory. You can recognize an R project file by its <em>.Rproj</em> suffix.</p>
-<div id="create-a-project" class="section level2" number="3.1">
+<div id="create-a-project-1" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Create a project</h2>
 <p>If you prefer your instructions with commentary,</p>
 <ul>
@@ -271,14 +275,14 @@ In the dialog box that appears,</p>
 </ul>
 <p>Whenever you work with the workshop materials, launch the <code>workshop.Rproj</code> file (using the name you actually used) to start the session.</p>
 </div>
-<div id="add-some-folders" class="section level2" number="3.2">
+<div id="add-some-folders-1" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Add some folders</h2>
 <p>While file organization is a matter of personal preference, we ask that you use the directory structure shown here for your work in the workshop. Assuming we called our project <code>workshop</code>, the minimal directory structure has three folders in it plus the <code>.Rproj</code> file at the top level.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="setup-project.html#cb8-1" aria-hidden="true" tabindex="-1"></a>\workshop</span>
-<span id="cb8-2"><a href="setup-project.html#cb8-2" aria-hidden="true" tabindex="-1"></a>    \data</span>
-<span id="cb8-3"><a href="setup-project.html#cb8-3" aria-hidden="true" tabindex="-1"></a>    \results</span>
-<span id="cb8-4"><a href="setup-project.html#cb8-4" aria-hidden="true" tabindex="-1"></a>    \scripts</span>
-<span id="cb8-5"><a href="setup-project.html#cb8-5" aria-hidden="true" tabindex="-1"></a>    workshop.Rproj</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="setup-project.html#cb12-1" aria-hidden="true" tabindex="-1"></a>\workshop</span>
+<span id="cb12-2"><a href="setup-project.html#cb12-2" aria-hidden="true" tabindex="-1"></a>    \data</span>
+<span id="cb12-3"><a href="setup-project.html#cb12-3" aria-hidden="true" tabindex="-1"></a>    \results</span>
+<span id="cb12-4"><a href="setup-project.html#cb12-4" aria-hidden="true" tabindex="-1"></a>    \scripts</span>
+<span id="cb12-5"><a href="setup-project.html#cb12-5" aria-hidden="true" tabindex="-1"></a>    workshop.Rproj</span></code></pre></div>
 <p>We use the folders as follows:</p>
 <ul>
 <li><code>data</code> data files</li>

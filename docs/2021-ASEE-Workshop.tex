@@ -253,15 +253,15 @@ Your pre-workshop homework:
 \item
   2.1 \protect\hyperlink{install-r-and-rstudio}{Install R and RStudio}
 \item
-  2.2 \protect\hyperlink{install-the-remotes-package}{Install the remotes package}
+  2.2 \protect\hyperlink{install-packages-we-need}{Install packages we need}
 \item
   2.3 \protect\hyperlink{install-midfielddata}{Install midfielddata}
 \item
   2.4 \protect\hyperlink{install-midfieldr}{Install midfieldr}
 \item
-  3.1 \protect\hyperlink{create-a-project}{Create a project}\\
+  3.1 \protect\hyperlink{create-a-project-1}{Create a project}\\
 \item
-  3.2 \protect\hyperlink{add-some-folders}{Add some folders}
+  3.2 \protect\hyperlink{add-some-folders-1}{Add some folders}
 \end{itemize}
 
 If you already have R and RStudio installed, this is a great time to
@@ -311,132 +311,10 @@ The same video includes a longer (7 minute) tour of the four quadrants (panes) i
   \href{https://www.youtube.com/embed/kfcX5DEMAp4?start=441\&end=880}{The RStudio quadrants (07:21--14:40)} by R Ladies Sydney \citep{RLadiesSydney:2018:Lesson1}
 \end{itemize}
 
-\hypertarget{install-the-remotes-package}{%
-\section{Install the remotes package}\label{install-the-remotes-package}}
-
-The fundamental unit of shareable code in R is the \emph{package.} For the R novice, an R package is like an ``app'' for R---a collection of functions, data, and documentation for doing work in R that is easily shared with others \citep{wickham2014advanced}.
-
-Most packages are obtained from the \href{https://cran.r-project.org/}{CRAN} website \citep{cranweb}. To install a CRAN package using RStudio:
-
-\begin{itemize}
-\tightlist
-\item
-  Launch RStudio
-\end{itemize}
-
-The RStudio interface has several panes. We want the \emph{Files/Plots/Packages} pane.
-
-\begin{itemize}
-\tightlist
-\item
-  Select the \emph{Packages} tab
-\end{itemize}
-
-Next,
-
-\begin{itemize}
-\tightlist
-\item
-  Click \emph{Install} on the ribbon
-\item
-  In the dialog box, type the name of the package. For our first package, type \texttt{remotes} to install the remotes package \citep{R-remotes}
-\item
-  Check the \emph{Install dependencies} box
-\item
-  Click the \emph{Install} button
-\end{itemize}
-
-In the RStudio Console, you should see a message like this one,
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{    package }\StringTok{\textquotesingle{}remotes\textquotesingle{}}\NormalTok{ successfully unpacked and MD5 sums checked}
-\end{Highlighting}
-\end{Shaded}
-
-If successful, the package will appear in the Packages pane, e.g.,
-
-\hypertarget{install-midfieldr}{%
-\section{Install midfieldr}\label{install-midfieldr}}
-
-Earlier we installed the remotes package. To access its functions we use the \texttt{library()} function.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# type in the RStudio Console  }
-\FunctionTok{library}\NormalTok{(}\StringTok{"remotes"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-Now we can use the \texttt{install\_github()} function in the remotes package to install the midfieldr package from GitHub \citep{R-midfieldr}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# type in the RStudio Console  }
-\FunctionTok{install\_github}\NormalTok{(}\StringTok{"MIDFIELDR/midfieldr"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-You can confirm a successful installation by viewing the package help page. In the Console, run:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# type in the RStudio Console }
-\FunctionTok{library}\NormalTok{(}\StringTok{"midfieldr"}\NormalTok{)}
-\NormalTok{? midfieldr}
-\end{Highlighting}
-\end{Shaded}
-
-If the installation is successful, the code chunk above should produce a view of the help page as shown here.
-
-\hypertarget{install-midfielddata}{%
-\section{Install midfielddata}\label{install-midfielddata}}
-
-Because of its size, the data package is stored in a \texttt{drat} repository instead of CRAN. Installation takes time; please be patient and wait for the Console prompt ``\textgreater{}'' to reappear.
-
-Type (or copy and paste) the following lines in the RStudio Console.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# type in the RStudio Console  }
-\FunctionTok{install.packages}\NormalTok{(}\StringTok{"midfielddata"}\NormalTok{, }
-                 \AttributeTok{repos =} \StringTok{"https://MIDFIELDR.github.io/drat/"}\NormalTok{, }
-                 \AttributeTok{type =} \StringTok{"source"}\NormalTok{)}
-\CommentTok{\# be patient}
-\end{Highlighting}
-\end{Shaded}
-
-Once the Console prompt ``\textgreater{}'' reappears, you can confirm a successful installation by viewing the package help page. In the Console, run:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# type in the RStudio Console  }
-\FunctionTok{library}\NormalTok{(}\StringTok{"midfielddata"}\NormalTok{)}
-\NormalTok{? midfielddata}
-\end{Highlighting}
-\end{Shaded}
-
-If the installation is successful, the code chunk above should produce a view of the help page as shown here.
-
-If this step is successful, please continue your homework by completing:
-
-\begin{itemize}
-\tightlist
-\item
-  3.1 \protect\hyperlink{create-a-project}{Create a project}\\
-\item
-  3.2 \protect\hyperlink{add-some-folders}{Add some folders}
-\end{itemize}
-
-\protect\hyperlink{install-everything}{▲ top of page}
-
-\hypertarget{setup-project}{%
-\chapter{Set up a project}\label{setup-project}}
-
-To begin any project, we create an RStudio \emph{Project} file and directory. You can recognize an R project file by its \emph{.Rproj} suffix.
-
 \hypertarget{create-a-project}{%
 \section{Create a project}\label{create-a-project}}
+
+To begin any project, we create an RStudio \emph{Project} file and directory. You can recognize an R project file by its \emph{.Rproj} suffix.
 
 If you prefer your instructions with commentary,
 
@@ -472,6 +350,305 @@ Whenever you work with the workshop materials, launch the \texttt{workshop.Rproj
 
 \hypertarget{add-some-folders}{%
 \section{Add some folders}\label{add-some-folders}}
+
+While file organization is a matter of personal preference, we ask that you use the directory structure shown here for your work in the workshop. Assuming we called our project \texttt{workshop}, the minimal directory structure has three folders in it plus the \texttt{.Rproj} file at the top level.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textbackslash{}workshop}
+\NormalTok{    \textbackslash{}data}
+\NormalTok{    \textbackslash{}results}
+\NormalTok{    \textbackslash{}scripts}
+\NormalTok{    workshop.Rproj}
+\end{Highlighting}
+\end{Shaded}
+
+We use the folders as follows:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{data} data files
+\item
+  \texttt{results} finished graphs and tabulated data formatted for display\\
+\item
+  \texttt{scripts} R scripts that operate on data to produce results
+\end{itemize}
+
+If you prefer your instructions with commentary,
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.youtube.com/embed/kfcX5DEMAp4?start=290\&end=368}{Make some folders (04:50--06:08)} by R Ladies Sydney \citep{RLadiesSydney:2018:Lesson1}
+\end{itemize}
+
+If you prefer basic written instructions,
+
+\begin{itemize}
+\tightlist
+\item
+  use your usual method of creating new folders on your machine
+\item
+  or you can use the \emph{New Folder} button in the Files pane
+\end{itemize}
+
+\hypertarget{create-a-library-for-packages}{%
+\section{Create a library for packages}\label{create-a-library-for-packages}}
+
+Packages are like ``apps'' for R. As Hadley Wickham states, ``Packages are the fundamental units
+of reproducible R code. They include reusable functions, the
+documentation that describes how to use them, and sample data.''
+
+If we store packages in a library separate from the base R installation,
+then when you update R, you don't have to reinstall every package,
+saving a lot of time.
+
+If you happen to be working with R on a network, storing your library locally can save you time tracking down obscure problems that R has with network drives as well.
+
+At the top level of your drive, create a new directory (folder) named
+``R''. In that directory create a new folder named ``library'', for
+example,
+
+\begin{itemize}
+\tightlist
+\item
+  Windows: \texttt{C:/R/library}\\
+\item
+  Mac OS and Linux: \texttt{\textasciitilde{}/R/library}
+\end{itemize}
+
+\hypertarget{create-the-.renviron-file}{%
+\section{Create the .Renviron file}\label{create-the-.renviron-file}}
+
+The \texttt{.Renviron} file is a text file that directs R packages to be
+installed in the \texttt{R/library} directory created earlier. To create the
+file, with RStudio open,
+
+\begin{itemize}
+\tightlist
+\item
+  Create a new text file, \emph{File menu \textgreater{} New File \textgreater{} Text File}.
+\item
+  Save the file to the \texttt{workshop} main directory using the filename
+  \emph{.Renviron}
+\end{itemize}
+
+In this file, write the following line of text that tells R the path to
+the stand-alone package library you created earlier.
+
+\begin{itemize}
+\tightlist
+\item
+  Windows: \texttt{R\_LIBS\_USER="C:/R/library"}
+\item
+  Mac OS and Linux: \texttt{R\_LIBS\_USER="\textasciitilde{}/R/library"}
+\end{itemize}
+
+Save and close to recognize the .Renviron file.
+
+\begin{itemize}
+\tightlist
+\item
+  Save and close the \texttt{.Renviron} file.
+\item
+  Close RStudio
+\end{itemize}
+
+Let's check your project directory. You should have at least the
+following folders and files,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textbackslash{}workshop}
+\NormalTok{    \textbackslash{}data}
+\NormalTok{    \textbackslash{}results}
+\NormalTok{    \textbackslash{}scripts}
+\NormalTok{    .Renviron}
+\NormalTok{    workshop.Rproj}
+\end{Highlighting}
+\end{Shaded}
+
+Remember, every time you create a new project, paste a copy of the \texttt{.Renviron} file at the top level of the project directory.
+
+\hypertarget{install-packages-we-need}{%
+\section{Install packages we need}\label{install-packages-we-need}}
+
+The fundamental unit of shareable code in R is the \emph{package.} For the R novice, an R package is like an ``app'' for R---a collection of functions, data, and documentation for doing work in R that is easily shared with others \citep{wickham2014advanced}.
+
+Most packages are obtained from the \href{https://cran.r-project.org/}{CRAN} website \citep{cranweb}. To install a CRAN package using RStudio:
+
+\begin{itemize}
+\tightlist
+\item
+  Launch RStudio
+\end{itemize}
+
+The RStudio interface has several panes. We want the \emph{Files/Plots/Packages} pane.
+
+\begin{itemize}
+\tightlist
+\item
+  Select the \emph{Packages} tab
+\end{itemize}
+
+Next,
+
+\begin{itemize}
+\tightlist
+\item
+  Click \emph{Install} on the ribbon
+\item
+  In the dialog box, type the name of the package. For our first package, type \texttt{data.table} to install the data.table package \citep{R-data.table}
+\item
+  Check the \emph{Install dependencies} box
+\item
+  Click the \emph{Install} button
+\end{itemize}
+
+In the RStudio Console, you should see a message like this one,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    package }\StringTok{\textquotesingle{}data.table\textquotesingle{}}\NormalTok{ successfully unpacked and MD5 sums checked}
+\end{Highlighting}
+\end{Shaded}
+
+If successful, the package will appear in the Packages pane, e.g.,
+
+Repeat the process for the following packages
+
+\begin{verbatim}
+wrapr 
+Rdpack 
+checkmate
+\end{verbatim}
+
+Alternatively, you can install them all at once by typing in the Console:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# midfieldr depends on these packages}
+\NormalTok{packages\_we\_need }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"data.table"}\NormalTok{, }\StringTok{"wrapr"}\NormalTok{, }\StringTok{"Rdpack"}\NormalTok{, }\StringTok{"checkmate"}\NormalTok{)}
+\FunctionTok{install.packages}\NormalTok{(packages\_we\_need)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{install-midfieldr}{%
+\section{Install midfieldr}\label{install-midfieldr}}
+
+During the installation, Windows users might get a warning message about Rtools, something like the following. You may ignore the warning and carry on.
+
+\begin{verbatim}
+WARNING: Rtools is required to build R packages but is not currently installed. 
+Please download and install the appropriate version...
+\end{verbatim}
+
+midfieldr is not yet available from \href{https://cran.r-project.org/}{CRAN}. To install the development version of midfieldr from its \texttt{drat} repository, type in the Console:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install midfieldr from drat repo}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"midfieldr"}\NormalTok{, }
+                 \AttributeTok{repos =} \StringTok{"https://MIDFIELDR.github.io/drat/"}\NormalTok{, }
+                 \AttributeTok{type =} \StringTok{"source"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+You can confirm a successful installation by running the following lines to bring up the package help page in the Help window.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"midfieldr"}\NormalTok{)}
+\FunctionTok{help}\NormalTok{(}\StringTok{"midfieldr{-}package"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+If the installation is successful, the code chunk above should produce a view of the help page as shown here.
+
+\hypertarget{install-midfielddata}{%
+\section{Install midfielddata}\label{install-midfielddata}}
+
+Because of its size, the data package is stored in a \texttt{drat} repository instead of CRAN. Installation takes time; please be patient and wait for the Console prompt ``\textgreater{}'' to reappear.
+
+Type (or copy and paste) the following lines in the RStudio Console.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# type in the RStudio Console  }
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"midfielddata"}\NormalTok{, }
+                 \AttributeTok{repos =} \StringTok{"https://MIDFIELDR.github.io/drat/"}\NormalTok{, }
+                 \AttributeTok{type =} \StringTok{"source"}\NormalTok{)}
+\CommentTok{\# be patient}
+\end{Highlighting}
+\end{Shaded}
+
+Once the Console prompt ``\textgreater{}'' reappears, you can confirm a successful installation by viewing the package help page. In the Console, run:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# type in the RStudio Console  }
+\FunctionTok{library}\NormalTok{(}\StringTok{"midfielddata"}\NormalTok{)}
+\FunctionTok{help}\NormalTok{(}\StringTok{"midfielddata{-}package"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+If the installation is successful, the code chunk above should produce a view of the help page as shown here.
+
+If this step is successful, please continue your homework by completing:
+
+\begin{itemize}
+\tightlist
+\item
+  3.1 \protect\hyperlink{create-a-project-1}{Create a project}\\
+\item
+  3.2 \protect\hyperlink{add-some-folders-1}{Add some folders}
+\end{itemize}
+
+\protect\hyperlink{install-everything}{▲ top of page}
+
+\hypertarget{setup-project}{%
+\chapter{Set up a project}\label{setup-project}}
+
+To begin any project, we create an RStudio \emph{Project} file and directory. You can recognize an R project file by its \emph{.Rproj} suffix.
+
+\hypertarget{create-a-project-1}{%
+\section{Create a project}\label{create-a-project-1}}
+
+If you prefer your instructions with commentary,
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.youtube.com/embed/kfcX5DEMAp4?start=154\&end=290}{Start with a Project (02:34--04:50)} by R Ladies Sydney \citep{RLadiesSydney:2018:Lesson1}
+\end{itemize}
+
+If you prefer basic written instructions,
+
+\begin{itemize}
+\tightlist
+\item
+  RStudio, \emph{File \textgreater{} New Project\ldots{} \textgreater{} New Directory \textgreater{} New Project}
+\item
+  Or, click the \emph{New Project} button in the Console ribbon,
+\end{itemize}
+
+In the dialog box that appears,
+
+\begin{itemize}
+\tightlist
+\item
+  Type the workshop name as the directory name, for example, \texttt{workshop}, or if you like more detail, \texttt{midfield-workshop-asee-2021}\\
+\item
+  Use the browse button to select a location on your computer to create the project folder\\
+\item
+  Click the \emph{Create Project} button
+\end{itemize}
+
+Whenever you work with the workshop materials, launch the \texttt{workshop.Rproj} file (using the name you actually used) to start the session.
+
+\hypertarget{add-some-folders-1}{%
+\section{Add some folders}\label{add-some-folders-1}}
 
 While file organization is a matter of personal preference, we ask that you use the directory structure shown here for your work in the workshop. Assuming we called our project \texttt{workshop}, the minimal directory structure has three folders in it plus the \texttt{.Rproj} file at the top level.
 
@@ -695,7 +872,7 @@ Deep dive into the midfieldr functionality. The work flow follows the same gener
 
 This tutorial is an introduction to R adapted from \citep{Healy:2019:Ch.2} with extra material from \citep{Matloff:2019}. If you already have R experience, you might still want to browse this section in case you find something new.
 
-If the prerequisites have been met, the tutorial should take no longer than 50 minutes.
+\protect\hyperlink{prerequisites}{Prerequisites} should be completed before proceeding. After that, the tutorial should take no longer than 50 minutes.
 
 \hypertarget{style-guide}{%
 \subsection{Style guide}\label{style-guide}}
