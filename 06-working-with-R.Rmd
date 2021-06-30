@@ -131,10 +131,10 @@ The basic skills tutorials take about 50 minutes each.
 
 The case study is a quick tour of a typical workflow using student unit record data. This is a "big picture" development---functions are used without detailed explanations or development so that we can get to the results with as little distraction as possible. Anyone wanting more detail will find it in the detailed vignettes (links below in [Exploring midfieldr functions]).  
 
-- [Case study programs](https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html)
-- [Case study students](https://midfieldr.github.io/midfieldr/articles/art-120-case-study-students.html) 
-- [Case study stickiness](https://midfieldr.github.io/midfieldr/articles/art-130-case-study-stickiness.html) 
-- [Case study graduation rate](https://midfieldr.github.io/midfieldr/articles/art-140-case-study-grad-rate.html)
+- [Case study programs](https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html){target="_blank"}
+- [Case study students](https://midfieldr.github.io/midfieldr/articles/art-120-case-study-students.html){target="_blank"} 
+- [Case study stickiness](https://midfieldr.github.io/midfieldr/articles/art-130-case-study-stickiness.html){target="_blank"} 
+- [Case study graduation rate](https://midfieldr.github.io/midfieldr/articles/art-140-case-study-grad-rate.html){target="_blank"}
 
 
 
@@ -144,13 +144,13 @@ The case study is a quick tour of a typical workflow using student unit record d
 
 Deep dive into the midfieldr functionality. The work flow follows the same general pattern as the quicker case study, but pauses to explore each function in more detail, exploring the arguments and strategies for use. In general, each tutorial is self-contained so you may enter at almost any point. 
 
-- [Program codes and names](https://midfieldr.github.io/midfieldr/articles/art-010-program-codes.html) Practice strategies of searching `cip` for programs we want to study. 
-- [Subsetting MIDFIELD data](https://midfieldr.github.io/midfieldr/articles/art-015-subsetting-midfield-data.html) Use programs codes to subset the MIDFIELD data tables. 
-- [Data sufficiency](https://midfieldr.github.io/midfieldr/articles/art-020-data-sufficiency.html) What it is and how it is applied to student unit-record (SUR) data. 
-- [Timely completion](https://midfieldr.github.io/midfieldr/articles/art-030-timely-completion.html) What it is and how it is applied to SUR data. 
-- [FYE programs](https://midfieldr.github.io/midfieldr/articles/art-040-fye-programs.html) What they are and how they are accommodated with SUR data. 
-- [Multiway graphs](https://midfieldr.github.io/midfieldr/articles/art-050-multiway-graphs.html) How to graph and interpret a common data structure encountered when working with SUR data. 
-- [Tabulating data](https://midfieldr.github.io/midfieldr/articles/art-060-tabulating-data.html) How to tabulate multiway data for publication. 
+- [Program codes and names](https://midfieldr.github.io/midfieldr/articles/art-010-program-codes.html){target="_blank"} Practice strategies of searching `cip` for programs we want to study. 
+- [Subsetting MIDFIELD data](https://midfieldr.github.io/midfieldr/articles/art-015-subsetting-midfield-data.html){target="_blank"} Use programs codes to subset the MIDFIELD data tables. 
+- [Data sufficiency](https://midfieldr.github.io/midfieldr/articles/art-020-data-sufficiency.html){target="_blank"} What it is and how it is applied to student unit-record (SUR) data. 
+- [Timely completion](https://midfieldr.github.io/midfieldr/articles/art-030-timely-completion.html){target="_blank"} What it is and how it is applied to SUR data. 
+- [FYE programs](https://midfieldr.github.io/midfieldr/articles/art-040-fye-programs.html){target="_blank"} What they are and how they are accommodated with SUR data. 
+- [Multiway graphs](https://midfieldr.github.io/midfieldr/articles/art-050-multiway-graphs.html){target="_blank"} How to graph and interpret a common data structure encountered when working with SUR data. 
+- [Tabulating data](https://midfieldr.github.io/midfieldr/articles/art-060-tabulating-data.html){target="_blank"} How to tabulate multiway data for publication. 
 
 
 
