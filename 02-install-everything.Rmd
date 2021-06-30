@@ -30,12 +30,17 @@ If you are trying R for the first time, it is vital that you attempt to set up y
 
 Your pre-workshop homework:  
 
-- 2.1 [Install R and RStudio]
-- 2.2 [Install packages we need]
-- 2.3 [Install midfielddata] 
-- 2.4 [Install midfieldr] 
-- 3.1 [Create a project]  
-- 3.2 [Add some folders] 
+
+- [Install R and RStudio]
+- [Create a project]  
+- [Add some folders] 
+- [Create a library for packages] 
+- [Create the .Renviron file]
+- [Install packages we need] 
+- [Install midfieldr] 
+- [Install midfielddata] 
+
+
 
 If you already have R and RStudio installed, this is a great time to 
 
@@ -232,6 +237,21 @@ Next,
 - Check the *Install dependencies* box 
 - Click the  *Install* button 
 
+
+
+> During the installation, Windows users might get a warning message about 
+> Rtools, something like:
+>    
+> `WARNING: Rtools is required to build R packages but is not currently installed. Please download and install the appropriate version...`. 
+>    
+> You may ignore the warning and carry on. 
+
+
+
+
+
+
+
 In the RStudio Console, you should see a message like this one,  
 
 ```r
@@ -267,13 +287,6 @@ install.packages(packages_we_need)
 
 
 ## Install midfieldr {#install-midfieldr}
-
-During the installation, Windows users might get a warning message about Rtools, something like the following. You may ignore the warning and carry on. 
-
-
-    WARNING: Rtools is required to build R packages but is not currently installed. 
-    Please download and install the appropriate version...
-
 
 midfieldr is not yet available from [CRAN](https://cran.r-project.org/). To install the development version of midfieldr from its `drat` repository, type in the Console: 
 
@@ -341,11 +354,7 @@ htmltools::img(src = knitr::include_graphics("figures/README-midfielddata-help-p
 
 
 
-If this step is successful, please continue your homework by completing: 
-
-- 3.1 [Create a project]  
-- 3.2 [Add some folders] 
-
+You finished your homework!
 
 
 <br>

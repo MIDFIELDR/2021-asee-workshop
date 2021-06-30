@@ -251,17 +251,21 @@ Your pre-workshop homework:
 \begin{itemize}
 \tightlist
 \item
-  2.1 \protect\hyperlink{install-r-and-rstudio}{Install R and RStudio}
+  \protect\hyperlink{install-r-and-rstudio}{Install R and RStudio}
 \item
-  2.2 \protect\hyperlink{install-packages-we-need}{Install packages we need}
+  \protect\hyperlink{create-a-project}{Create a project}\\
 \item
-  2.3 \protect\hyperlink{install-midfielddata}{Install midfielddata}
+  \protect\hyperlink{add-some-folders}{Add some folders}
 \item
-  2.4 \protect\hyperlink{install-midfieldr}{Install midfieldr}
+  \protect\hyperlink{create-a-library-for-packages}{Create a library for packages}
 \item
-  3.1 \protect\hyperlink{create-a-project-1}{Create a project}\\
+  \protect\hyperlink{create-the-.renviron-file}{Create the .Renviron file}
 \item
-  3.2 \protect\hyperlink{add-some-folders-1}{Add some folders}
+  \protect\hyperlink{install-packages-we-need}{Install packages we need}
+\item
+  \protect\hyperlink{install-midfieldr}{Install midfieldr}
+\item
+  \protect\hyperlink{install-midfielddata}{Install midfielddata}
 \end{itemize}
 
 If you already have R and RStudio installed, this is a great time to
@@ -506,6 +510,15 @@ Next,
   Click the \emph{Install} button
 \end{itemize}
 
+\begin{quote}
+During the installation, Windows users might get a warning message about
+Rtools, something like:
+
+\texttt{WARNING:\ Rtools\ is\ required\ to\ build\ R\ packages\ but\ is\ not\ currently\ installed.\ Please\ download\ and\ install\ the\ appropriate\ version...}.
+
+You may ignore the warning and carry on.
+\end{quote}
+
 In the RStudio Console, you should see a message like this one,
 
 \begin{Shaded}
@@ -536,13 +549,6 @@ Alternatively, you can install them all at once by typing in the Console:
 
 \hypertarget{install-midfieldr}{%
 \section{Install midfieldr}\label{install-midfieldr}}
-
-During the installation, Windows users might get a warning message about Rtools, something like the following. You may ignore the warning and carry on.
-
-\begin{verbatim}
-WARNING: Rtools is required to build R packages but is not currently installed. 
-Please download and install the appropriate version...
-\end{verbatim}
 
 midfieldr is not yet available from \href{https://cran.r-project.org/}{CRAN}. To install the development version of midfieldr from its \texttt{drat} repository, type in the Console:
 
@@ -595,106 +601,9 @@ Once the Console prompt ``\textgreater{}'' reappears, you can confirm a successf
 
 If the installation is successful, the code chunk above should produce a view of the help page as shown here.
 
-If this step is successful, please continue your homework by completing:
-
-\begin{itemize}
-\tightlist
-\item
-  3.1 \protect\hyperlink{create-a-project-1}{Create a project}\\
-\item
-  3.2 \protect\hyperlink{add-some-folders-1}{Add some folders}
-\end{itemize}
-
-\protect\hyperlink{install-everything}{▲ top of page}
-
-\hypertarget{setup-project}{%
-\chapter{Set up a project}\label{setup-project}}
-
-To begin any project, we create an RStudio \emph{Project} file and directory. You can recognize an R project file by its \emph{.Rproj} suffix.
-
-\hypertarget{create-a-project-1}{%
-\section{Create a project}\label{create-a-project-1}}
-
-If you prefer your instructions with commentary,
-
-\begin{itemize}
-\tightlist
-\item
-  \href{https://www.youtube.com/embed/kfcX5DEMAp4?start=154\&end=290}{Start with a Project (02:34--04:50)} by R Ladies Sydney \citep{RLadiesSydney:2018:Lesson1}
-\end{itemize}
-
-If you prefer basic written instructions,
-
-\begin{itemize}
-\tightlist
-\item
-  RStudio, \emph{File \textgreater{} New Project\ldots{} \textgreater{} New Directory \textgreater{} New Project}
-\item
-  Or, click the \emph{New Project} button in the Console ribbon,
-\end{itemize}
-
-In the dialog box that appears,
-
-\begin{itemize}
-\tightlist
-\item
-  Type the workshop name as the directory name, for example, \texttt{workshop}, or if you like more detail, \texttt{midfield-workshop-asee-2021}\\
-\item
-  Use the browse button to select a location on your computer to create the project folder\\
-\item
-  Click the \emph{Create Project} button
-\end{itemize}
-
-Whenever you work with the workshop materials, launch the \texttt{workshop.Rproj} file (using the name you actually used) to start the session.
-
-\hypertarget{add-some-folders-1}{%
-\section{Add some folders}\label{add-some-folders-1}}
-
-While file organization is a matter of personal preference, we ask that you use the directory structure shown here for your work in the workshop. Assuming we called our project \texttt{workshop}, the minimal directory structure has three folders in it plus the \texttt{.Rproj} file at the top level.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{\textbackslash{}workshop}
-\NormalTok{    \textbackslash{}data}
-\NormalTok{    \textbackslash{}results}
-\NormalTok{    \textbackslash{}scripts}
-\NormalTok{    workshop.Rproj}
-\end{Highlighting}
-\end{Shaded}
-
-We use the folders as follows:
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{data} data files
-\item
-  \texttt{results} finished graphs and tabulated data formatted for display\\
-\item
-  \texttt{scripts} R scripts that operate on data to produce results
-\end{itemize}
-
-If you prefer your instructions with commentary,
-
-\begin{itemize}
-\tightlist
-\item
-  \href{https://www.youtube.com/embed/kfcX5DEMAp4?start=290\&end=368}{Make some folders (04:50--06:08)} by R Ladies Sydney \citep{RLadiesSydney:2018:Lesson1}
-\end{itemize}
-
-If you prefer basic written instructions,
-
-\begin{itemize}
-\tightlist
-\item
-  use your usual method of creating new folders on your machine
-\item
-  or you can use the \emph{New Folder} button in the Files pane
-\end{itemize}
-
 You finished your homework!
 
-\protect\hyperlink{setup-project}{▲ top of page}
+\protect\hyperlink{install-everything}{▲ top of page}
 
 \hypertarget{materials}{%
 \chapter{Workshop materials}\label{materials}}
@@ -745,7 +654,7 @@ Before proceeding, you should have completed
 \item
   \protect\hyperlink{install-everything}{Install everything}\\
 \item
-  \protect\hyperlink{setup-project}{Set up a project}\\
+  {[}Set up a project{]}\\
 \item
   Launched your workshop project---\texttt{workshop.Rproj} or other name that you selected---to start the R session\\
 \item

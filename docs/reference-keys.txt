@@ -15,9 +15,6 @@ create-the-.renviron-file
 install-packages-we-need
 install-midfieldr
 install-midfielddata
-setup-project
-create-a-project-1
-add-some-folders-1
 materials
 stuff
 more-stuff
