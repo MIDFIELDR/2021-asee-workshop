@@ -45,3 +45,8 @@ display-design
 stuff-2
 more-stuff-2
 references
+install-packages-we-need
+create-a-library-for-packages
+create-the-.renviron-file
+create-a-project-1
+add-some-folders-1

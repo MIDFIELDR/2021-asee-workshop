@@ -157,28 +157,80 @@ Deep dive into the midfieldr functionality. The work flow follows the same gener
 
 ## R basics
 
-text
+This tutorial is an introduction to R adapted from [@Healy:2019:Ch.2] with extra material from [@Matloff:2019]. If you already have R experience, you might still want to browse this section in case you find something new. 
+
+[Prerequisites] should be completed before proceeding. After that, the tutorial should take no longer than 50 minutes.
 
 
-### Style guide {#style-guide}
+### Style guide
+
+
+
+
+
 
 ### Everything in R has a name 
 
+
+
+
+
+
 ### Everything in R is an object 
+
+
+
+
+
 
 ### Use functions to do things
 
+
+
+
+
+
 ### R functions come in packages
+
+
+
+
+
 
 ### R objects have class
 
+
+
+
+
+
 ### R objects have structure
+
+
+
+
+
 
 ### R only does what you tell it
 
+
+
+
+
+
 ### Keyboard shortcuts
 
+
+
+
+
+
 ### What's next?
+
+
+
+
+
 
 
 

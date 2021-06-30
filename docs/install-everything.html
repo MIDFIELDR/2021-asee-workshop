@@ -172,14 +172,18 @@ div.csl-indent {
 <li class="chapter" data-level="2" data-path="install-everything.html"><a href="install-everything.html"><i class="fa fa-check"></i><b>2</b> Install everything</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="install-everything.html"><a href="install-everything.html#install-r-and-rstudio"><i class="fa fa-check"></i><b>2.1</b> Install R and RStudio</a></li>
-<li class="chapter" data-level="2.2" data-path="install-everything.html"><a href="install-everything.html#install-the-remotes-package"><i class="fa fa-check"></i><b>2.2</b> Install the remotes package</a></li>
-<li class="chapter" data-level="2.3" data-path="install-everything.html"><a href="install-everything.html#install-midfieldr"><i class="fa fa-check"></i><b>2.3</b> Install midfieldr</a></li>
-<li class="chapter" data-level="2.4" data-path="install-everything.html"><a href="install-everything.html#install-midfielddata"><i class="fa fa-check"></i><b>2.4</b> Install midfielddata</a></li>
+<li class="chapter" data-level="2.2" data-path="install-everything.html"><a href="install-everything.html#create-a-project"><i class="fa fa-check"></i><b>2.2</b> Create a project</a></li>
+<li class="chapter" data-level="2.3" data-path="install-everything.html"><a href="install-everything.html#add-some-folders"><i class="fa fa-check"></i><b>2.3</b> Add some folders</a></li>
+<li class="chapter" data-level="2.4" data-path="install-everything.html"><a href="install-everything.html#create-a-library-for-packages"><i class="fa fa-check"></i><b>2.4</b> Create a library for packages</a></li>
+<li class="chapter" data-level="2.5" data-path="install-everything.html"><a href="install-everything.html#create-the-.renviron-file"><i class="fa fa-check"></i><b>2.5</b> Create the .Renviron file</a></li>
+<li class="chapter" data-level="2.6" data-path="install-everything.html"><a href="install-everything.html#install-packages-we-need"><i class="fa fa-check"></i><b>2.6</b> Install packages we need</a></li>
+<li class="chapter" data-level="2.7" data-path="install-everything.html"><a href="install-everything.html#install-midfieldr"><i class="fa fa-check"></i><b>2.7</b> Install midfieldr</a></li>
+<li class="chapter" data-level="2.8" data-path="install-everything.html"><a href="install-everything.html#install-midfielddata"><i class="fa fa-check"></i><b>2.8</b> Install midfielddata</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="setup-project.html"><a href="setup-project.html"><i class="fa fa-check"></i><b>3</b> Set up a project</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="setup-project.html"><a href="setup-project.html#create-a-project"><i class="fa fa-check"></i><b>3.1</b> Create a project</a></li>
-<li class="chapter" data-level="3.2" data-path="setup-project.html"><a href="setup-project.html#add-some-folders"><i class="fa fa-check"></i><b>3.2</b> Add some folders</a></li>
+<li class="chapter" data-level="3.1" data-path="setup-project.html"><a href="setup-project.html#create-a-project-1"><i class="fa fa-check"></i><b>3.1</b> Create a project</a></li>
+<li class="chapter" data-level="3.2" data-path="setup-project.html"><a href="setup-project.html#add-some-folders-1"><i class="fa fa-check"></i><b>3.2</b> Add some folders</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="materials.html"><a href="materials.html"><i class="fa fa-check"></i><b>4</b> Workshop materials</a>
 <ul>
@@ -251,12 +255,12 @@ div.csl-indent {
 <p>Your pre-workshop homework:</p>
 <ul>
 <li>2.1 <a href="install-everything.html#install-r-and-rstudio">Install R and RStudio</a></li>
-<li>2.2 <a href="install-everything.html#install-the-remotes-package">Install the remotes package</a></li>
+<li>2.2 <a href="install-everything.html#install-packages-we-need">Install packages we need</a></li>
 <li>2.3 <a href="install-everything.html#install-midfielddata">Install midfielddata</a></li>
 <li>2.4 <a href="install-everything.html#install-midfieldr">Install midfieldr</a></li>
-<li>3.1 <a href="setup-project.html#create-a-project">Create a project</a><br />
+<li>3.1 <a href="setup-project.html#create-a-project-1">Create a project</a><br />
 </li>
-<li>3.2 <a href="setup-project.html#add-some-folders">Add some folders</a></li>
+<li>3.2 <a href="setup-project.html#add-some-folders-1">Add some folders</a></li>
 </ul>
 <p>If you already have R and RStudio installed, this is a great time to</p>
 <ul>
@@ -282,8 +286,108 @@ div.csl-indent {
 <li><a href="https://www.youtube.com/embed/kfcX5DEMAp4?start=441&amp;end=880" target="_blank">The RStudio quadrants (07:21–14:40)</a> by R Ladies Sydney <span class="citation"><a href="references.html#ref-RLadiesSydney:2018:Lesson1" role="doc-biblioref">[1]</a></span></li>
 </ul>
 </div>
-<div id="install-the-remotes-package" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Install the remotes package</h2>
+<div id="create-a-project" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Create a project</h2>
+<p>To begin any project, we create an RStudio <em>Project</em> file and directory. You can recognize an R project file by its <em>.Rproj</em> suffix.</p>
+<p>If you prefer your instructions with commentary,</p>
+<ul>
+<li><a href="https://www.youtube.com/embed/kfcX5DEMAp4?start=154&amp;end=290" target="_blank">Start with a Project (02:34–04:50)</a> by R Ladies Sydney <span class="citation"><a href="references.html#ref-RLadiesSydney:2018:Lesson1" role="doc-biblioref">[1]</a></span></li>
+</ul>
+<p>If you prefer basic written instructions,</p>
+<ul>
+<li>RStudio, <em>File &gt; New Project… &gt; New Directory &gt; New Project</em></li>
+<li>Or, click the <em>New Project</em> button in the Console ribbon,</li>
+</ul>
+<p><img src="figures/rstudio-new-project.png" alt="rstudio new project button" style="left:0px; padding:20px;" width="700px"/></p>
+<p><br>
+In the dialog box that appears,</p>
+<ul>
+<li>Type the workshop name as the directory name, for example, <code>workshop</code>, or if you like more detail, <code>midfield-workshop-asee-2021</code><br />
+</li>
+<li>Use the browse button to select a location on your computer to create the project folder<br />
+</li>
+<li>Click the <em>Create Project</em> button</li>
+</ul>
+<p>Whenever you work with the workshop materials, launch the <code>workshop.Rproj</code> file (using the name you actually used) to start the session.</p>
+</div>
+<div id="add-some-folders" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Add some folders</h2>
+<p>While file organization is a matter of personal preference, we ask that you use the directory structure shown here for your work in the workshop. Assuming we called our project <code>workshop</code>, the minimal directory structure has three folders in it plus the <code>.Rproj</code> file at the top level.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="install-everything.html#cb2-1" aria-hidden="true" tabindex="-1"></a>\workshop</span>
+<span id="cb2-2"><a href="install-everything.html#cb2-2" aria-hidden="true" tabindex="-1"></a>    \data</span>
+<span id="cb2-3"><a href="install-everything.html#cb2-3" aria-hidden="true" tabindex="-1"></a>    \results</span>
+<span id="cb2-4"><a href="install-everything.html#cb2-4" aria-hidden="true" tabindex="-1"></a>    \scripts</span>
+<span id="cb2-5"><a href="install-everything.html#cb2-5" aria-hidden="true" tabindex="-1"></a>    workshop.Rproj</span></code></pre></div>
+<p>We use the folders as follows:</p>
+<ul>
+<li><code>data</code> data files</li>
+<li><code>results</code> finished graphs and tabulated data formatted for display<br />
+</li>
+<li><code>scripts</code> R scripts that operate on data to produce results</li>
+</ul>
+<p>If you prefer your instructions with commentary,</p>
+<ul>
+<li><a href="https://www.youtube.com/embed/kfcX5DEMAp4?start=290&amp;end=368" target="_blank">Make some folders (04:50–06:08)</a> by R Ladies Sydney <span class="citation"><a href="references.html#ref-RLadiesSydney:2018:Lesson1" role="doc-biblioref">[1]</a></span></li>
+</ul>
+<p>If you prefer basic written instructions,</p>
+<ul>
+<li>use your usual method of creating new folders on your machine</li>
+<li>or you can use the <em>New Folder</em> button in the Files pane</li>
+</ul>
+<p><img src="figures/rstudio-new-folder.png" alt="rstudio new folder" style="left:0px; padding:20px;" width="700px"/>
+<br></p>
+</div>
+<div id="create-a-library-for-packages" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Create a library for packages</h2>
+<p>Packages are like “apps” for R. As Hadley Wickham states, “Packages are the fundamental units
+of reproducible R code. They include reusable functions, the
+documentation that describes how to use them, and sample data.”</p>
+<p>If we store packages in a library separate from the base R installation,
+then when you update R, you don’t have to reinstall every package,
+saving a lot of time.</p>
+<p>If you happen to be working with R on a network, storing your library locally can save you time tracking down obscure problems that R has with network drives as well.</p>
+<p>At the top level of your drive, create a new directory (folder) named
+“R.” In that directory create a new folder named “library,” for
+example,</p>
+<ul>
+<li>Windows: <code>C:/R/library</code><br />
+</li>
+<li>Mac OS and Linux: <code>~/R/library</code></li>
+</ul>
+</div>
+<div id="create-the-.renviron-file" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Create the .Renviron file</h2>
+<p>The <code>.Renviron</code> file is a text file that directs R packages to be
+installed in the <code>R/library</code> directory created earlier. To create the
+file, with RStudio open,</p>
+<ul>
+<li>Create a new text file, <em>File menu &gt; New File &gt; Text File</em>.</li>
+<li>Save the file to the <code>workshop</code> main directory using the filename
+<em>.Renviron</em></li>
+</ul>
+<p>In this file, write the following line of text that tells R the path to
+the stand-alone package library you created earlier.</p>
+<ul>
+<li>Windows: <code>R_LIBS_USER="C:/R/library"</code></li>
+<li>Mac OS and Linux: <code>R_LIBS_USER="~/R/library"</code></li>
+</ul>
+<p>Save and close to recognize the .Renviron file.</p>
+<ul>
+<li>Save and close the <code>.Renviron</code> file.</li>
+<li>Close RStudio</li>
+</ul>
+<p>Let’s check your project directory. You should have at least the
+following folders and files,</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="install-everything.html#cb3-1" aria-hidden="true" tabindex="-1"></a>\workshop</span>
+<span id="cb3-2"><a href="install-everything.html#cb3-2" aria-hidden="true" tabindex="-1"></a>    \data</span>
+<span id="cb3-3"><a href="install-everything.html#cb3-3" aria-hidden="true" tabindex="-1"></a>    \results</span>
+<span id="cb3-4"><a href="install-everything.html#cb3-4" aria-hidden="true" tabindex="-1"></a>    \scripts</span>
+<span id="cb3-5"><a href="install-everything.html#cb3-5" aria-hidden="true" tabindex="-1"></a>    .Renviron</span>
+<span id="cb3-6"><a href="install-everything.html#cb3-6" aria-hidden="true" tabindex="-1"></a>    workshop.Rproj</span></code></pre></div>
+<p>Remember, every time you create a new project, paste a copy of the <code>.Renviron</code> file at the top level of the project directory.</p>
+</div>
+<div id="install-packages-we-need" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Install packages we need</h2>
 <p>The fundamental unit of shareable code in R is the <em>package.</em> For the R novice, an R package is like an “app” for R—a collection of functions, data, and documentation for doing work in R that is easily shared with others <span class="citation"><a href="references.html#ref-wickham2014advanced" role="doc-biblioref">[2]</a></span>.</p>
 <p>Most packages are obtained from the <a href="https://cran.r-project.org/" target="_blank">CRAN</a> website <span class="citation"><a href="references.html#ref-cranweb" role="doc-biblioref">[3]</a></span>. To install a CRAN package using RStudio:</p>
 <ul>
@@ -298,50 +402,59 @@ div.csl-indent {
 Next,</p>
 <ul>
 <li>Click <em>Install</em> on the ribbon</li>
-<li>In the dialog box, type the name of the package. For our first package, type <code>remotes</code> to install the remotes package <span class="citation"><a href="references.html#ref-R-remotes" role="doc-biblioref">[4]</a></span></li>
+<li>In the dialog box, type the name of the package. For our first package, type <code>data.table</code> to install the data.table package <span class="citation"><a href="references.html#ref-R-data.table" role="doc-biblioref">[4]</a></span></li>
 <li>Check the <em>Install dependencies</em> box</li>
 <li>Click the <em>Install</em> button</li>
 </ul>
 <p>In the RStudio Console, you should see a message like this one,</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="install-everything.html#cb2-1" aria-hidden="true" tabindex="-1"></a>    package <span class="st">&#39;remotes&#39;</span> successfully unpacked and MD5 sums checked</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="install-everything.html#cb4-1" aria-hidden="true" tabindex="-1"></a>    package <span class="st">&#39;data.table&#39;</span> successfully unpacked and MD5 sums checked</span></code></pre></div>
 <p>If successful, the package will appear in the Packages pane, e.g.,</p>
-<p><img src="figures/rstudio-packages-2.png" alt="rstudio packages pane" style="left:0px; padding:20px;" width="700px"/></p>
+<p><img src="figures/rstudio-packages-3.png" alt="rstudio packages pane" style="left:0px; padding:20px;" width="700px"/></p>
+<p>Repeat the process for the following packages</p>
+<pre><code>wrapr 
+Rdpack 
+checkmate</code></pre>
+<p>Alternatively, you can install them all at once by typing in the Console:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="install-everything.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># midfieldr depends on these packages</span></span>
+<span id="cb6-2"><a href="install-everything.html#cb6-2" aria-hidden="true" tabindex="-1"></a>packages_we_need <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;data.table&quot;</span>, <span class="st">&quot;wrapr&quot;</span>, <span class="st">&quot;Rdpack&quot;</span>, <span class="st">&quot;checkmate&quot;</span>)</span>
+<span id="cb6-3"><a href="install-everything.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(packages_we_need)</span></code></pre></div>
 </div>
-<div id="install-midfieldr" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Install midfieldr</h2>
-<p>Earlier we installed the remotes package. To access its functions we use the <code>library()</code> function.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="install-everything.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the RStudio Console  </span></span>
-<span id="cb3-2"><a href="install-everything.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;remotes&quot;</span>)</span></code></pre></div>
-<p>Now we can use the <code>install_github()</code> function in the remotes package to install the midfieldr package from GitHub <span class="citation"><a href="references.html#ref-R-midfieldr" role="doc-biblioref">[5]</a></span>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="install-everything.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the RStudio Console  </span></span>
-<span id="cb4-2"><a href="install-everything.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;MIDFIELDR/midfieldr&quot;</span>)</span></code></pre></div>
-<p>You can confirm a successful installation by viewing the package help page. In the Console, run:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="install-everything.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the RStudio Console </span></span>
-<span id="cb5-2"><a href="install-everything.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;midfieldr&quot;</span>)</span>
-<span id="cb5-3"><a href="install-everything.html#cb5-3" aria-hidden="true" tabindex="-1"></a>? midfieldr</span></code></pre></div>
+<div id="install-midfieldr" class="section level2" number="2.7">
+<h2><span class="header-section-number">2.7</span> Install midfieldr</h2>
+<p>During the installation, Windows users might get a warning message about Rtools, something like the following. You may ignore the warning and carry on.</p>
+<pre><code>WARNING: Rtools is required to build R packages but is not currently installed. 
+Please download and install the appropriate version...</code></pre>
+<p>midfieldr is not yet available from <a href="https://cran.r-project.org/">CRAN</a>. To install the development version of midfieldr from its <code>drat</code> repository, type in the Console:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="install-everything.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install midfieldr from drat repo</span></span>
+<span id="cb8-2"><a href="install-everything.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;midfieldr&quot;</span>, </span>
+<span id="cb8-3"><a href="install-everything.html#cb8-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repos =</span> <span class="st">&quot;https://MIDFIELDR.github.io/drat/&quot;</span>, </span>
+<span id="cb8-4"><a href="install-everything.html#cb8-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">type =</span> <span class="st">&quot;source&quot;</span>)</span></code></pre></div>
+<p>You can confirm a successful installation by running the following lines to bring up the package help page in the Help window.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="install-everything.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;midfieldr&quot;</span>)</span>
+<span id="cb9-2"><a href="install-everything.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;midfieldr-package&quot;</span>)</span></code></pre></div>
 <p>If the installation is successful, the code chunk above should produce a view of the help page as shown here.</p>
 <p><img src="figures/README-midfieldr-help-page-2.png" alt="midfiedr help page pane" style="left:0px; padding:20px;" width="700px"/></p>
 </div>
-<div id="install-midfielddata" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Install midfielddata</h2>
+<div id="install-midfielddata" class="section level2" number="2.8">
+<h2><span class="header-section-number">2.8</span> Install midfielddata</h2>
 <p>Because of its size, the data package is stored in a <code>drat</code> repository instead of CRAN. Installation takes time; please be patient and wait for the Console prompt “&gt;” to reappear.</p>
 <p>Type (or copy and paste) the following lines in the RStudio Console.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="install-everything.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the RStudio Console  </span></span>
-<span id="cb6-2"><a href="install-everything.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;midfielddata&quot;</span>, </span>
-<span id="cb6-3"><a href="install-everything.html#cb6-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repos =</span> <span class="st">&quot;https://MIDFIELDR.github.io/drat/&quot;</span>, </span>
-<span id="cb6-4"><a href="install-everything.html#cb6-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">type =</span> <span class="st">&quot;source&quot;</span>)</span>
-<span id="cb6-5"><a href="install-everything.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># be patient</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="install-everything.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the RStudio Console  </span></span>
+<span id="cb10-2"><a href="install-everything.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;midfielddata&quot;</span>, </span>
+<span id="cb10-3"><a href="install-everything.html#cb10-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repos =</span> <span class="st">&quot;https://MIDFIELDR.github.io/drat/&quot;</span>, </span>
+<span id="cb10-4"><a href="install-everything.html#cb10-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">type =</span> <span class="st">&quot;source&quot;</span>)</span>
+<span id="cb10-5"><a href="install-everything.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># be patient</span></span></code></pre></div>
 <p>Once the Console prompt “&gt;” reappears, you can confirm a successful installation by viewing the package help page. In the Console, run:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="install-everything.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the RStudio Console  </span></span>
-<span id="cb7-2"><a href="install-everything.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;midfielddata&quot;</span>)</span>
-<span id="cb7-3"><a href="install-everything.html#cb7-3" aria-hidden="true" tabindex="-1"></a>? midfielddata</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="install-everything.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the RStudio Console  </span></span>
+<span id="cb11-2"><a href="install-everything.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;midfielddata&quot;</span>)</span>
+<span id="cb11-3"><a href="install-everything.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;midfielddata-package&quot;</span>)</span></code></pre></div>
 <p>If the installation is successful, the code chunk above should produce a view of the help page as shown here.</p>
 <p><img src="figures/README-midfielddata-help-page-2.png" alt="midfiedldata help page pane" style="left:0px; padding:20px;" width="700px"/></p>
 <p>If this step is successful, please continue your homework by completing:</p>
 <ul>
-<li>3.1 <a href="setup-project.html#create-a-project">Create a project</a><br />
+<li>3.1 <a href="setup-project.html#create-a-project-1">Create a project</a><br />
 </li>
-<li>3.2 <a href="setup-project.html#add-some-folders">Add some folders</a></li>
+<li>3.2 <a href="setup-project.html#add-some-folders-1">Add some folders</a></li>
 </ul>
 <p><br>
 <a href="install-everything.html#install-everything">▲ top of page</a></p>
