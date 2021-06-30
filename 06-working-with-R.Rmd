@@ -47,7 +47,6 @@ RStudio, an integrated development environment (IDE) for R, includes a console, 
 Before proceeding, you should have completed
 
 - [Install everything]    
-- [Set up a project]    
 - Launched your workshop project---`workshop.Rproj` or other name that you selected---to start the R session     
 - We suggest you start a new R script for each tutorial and save it to the `scripts` directory. For example, at the end of the workshop, your scripts directory might contain the following files:     
 
@@ -71,8 +70,8 @@ Before proceeding, you should have completed
 [Prerequisites] should be completed before proceeding. By the end of the workshop, our R beginners will have made progress on two or possibly three tutorials:  
 
 - [R basics] An introduction to R, generally less than an hour. 
-- [Getting started](https://midfieldr.github.io/midfieldr/articles/art-000-getting-started.html): An introduction to the MIDFIELD practice data tables. 
-- [Case study programs](https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html) Construct a data frame of program CIP codes and program names for four engineering programs (Civil, Electrical, Industrial, and Mechanical) 
+- [Getting started](https://midfieldr.github.io/midfieldr/articles/art-000-getting-started.html){target="_blank"}: An introduction to the MIDFIELD practice data tables. 
+- [Case study programs](https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html){target="_blank"} Construct a data frame of program CIP codes and program names for four engineering programs (Civil, Electrical, Industrial, and Mechanical) 
 
 
 If you complete these tutorials and there is still time remaining, please consider moving on the to tutorials listed in the [After the workshop] section. 
@@ -92,9 +91,9 @@ If you complete these tutorials and there is still time remaining, please consid
 
 [Prerequisites] should be completed before proceeding. By the end of the workshop, our more experienced R users will have made substantive progress on two or possibly three tutorials: 
 
-- [Getting started](https://midfieldr.github.io/midfieldr/articles/art-000-getting-started.html): An introduction to the MIDFIELD practice data tables  
-- [Case study programs](https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html) Construct a data frame of program CIP codes and program names for four engineering programs (Civil, Electrical, Industrial, and Mechanical) 
-- [Case study students](https://midfieldr.github.io/midfieldr/articles/art-120-case-study-students.html) Develop a data frame of the case study students who pass the data sufficiency criterion. 
+- [Getting started](https://midfieldr.github.io/midfieldr/articles/art-000-getting-started.html){target="_blank"}: An introduction to the MIDFIELD practice data tables  
+- [Case study programs](https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html){target="_blank"} Construct a data frame of program CIP codes and program names for four engineering programs (Civil, Electrical, Industrial, and Mechanical) 
+- [Case study students](https://midfieldr.github.io/midfieldr/articles/art-120-case-study-students.html){target="_blank"} Develop a data frame of the case study students who pass the data sufficiency criterion. 
 
 
 
