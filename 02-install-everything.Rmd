@@ -1,10 +1,10 @@
 # Install everything {#install-everything}
 
 ```{r echo = FALSE}
-library(knitr)
-opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
-opts_chunk$set(echo = FALSE) 
-knit_hooks$set(inline = function(x) {
+library("knitr")
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+knitr::opts_chunk$set(echo = FALSE) 
+knitr::knit_hooks$set(inline = function(x) {
         if (!is.numeric(x)) { 
                 x 
         } else if (x >= 10000) { 
@@ -28,30 +28,66 @@ htmltools::img(src = knitr::include_graphics("figures/logo-RStudio.png"),
 
 If you are trying R for the first time, it is vital that you attempt to set up your computer with the necessary software in advance or it will be difficult to keep up. 
 
-Your pre-workshop homework:  
+This chapter describes all of the pre-workshop homework: 
 
-
+- [Already installed?]
 - [Install R and RStudio]
 - [Create a project]  
 - [Add some folders] 
-- [Create a library for packages] 
-- [Create the .Renviron file]
-- [Install packages we need] 
-- [Install midfieldr] 
-- [Install midfielddata] 
+- [Install CRAN packages] 
+- [Install MIDFIELD packages] 
 
 
+## Already installed?
 
-If you already have R and RStudio installed, this is a great time to 
+If you do not have R and RStudio installed, please skip this section and start with the next section. If you are already an R and RStudio user, this is a great time to check for updates. 
 
-- Make sure your R installation is current
-- Make sure your RStudio installation is current
-- Update your packages by running: 
+**Updating RStudio**
 
-```r
-update.packages(ask = FALSE, checkBuilt = TRUE)
+- RStudio menu *Help \> Check for Updates* will tell you if you are current or not. 
+- To update, close RStudio on your machine, download the new version from the [RStudio website](https://www.rstudio.com/products/rstudio/#Desktop), and run the `RStudio-some-version-number.exe`. (Windows users *might* have to run the executable as an administrator.)
 
+**Update your packages**
+
+[How to upgrade all out-of-date packages](https://rstats.wtf/maintaining-r.html#how-to-upgrade-all-out-of-date-packages) in *What They Forgot to Teach You About R* by Jennifer Bryan and Jim Hester. 
+
+
+**Updating R**
+
+The easiest way to update R is to simply [download the newest version](https://cloud.r-project.org/). RStudio will automatically use the latest you've installed. 
+
+
+Alternatively, Windows users can use the installr package:
+
+- Install the installr package 
+- If open, close R and RStudio 
+- Navigate to your most recent `Rgui.exe` file located in your Programs directory, e.g., `C:\Program Files\R\R-4.0.0\bin\x64\Rgui.exe`  
+- Right-click on `Rgui.exe` and run as administrator
+- In the R GUI window that appears, run the commands
+
+``` r
+    # Windows users only
+    library("installr")
+    updateR()
 ```
+
+
+**Updating your R library**
+
+[How to transfer your library when updating R](https://rstats.wtf/maintaining-r.html#how-to-transfer-your-library-when-updating-r) also by Bryan and Hester. Requires the fs package.  
+
+
+**Once your updates are complete**
+
+Skip the next section and continue the homework with 
+
+- [Create a project]  
+- [Add some folders] 
+- [Install CRAN packages] 
+- [Install MIDFIELD packages] 
+
+
+
 
 
 ## Install R and RStudio 
@@ -68,6 +104,16 @@ Once the installation is complete, you can take a 2-minute tour of the RStudio i
 The same video includes a longer (7 minute) tour of the four quadrants (panes) in RStudio if you are interested. 
 
 - [The RStudio quadrants (07:21--14:40)](https://www.youtube.com/embed/kfcX5DEMAp4?start=441&end=880){target="_blank"} by R Ladies Sydney [@RLadiesSydney:2018:Lesson1] 
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -103,9 +149,15 @@ In the dialog box that appears,
 
 
 
-
-
 Whenever you work with the workshop materials, launch the `workshop.Rproj` file (using the name you actually used) to start the session. 
+
+
+
+
+
+
+
+
 
 
 
@@ -128,11 +180,7 @@ We use the folders as follows:
 - `results` finished graphs and tabulated data formatted for display  
 - `scripts` R scripts that operate on data to produce results  
 
-If you prefer your instructions with commentary,  
-
-- [Make some folders  (04:50--06:08)](https://www.youtube.com/embed/kfcX5DEMAp4?start=290&end=368){target="_blank"} by R Ladies Sydney [@RLadiesSydney:2018:Lesson1] 
-
-If you prefer basic written instructions, 
+To create folders: 
 
 - use your usual method of creating new folders on your machine 
 - or you can use the *New Folder* button in the Files pane 
@@ -145,72 +193,15 @@ htmltools::img(src = knitr::include_graphics("figures/rstudio-new-folder.png"),
 ```
 <br>
 
+For a video guide, 
+
+- [Make some folders  (04:50--06:08)](https://www.youtube.com/embed/kfcX5DEMAp4?start=290&end=368){target="_blank"} by R Ladies Sydney [@RLadiesSydney:2018:Lesson1] 
 
 
 
 
-## Create a library for packages
 
-Packages are like “apps” for R. As Hadley Wickham states, “Packages are the fundamental units
-of reproducible R code. They include reusable functions, the
-documentation that describes how to use them, and sample data.”
-
-If we store packages in a library separate from the base R installation,
-then when you update R, you don’t have to reinstall every package,
-saving a lot of time. 
-
-If you happen to be working with R on a network, storing your library locally can save you time tracking down obscure problems that R has with network drives as well. 
-
-At the top level of your drive, create a new directory (folder) named
-“R”. In that directory create a new folder named “library”, for
-example,
-
-  - Windows: `C:/R/library`  
-  - Mac OS and Linux: `~/R/library`
-
-  
-## Create the .Renviron file
-
-The `.Renviron` file is a text file that directs R packages to be
-installed in the `R/library` directory created earlier. To create the
-file, with RStudio open,
-
-  - Create a new text file, *File menu \> New File \> Text File*.
-  - Save the file to the `workshop` main directory using the filename
-    *.Renviron*
-
-In this file, write the following line of text that tells R the path to
-the stand-alone package library you created earlier.
-
-  - Windows: `R_LIBS_USER="C:/R/library"`
-  - Mac OS and Linux: `R_LIBS_USER="~/R/library"`
-
-Save and close to recognize the .Renviron file.
-
-  - Save and close the `.Renviron` file.
-  - Close RStudio
-
-Let’s check your project directory. You should have at least the
-following folders and files,
-
-```r
-\workshop
-    \data
-    \results
-    \scripts
-    .Renviron
-    workshop.Rproj
-```
-
-Remember, every time you create a new project, paste a copy of the `.Renviron` file at the top level of the project directory.  
-  
-  
-  
-
-
-
-
-## Install packages we need
+## Install CRAN packages
 
 The fundamental unit of shareable code in R is the *package.* For the R novice, an R package is like an "app" for R---a collection of functions, data, and documentation for doing work in R that is easily shared with others  [@wickham2014advanced]. 
 
@@ -244,9 +235,8 @@ Next,
 >    
 > `WARNING: Rtools is required to build R packages but is not currently installed. Please download and install the appropriate version...`. 
 >    
-> You may ignore the warning and carry on. 
 
-
+Rtools is needed for packages with C/C++/Fortran code from source---which does not apply to us. You may ignore the warning and carry on. 
 
 
 
@@ -286,12 +276,14 @@ install.packages(packages_we_need)
 
 
 
-## Install midfieldr {#install-midfieldr}
+## Install MIDFIELD packages
+
+### midfieldr 
 
 midfieldr is not yet available from [CRAN](https://cran.r-project.org/). To install the development version of midfieldr from its `drat` repository, type in the Console: 
 
 ``` r
-# install midfieldr from drat repo
+# type in the RStudio Console 
 install.packages("midfieldr", 
                  repos = "https://MIDFIELDR.github.io/drat/", 
                  type = "source")
@@ -300,7 +292,11 @@ install.packages("midfieldr",
 You can confirm a successful installation by running the following lines to bring up the package help page in the Help window. 
 
 ``` r
+# type in the RStudio Console 
 library("midfieldr")
+? `midfieldr-package`
+
+# or, equivalently
 help("midfieldr-package")
 ```
 
@@ -313,15 +309,7 @@ htmltools::img(src = knitr::include_graphics("figures/README-midfieldr-help-page
         width = "700px")
 ```
 
-
-
-
-
-
-
-
-
-## Install midfielddata  {#install-midfielddata}
+### midfielddata
 
 Because of its size, the data package is stored in a `drat` repository instead of CRAN. Installation takes time; please be patient and wait for the Console prompt ">" to reappear. 
 

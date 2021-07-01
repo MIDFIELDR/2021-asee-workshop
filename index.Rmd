@@ -17,10 +17,10 @@ cover-image: "figures/midfield-grad-logo.png"
 # Introduction {#introduction}
 
 ```{r echo = FALSE}
-library(knitr)
-opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
-opts_chunk$set(echo = FALSE) 
-knit_hooks$set(inline = function(x) {
+library("knitr")
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+knitr::opts_chunk$set(echo = FALSE) 
+knitr::knit_hooks$set(inline = function(x) {
 	if (!is.numeric(x)) { 
 		x 
 	} else if (x >= 10000) { 
@@ -46,18 +46,24 @@ htmltools::img(src = knitr::include_graphics("figures/midfield-grad-logo.png"),
 ```
 
 
+```{r eval = FALSE}
+# clean html files before building the book
+
+```
+
+
 
 ## Objectives 
 
-MIDFIELD---The *Multiple-Institution Database for Investigating Engineering Longitudinal Development*---is a partnership of higher education institutions with engineering programs. MIDFIELD contains student record data from 1988--2017 for approximately one million undergraduate, degree-seeking students at the partner institutions.
+[**MIDFIELD**](https://engineering.purdue.edu/MIDFIELD){target="_blank"} contains individual Student Unit Record (SUR) data for 1.7M students at 33 US institutions (as of June 2021). MIDFIELD is large enough to permit grouping and summarizing by multiple characteristics, enabling researchers to examine student characteristics (race/ethnicity, sex, prior achievement) and curricular pathways (including coursework and major) by institution and over time. 
 
-The goal of this workshop is to make MIDFIELD more accessible to the ASEE community. The workshop introduces *midfieldr* (a package in the R software environment) that provides access to a MIDFIELD student-record data sample and tools to analyze and graph persistence metrics such as graduation rates. The workshop is designed for R beginners. 
+The goal of this workshop is to engage ASEE members with MIDFIELD data, in part using two R packages:  [**midfieldr**](https://midfieldr.github.io/midfieldr/){target="_blank"} to provide tools for working with SURs and  [**midfielddata**](https://midfieldr.github.io/midfielddata/){target="_blank"} to provide practice data.
 
 By the end of the workshop, participants should be able to:
 
 - Describe key variables in MIDFIELD data tables 
 - Explore and tell a story from MIDFIELD data
-- Use midfieldr, an R package specifically designed for use with MIDFIELD 
+- Begin using R, midfieldr, and midfielddata  
 - Explain key features of effective data displays 
 
 
@@ -68,7 +74,7 @@ By the end of the workshop, participants should be able to:
 
 The robustness of the MIDFIELD data allows us to emphasize an intersectional approach to the study of student records, permitting multiple categories of inequity such as race/ethnicity and sex to be considered simultaneously. 
 
-To introduce beginners to R, participants work through a self-paced tutorial covering basic elements of the R computing language and environment. To introduce midfieldr and using it to work with student record data, participants work through a "Get started" tutorial in which they determine the numbers of students ever enrolled in two programs, group and summarize the data, and graph the results. 
+To introduce beginners to R, participants work through a self-paced tutorial covering basic elements of the R computing language and environment. To introduce midfieldr and using it to work with student record data, participants work through software tutorials that explore the SUR data and develop a persistence metric case study. 
 
 For more experienced R users or anyone working at a faster pace, we offer a series of self-paced tutorials that introduce key features of midfieldr and how they are applied to compute persistence metrics and graph results. 
 
@@ -80,10 +86,9 @@ We also discuss the merits of the multiway graph design that is recommended for 
 
 To get the most out of the workshop, you should have the essential software installed and running several days before the workshop to give you time to contact us with questions if anything goes amiss. 
 
-Your homework is explained on the pages:
+[Install everything] describes the homework. 
 
-- [Install everything]
-- [Setup a project] 
+
 
 
 

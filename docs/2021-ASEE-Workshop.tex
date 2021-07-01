@@ -139,9 +139,9 @@
 \hypertarget{objectives}{%
 \section{Objectives}\label{objectives}}
 
-MIDFIELD---The \emph{Multiple-Institution Database for Investigating Engineering Longitudinal Development}---is a partnership of higher education institutions with engineering programs. MIDFIELD contains student record data from 1988--2017 for approximately one million undergraduate, degree-seeking students at the partner institutions.
+\href{https://engineering.purdue.edu/MIDFIELD}{\textbf{MIDFIELD}} contains individual Student Unit Record (SUR) data for 1.7M students at 33 US institutions (as of June 2021). MIDFIELD is large enough to permit grouping and summarizing by multiple characteristics, enabling researchers to examine student characteristics (race/ethnicity, sex, prior achievement) and curricular pathways (including coursework and major) by institution and over time.
 
-The goal of this workshop is to make MIDFIELD more accessible to the ASEE community. The workshop introduces \emph{midfieldr} (a package in the R software environment) that provides access to a MIDFIELD student-record data sample and tools to analyze and graph persistence metrics such as graduation rates. The workshop is designed for R beginners.
+The goal of this workshop is to engage ASEE members with MIDFIELD data, in part using two R packages: \href{https://midfieldr.github.io/midfieldr/}{\textbf{midfieldr}} to provide tools for working with SURs and \href{https://midfieldr.github.io/midfielddata/}{\textbf{midfielddata}} to provide practice data.
 
 By the end of the workshop, participants should be able to:
 
@@ -152,7 +152,7 @@ By the end of the workshop, participants should be able to:
 \item
   Explore and tell a story from MIDFIELD data
 \item
-  Use midfieldr, an R package specifically designed for use with MIDFIELD
+  Begin using R, midfieldr, and midfielddata\\
 \item
   Explain key features of effective data displays
 \end{itemize}
@@ -162,7 +162,7 @@ By the end of the workshop, participants should be able to:
 
 The robustness of the MIDFIELD data allows us to emphasize an intersectional approach to the study of student records, permitting multiple categories of inequity such as race/ethnicity and sex to be considered simultaneously.
 
-To introduce beginners to R, participants work through a self-paced tutorial covering basic elements of the R computing language and environment. To introduce midfieldr and using it to work with student record data, participants work through a ``Get started'' tutorial in which they determine the numbers of students ever enrolled in two programs, group and summarize the data, and graph the results.
+To introduce beginners to R, participants work through a self-paced tutorial covering basic elements of the R computing language and environment. To introduce midfieldr and using it to work with student record data, participants work through software tutorials that explore the SUR data and develop a persistence metric case study.
 
 For more experienced R users or anyone working at a faster pace, we offer a series of self-paced tutorials that introduce key features of midfieldr and how they are applied to compute persistence metrics and graph results.
 
@@ -173,15 +173,7 @@ We also discuss the merits of the multiway graph design that is recommended for 
 
 To get the most out of the workshop, you should have the essential software installed and running several days before the workshop to give you time to contact us with questions if anything goes amiss.
 
-Your homework is explained on the pages:
-
-\begin{itemize}
-\tightlist
-\item
-  \protect\hyperlink{install-everything}{Install everything}
-\item
-  {[}Setup a project{]}
-\end{itemize}
+\protect\hyperlink{install-everything}{Install everything} describes the homework.
 
 \hypertarget{agenda}{%
 \section{Agenda}\label{agenda}}
@@ -246,10 +238,12 @@ Funding provided by the National Science Foundation Grant 1545667 ``Expanding Ac
 
 If you are trying R for the first time, it is vital that you attempt to set up your computer with the necessary software in advance or it will be difficult to keep up.
 
-Your pre-workshop homework:
+This chapter describes all of the pre-workshop homework:
 
 \begin{itemize}
 \tightlist
+\item
+  \protect\hyperlink{already-installed}{Already installed?}
 \item
   \protect\hyperlink{install-r-and-rstudio}{Install R and RStudio}
 \item
@@ -257,34 +251,77 @@ Your pre-workshop homework:
 \item
   \protect\hyperlink{add-some-folders}{Add some folders}
 \item
-  \protect\hyperlink{create-a-library-for-packages}{Create a library for packages}
+  \protect\hyperlink{install-cran-packages}{Install CRAN packages}
 \item
-  \protect\hyperlink{create-the-.renviron-file}{Create the .Renviron file}
-\item
-  \protect\hyperlink{install-packages-we-need}{Install packages we need}
-\item
-  \protect\hyperlink{install-midfieldr}{Install midfieldr}
-\item
-  \protect\hyperlink{install-midfielddata}{Install midfielddata}
+  \protect\hyperlink{install-midfield-packages}{Install MIDFIELD packages}
 \end{itemize}
 
-If you already have R and RStudio installed, this is a great time to
+\hypertarget{already-installed}{%
+\section{Already installed?}\label{already-installed}}
+
+If you do not have R and RStudio installed, please skip this section and start with the next section. If you are already an R and RStudio user, this is a great time to check for updates.
+
+\textbf{Updating RStudio}
 
 \begin{itemize}
 \tightlist
 \item
-  Make sure your R installation is current
+  RStudio menu \emph{Help \textgreater{} Check for Updates} will tell you if you are current or not.
 \item
-  Make sure your RStudio installation is current
+  To update, close RStudio on your machine, download the new version from the \href{https://www.rstudio.com/products/rstudio/\#Desktop}{RStudio website}, and run the \texttt{RStudio-some-version-number.exe}. (Windows users \emph{might} have to run the executable as an administrator.)
+\end{itemize}
+
+\textbf{Update your packages}
+
+\href{https://rstats.wtf/maintaining-r.html\#how-to-upgrade-all-out-of-date-packages}{How to upgrade all out-of-date packages} in \emph{What They Forgot to Teach You About R} by Jennifer Bryan and Jim Hester.
+
+\textbf{Updating R}
+
+The easiest way to update R is to simply \href{https://cloud.r-project.org/}{download the newest version}. RStudio will automatically use the latest you've installed.
+
+Alternatively, Windows users can use the installr package:
+
+\begin{itemize}
+\tightlist
 \item
-  Update your packages by running:
+  Install the installr package
+\item
+  If open, close R and RStudio
+\item
+  Navigate to your most recent \texttt{Rgui.exe} file located in your Programs directory, e.g., \texttt{C:\textbackslash{}Program\ Files\textbackslash{}R\textbackslash{}R-4.0.0\textbackslash{}bin\textbackslash{}x64\textbackslash{}Rgui.exe}\\
+\item
+  Right-click on \texttt{Rgui.exe} and run as administrator
+\item
+  In the R GUI window that appears, run the commands
 \end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{update.packages}\NormalTok{(}\AttributeTok{ask =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{checkBuilt =} \ConstantTok{TRUE}\NormalTok{)}
+    \CommentTok{\# Windows users only}
+    \FunctionTok{library}\NormalTok{(}\StringTok{"installr"}\NormalTok{)}
+    \FunctionTok{updateR}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
+
+\textbf{Updating your R library}
+
+\href{https://rstats.wtf/maintaining-r.html\#how-to-transfer-your-library-when-updating-r}{How to transfer your library when updating R} also by Bryan and Hester. Requires the fs package.
+
+\textbf{Once your updates are complete}
+
+Skip the next section and continue the homework with
+
+\begin{itemize}
+\tightlist
+\item
+  \protect\hyperlink{create-a-project}{Create a project}\\
+\item
+  \protect\hyperlink{add-some-folders}{Add some folders}
+\item
+  \protect\hyperlink{install-cran-packages}{Install CRAN packages}
+\item
+  \protect\hyperlink{install-midfield-packages}{Install MIDFIELD packages}
+\end{itemize}
 
 \hypertarget{install-r-and-rstudio}{%
 \section{Install R and RStudio}\label{install-r-and-rstudio}}
@@ -379,15 +416,7 @@ We use the folders as follows:
   \texttt{scripts} R scripts that operate on data to produce results
 \end{itemize}
 
-If you prefer your instructions with commentary,
-
-\begin{itemize}
-\tightlist
-\item
-  \href{https://www.youtube.com/embed/kfcX5DEMAp4?start=290\&end=368}{Make some folders (04:50--06:08)} by R Ladies Sydney \citep{RLadiesSydney:2018:Lesson1}
-\end{itemize}
-
-If you prefer basic written instructions,
+To create folders:
 
 \begin{itemize}
 \tightlist
@@ -397,86 +426,16 @@ If you prefer basic written instructions,
   or you can use the \emph{New Folder} button in the Files pane
 \end{itemize}
 
-\hypertarget{create-a-library-for-packages}{%
-\section{Create a library for packages}\label{create-a-library-for-packages}}
-
-Packages are like ``apps'' for R. As Hadley Wickham states, ``Packages are the fundamental units
-of reproducible R code. They include reusable functions, the
-documentation that describes how to use them, and sample data.''
-
-If we store packages in a library separate from the base R installation,
-then when you update R, you don't have to reinstall every package,
-saving a lot of time.
-
-If you happen to be working with R on a network, storing your library locally can save you time tracking down obscure problems that R has with network drives as well.
-
-At the top level of your drive, create a new directory (folder) named
-``R''. In that directory create a new folder named ``library'', for
-example,
+For a video guide,
 
 \begin{itemize}
 \tightlist
 \item
-  Windows: \texttt{C:/R/library}\\
-\item
-  Mac OS and Linux: \texttt{\textasciitilde{}/R/library}
+  \href{https://www.youtube.com/embed/kfcX5DEMAp4?start=290\&end=368}{Make some folders (04:50--06:08)} by R Ladies Sydney \citep{RLadiesSydney:2018:Lesson1}
 \end{itemize}
 
-\hypertarget{create-the-.renviron-file}{%
-\section{Create the .Renviron file}\label{create-the-.renviron-file}}
-
-The \texttt{.Renviron} file is a text file that directs R packages to be
-installed in the \texttt{R/library} directory created earlier. To create the
-file, with RStudio open,
-
-\begin{itemize}
-\tightlist
-\item
-  Create a new text file, \emph{File menu \textgreater{} New File \textgreater{} Text File}.
-\item
-  Save the file to the \texttt{workshop} main directory using the filename
-  \emph{.Renviron}
-\end{itemize}
-
-In this file, write the following line of text that tells R the path to
-the stand-alone package library you created earlier.
-
-\begin{itemize}
-\tightlist
-\item
-  Windows: \texttt{R\_LIBS\_USER="C:/R/library"}
-\item
-  Mac OS and Linux: \texttt{R\_LIBS\_USER="\textasciitilde{}/R/library"}
-\end{itemize}
-
-Save and close to recognize the .Renviron file.
-
-\begin{itemize}
-\tightlist
-\item
-  Save and close the \texttt{.Renviron} file.
-\item
-  Close RStudio
-\end{itemize}
-
-Let's check your project directory. You should have at least the
-following folders and files,
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{\textbackslash{}workshop}
-\NormalTok{    \textbackslash{}data}
-\NormalTok{    \textbackslash{}results}
-\NormalTok{    \textbackslash{}scripts}
-\NormalTok{    .Renviron}
-\NormalTok{    workshop.Rproj}
-\end{Highlighting}
-\end{Shaded}
-
-Remember, every time you create a new project, paste a copy of the \texttt{.Renviron} file at the top level of the project directory.
-
-\hypertarget{install-packages-we-need}{%
-\section{Install packages we need}\label{install-packages-we-need}}
+\hypertarget{install-cran-packages}{%
+\section{Install CRAN packages}\label{install-cran-packages}}
 
 The fundamental unit of shareable code in R is the \emph{package.} For the R novice, an R package is like an ``app'' for R---a collection of functions, data, and documentation for doing work in R that is easily shared with others \citep{wickham2014advanced}.
 
@@ -515,9 +474,9 @@ During the installation, Windows users might get a warning message about
 Rtools, something like:
 
 \texttt{WARNING:\ Rtools\ is\ required\ to\ build\ R\ packages\ but\ is\ not\ currently\ installed.\ Please\ download\ and\ install\ the\ appropriate\ version...}.
-
-You may ignore the warning and carry on.
 \end{quote}
+
+Rtools is needed for packages with C/C++/Fortran code from source---which does not apply to us. You may ignore the warning and carry on.
 
 In the RStudio Console, you should see a message like this one,
 
@@ -547,14 +506,17 @@ Alternatively, you can install them all at once by typing in the Console:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{install-midfieldr}{%
-\section{Install midfieldr}\label{install-midfieldr}}
+\hypertarget{install-midfield-packages}{%
+\section{Install MIDFIELD packages}\label{install-midfield-packages}}
+
+\hypertarget{midfieldr}{%
+\subsection{midfieldr}\label{midfieldr}}
 
 midfieldr is not yet available from \href{https://cran.r-project.org/}{CRAN}. To install the development version of midfieldr from its \texttt{drat} repository, type in the Console:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# install midfieldr from drat repo}
+\CommentTok{\# type in the RStudio Console }
 \FunctionTok{install.packages}\NormalTok{(}\StringTok{"midfieldr"}\NormalTok{, }
                  \AttributeTok{repos =} \StringTok{"https://MIDFIELDR.github.io/drat/"}\NormalTok{, }
                  \AttributeTok{type =} \StringTok{"source"}\NormalTok{)}
@@ -565,15 +527,19 @@ You can confirm a successful installation by running the following lines to brin
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# type in the RStudio Console }
 \FunctionTok{library}\NormalTok{(}\StringTok{"midfieldr"}\NormalTok{)}
+\NormalTok{? }\StringTok{\textasciigrave{}}\AttributeTok{midfieldr{-}package}\StringTok{\textasciigrave{}}
+
+\CommentTok{\# or, equivalently}
 \FunctionTok{help}\NormalTok{(}\StringTok{"midfieldr{-}package"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 If the installation is successful, the code chunk above should produce a view of the help page as shown here.
 
-\hypertarget{install-midfielddata}{%
-\section{Install midfielddata}\label{install-midfielddata}}
+\hypertarget{midfielddata}{%
+\subsection{midfielddata}\label{midfielddata}}
 
 Because of its size, the data package is stored in a \texttt{drat} repository instead of CRAN. Installation takes time; please be patient and wait for the Console prompt ``\textgreater{}'' to reappear.
 
@@ -639,7 +605,7 @@ R is an open source language and environment for statistical computing and graph
 \item
   R packages provide effective tools for data analysis and visualization.
 \item
-  More than 17,750 open-source R packages are available (Jun 2021). Many are cutting-edge tools.
+  More than 17,750 open-source R packages are available (Jul 2021). Many are cutting-edge tools.
 \end{itemize}
 
 RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control \citep{2016rstudio}.

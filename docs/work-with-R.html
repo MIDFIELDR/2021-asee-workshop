@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Working with R | Engaging with MIDFIELD Data</title>
   <meta name="description" content="Workshop at the 2021 ASEE Annual Conference" />
-  <meta name="generator" content="bookdown 0.22.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Working with R | Engaging with MIDFIELD Data" />
   <meta property="og:type" content="book" />
@@ -171,14 +171,16 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2" data-path="install-everything.html"><a href="install-everything.html"><i class="fa fa-check"></i><b>2</b> Install everything</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="install-everything.html"><a href="install-everything.html#install-r-and-rstudio"><i class="fa fa-check"></i><b>2.1</b> Install R and RStudio</a></li>
-<li class="chapter" data-level="2.2" data-path="install-everything.html"><a href="install-everything.html#create-a-project"><i class="fa fa-check"></i><b>2.2</b> Create a project</a></li>
-<li class="chapter" data-level="2.3" data-path="install-everything.html"><a href="install-everything.html#add-some-folders"><i class="fa fa-check"></i><b>2.3</b> Add some folders</a></li>
-<li class="chapter" data-level="2.4" data-path="install-everything.html"><a href="install-everything.html#create-a-library-for-packages"><i class="fa fa-check"></i><b>2.4</b> Create a library for packages</a></li>
-<li class="chapter" data-level="2.5" data-path="install-everything.html"><a href="install-everything.html#create-the-.renviron-file"><i class="fa fa-check"></i><b>2.5</b> Create the .Renviron file</a></li>
-<li class="chapter" data-level="2.6" data-path="install-everything.html"><a href="install-everything.html#install-packages-we-need"><i class="fa fa-check"></i><b>2.6</b> Install packages we need</a></li>
-<li class="chapter" data-level="2.7" data-path="install-everything.html"><a href="install-everything.html#install-midfieldr"><i class="fa fa-check"></i><b>2.7</b> Install midfieldr</a></li>
-<li class="chapter" data-level="2.8" data-path="install-everything.html"><a href="install-everything.html#install-midfielddata"><i class="fa fa-check"></i><b>2.8</b> Install midfielddata</a></li>
+<li class="chapter" data-level="2.1" data-path="install-everything.html"><a href="install-everything.html#already-installed"><i class="fa fa-check"></i><b>2.1</b> Already installed?</a></li>
+<li class="chapter" data-level="2.2" data-path="install-everything.html"><a href="install-everything.html#install-r-and-rstudio"><i class="fa fa-check"></i><b>2.2</b> Install R and RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="install-everything.html"><a href="install-everything.html#create-a-project"><i class="fa fa-check"></i><b>2.3</b> Create a project</a></li>
+<li class="chapter" data-level="2.4" data-path="install-everything.html"><a href="install-everything.html#add-some-folders"><i class="fa fa-check"></i><b>2.4</b> Add some folders</a></li>
+<li class="chapter" data-level="2.5" data-path="install-everything.html"><a href="install-everything.html#install-cran-packages"><i class="fa fa-check"></i><b>2.5</b> Install CRAN packages</a></li>
+<li class="chapter" data-level="2.6" data-path="install-everything.html"><a href="install-everything.html#install-midfield-packages"><i class="fa fa-check"></i><b>2.6</b> Install MIDFIELD packages</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="install-everything.html"><a href="install-everything.html#midfieldr"><i class="fa fa-check"></i><b>2.6.1</b> midfieldr</a></li>
+<li class="chapter" data-level="2.6.2" data-path="install-everything.html"><a href="install-everything.html#midfielddata"><i class="fa fa-check"></i><b>2.6.2</b> midfielddata</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="materials.html"><a href="materials.html"><i class="fa fa-check"></i><b>3</b> Workshop materials</a>
 <ul>
@@ -249,7 +251,7 @@ div.csl-indent {
 <ul>
 <li>R is free, open source, and available on every major platform.</li>
 <li>R packages provide effective tools for data analysis and visualization.</li>
-<li>More than 17,750 open-source R packages are available (Jun 2021). Many are cutting-edge tools.</li>
+<li>More than 17,750 open-source R packages are available (Jul 2021). Many are cutting-edge tools.</li>
 </ul>
 <p>RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control <span class="citation"><a href="references.html#ref-2016rstudio" role="doc-biblioref">[7]</a></span>.</p>
 <div id="prerequisites" class="section level2" number="5.1">
@@ -262,12 +264,12 @@ div.csl-indent {
 </li>
 <li>We suggest you start a new R script for each tutorial and save it to the <code>scripts</code> directory. For example, at the end of the workshop, your scripts directory might contain the following files:</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="work-with-R.html#cb11-1" aria-hidden="true" tabindex="-1"></a>        \scripts    </span>
-<span id="cb11-2"><a href="work-with-R.html#cb11-2" aria-hidden="true" tabindex="-1"></a>            \R<span class="sc">-</span>basics.R    </span>
-<span id="cb11-3"><a href="work-with-R.html#cb11-3" aria-hidden="true" tabindex="-1"></a>            \getting<span class="sc">-</span>started.R    </span>
-<span id="cb11-4"><a href="work-with-R.html#cb11-4" aria-hidden="true" tabindex="-1"></a>            \case<span class="sc">-</span>study<span class="sc">-</span>programs.R    </span>
-<span id="cb11-5"><a href="work-with-R.html#cb11-5" aria-hidden="true" tabindex="-1"></a>            \case<span class="sc">-</span>study<span class="sc">-</span>students.R     </span>
-<span id="cb11-6"><a href="work-with-R.html#cb11-6" aria-hidden="true" tabindex="-1"></a>            etc.  </span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="work-with-R.html#cb10-1" aria-hidden="true" tabindex="-1"></a>        \scripts    </span>
+<span id="cb10-2"><a href="work-with-R.html#cb10-2" aria-hidden="true" tabindex="-1"></a>            \R<span class="sc">-</span>basics.R    </span>
+<span id="cb10-3"><a href="work-with-R.html#cb10-3" aria-hidden="true" tabindex="-1"></a>            \getting<span class="sc">-</span>started.R    </span>
+<span id="cb10-4"><a href="work-with-R.html#cb10-4" aria-hidden="true" tabindex="-1"></a>            \case<span class="sc">-</span>study<span class="sc">-</span>programs.R    </span>
+<span id="cb10-5"><a href="work-with-R.html#cb10-5" aria-hidden="true" tabindex="-1"></a>            \case<span class="sc">-</span>study<span class="sc">-</span>students.R     </span>
+<span id="cb10-6"><a href="work-with-R.html#cb10-6" aria-hidden="true" tabindex="-1"></a>            etc.  </span></code></pre></div>
 </div>
 <div id="new-to-r" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> New to R?</h2>

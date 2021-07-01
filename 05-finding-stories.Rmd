@@ -1,10 +1,10 @@
 # Exploring the data structure {#stories}
 
 ```{r echo = FALSE}
-library(knitr)
-opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
-opts_chunk$set(echo = FALSE) 
-knit_hooks$set(inline = function(x) {
+library("knitr")
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+knitr::opts_chunk$set(echo = FALSE) 
+knitr::knit_hooks$set(inline = function(x) {
         if (!is.numeric(x)) { 
                 x 
         } else if (x >= 10000) { 
