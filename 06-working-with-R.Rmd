@@ -813,6 +813,25 @@ This can be read as "Take DT, subset/reorder rows using `i`, then calculate `j`,
 
 ### To get help
 
+**Online resources**
+
+*Tutorial*
+
+- [Getting Started in R: Tinyverse Edition](https://eddelbuettel.github.io/gsir-te/Getting-Started-in-R.pdf). Highly recommended. An 8-page introduction to R using data.table and ggplot2. 
+
+*Online Q & A*
+
+- [Stack Overfow R section](https://stackoverflow.com/questions/tagged/r). A question-and-answer site. 
+
+*Cheat sheets.* Compact (information dense) summaries of features. 
+
+- [RStudio](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf) 
+- [data.table](https://raw.githubusercontent.com/rstudio/cheatsheets/master/datatable.pdf) 
+- [ggplot2](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+
+
+
+
 **Package main help** 
 
 For a package's main help page, `help(package = "name_of_package")`, to obtain a list of all the functions (and possibly some data objects) in the package. 
@@ -876,21 +895,7 @@ example("add_institution")
 
 
 
-**Online resources**
 
-*Tutorial*
-
-- [Getting Started in R: Tinyverse Edition](https://eddelbuettel.github.io/gsir-te/Getting-Started-in-R.pdf). Highly recommended. An 8-page introduction to R using data.table and ggplot2. 
-
-*Online Q & A*
-
-- [Stack Overfow R section](https://stackoverflow.com/questions/tagged/r). A question-and-answer site. 
-
-*Cheat sheets.* Compact (information dense) summaries of features. 
-
-- [RStudio](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf) 
-- [data.table](https://raw.githubusercontent.com/rstudio/cheatsheets/master/datatable.pdf) 
-- [ggplot2](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
 
 
 
