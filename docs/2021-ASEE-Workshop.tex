@@ -752,7 +752,7 @@ This tutorial is an introduction to R adapted from \citep{Healy:2019:Ch.2} with 
 
 A style guide is about making your script readable---which is particularly useful when you ask someone to help you with your script. The following guidelines are adapted from McConnell \citeyearpar{McConnell:2004} and Wickham \citeyearpar{Wickham:2019:styleguide}.
 
-\emph{Comments} are annotations to make the source code easier for humans to understand but are ignored by R. Comments in R are denoted by a hashtag \texttt{\#}.
+\emph{Comments} are annotations to make the source code easier for humans to understand but are ignored by R. Comments in R are denoted by a hash tag \texttt{\#}.
 
 \textbf{Spaces around operators.} Usewhitespacetoenhancereadability. Place spaces around operators (\texttt{=}, \texttt{+}, \texttt{-}, \texttt{\textless{}-}, etc.). Always put a space after a comma, but never before (just like in regular English).
 
@@ -926,7 +926,6 @@ Use \emph{File \textgreater{} New File \textgreater{} R Script} to create a new 
 \CommentTok{\# Packages}
 \FunctionTok{library}\NormalTok{(}\StringTok{"midfieldr"}\NormalTok{)}
 \FunctionTok{library}\NormalTok{(}\StringTok{"data.table"}\NormalTok{)}
-\FunctionTok{library}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
 
 \CommentTok{\# Optional code to control data.table printing}
 \FunctionTok{options}\NormalTok{(}
@@ -994,13 +993,13 @@ Names in R are case-sensitive
 
 If you want to know if a name has already been used in a package you have loaded, go to the RStudio console, type a question mark followed by the name, e.g.,
 
-\begin{itemize}
-\tightlist
-\item
-  \texttt{?c()}
-\item
-  \texttt{?mean()}
-\end{itemize}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# type in the Console}
+\StringTok{\textasciigrave{}}\AttributeTok{? c()}\StringTok{\textasciigrave{}} 
+\StringTok{\textasciigrave{}}\AttributeTok{? mean()}\StringTok{\textasciigrave{}}
+\end{Highlighting}
+\end{Shaded}
 
 If the name is in use, a help page appears in the RStudio Help pane.
 
@@ -1023,6 +1022,7 @@ Type this line of code in your script, \emph{Save.} \texttt{c()} is the function
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# type in the R script}
 \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{25}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1070,6 +1070,7 @@ To see the result in the Console, type the object name in the script, \emph{Save
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# type in the R script or in the Console}
 \NormalTok{x}
 \CommentTok{\#\textgreater{} [1]  1  2  3  1  3 25}
 
@@ -1080,10 +1081,11 @@ To see the result in the Console, type the object name in the script, \emph{Save
 
 Objects exist in your R project workspace, listed in the RStudio Environment pane
 
-Data are also named objects. For example, midfieldr has several toy data sets included for use in illustrative examples like this one. Type its name in the Console or in your script,
+Data are also named objects. For example, midfieldr has several toy data sets included for use in illustrative examples like this one. Type its name in the script,
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# a data frame included with midfieldr}
 \NormalTok{toy\_student}
 \CommentTok{\#\textgreater{}             mcid   institution              transfer hours\_transfer}
 \CommentTok{\#\textgreater{}           \textless{}char\textgreater{}        \textless{}char\textgreater{}                \textless{}char\textgreater{}          \textless{}num\textgreater{}}
@@ -1118,6 +1120,7 @@ To view the help page for the data, type in the Console
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# type in the Console}
 \NormalTok{? toy\_student}
 \end{Highlighting}
 \end{Shaded}
@@ -1235,7 +1238,7 @@ mean()
 #> Error in mean.default() : argument "x" is missing, with no default
 \end{verbatim}
 
-Let's determine some summary statistics on our student transfer hours. Add these lines to your script, Save, and Source.
+Let's determine some summary statistics on our student transfer hours. Add these lines to your script, \emph{Save}, and run.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1274,8 +1277,6 @@ Functions to examine a data frame.
 \item
   \texttt{names()} Data frame column names
 \item
-  \texttt{str()} Structure of an object (not just for data frames)
-\item
   \texttt{head()} and \texttt{tail()} First few and last few rows of a data frame
 \end{itemize}
 
@@ -1284,16 +1285,6 @@ Functions to examine a data frame.
 \FunctionTok{names}\NormalTok{(toy\_student)}
 \CommentTok{\#\textgreater{} [1] "mcid"           "institution"    "transfer"       "hours\_transfer"}
 \CommentTok{\#\textgreater{} [5] "race"           "sex"}
-
-\FunctionTok{str}\NormalTok{(toy\_student)}
-\CommentTok{\#\textgreater{} Classes \textquotesingle{}data.table\textquotesingle{} and \textquotesingle{}data.frame\textquotesingle{}:   100 obs. of  6 variables:}
-\CommentTok{\#\textgreater{}  $ mcid          : chr  "MID25783939" "MID25784402" "MID25805538" "MID25808099" ...}
-\CommentTok{\#\textgreater{}  $ institution   : chr  "Institution M" "Institution M" "Institution M" "Institution M" ...}
-\CommentTok{\#\textgreater{}  $ transfer      : chr  "First{-}Time in College" "First{-}Time in College" "First{-}Time in College" "First{-}Time in College" ...}
-\CommentTok{\#\textgreater{}  $ hours\_transfer: num  NA NA NA NA NA NA NA NA NA NA ...}
-\CommentTok{\#\textgreater{}  $ race          : chr  "White" "White" "White" "White" ...}
-\CommentTok{\#\textgreater{}  $ sex           : chr  "Female" "Male" "Female" "Female" ...}
-\CommentTok{\#\textgreater{}  {-} attr(*, ".internal.selfref")=\textless{}externalptr\textgreater{}}
 
 \FunctionTok{head}\NormalTok{(toy\_student)}
 \CommentTok{\#\textgreater{}           mcid   institution              transfer hours\_transfer   race    sex}
@@ -1398,8 +1389,6 @@ The help pages for functions are accessed via the Console. By viewing the help p
 \item
   \texttt{?\ names()}
 \item
-  \texttt{?\ str()}
-\item
   \texttt{?\ head()}
 \item
   \texttt{?\ sort()}
@@ -1439,6 +1428,15 @@ For example, to see the list of functions in the midfieldr package,
 \end{Highlighting}
 \end{Shaded}
 
+To view a help page, type, e.g.,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# type in the Console}
+\NormalTok{? }\FunctionTok{add\_race\_sex}\NormalTok{() }
+\end{Highlighting}
+\end{Shaded}
+
 In contrast, do the same for the data.table package,
 
 \begin{Shaded}
@@ -1458,31 +1456,17 @@ In contrast, do the same for the data.table package,
 \CommentTok{\#\textgreater{}  [34] "chorder"            "CJ"                 "copy"              }
 \CommentTok{\#\textgreater{}  [37] "cube"               "data.table"         "dcast"             }
 \CommentTok{\#\textgreater{}  [40] "dcast.data.table"   "fcase"              "fcoalesce"         }
-\CommentTok{\#\textgreater{}  [43] "fifelse"            "fintersect"         "first"             }
-\CommentTok{\#\textgreater{}  [46] "foverlaps"          "frank"              "frankv"            }
-\CommentTok{\#\textgreater{}  [49] "fread"              "frollapply"         "frollmean"         }
-\CommentTok{\#\textgreater{}  [52] "frollsum"           "fsetdiff"           "fsetequal"         }
-\CommentTok{\#\textgreater{}  [55] "fsort"              "funion"             "fwrite"            }
-\CommentTok{\#\textgreater{}  [58] "getDTthreads"       "getNumericRounding" "groupingsets"      }
-\CommentTok{\#\textgreater{}  [61] "haskey"             "hour"               "IDateTime"         }
-\CommentTok{\#\textgreater{}  [64] "indices"            "inrange"            "is.data.table"     }
-\CommentTok{\#\textgreater{}  [67] "isoweek"            "key"                "key\textless{}{-}"             }
-\CommentTok{\#\textgreater{}  [70] "last"               "like"               "mday"              }
-\CommentTok{\#\textgreater{}  [73] "melt"               "melt.data.table"    "merge.data.table"  }
-\CommentTok{\#\textgreater{}  [76] "minute"             "month"              "nafill"            }
-\CommentTok{\#\textgreater{}  [79] "quarter"            "rbindlist"          "rleid"             }
-\CommentTok{\#\textgreater{}  [82] "rleidv"             "rollup"             "rowid"             }
-\CommentTok{\#\textgreater{}  [85] "rowidv"             "second"             "set"               }
-\CommentTok{\#\textgreater{}  [88] "setalloccol"        "setattr"            "setcolorder"       }
-\CommentTok{\#\textgreater{}  [91] "setDF"              "setDT"              "setDTthreads"      }
-\CommentTok{\#\textgreater{}  [94] "setindex"           "setindexv"          "setkey"            }
-\CommentTok{\#\textgreater{}  [97] "setkeyv"            "setnafill"          "setnames"          }
-\CommentTok{\#\textgreater{} [100] "setNumericRounding" "setorder"           "setorderv"         }
-\CommentTok{\#\textgreater{} [103] "shift"              "shouldPrint"        "SJ"                }
-\CommentTok{\#\textgreater{} [106] "tables"             "test.data.table"    "timetaken"         }
-\CommentTok{\#\textgreater{} [109] "transpose"          "truelength"         "tstrsplit"         }
-\CommentTok{\#\textgreater{} [112] "uniqueN"            "update.dev.pkg"     "wday"              }
-\CommentTok{\#\textgreater{} [115] "week"               "yday"               "year"}
+\CommentTok{\#\textgreater{}  [43] "fifelse"            "fintersect"         "first"   }
+\CommentTok{\#\textgreater{}  ... etc. truncated}
+\end{Highlighting}
+\end{Shaded}
+
+Don't panic! We will use only a small number of these functions from data.table. For example, the \texttt{\%ilike\%} function, view its help page by running
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# type in the Console}
+\NormalTok{? }\StringTok{\textasciigrave{}}\AttributeTok{\%ilike\%}\StringTok{\textasciigrave{}} 
 \end{Highlighting}
 \end{Shaded}
 
@@ -1574,16 +1558,16 @@ If you have a data.frame object that is not a data.table, e.g.~the \texttt{airqu
 \end{Highlighting}
 \end{Shaded}
 
-You can convert it to data.table object with \texttt{as.data.table()}.
+You can convert it to data.table object with \texttt{as.data.table()} and assign it to a \_slightly) different name.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{DT }\OtherTok{\textless{}{-}} \FunctionTok{as.data.table}\NormalTok{(airquality)}
+\NormalTok{air\_quality }\OtherTok{\textless{}{-}} \FunctionTok{as.data.table}\NormalTok{(airquality)}
 
-\FunctionTok{class}\NormalTok{(DT)}
+\FunctionTok{class}\NormalTok{(air\_quality)}
 \CommentTok{\#\textgreater{} [1] "data.table" "data.frame"}
 
-\NormalTok{DT}
+\NormalTok{air\_quality}
 \CommentTok{\#\textgreater{}      Ozone Solar.R  Wind  Temp Month   Day}
 \CommentTok{\#\textgreater{}      \textless{}int\textgreater{}   \textless{}int\textgreater{} \textless{}num\textgreater{} \textless{}int\textgreater{} \textless{}int\textgreater{} \textless{}int\textgreater{}}
 \CommentTok{\#\textgreater{}   1:    41     190   7.4    67     5     1}
@@ -1604,11 +1588,11 @@ The data frame as a whole has a class; so do the individual columns.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{class}\NormalTok{(DT[, Ozone])}
+\FunctionTok{class}\NormalTok{(air\_quality[, Ozone])}
 \CommentTok{\#\textgreater{} [1] "integer"}
 
-\FunctionTok{class}\NormalTok{(DT[, Wind])}
-\CommentTok{\#\textgreater{} [1] "numeric"}
+\FunctionTok{class}\NormalTok{(air\_quality)}
+\CommentTok{\#\textgreater{} [1] "data.table" "data.frame"}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1640,13 +1624,23 @@ To see inside an object ask for its structure using the \texttt{str()} function.
 \CommentTok{\#\textgreater{}  $ Temp   : int  67 72 74 62 56 66 65 59 61 69 ...}
 \CommentTok{\#\textgreater{}  $ Month  : int  5 5 5 5 5 5 5 5 5 5 ...}
 \CommentTok{\#\textgreater{}  $ Day    : int  1 2 3 4 5 6 7 8 9 10 ...}
+
+\FunctionTok{str}\NormalTok{(air\_quality)}
+\CommentTok{\#\textgreater{} Classes \textquotesingle{}data.table\textquotesingle{} and \textquotesingle{}data.frame\textquotesingle{}:   153 obs. of  6 variables:}
+\CommentTok{\#\textgreater{}  $ Ozone  : int  41 36 12 18 NA 28 23 19 8 NA ...}
+\CommentTok{\#\textgreater{}  $ Solar.R: int  190 118 149 313 NA NA 299 99 19 194 ...}
+\CommentTok{\#\textgreater{}  $ Wind   : num  7.4 8 12.6 11.5 14.3 14.9 8.6 13.8 20.1 8.6 ...}
+\CommentTok{\#\textgreater{}  $ Temp   : int  67 72 74 62 56 66 65 59 61 69 ...}
+\CommentTok{\#\textgreater{}  $ Month  : int  5 5 5 5 5 5 5 5 5 5 ...}
+\CommentTok{\#\textgreater{}  $ Day    : int  1 2 3 4 5 6 7 8 9 10 ...}
+\CommentTok{\#\textgreater{}  {-} attr(*, ".internal.selfref")=\textless{}externalptr\textgreater{}}
 \end{Highlighting}
 \end{Shaded}
 
 \hypertarget{r-only-does-what-you-tell-it}{%
 \subsection{R only does what you tell it}\label{r-only-does-what-you-tell-it}}
 
-Expect to make errors and don't worry when that happens. You won't break anything. Healy \citeyearpar{Healy:2019} offers this advice for three specific things to watch out for:
+Healy \citeyearpar{Healy:2019} offers this advice for specific things to watch out for:
 
 \begin{itemize}
 \tightlist
@@ -1655,27 +1649,241 @@ Expect to make errors and don't worry when that happens. You won't break anythin
 \item
   Make sure you complete your expressions. If you see a \texttt{+} in the Console instead of the usual prompt \texttt{\textgreater{}}, that means that R thinks you haven't written a complete expression. You can hit \texttt{Esc} or \texttt{Ctrl\ C} to force your way back to the Console and try correcting the code.\\
 \item
-  In ggplot specifically, as you will see, we create plots layer by layer, using a \texttt{+} character at the end of the line---not at the beginning of the next line.
+  Expect to make errors and don't worry when that happens. You won't break anything.
 \end{itemize}
 
-For example, you would write this,
+As you work through the MIDFIELD tutorials, we'll introduce syntax by example from both base R and the data.table package. There can be subtle differences that we will attempt to avoid by consistent usage.
+
+For example, to subset a column from a data frame but keep it as a column (not a vector), the base R syntax is
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ mpg, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy)) }\SpecialCharTok{+}
-    \FunctionTok{geom\_point}\NormalTok{()}
+\CommentTok{\# base R subset one column }
+\NormalTok{airquality[, }\StringTok{"Ozone"}\NormalTok{, drop }\OtherTok{=} \ConstantTok{FALSE}\NormalTok{]}
+\CommentTok{\#\textgreater{}     Ozone}
+\CommentTok{\#\textgreater{} 1      41}
+\CommentTok{\#\textgreater{} 2      36}
+\CommentTok{\#\textgreater{} 3      12}
+\CommentTok{\#\textgreater{} 4      18}
+\CommentTok{\#\textgreater{} 5      NA}
+\CommentTok{\#\textgreater{} 6      28}
+\CommentTok{\#\textgreater{} 7      23}
+\CommentTok{\#\textgreater{} 8      19}
+\CommentTok{\#\textgreater{} 9       8}
+\CommentTok{\#\textgreater{} 10     NA}
+\CommentTok{\#\textgreater{} ..., etc., truncated for brevity}
 \end{Highlighting}
 \end{Shaded}
 
-not this,
+In data.table syntax, the same operation is as follows. Note we created a new object \texttt{air\_quality} that is a data.table form of the original data frame.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# error caused by incorrectly placed +}
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ mpg, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy))  }
-    \SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{()}
+\CommentTok{\# data.table extract one column }
+\NormalTok{air\_quality[, .(Ozone)]}
+\CommentTok{\#\textgreater{}      Ozone}
+\CommentTok{\#\textgreater{}      \textless{}int\textgreater{}}
+\CommentTok{\#\textgreater{}   1:    41}
+\CommentTok{\#\textgreater{}   2:    36}
+\CommentTok{\#\textgreater{}   3:    12}
+\CommentTok{\#\textgreater{}   4:    18}
+\CommentTok{\#\textgreater{}   5:    NA}
+\CommentTok{\#\textgreater{}  {-}{-}{-}      }
+\CommentTok{\#\textgreater{} 149:    30}
+\CommentTok{\#\textgreater{} 150:    NA}
+\CommentTok{\#\textgreater{} 151:    14}
+\CommentTok{\#\textgreater{} 152:    18}
+\CommentTok{\#\textgreater{} 153:    20}
 \end{Highlighting}
 \end{Shaded}
+
+If we want the same information extracted as a vector, we would:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# base R subset one column as a vector}
+\NormalTok{airquality[, }\StringTok{"Ozone"}\NormalTok{]}
+\CommentTok{\#\textgreater{}   [1]  41  36  12  18  NA  28  23  19   8  NA   7  16  11  14  18  14  34   6}
+\CommentTok{\#\textgreater{}  [19]  30  11   1  11   4  32  NA  NA  NA  23  45 115  37  NA  NA  NA  NA  NA}
+\CommentTok{\#\textgreater{}  [37]  NA  29  NA  71  39  NA  NA  23  NA  NA  21  37  20  12  13  NA  NA  NA}
+\CommentTok{\#\textgreater{}  [55]  NA  NA  NA  NA  NA  NA  NA 135  49  32  NA  64  40  77  97  97  85  NA}
+\CommentTok{\#\textgreater{}  [73]  10  27  NA   7  48  35  61  79  63  16  NA  NA  80 108  20  52  82  50}
+\CommentTok{\#\textgreater{}  [91]  64  59  39   9  16  78  35  66 122  89 110  NA  NA  44  28  65  NA  22}
+\CommentTok{\#\textgreater{} [109]  59  23  31  44  21   9  NA  45 168  73  NA  76 118  84  85  96  78  73}
+\CommentTok{\#\textgreater{} [127]  91  47  32  20  23  21  24  44  21  28   9  13  46  18  13  24  16  13}
+\CommentTok{\#\textgreater{} [145]  23  36   7  14  30  NA  14  18  20}
+
+\CommentTok{\# data.table subset one column as a vector}
+\NormalTok{air\_quality[, Ozone]}
+\CommentTok{\#\textgreater{}   [1]  41  36  12  18  NA  28  23  19   8  NA   7  16  11  14  18  14  34   6}
+\CommentTok{\#\textgreater{}  [19]  30  11   1  11   4  32  NA  NA  NA  23  45 115  37  NA  NA  NA  NA  NA}
+\CommentTok{\#\textgreater{}  [37]  NA  29  NA  71  39  NA  NA  23  NA  NA  21  37  20  12  13  NA  NA  NA}
+\CommentTok{\#\textgreater{}  [55]  NA  NA  NA  NA  NA  NA  NA 135  49  32  NA  64  40  77  97  97  85  NA}
+\CommentTok{\#\textgreater{}  [73]  10  27  NA   7  48  35  61  79  63  16  NA  NA  80 108  20  52  82  50}
+\CommentTok{\#\textgreater{}  [91]  64  59  39   9  16  78  35  66 122  89 110  NA  NA  44  28  65  NA  22}
+\CommentTok{\#\textgreater{} [109]  59  23  31  44  21   9  NA  45 168  73  NA  76 118  84  85  96  78  73}
+\CommentTok{\#\textgreater{} [127]  91  47  32  20  23  21  24  44  21  28   9  13  46  18  13  24  16  13}
+\CommentTok{\#\textgreater{} [145]  23  36   7  14  30  NA  14  18  20}
+\end{Highlighting}
+\end{Shaded}
+
+In each case, you will note that the square bracket operators include a comma \texttt{{[}i,\ j{]}}. In general, the comma separates row operations \texttt{i} from column operations \texttt{j}. When there is no row operation (as in the examples above), the \texttt{i} position is empty.
+
+In data table syntax, we go one step further and add a grouping index, that is
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DT[i, j, by]}
+\end{Highlighting}
+\end{Shaded}
+
+This can be read as ``Take DT, subset/reorder rows using \texttt{i}, then calculate \texttt{j}, grouped by \texttt{by}.'' You don't have to go into it any more deeply than this for now---we will illustrate it by example in the midfieldr tutorials.
+
+\hypertarget{to-get-help}{%
+\subsection{To get help}\label{to-get-help}}
+
+\textbf{Package main help}
+
+For a package's main help page, \texttt{help(package\ =\ "name\_of\_package")}, to obtain a list of all the functions (and possibly some data objects) in the package.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# type in the Console}
+\FunctionTok{help}\NormalTok{(}\AttributeTok{package =} \StringTok{"midfieldr"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+In the Help pane, click through any of the links for details on the function.
+
+\textbf{Package vignettes}
+
+Some packages come with vignettes, articles explaining how to use the package for specific tasks. For example,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# type in the Console}
+\FunctionTok{browseVignettes}\NormalTok{(}\AttributeTok{package =} \StringTok{"data.table"}\NormalTok{)}
+\FunctionTok{browseVignettes}\NormalTok{(}\AttributeTok{package =} \StringTok{"ggplot2"}\NormalTok{)}
+
+\CommentTok{\# to see a listing of all vignettes in all your installed packages}
+\FunctionTok{browseVignettes}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Function help}
+
+A number of times so far we've shown how to get the help page for a function when we know its name, e.g.,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# type in the Console}
+\NormalTok{? }\FunctionTok{str}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+If you recall only a part of the function name, use \texttt{apropos()} to search packages that are currently loaded. ``Loading'' a package is what we do when we use the \texttt{library()} function at the top of a script.
+
+For example, midfieldr has functions with ``timely'' in their name because they involve timely completion. \texttt{apropos()} reports two functions:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# type in the Console}
+\FunctionTok{apropos}\NormalTok{(}\StringTok{"timely"}\NormalTok{)}
+\CommentTok{\#\textgreater{} [1] "add\_completion\_timely" "add\_timely\_term"}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Examples}
+
+There are often examples at the end of an R function help page. You can run them using the \texttt{example()} function. For example,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# base R function examples}
+\FunctionTok{example}\NormalTok{(}\StringTok{"mean"}\NormalTok{)}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{} mean\textgreater{} x \textless{}{-} c(0:10, 50)}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{} mean\textgreater{} xm \textless{}{-} mean(x)}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{} mean\textgreater{} c(xm, mean(x, trim = 0.10))}
+\CommentTok{\#\textgreater{} [1] 8.75 5.50}
+\end{Highlighting}
+\end{Shaded}
+
+try one of the midfieldr function examples,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# midfieldr function examples}
+\FunctionTok{example}\NormalTok{(}\StringTok{"add\_institution"}\NormalTok{)}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{} add\_ns\textgreater{} \# Extract a column of IDs from student}
+\CommentTok{\#\textgreater{} add\_ns\textgreater{} id \textless{}{-} toy\_student[, .(mcid)]}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{} add\_ns\textgreater{} \# Add institutions from term}
+\CommentTok{\#\textgreater{} add\_ns\textgreater{} DT1 \textless{}{-} add\_institution(id, midfield\_term = toy\_term)}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{} add\_ns\textgreater{} head(DT1)}
+\CommentTok{\#\textgreater{}           mcid   institution}
+\CommentTok{\#\textgreater{}         \textless{}char\textgreater{}        \textless{}char\textgreater{}}
+\CommentTok{\#\textgreater{} 1: MID25783939 Institution M}
+\CommentTok{\#\textgreater{} 2: MID25784402 Institution M}
+\CommentTok{\#\textgreater{} 3: MID25805538 Institution M}
+\CommentTok{\#\textgreater{} 4: MID25808099 Institution M}
+\CommentTok{\#\textgreater{} 5: MID25816437 Institution M}
+\CommentTok{\#\textgreater{} 6: MID25826223 Institution M}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{} add\_ns\textgreater{} nrow(DT1)}
+\CommentTok{\#\textgreater{} [1] 100}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{} add\_ns\textgreater{} \# Will overwrite institution column if present}
+\CommentTok{\#\textgreater{} add\_ns\textgreater{} DT2 \textless{}{-} add\_institution(DT1, midfield\_term = toy\_term)}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{} add\_ns\textgreater{} head(DT2)}
+\CommentTok{\#\textgreater{}           mcid   institution}
+\CommentTok{\#\textgreater{}         \textless{}char\textgreater{}        \textless{}char\textgreater{}}
+\CommentTok{\#\textgreater{} 1: MID25783939 Institution M}
+\CommentTok{\#\textgreater{} 2: MID25784402 Institution M}
+\CommentTok{\#\textgreater{} 3: MID25805538 Institution M}
+\CommentTok{\#\textgreater{} 4: MID25808099 Institution M}
+\CommentTok{\#\textgreater{} 5: MID25816437 Institution M}
+\CommentTok{\#\textgreater{} 6: MID25826223 Institution M}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{} add\_ns\textgreater{} nrow(DT2)}
+\CommentTok{\#\textgreater{} [1] 100}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Online resources}
+
+\emph{Tutorial}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://eddelbuettel.github.io/gsir-te/Getting-Started-in-R.pdf}{Getting Started in R: Tinyverse Edition}. Highly recommended. An 8-page introduction to R using data.table and ggplot2.
+\end{itemize}
+
+\emph{Online Q \& A}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://stackoverflow.com/questions/tagged/r}{Stack Overfow R section}. A question-and-answer site.
+\end{itemize}
+
+\emph{Cheat sheets.} Compact (information dense) summaries of features.
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf}{RStudio}
+\item
+  \href{https://raw.githubusercontent.com/rstudio/cheatsheets/master/datatable.pdf}{data.table}
+\item
+  \href{https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf}{ggplot2}
+\end{itemize}
 
 \hypertarget{keyboard-shortcuts}{%
 \subsection{Keyboard shortcuts}\label{keyboard-shortcuts}}

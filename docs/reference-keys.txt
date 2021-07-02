@@ -39,6 +39,7 @@ r-functions-come-in-packages
 r-objects-have-class
 r-objects-have-structure
 r-only-does-what-you-tell-it
+to-get-help
 keyboard-shortcuts
 graph-basics
 data-basics
