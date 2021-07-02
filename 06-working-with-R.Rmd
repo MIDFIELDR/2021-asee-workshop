@@ -3,7 +3,7 @@
 ```{r echo = FALSE}
 library(knitr)
 knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
-knitr::opts_chunk$set(echo = FALSE) 
+knitr::opts_chunk$set(echo = TRUE, comment = "#>", collapse = TRUE) 
 knitr::knit_hooks$set(inline = function(x) {
         if (!is.numeric(x)) { 
                 x 
@@ -13,9 +13,14 @@ knitr::knit_hooks$set(inline = function(x) {
                 prettyNum(round(x, 2))
         }
 })
+options(
+  datatable.print.nrows = 10,
+  datatable.print.topn = 5,
+  datatable.print.class = TRUE
+)
 ```
 
-```{r}
+```{r echo = FALSE}
 # if internet available, find and save current number of R packages
 library("pingr")
 if (pingr::is_online()) {
@@ -55,10 +60,10 @@ Before proceeding, you should have completed
 
 ``` r
         \scripts    
-            \R-basics.R    
-            \getting-started.R    
-            \case-study-programs.R    
-            \case-study-students.R     
+            \01-R-basics.R    
+            \02-getting-started.R    
+            \03-case-study-programs.R    
+            \04-case-study-students.R     
             etc.  
 ```
 
@@ -72,12 +77,12 @@ Before proceeding, you should have completed
 
 [Prerequisites] should be completed before proceeding. By the end of the workshop, our R beginners will have made progress on two or possibly three tutorials:  
 
-- [R basics] An introduction to R, generally less than an hour. 
-- [Getting started](https://midfieldr.github.io/midfieldr/articles/art-000-getting-started.html){target="_blank"}: An introduction to the MIDFIELD practice data tables. 
-- [Case study programs](https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html){target="_blank"} Construct a data frame of program CIP codes and program names for four engineering programs (Civil, Electrical, Industrial, and Mechanical) 
+- [R basics] An introduction to R. 
+- [Getting started](https://midfieldr.github.io/midfieldr/articles/art-000-getting-started.html){target="_blank"}: Examine the MIDFIELD practice data  
+- [Case study programs](https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html){target="_blank"} Gather CIP codes and program names
 
+If there is still time remaining, continue to any tutorial listed in the [After the workshop] section.  
 
-If you complete these tutorials and there is still time remaining, please consider moving on the to tutorials listed in the [After the workshop] section. 
 
 
 
@@ -94,14 +99,13 @@ If you complete these tutorials and there is still time remaining, please consid
 
 [Prerequisites] should be completed before proceeding. By the end of the workshop, our more experienced R users will have made substantive progress on two or possibly three tutorials: 
 
-- [Getting started](https://midfieldr.github.io/midfieldr/articles/art-000-getting-started.html){target="_blank"}: An introduction to the MIDFIELD practice data tables  
-- [Case study programs](https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html){target="_blank"} Construct a data frame of program CIP codes and program names for four engineering programs (Civil, Electrical, Industrial, and Mechanical) 
-- [Case study students](https://midfieldr.github.io/midfieldr/articles/art-120-case-study-students.html){target="_blank"} Develop a data frame of the case study students who pass the data sufficiency criterion. 
+- [Getting started](https://midfieldr.github.io/midfieldr/articles/art-000-getting-started.html){target="_blank"}: Examine the MIDFIELD practice data  
+- [Case study programs](https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html){target="_blank"} Gather CIP codes and program names 
+- [Case study students](https://midfieldr.github.io/midfieldr/articles/art-120-case-study-students.html){target="_blank"} Gather students who pass the data sufficiency criterion. 
 
 
 
-If you complete these tutorials and there is still time remaining, please consider moving on the to tutorials listed in the [After the workshop] section. 
- 
+If there is still time remaining, continue to any tutorial listed in the [After the workshop] section.  
  
  
  
@@ -132,7 +136,7 @@ The basic skills tutorials take about 50 minutes each.
 
 ### Continuing the case study
 
-The case study is a quick tour of a typical workflow using student unit record data. This is a "big picture" development---functions are used without detailed explanations or development so that we can get to the results with as little distraction as possible. Anyone wanting more detail will find it in the detailed vignettes (links below in [Exploring midfieldr functions]).  
+The case study is a quick tour of a typical workflow using student unit record data. This is a "big picture" development---functions are used without detailed explanations or development so that we can get to the results with as little distraction as possible. Anyone wanting more detail will find it in the detailed vignettes (links in the next section).  
 
 - [Case study programs](https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html){target="_blank"}
 - [Case study students](https://midfieldr.github.io/midfieldr/articles/art-120-case-study-students.html){target="_blank"} 
@@ -166,12 +170,210 @@ This tutorial is an introduction to R adapted from [@Healy:2019:Ch.2] with extra
 
 ### Style guide
 
+A style guide is about making your script readable---which is particularly useful when you ask someone to help you with your script. The following guidelines are adapted from  McConnell [-@McConnell:2004] and Wickham [-@Wickham:2019:styleguide]. 
+
+*Comments* are annotations to make the source code easier for humans to understand but are ignored by R. Comments in R are denoted by a hashtag `#`. 
+
+
+**Spaces around operators.** Usewhitespacetoenhancereadability. Place spaces around operators (`=`, `+`, `-`, `<-`, etc.). Always put a space after a comma, but never before (just like in regular English). 
+
+```r
+# good
+height <- (feet * 12) + inches
+mean(x, na.rm = 10)
+
+# poor
+height<-feet*12+inches
+mean(x,na.rm=10)
+```
+
+The exception to the "spaces around operators" rule are those with high precedence such as exponentiation (`^`), sequence (`:`), or accessors (`[[` or `$`). These operators are written without spaces,    
+
+```r
+# good
+sqrt(x^2 + y^2)
+x <- 1:10
+df$z
+
+# poor
+sqrt(x ^ 2 + y ^ 2)
+x <- 1 : 10
+df $ z
+```
+
+Adding extra spaces OK if it improves alignment of `=` or `<-`.
+
+```r
+# good
+list(
+    total_number = a + b + c,
+    mean         = (a + b + c) / n
+)
+
+# also fine
+list(
+    total_number = a + b + c,
+    mean = (a + b + c) / n
+)
+```
+
+
+
+
+**Comments.** Avoid block comments that are hard to maintain, e.g., 
+
+    ####################################################################### 
+    ##  class: GigaTron                                                  ## 
+    ##                                                                   ## 
+    ##  author: Dwight K. Coder                                          ## 
+    ##  date: July 4, 2014                                               ## 
+    ##                                                                   ## 
+    ##  Routines to control the twenty-first century's code evaluation   ## 
+    ##  tool. The entry point to these routines is the EvaluateCode()    ## 
+    ##  routine at the bottom of this file.                              ## 
+    ####################################################################### 
+
+A version of this comment block that is easier to revise and maintain is,  
+
+
+    #  GigaTron  
+    #  Dwight K. Coder  
+    #  2014-07-04  
+    # 
+    #  EvaluateCode() is the entry point for our code evaluation routines 
+
+Avoid writing comments that merely restate the code in English, e.g., 
+
+```r
+# set x equal to 1  (poor comment)
+x <- 1
+```
+
+Instead, write comments that describe the intent of a code paragraph. Such comments are particularly useful when someone other than the code's original author tries to modify the code. 
+
+```r
+# swap the roots (good comment)
+oldRoot <- root[0]
+root[0] <- root[1]
+root[1] <- oldRoot
+```
+
+Comments should focus on "why" rather than "how". 
+
+```r
+# if establishing a new account (good comment)
+if (account_type == "new_account") ...
+
+# if account flag is zero (poor comment) 
+if (account_flag == 0) ...
+```
+
+ 
+
+
+
+**Use vertical white space.** Group chunks of code into paragraphs separated by blank lines to reveal the structure of the program.
+
+``` r 
+# poor
+library("data.table"); library("GDAdata")
+speed_ski <- copy(SpeedSki)
+setDT(speed_ski)
+speed_ski <- speed_ski[, .(Event, Sex, Speed)]
+setnames(speed_ski, old = c("Event", "Sex", "Speed"), new = c("event", "sex", "speed"))
+
+# better
+library("data.table")
+library("GDAdata")
+
+# leave the original data unaltered before conversion to data.table
+speed_ski <- copy(SpeedSki)
+setDT(speed_ski)
+
+# we need only three variables
+speed_ski <- speed_ski[, .(Event, Sex, Speed)]
+
+# style guide prefers lowercase column names
+setnames(speed_ski, 
+         old = c("Event", "Sex", "Speed"), 
+         new = c("event", "sex", "speed"))
+
+# RDS format preserves factors
+saveRDS(speed_ski, "data/speed_ski.rds")
+```
+
+### Open an R script
+
+Use *File &gt; New File &gt; R Script* to create a new R script
+
+- Name the script `01-R-basics.R`. By using a number at the start of the file name, the files stay in order in your directory.  
+- Save it in the `scripts` directory.
+- (optional) Add a minimal header at the top of the script, e.g.: 
+
+```{r}
+# R basics 
+# 2021 ASEE Workshop: Engaging with MIDFIELD Data
+# Name 
+# 2021-07-26
+```
+
+- Use `library()` to load the packages we will use 
+
+```{r}
+# Packages
+library("midfieldr")
+library("data.table")
+library("ggplot2")
+
+# Optional code to control data.table printing
+options(
+  datatable.print.nrows = 10,
+  datatable.print.topn = 5,
+  datatable.print.class = TRUE
+)
+```
+
+Code chunks like the one above can be copied and pasted to your R script. 
 
 
 
 
 
 ### Everything in R has a name 
+
+In R, every object has a name. 
+
+- named entities, like `x` or `y`  
+- data you have loaded, like `my_data` 
+- functions you use, like `sin()` 
+
+Some names are forbidden 
+
+- reserved words, like `TRUE` or `FALSE`  
+- programming words, like `Inf`, `for`, `else`, and `function`  
+- special entities, like `NA` and `NaN`  
+
+Some names should not be used because they name commonly used functions 
+
+- `q()`  quit 
+- `c()` combine or concatenate 
+- `mean()` 
+- `range()` 
+- `var()` variance 
+
+Names in R are case-sensitive 
+
+- `my_data` and `My_Data` are different objects 
+- We use the style of naming things in lower case  with words separated by underscores (no spaces), e.g., `speed_ski`. The camel-case is also popular, e.g., `SpeedSki` or `speedSki`. The choice is yours. 
+
+
+If you want to know if a name has already been used in a package you have loaded, go to the RStudio console, type a question mark followed by the name, e.g., 
+
+- `?c()` 
+- `?mean()`
+
+If the name is in use, a help page appears in the RStudio Help pane.  
+
 
 
 
@@ -180,19 +382,236 @@ This tutorial is an introduction to R adapted from [@Healy:2019:Ch.2] with extra
 
 ### Everything in R is an object 
 
+Origins of R objects  
+
+- Some objects are built in to R 
+- Some objects are loaded with packages 
+- Some objects are created by you 
+
+
+Type this line of code in your script, *Save.* `c()` is the function to combine or concatenate its elements to create a vector. 
+
+```{r echo = TRUE, results = "hide"}
+c(1, 2, 3, 1, 3, 25)
+```
+
+Options for running a script:
+
+- Select a line (or lines) and `ctrl Enter` (Mac OS `cmd Return`) 
+- To run from the beginning to a line `ctrl alt B` (Mac OS `cmd option B`)
+
+Run the script and your Console should show `[1]  1  2  3  1  3 25`. 
+
+In these notes, when we show results printed in your Console, we preface the printout with `#>` (which does not appear on your screen) to distinguish the results from the script. For example, we show the line from above and its output like this:   
+
+``` r
+c(1, 2, 3, 1, 3, 25)          # <- typed in the script
+#> [1]  1  2  3  1  3 25      # <- appears in the Console
+```
+
+The `[1]` that leads the output line is a label identifying the index of the element that starts that line. More on that in a little while.  
+
+You create objects my assigning them names. 
+
+- `<-` is the assignment operator, keyboard shortcut: `alt`$-$ (Mac OS `option`$-$) 
+
+```{r}
+# Practice assigning an object to a name
+x <- c(1, 2, 3, 1, 3, 25)
+y <- c(5, 31, 71, 1, 3, 21, 6)
+```
+
+To see the result in the Console, type the object name in the script, *Save*, and run.  (Remember, type the line of code but not the line prefaced by `#>`---that's the output line so you can check your results.)
+
+```{r}
+x
+
+y
+```
+
+
+
+
+Objects exist in your R project workspace, listed in the RStudio Environment pane 
+
+
+```{r echo = FALSE}
+htmltools::img(src = 
+knitr::include_graphics("figures/rstudio-environment-x-y.png"), 
+        alt = "rstudio new folder", 
+        width = 700)
+```
+
+Data are also named objects. For example, midfieldr has several toy data sets included for use in illustrative examples like this one. Type its name in the Console or in your script, 
+
+```{r}
+toy_student
+```
+
+To view the help page for the data, type in the Console
+
+``` r 
+? toy_student
+```
+
+If we wanted the first five rows of the toy data, we use the `[]` operator.
+
+```{r}
+toy_student[1:5]
+```
+
+To view the help page for the `[` operator, surround the symbol with "back-ticks" (on your keyboard with the tilde `~` symbol). For example,  
+
+```r
+# view the help page on the R extract operator
+? `[`
+```
+To extract a single column, e.g. the ID column, but preserve the data frame structure, 
+
+```{r}
+# data.table syntax to subset a column as a data table
+toy_student[, .(mcid)]
+
+```
+
+We can also extract the column as a vector using slightly different syntax, 
+
+```{r}
+# data.table syntax to subset a column as a vector
+toy_student[, mcid]
+```
+
+Here you can see how the row labels in the printed output work. There are 5 IDs per row, so the second row starts with the 6th ID, indicated by `[6]`. The last row starts with the 96th value `[96]` and ends with the 100th value. 
 
 
 
 
 
-### Use functions to do things
 
 
+### R functions do things
+
+Functions do something useful 
+
+- Functions are objects the perform actions for you 
+- Functions produce output based on the input it receives 
+- Functions are recognized by the parentheses at the end of their names 
+
+The parentheses are where we include the inputs (arguments) to the function 
+
+- `c()` concatenates the comma-separated numbers in the parentheses to create a vector 
+- `mean()` computes the mean of a vector of numbers 
+- `sd()` computes the standard deviation of a vector of numbers 
+- `summary()` returns a summary of the object 
+
+If we try `mean()` with no inputs, we get an error statement 
+
+    mean()
+    #> Error in mean.default() : argument "x" is missing, with no default
+
+Let's determine some summary statistics on our student transfer hours. Add these lines to your script, Save, and Source.
+
+```{r}
+transfer_hours <- toy_student[, hours_transfer]
+transfer_hours
+
+mean(transfer_hours)
+```
+
+We have to set the optional argument `na.rm` ("remove NA") to take a mean
+
+```{r}
+mean(transfer_hours, na.rm = TRUE)
+
+sd(transfer_hours, na.rm = TRUE)
+
+summary(transfer_hours)
+```
+
+Functions to examine a data frame. 
+
+- `names()` Data frame column names 
+- `str()` Structure of an object (not just for data frames) 
+- `head()` and `tail()` First few and last few rows of a data frame
+
+```{r}
+names(toy_student)
+
+str(toy_student)
+
+head(toy_student)
+
+tail(toy_student)
+```
+
+Functions to examine columns (variables) in a data frame.
+
+- `sort()` and `unique()` often used together
+- `is.na()` to return TRUE for every NA element in an object, otherwise TRUE
+- `sum()` applied to `is.na()` converts logical TRUE to 1 and FALSE to 0 and adds the elements. The resulting integer is the number of NA values in the vector. 
+
+```{r}
+# determine the unique values in a column 
+sort(unique(toy_student[, sex]))
+
+# are any of the values NA?
+is.na(toy_student[, sex])
+
+# How many values are NA?
+sum(is.na(toy_student[, sex]))
+```
+
+Repeat for other columns. 
+
+```{r}
+sort(unique(toy_student[, institution]))
+sum(is.na(toy_student[, institution]))
+
+sort(unique(toy_student[, race]))
+sum(is.na(toy_student[, race]))
+
+sort(unique(toy_student[, hours_transfer]))
+sum(is.na(toy_student[, hours_transfer]))
+```
 
 
+The help pages for functions are accessed via the Console. By viewing the help page you can find descriptions of arguments and their default settings if any. Try a few:  
 
+- `? mean()` 
+- `? sd()` 
+- `? summary()` 
+- `? names()`
+- `? str()`
+- `? head()`
+- `? sort()` 
+- `? unique()` 
+- `? is.na()` 
+- `? sum()` 
 
 ### R functions come in packages
+
+Functions are bundled in packages  
+
+- Families of useful functions are bundled into packages that you can install, load, and use 
+- Packages allow you to build on the work of others 
+- You can write your own functions and packages too 
+- A lot of the work in data science consists of choosing the right functions and giving them the right arguments to get our data into the form we need for analysis or visualization 
+
+For example, to see the list of functions in the midfieldr package, 
+
+```{r}
+sort(getNamespaceExports("midfieldr"))
+```
+
+In contrast, do the same for the data.table package, 
+
+```{r}
+sort(getNamespaceExports("data.table"))
+```
+
+
+
+
 
 
 
@@ -201,6 +620,71 @@ This tutorial is an introduction to R adapted from [@Healy:2019:Ch.2] with extra
 
 ### R objects have class
 
+Everything is an object and every object has a class. 
+
+```{r}
+class(x)
+
+class(summary)
+```
+
+Certain actions will change the class of an object. Suppose we try create a vector from the `x` object and a text string, 
+
+```{r}
+new_vector <- c(x, "Apple")
+
+new_vector
+
+class(new_vector)
+```
+
+By adding the word "Apple" to the vector, R changed the class from "numeric" to "character". All the numbers are enclosed in quotes: they are now character strings and cannot be used in calculations. 
+
+The most common class of data object we will use is the data frame. The data in midfieldr are stored as data frames, e.g., 
+
+```{r}
+# examine another midfieldr data set 
+study_stickiness
+
+class(study_stickiness)
+```
+
+```{r echo = FALSE}
+my_names <- paste(names(study_stickiness), collapse = ", ")
+```
+
+- Six columns:  `r my_names`. 
+- Three columns are labeled `<char>` for character, categorical variables   
+- Two columns are labeled `<int>` for integer
+- One column is labeled `<num>` for double precision 
+
+The additional class shown `data.table` is an augmented version of the base R `data.frame` class. When working with these objects you can use base R `data.frame` syntax or data.table syntax. 
+
+If you have a data.frame object that is not a data.table, e.g. the `airquality` data frame that comes with R
+
+```{r}
+class(airquality)
+
+head(airquality)
+```
+
+You can convert it to  data.table object with `as.data.table()`. 
+
+```{r}
+DT <- as.data.table(airquality)
+
+class(DT)
+
+DT
+```
+
+The data frame as a whole has a class; so do the individual columns. 
+
+```{r}
+class(DT[, Ozone])
+
+class(DT[, Wind])
+```
 
 
 
@@ -209,30 +693,64 @@ This tutorial is an introduction to R adapted from [@Healy:2019:Ch.2] with extra
 ### R objects have structure
 
 
+To see inside an object ask for its structure using the `str()` function.
+
+```{r}
+str(x)
+
+str(toy_term)
+
+str(airquality)
+```
 
 
 
 
 ### R only does what you tell it
 
+Expect to make errors and don't worry when that happens.  You won't break anything. Healy [-@Healy:2019] offers this advice for three specific things to watch out for: 
 
+- Make sure parentheses are balanced---that every opening `(` has a corresponding closing `)`.  
+- Make sure you complete your expressions. If you see a `+` in the Console instead of the usual prompt `>`, that means that R thinks you haven't written a complete expression. You can hit `Esc` or `Ctrl C` to force your way back to the Console and try correcting the code.  
+- In ggplot specifically, as you will see, we create plots layer by layer, using a `+` character at the end of the line---not at the beginning of the next line. 
 
+For example, you would write this, 
+
+```r
+ggplot(data = mpg, aes(x = displ, y = hwy)) +
+    geom_point()
+```
+
+not this,  
+
+```r  
+# error caused by incorrectly placed +
+ggplot(data = mpg, aes(x = displ, y = hwy))  
+    + geom_point()
+```
 
 
 
 ### Keyboard shortcuts
 
+If you are working in RStudio, you can see the menu of keyboard
+shortcuts using the menu *Tools &gt; Keyboard Shortcuts Help*. The
+shortcuts we use regularly include
 
-
-
-
-
-### What's next?
-
-
-
-
-
+| Windows / Linux | Action                              | Mac OS         |
+|:----------------|:------------------------------------|:---------------|
+| `ctrl L`        | Clear the RStudio Console           | `ctrl L`       |
+| `ctrl shift C`  | Comment/uncomment line(s)           | `cmd shift C`  |
+| `ctrl X, C, V`  | Cut, copy, paste                    | `cmd X, C, V`  |
+| `ctrl F`        | Find in text                        | `cmd F`        |
+| `ctrl I`        | Indent or re-indent lines           | `cmd I`        |
+| `alt` –         | Insert the assignment operator `<-` | `option` –     |
+| `ctrl alt B`    | Run from beginning to line          | `cmd option B` |
+| `ctrl alt E`    | Run from line to end                | `cmd option E` |
+| `ctrl Enter`    | Run selected line(s)                | `cmd Return`   |
+| `ctrl S`        | Save                                | `cmd S`        |
+| `ctrl A`        | Select all text                     | `cmd A`        |
+| `ctrl Z`        | Undo                                | `cmd Z`        |
 
 
 

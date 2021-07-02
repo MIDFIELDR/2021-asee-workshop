@@ -236,7 +236,7 @@ Next,
 > `WARNING: Rtools is required to build R packages but is not currently installed. Please download and install the appropriate version...`. 
 >    
 
-Rtools is needed for packages with C/C++/Fortran code from source---which does not apply to us. You may ignore the warning and carry on. 
+Rtools is needed for packages with C/C++/FORTRAN code from source---which does not apply to us. You may ignore the warning and carry on. 
 
 
 

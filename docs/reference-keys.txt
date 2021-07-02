@@ -31,15 +31,15 @@ continuing-the-case-study
 exploring-midfieldr-functions
 r-basics
 style-guide
+open-an-r-script
 everything-in-r-has-a-name
 everything-in-r-is-an-object
-use-functions-to-do-things
+r-functions-do-things
 r-functions-come-in-packages
 r-objects-have-class
 r-objects-have-structure
 r-only-does-what-you-tell-it
 keyboard-shortcuts
-whats-next
 graph-basics
 data-basics
 display-design
