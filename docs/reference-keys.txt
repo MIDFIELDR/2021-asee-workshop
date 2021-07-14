@@ -41,10 +41,10 @@ r-objects-have-structure
 r-only-does-what-you-tell-it
 to-get-help
 keyboard-shortcuts
+next-steps
 graph-basics
 data-basics
 display-design
 stuff-2
 more-stuff-2
 references
-next-steps

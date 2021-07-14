@@ -333,7 +333,7 @@ The first steps are to install R and RStudio. Windows users may have to login as
 \item
   \href{https://cloud.r-project.org}{Install R} for your operating system\\
 \item
-  \href{https://www.rstudio.com/products/rstudio/\#Desktop}{Install RStudio}, a user interface for R
+  \href{https://www.rstudio.com/products/rstudio/download/\#download}{Install RStudio}, a user interface for R
 \end{itemize}
 
 Once the installation is complete, you can take a 2-minute tour of the RStudio interface.
@@ -494,15 +494,15 @@ Repeat the process for the following packages
 wrapr 
 Rdpack 
 checkmate
+ggplot2
 \end{verbatim}
 
 Alternatively, you can install them all at once by typing in the Console:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# midfieldr depends on these packages}
-\NormalTok{packages\_we\_need }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"data.table"}\NormalTok{, }\StringTok{"wrapr"}\NormalTok{, }\StringTok{"Rdpack"}\NormalTok{, }\StringTok{"checkmate"}\NormalTok{)}
-\FunctionTok{install.packages}\NormalTok{(packages\_we\_need)}
+\NormalTok{packages\_we\_use }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"data.table"}\NormalTok{, }\StringTok{"wrapr"}\NormalTok{, }\StringTok{"Rdpack"}\NormalTok{, }\StringTok{"checkmate"}\NormalTok{, }\StringTok{"ggplot2"}\NormalTok{)}
+\FunctionTok{install.packages}\NormalTok{(packages\_we\_use)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -620,10 +620,22 @@ Before proceeding, you should have completed
 \item
   \protect\hyperlink{install-everything}{Install everything}\\
 \item
-  Launched your workshop project---\texttt{workshop.Rproj} or other name that you selected---to start the R session\\
-\item
-  We suggest you start a new R script for each tutorial and save it to the \texttt{scripts} directory. For example, at the end of the workshop, your scripts directory might contain the following files:
+  Launched your workshop project---\texttt{workshop.Rproj} or other name that you selected---to start the R session
 \end{itemize}
+
+With these prerequisites accomplished, and working in your RStudio \texttt{workshop.Rproj} project, you can create a save a script by:
+
+\begin{itemize}
+\tightlist
+\item
+  Use the pulldown menu, \emph{File \textgreater{} New File \textgreater{} R Script}
+\item
+  File menu \textgreater{} Save As\ldots{}
+\item
+  In the dialog box, navigate to your \texttt{scripts} directory, type a file name, for example, \texttt{01-R-basics.R} (file names in R can start with numerals), and \emph{Save}.
+\end{itemize}
+
+We suggest you start a new R script for each tutorial and save it to the \texttt{scripts} directory. For example, at the end of the workshop, your scripts directory might contain the following files:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -703,7 +715,7 @@ The basic skills tutorials take about 50 minutes each.
 \hypertarget{continuing-the-case-study}{%
 \subsection{Continuing the case study}\label{continuing-the-case-study}}
 
-The case study is a quick tour of a typical workflow using student unit record data. This is a ``big picture'' development---functions are used without detailed explanations or development so that we can get to the results with as little distraction as possible. Anyone wanting more detail will find it in the detailed vignettes (links in the next section).
+The case study is a quick tour of a typical workflow using student unit record data. This is a ``big picture'' development---functions are used without detailed explanations or development so that we can focus on the logic of the analysis. For exploring midfieldr functions and methods in greater detail, see the vignettes listed in the next section.
 
 \begin{itemize}
 \tightlist
@@ -750,138 +762,62 @@ This tutorial is an introduction to R adapted from \citep{Healy:2019:Ch.2} with 
 \hypertarget{style-guide}{%
 \subsection{Style guide}\label{style-guide}}
 
-A style guide is about making your script readable---which is particularly useful when you ask someone to help you with your script. The following guidelines are adapted from McConnell \citeyearpar{McConnell:2004} and Wickham \citeyearpar{Wickham:2019:styleguide}.
+A style guide is about making your script readable. We ask you to observe a small set of guidelines that will help us help you when you have questions about your script.
 
-\emph{Comments} are annotations to make the source code easier for humans to understand but are ignored by R. Comments in R are denoted by a hash tag \texttt{\#}.
+\textbf{Comments} in R are denoted by a hash tag \texttt{\#}.
+
+\begin{itemize}
+\tightlist
+\item
+  Everything to the right of the hash tag is ignored by R.
+\item
+  Comments that describe ``why'' are generally more useful than comments that explain ``how.''
+\end{itemize}
 
 \textbf{Spaces around operators.} Usewhitespacetoenhancereadability. Place spaces around operators (\texttt{=}, \texttt{+}, \texttt{-}, \texttt{\textless{}-}, etc.). Always put a space after a comma, but never before (just like in regular English).
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# good}
-\NormalTok{height }\OtherTok{\textless{}{-}}\NormalTok{ (feet }\SpecialCharTok{*} \DecValTok{12}\NormalTok{) }\SpecialCharTok{+}\NormalTok{ inches}
-\FunctionTok{mean}\NormalTok{(x, }\AttributeTok{na.rm =} \DecValTok{10}\NormalTok{)}
-
 \CommentTok{\# poor}
 \NormalTok{height}\OtherTok{\textless{}{-}}\NormalTok{feet}\SpecialCharTok{*}\DecValTok{12}\SpecialCharTok{+}\NormalTok{inches}
 \FunctionTok{mean}\NormalTok{(x,}\AttributeTok{na.rm=}\DecValTok{10}\NormalTok{)}
+
+\CommentTok{\# better}
+\NormalTok{height }\OtherTok{\textless{}{-}}\NormalTok{ (feet }\SpecialCharTok{*} \DecValTok{12}\NormalTok{) }\SpecialCharTok{+}\NormalTok{ inches}
+\FunctionTok{mean}\NormalTok{(x, }\AttributeTok{na.rm =} \DecValTok{10}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-The exception to the ``spaces around operators'' rule are those with high precedence such as exponentiation (\texttt{\^{}}), sequence (\texttt{:}), or accessors (\texttt{{[}{[}} or \texttt{\$}). These operators are written without spaces,
+\textbf{Use vertical white space.} Lack of vertical white space makes your script harder to read (like a story with no paragraphs).
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# good}
-\FunctionTok{sqrt}\NormalTok{(x}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+}\NormalTok{ y}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
-\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\DecValTok{10}
-\NormalTok{df}\SpecialCharTok{$}\NormalTok{z}
-
-\CommentTok{\# poor}
-\FunctionTok{sqrt}\NormalTok{(x }\SpecialCharTok{\^{}} \DecValTok{2} \SpecialCharTok{+}\NormalTok{ y }\SpecialCharTok{\^{}} \DecValTok{2}\NormalTok{)}
-\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{1} \SpecialCharTok{:} \DecValTok{10}
-\NormalTok{df }\SpecialCharTok{$}\NormalTok{ z}
-\end{Highlighting}
-\end{Shaded}
-
-Adding extra spaces OK if it improves alignment of \texttt{=} or \texttt{\textless{}-}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# good}
-\FunctionTok{list}\NormalTok{(}
-    \AttributeTok{total\_number =}\NormalTok{ a }\SpecialCharTok{+}\NormalTok{ b }\SpecialCharTok{+}\NormalTok{ c,}
-    \AttributeTok{mean         =}\NormalTok{ (a }\SpecialCharTok{+}\NormalTok{ b }\SpecialCharTok{+}\NormalTok{ c) }\SpecialCharTok{/}\NormalTok{ n}
-\NormalTok{)}
-
-\CommentTok{\# also fine}
-\FunctionTok{list}\NormalTok{(}
-    \AttributeTok{total\_number =}\NormalTok{ a }\SpecialCharTok{+}\NormalTok{ b }\SpecialCharTok{+}\NormalTok{ c,}
-    \AttributeTok{mean =}\NormalTok{ (a }\SpecialCharTok{+}\NormalTok{ b }\SpecialCharTok{+}\NormalTok{ c) }\SpecialCharTok{/}\NormalTok{ n}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\textbf{Comments.} Avoid block comments that are hard to maintain, e.g.,
-
-\begin{verbatim}
-####################################################################### 
-##  class: GigaTron                                                  ## 
-##                                                                   ## 
-##  author: Dwight K. Coder                                          ## 
-##  date: July 4, 2014                                               ## 
-##                                                                   ## 
-##  Routines to control the twenty-first century's code evaluation   ## 
-##  tool. The entry point to these routines is the EvaluateCode()    ## 
-##  routine at the bottom of this file.                              ## 
-####################################################################### 
-\end{verbatim}
-
-A version of this comment block that is easier to revise and maintain is,
-
-\begin{verbatim}
-#  GigaTron  
-#  Dwight K. Coder  
-#  2014-07-04  
-# 
-#  EvaluateCode() is the entry point for our code evaluation routines 
-\end{verbatim}
-
-Avoid writing comments that merely restate the code in English, e.g.,
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# set x equal to 1  (poor comment)}
-\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{1}
-\end{Highlighting}
-\end{Shaded}
-
-Instead, write comments that describe the intent of a code paragraph. Such comments are particularly useful when someone other than the code's original author tries to modify the code.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# swap the roots (good comment)}
-\NormalTok{oldRoot }\OtherTok{\textless{}{-}}\NormalTok{ root[}\DecValTok{0}\NormalTok{]}
-\NormalTok{root[}\DecValTok{0}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ root[}\DecValTok{1}\NormalTok{]}
-\NormalTok{root[}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ oldRoot}
-\end{Highlighting}
-\end{Shaded}
-
-Comments should focus on ``why'' rather than ``how''.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# if establishing a new account (good comment)}
-\ControlFlowTok{if}\NormalTok{ (account\_type }\SpecialCharTok{==} \StringTok{"new\_account"}\NormalTok{) ...}
-
-\CommentTok{\# if account flag is zero (poor comment) }
-\ControlFlowTok{if}\NormalTok{ (account\_flag }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) ...}
-\end{Highlighting}
-\end{Shaded}
-
-\textbf{Use vertical white space.} Group chunks of code into paragraphs separated by blank lines to reveal the structure of the program.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# poor}
+\CommentTok{\# Poor, no paragraph breaks}
 \FunctionTok{library}\NormalTok{(}\StringTok{"data.table"}\NormalTok{); }\FunctionTok{library}\NormalTok{(}\StringTok{"GDAdata"}\NormalTok{)}
 \NormalTok{speed\_ski }\OtherTok{\textless{}{-}} \FunctionTok{copy}\NormalTok{(SpeedSki)}
 \FunctionTok{setDT}\NormalTok{(speed\_ski)}
 \NormalTok{speed\_ski }\OtherTok{\textless{}{-}}\NormalTok{ speed\_ski[, .(Event, Sex, Speed)]}
 \FunctionTok{setnames}\NormalTok{(speed\_ski, }\AttributeTok{old =} \FunctionTok{c}\NormalTok{(}\StringTok{"Event"}\NormalTok{, }\StringTok{"Sex"}\NormalTok{, }\StringTok{"Speed"}\NormalTok{), }\AttributeTok{new =} \FunctionTok{c}\NormalTok{(}\StringTok{"event"}\NormalTok{, }\StringTok{"sex"}\NormalTok{, }\StringTok{"speed"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
 
-\CommentTok{\# better}
+Instead, group chunks of code into paragraphs separated by blank lines to reveal the structure of the program. Comments at the start of a code chunk can explain your intent (like a topic sentence). Here we illustrate commenting on ``why'' rather than ``how''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Better example with code in paragraphs}
+
 \FunctionTok{library}\NormalTok{(}\StringTok{"data.table"}\NormalTok{)}
 \FunctionTok{library}\NormalTok{(}\StringTok{"GDAdata"}\NormalTok{)}
 
-\CommentTok{\# leave the original data unaltered before conversion to data.table}
+\CommentTok{\# Leave the original data unaltered before data.table conversion }
 \NormalTok{speed\_ski }\OtherTok{\textless{}{-}} \FunctionTok{copy}\NormalTok{(SpeedSki)}
 \FunctionTok{setDT}\NormalTok{(speed\_ski)}
 
-\CommentTok{\# we need only three variables}
+\CommentTok{\# Only three variables are required }
 \NormalTok{speed\_ski }\OtherTok{\textless{}{-}}\NormalTok{ speed\_ski[, .(Event, Sex, Speed)]}
 
-\CommentTok{\# style guide prefers lowercase column names}
+\CommentTok{\# Lowercase column names are our preferred style }
 \FunctionTok{setnames}\NormalTok{(speed\_ski, }
          \AttributeTok{old =} \FunctionTok{c}\NormalTok{(}\StringTok{"Event"}\NormalTok{, }\StringTok{"Sex"}\NormalTok{, }\StringTok{"Speed"}\NormalTok{), }
          \AttributeTok{new =} \FunctionTok{c}\NormalTok{(}\StringTok{"event"}\NormalTok{, }\StringTok{"sex"}\NormalTok{, }\StringTok{"speed"}\NormalTok{))}
@@ -890,6 +826,8 @@ Comments should focus on ``why'' rather than ``how''.
 \FunctionTok{saveRDS}\NormalTok{(speed\_ski, }\StringTok{"data/speed\_ski.rds"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+For more information of R scripting style generally see McConnell \citeyearpar{McConnell:2004} and Wickham \citeyearpar{Wickham:2019:styleguide}.
 
 \hypertarget{open-an-r-script}{%
 \subsection{Open an R script}\label{open-an-r-script}}
@@ -923,7 +861,7 @@ Use \emph{File \textgreater{} New File \textgreater{} R Script} to create a new 
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Packages}
+\CommentTok{\# Packages can be loaded only if they have previously been installed}
 \FunctionTok{library}\NormalTok{(}\StringTok{"midfieldr"}\NormalTok{)}
 \FunctionTok{library}\NormalTok{(}\StringTok{"data.table"}\NormalTok{)}
 
@@ -995,7 +933,7 @@ If you want to know if a name has already been used in a package you have loaded
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# type in the Console}
+\CommentTok{\# Type in the Console}
 \StringTok{\textasciigrave{}}\AttributeTok{? c()}\StringTok{\textasciigrave{}} 
 \StringTok{\textasciigrave{}}\AttributeTok{? mean()}\StringTok{\textasciigrave{}}
 \end{Highlighting}
@@ -1022,7 +960,7 @@ Type this line of code in your script, \emph{Save.} \texttt{c()} is the function
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# type in the R script}
+\CommentTok{\# Type in the R script}
 \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{25}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1070,7 +1008,7 @@ To see the result in the Console, type the object name in the script, \emph{Save
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# type in the R script or in the Console}
+\CommentTok{\# Type in the R script or in the Console}
 \NormalTok{x}
 \CommentTok{\#\textgreater{} [1]  1  2  3  1  3 25}
 
@@ -1085,7 +1023,7 @@ Data are also named objects. For example, midfieldr has several toy data sets in
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# a data frame included with midfieldr}
+\CommentTok{\# Examine a data frame included with midfieldr}
 \NormalTok{toy\_student}
 \CommentTok{\#\textgreater{}             mcid   institution              transfer hours\_transfer}
 \CommentTok{\#\textgreater{}           \textless{}char\textgreater{}        \textless{}char\textgreater{}                \textless{}char\textgreater{}          \textless{}num\textgreater{}}
@@ -1129,6 +1067,7 @@ If we wanted the first five rows of the toy data, we use the \texttt{{[}{]}} ope
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# Practice using the \textasciigrave{}[\textasciigrave{} operator}
 \NormalTok{toy\_student[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{]}
 \CommentTok{\#\textgreater{}           mcid   institution              transfer hours\_transfer   race    sex}
 \CommentTok{\#\textgreater{}         \textless{}char\textgreater{}        \textless{}char\textgreater{}                \textless{}char\textgreater{}          \textless{}num\textgreater{} \textless{}char\textgreater{} \textless{}char\textgreater{}}
@@ -1153,7 +1092,7 @@ To extract a single column, e.g.~the ID column, but preserve the data frame stru
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# data.table syntax to subset a column as a data table}
+\CommentTok{\# Subset a column as a data table}
 \NormalTok{toy\_student[, .(mcid)]}
 \CommentTok{\#\textgreater{}             mcid}
 \CommentTok{\#\textgreater{}           \textless{}char\textgreater{}}
@@ -1175,7 +1114,7 @@ We can also extract the column as a vector using slightly different syntax,
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# data.table syntax to subset a column as a vector}
+\CommentTok{\# Subset a column as a vector}
 \NormalTok{toy\_student[, mcid]}
 \CommentTok{\#\textgreater{}   [1] "MID25783939" "MID25784402" "MID25805538" "MID25808099" "MID25816437"}
 \CommentTok{\#\textgreater{}   [6] "MID25826223" "MID25828870" "MID25831839" "MID25839453" "MID25840802"}
@@ -1201,6 +1140,8 @@ We can also extract the column as a vector using slightly different syntax,
 \end{Shaded}
 
 Here you can see how the row labels in the printed output work. There are 5 IDs per row, so the second row starts with the 6th ID, indicated by \texttt{{[}6{]}}. The last row starts with the 96th value \texttt{{[}96{]}} and ends with the 100th value.
+
+The ``toy'' data sets in midfieldr (\texttt{toy\_student}, \texttt{toy\_course}, \texttt{toy\_term}, and \texttt{toy\_degree}) include student unit records for only 100 students---not a statistically representative sample---used for package examples like those above.
 
 \hypertarget{r-functions-do-things}{%
 \subsection{R functions do things}\label{r-functions-do-things}}
@@ -1242,13 +1183,17 @@ Let's determine some summary statistics on our student transfer hours. Add these
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# Extract a column as a vector}
 \NormalTok{transfer\_hours }\OtherTok{\textless{}{-}}\NormalTok{ toy\_student[, hours\_transfer]}
+
+\CommentTok{\# Examine the vector}
 \NormalTok{transfer\_hours}
 \CommentTok{\#\textgreater{}   [1] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA 30 55 NA 24 NA NA NA}
 \CommentTok{\#\textgreater{}  [26] NA NA NA NA  4 NA  2 NA NA NA  1  7  1  3  1  5 NA NA NA NA NA NA NA NA NA}
 \CommentTok{\#\textgreater{}  [51] NA NA NA NA NA NA NA NA NA NA 80 NA NA NA NA NA NA NA NA NA NA NA NA NA NA}
 \CommentTok{\#\textgreater{}  [76] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA}
 
+\CommentTok{\# Operate on the vector}
 \FunctionTok{mean}\NormalTok{(transfer\_hours)}
 \CommentTok{\#\textgreater{} [1] NA}
 \end{Highlighting}
@@ -1258,12 +1203,15 @@ We have to set the optional argument \texttt{na.rm} (``remove NA'') to take a me
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# Operate and ignore NA values}
 \FunctionTok{mean}\NormalTok{(transfer\_hours, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
 \CommentTok{\#\textgreater{} [1] 17.75}
 
+\CommentTok{\# Another operation }
 \FunctionTok{sd}\NormalTok{(transfer\_hours, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
 \CommentTok{\#\textgreater{} [1] 25.63068}
 
+\CommentTok{\# The summary also shows the count of NAs}
 \FunctionTok{summary}\NormalTok{(transfer\_hours)}
 \CommentTok{\#\textgreater{}    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA\textquotesingle{}s }
 \CommentTok{\#\textgreater{}    1.00    1.75    4.50   17.75   25.50   80.00      88}
@@ -1282,10 +1230,12 @@ Functions to examine a data frame.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# Practice finding column names}
 \FunctionTok{names}\NormalTok{(toy\_student)}
 \CommentTok{\#\textgreater{} [1] "mcid"           "institution"    "transfer"       "hours\_transfer"}
 \CommentTok{\#\textgreater{} [5] "race"           "sex"}
 
+\CommentTok{\# Practice examining the first few rows of a data frame}
 \FunctionTok{head}\NormalTok{(toy\_student)}
 \CommentTok{\#\textgreater{}           mcid   institution              transfer hours\_transfer   race    sex}
 \CommentTok{\#\textgreater{}         \textless{}char\textgreater{}        \textless{}char\textgreater{}                \textless{}char\textgreater{}          \textless{}num\textgreater{} \textless{}char\textgreater{} \textless{}char\textgreater{}}
@@ -1296,6 +1246,7 @@ Functions to examine a data frame.
 \CommentTok{\#\textgreater{} 5: MID25816437 Institution M First{-}Time in College             NA  White   Male}
 \CommentTok{\#\textgreater{} 6: MID25826223 Institution M   First{-}Time Transfer             NA  White Female}
 
+\CommentTok{\# Practice examining the last few rows of a data frame}
 \FunctionTok{tail}\NormalTok{(toy\_student)}
 \CommentTok{\#\textgreater{}           mcid   institution              transfer hours\_transfer}
 \CommentTok{\#\textgreater{}         \textless{}char\textgreater{}        \textless{}char\textgreater{}                \textless{}char\textgreater{}          \textless{}num\textgreater{}}
@@ -1330,11 +1281,11 @@ Functions to examine columns (variables) in a data frame.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# determine the unique values in a column }
+\CommentTok{\# Determine the unique values in a column }
 \FunctionTok{sort}\NormalTok{(}\FunctionTok{unique}\NormalTok{(toy\_student[, sex]))}
 \CommentTok{\#\textgreater{} [1] "Female" "Male"}
 
-\CommentTok{\# are any of the values NA?}
+\CommentTok{\# Find the rows with NA values.}
 \FunctionTok{is.na}\NormalTok{(toy\_student[, sex])}
 \CommentTok{\#\textgreater{}   [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE}
 \CommentTok{\#\textgreater{}  [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE}
@@ -1356,6 +1307,7 @@ Repeat for other columns.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# Practice examining another column}
 \FunctionTok{sort}\NormalTok{(}\FunctionTok{unique}\NormalTok{(toy\_student[, institution]))}
 \CommentTok{\#\textgreater{}  [1] "Institution A" "Institution B" "Institution C" "Institution D"}
 \CommentTok{\#\textgreater{}  [5] "Institution E" "Institution F" "Institution G" "Institution H"}
@@ -1363,12 +1315,14 @@ Repeat for other columns.
 \FunctionTok{sum}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(toy\_student[, institution]))}
 \CommentTok{\#\textgreater{} [1] 0}
 
+\CommentTok{\# Practice examining another column}
 \FunctionTok{sort}\NormalTok{(}\FunctionTok{unique}\NormalTok{(toy\_student[, race]))}
 \CommentTok{\#\textgreater{} [1] "Asian"           "Black"           "Hispanic/Latinx" "International"  }
 \CommentTok{\#\textgreater{} [5] "Native American" "Other/Unknown"   "White"}
 \FunctionTok{sum}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(toy\_student[, race]))}
 \CommentTok{\#\textgreater{} [1] 0}
 
+\CommentTok{\# Practice examining another column}
 \FunctionTok{sort}\NormalTok{(}\FunctionTok{unique}\NormalTok{(toy\_student[, hours\_transfer]))}
 \CommentTok{\#\textgreater{}  [1]  1  2  3  4  5  7 24 30 55 80}
 \FunctionTok{sum}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(toy\_student[, hours\_transfer]))}
@@ -1421,6 +1375,7 @@ For example, to see the list of functions in the midfieldr package,
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# Showing all functions in the midfieldr package }
 \FunctionTok{sort}\NormalTok{(}\FunctionTok{getNamespaceExports}\NormalTok{(}\StringTok{"midfieldr"}\NormalTok{))}
 \CommentTok{\#\textgreater{} [1] "add\_completion\_timely" "add\_data\_sufficiency"  "add\_institution"      }
 \CommentTok{\#\textgreater{} [4] "add\_race\_sex"          "add\_timely\_term"       "condition\_fye"        }
@@ -1432,7 +1387,7 @@ To view a help page, type, e.g.,
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# type in the Console}
+\CommentTok{\# Type in the Console to view a help page }
 \NormalTok{? }\FunctionTok{add\_race\_sex}\NormalTok{() }
 \end{Highlighting}
 \end{Shaded}
@@ -1441,6 +1396,7 @@ In contrast, do the same for the data.table package,
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# A package with many functions.}
 \FunctionTok{sort}\NormalTok{(}\FunctionTok{getNamespaceExports}\NormalTok{(}\StringTok{"data.table"}\NormalTok{))}
 \CommentTok{\#\textgreater{}   [1] "\%between\%"          "\%chin\%"             "\%flike\%"           }
 \CommentTok{\#\textgreater{}   [4] "\%ilike\%"            "\%inrange\%"          "\%like\%"            }
@@ -1465,7 +1421,7 @@ Don't panic! We will use only a small number of these functions from data.table.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# type in the Console}
+\CommentTok{\# Type in the Console to view the help page }
 \NormalTok{? }\StringTok{\textasciigrave{}}\AttributeTok{\%ilike\%}\StringTok{\textasciigrave{}} 
 \end{Highlighting}
 \end{Shaded}
@@ -1647,10 +1603,27 @@ Healy \citeyearpar{Healy:2019} offers this advice for specific things to watch o
 \item
   Make sure parentheses are balanced---that every opening \texttt{(} has a corresponding closing \texttt{)}.\\
 \item
-  Make sure you complete your expressions. If you see a \texttt{+} in the Console instead of the usual prompt \texttt{\textgreater{}}, that means that R thinks you haven't written a complete expression. You can hit \texttt{Esc} or \texttt{Ctrl\ C} to force your way back to the Console and try correcting the code.\\
-\item
   Expect to make errors and don't worry when that happens. You won't break anything.
+\item
+  Make sure you complete your expressions. If you see a \texttt{+} in the Console instead of the usual prompt \texttt{\textgreater{}}, R thinks your expression is incomplete. For example, if you type the following and try to run it,
 \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \FunctionTok{str}\NormalTok{(air\_quality}
+\end{Highlighting}
+\end{Shaded}
+
+the output in your Console reports:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \CommentTok{\#\textgreater{} str(air\_quality}
+    \SpecialCharTok{+} 
+\end{Highlighting}
+\end{Shaded}
+
+The plus sign indicates that the expression is incomplete\ldots in this case a missing closing parenthesis. To recover, hit \texttt{Esc} or \texttt{ctrl\ C}. Then correct the code.
 
 As you work through the MIDFIELD tutorials, we'll introduce syntax by example from both base R and the data.table package. There can be subtle differences that we will attempt to avoid by consistent usage.
 
@@ -1675,7 +1648,7 @@ For example, to subset a column from a data frame but keep it as a column (not a
 \end{Highlighting}
 \end{Shaded}
 
-In data.table syntax, the same operation is as follows. Note we created a new object \texttt{air\_quality} that is a data.table form of the original data frame.
+In data.table syntax, the same operation is as follows. Note we are using the \texttt{air\_quality} data.table object we created earlier.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1912,11 +1885,38 @@ Windows / Linux & Action & Mac OS \\
 \bottomrule
 \end{longtable}
 
+Lastly, any time you want a fresh start in your working environment,
+
+\begin{itemize}
+\tightlist
+\item
+  Use the pulldown menu \emph{Session \textgreater{} Restart R}
+\end{itemize}
+
+\hypertarget{next-steps}{%
+\subsection{Next steps}\label{next-steps}}
+
+That concludes our brief introduction to R. To continue, return to your starting point (links below) and from there, select the next link in your progression.
+
+\begin{itemize}
+\tightlist
+\item
+  \protect\hyperlink{new-to-r}{New to R?}\\
+\item
+  \protect\hyperlink{familiar-with-r}{Familiar with R?}\\
+\item
+  \protect\hyperlink{after-the-workshop}{After the workshop}
+\end{itemize}
+
 \hypertarget{graph-basics}{%
 \section{Graph basics}\label{graph-basics}}
 
+Coming soon (after the workshop)
+
 \hypertarget{data-basics}{%
 \section{Data basics}\label{data-basics}}
+
+Coming soon (after the workshop)
 
 \protect\hyperlink{start-with-R}{▲ top of page}
 
