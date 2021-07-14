@@ -95,7 +95,8 @@ Skip the next section and continue the homework with
 The first steps are to install R and RStudio. Windows users may have to login as an Administrator before installing the software. 
 
 - [Install R](https://cloud.r-project.org){target="_blank"} for your operating system  
-- [Install RStudio](https://www.rstudio.com/products/rstudio/#Desktop){target="_blank"}, a user interface for R  
+- [Install RStudio](https://www.rstudio.com/products/rstudio/download/#download){target="_blank"}, a user interface for R
+
 
 Once the installation is complete, you can take a 2-minute tour of the RStudio interface.
 
@@ -262,17 +263,14 @@ Repeat the process for the following packages
     wrapr 
     Rdpack 
     checkmate
+    ggplot2
 
 Alternatively, you can install them all at once by typing in the Console: 
 
 ``` r
-# midfieldr depends on these packages
-packages_we_need <- c("data.table", "wrapr", "Rdpack", "checkmate")
-install.packages(packages_we_need)
+packages_we_use <- c("data.table", "wrapr", "Rdpack", "checkmate", "ggplot2")
+install.packages(packages_we_use)
 ```
-
-
-
 
 
 

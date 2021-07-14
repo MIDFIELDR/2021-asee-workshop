@@ -216,6 +216,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.5.9" data-path="work-with-R.html"><a href="work-with-R.html#r-only-does-what-you-tell-it"><i class="fa fa-check"></i><b>5.5.9</b> R only does what you tell it</a></li>
 <li class="chapter" data-level="5.5.10" data-path="work-with-R.html"><a href="work-with-R.html#to-get-help"><i class="fa fa-check"></i><b>5.5.10</b> To get help</a></li>
 <li class="chapter" data-level="5.5.11" data-path="work-with-R.html"><a href="work-with-R.html#keyboard-shortcuts"><i class="fa fa-check"></i><b>5.5.11</b> Keyboard shortcuts</a></li>
+<li class="chapter" data-level="5.5.12" data-path="work-with-R.html"><a href="work-with-R.html#next-steps"><i class="fa fa-check"></i><b>5.5.12</b> Next steps</a></li>
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="work-with-R.html"><a href="work-with-R.html#graph-basics"><i class="fa fa-check"></i><b>5.6</b> Graph basics</a></li>
 <li class="chapter" data-level="5.7" data-path="work-with-R.html"><a href="work-with-R.html#data-basics"><i class="fa fa-check"></i><b>5.7</b> Data basics</a></li>
@@ -302,7 +303,7 @@ div.csl-indent {
 <ul>
 <li><a href="https://cloud.r-project.org" target="_blank">Install R</a> for your operating system<br />
 </li>
-<li><a href="https://www.rstudio.com/products/rstudio/#Desktop" target="_blank">Install RStudio</a>, a user interface for R</li>
+<li><a href="https://www.rstudio.com/products/rstudio/download/#download" target="_blank">Install RStudio</a>, a user interface for R</li>
 </ul>
 <p>Once the installation is complete, you can take a 2-minute tour of the RStudio interface.</p>
 <ul>
@@ -397,11 +398,11 @@ Rtools, something like:</p>
 <p>Repeat the process for the following packages</p>
 <pre><code>wrapr 
 Rdpack 
-checkmate</code></pre>
+checkmate
+ggplot2</code></pre>
 <p>Alternatively, you can install them all at once by typing in the Console:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="install-everything.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># midfieldr depends on these packages</span></span>
-<span id="cb5-2"><a href="install-everything.html#cb5-2" aria-hidden="true" tabindex="-1"></a>packages_we_need <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;data.table&quot;</span>, <span class="st">&quot;wrapr&quot;</span>, <span class="st">&quot;Rdpack&quot;</span>, <span class="st">&quot;checkmate&quot;</span>)</span>
-<span id="cb5-3"><a href="install-everything.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(packages_we_need)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="install-everything.html#cb5-1" aria-hidden="true" tabindex="-1"></a>packages_we_use <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;data.table&quot;</span>, <span class="st">&quot;wrapr&quot;</span>, <span class="st">&quot;Rdpack&quot;</span>, <span class="st">&quot;checkmate&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb5-2"><a href="install-everything.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(packages_we_use)</span></code></pre></div>
 </div>
 <div id="install-midfield-packages" class="section level2" number="2.6">
 <h2><span class="header-section-number">2.6</span> Install MIDFIELD packages</h2>
@@ -501,20 +502,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
