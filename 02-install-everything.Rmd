@@ -340,6 +340,21 @@ htmltools::img(src = knitr::include_graphics("figures/README-midfielddata-help-p
 
 
 
+
+## Exiting R and RStudio
+
+When you exit R/RStudio, you probably get a prompt about saving your workspace image. 
+
+The answer is No.  
+
+You can turn this prompt off by using the pulldown menu, 
+
+- _Tools &gt; Global Options..._
+- In the dialog box, _Save workspace to .RData on exit:_ Select "Never"
+
+
+
+
 You finished your homework!
 
 

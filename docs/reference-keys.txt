@@ -15,6 +15,7 @@ install-cran-packages
 install-midfield-packages
 midfieldr
 midfielddata
+exiting-r-and-rstudio
 materials
 stuff
 more-stuff
