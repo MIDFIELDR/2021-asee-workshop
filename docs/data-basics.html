@@ -120,6 +120,28 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -191,7 +213,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="graph-basics.html"><a href="graph-basics.html"><i class="fa fa-check"></i><b>5</b> Graph basics</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="graph-basics.html"><a href="graph-basics.html#introduction-1"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="graph-basics.html"><a href="graph-basics.html#data-structure"><i class="fa fa-check"></i><b>5.2</b> Data structure</a></li>
+<li class="chapter" data-level="5.2" data-path="graph-basics.html"><a href="graph-basics.html#expected-data-structure"><i class="fa fa-check"></i><b>5.2</b> Expected data structure</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise"><i class="fa fa-check"></i><b>5.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="graph-basics.html"><a href="graph-basics.html#anatomy-of-a-graph"><i class="fa fa-check"></i><b>5.3</b> Anatomy of a graph</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-1"><i class="fa fa-check"></i><b>5.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="graph-basics.html"><a href="graph-basics.html#layer-points"><i class="fa fa-check"></i><b>5.4</b> Layer: points</a></li>
+<li class="chapter" data-level="5.5" data-path="graph-basics.html"><a href="graph-basics.html#layer-smooth-fit"><i class="fa fa-check"></i><b>5.5</b> Layer: smooth fit</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-2"><i class="fa fa-check"></i><b>5.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="graph-basics.html"><a href="graph-basics.html#layer-scale"><i class="fa fa-check"></i><b>5.6</b> Layer: scale</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-3"><i class="fa fa-check"></i><b>5.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="graph-basics.html"><a href="graph-basics.html#mapping-columns-to-aesthetics"><i class="fa fa-check"></i><b>5.7</b> Mapping columns to aesthetics</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-4"><i class="fa fa-check"></i><b>5.7.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="graph-basics.html"><a href="graph-basics.html#layer-facets"><i class="fa fa-check"></i><b>5.8</b> Layer: facets</a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-5"><i class="fa fa-check"></i><b>5.8.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="graph-basics.html"><a href="graph-basics.html#ordering-panels-and-rows"><i class="fa fa-check"></i><b>5.9</b> Ordering panels and rows</a>
+<ul>
+<li class="chapter" data-level="5.9.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-6"><i class="fa fa-check"></i><b>5.9.1</b> Exercise</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-basics.html"><a href="data-basics.html"><i class="fa fa-check"></i><b>6</b> Data basics</a>
 <ul>
@@ -235,21 +285,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>See <a href="R-basics.html#open-an-r-script">Open an R script</a> if you need a refresher on creating, saving, and running an R script.</li>
 <li>At the top of the script add a minimal header and install and load the packages indicated.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data-basics.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data basics </span></span>
-<span id="cb1-2"><a href="data-basics.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># name </span></span>
-<span id="cb1-3"><a href="data-basics.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># date </span></span>
-<span id="cb1-4"><a href="data-basics.html#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="data-basics.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;midfieldr&quot;</span>)</span>
-<span id="cb1-6"><a href="data-basics.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;data.table&quot;</span>)</span>
-<span id="cb1-7"><a href="data-basics.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
-<span id="cb1-8"><a href="data-basics.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;gapminder&quot;</span>)</span>
-<span id="cb1-9"><a href="data-basics.html#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="data-basics.html#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional code to control data.table printing</span></span>
-<span id="cb1-11"><a href="data-basics.html#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(</span>
-<span id="cb1-12"><a href="data-basics.html#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">datatable.print.nrows =</span> <span class="dv">10</span>,</span>
-<span id="cb1-13"><a href="data-basics.html#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">datatable.print.topn =</span> <span class="dv">5</span>,</span>
-<span id="cb1-14"><a href="data-basics.html#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">datatable.print.class =</span> <span class="cn">TRUE</span></span>
-<span id="cb1-15"><a href="data-basics.html#cb1-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-basics.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data basics </span></span>
+<span id="cb89-2"><a href="data-basics.html#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="co"># name </span></span>
+<span id="cb89-3"><a href="data-basics.html#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="co"># date </span></span>
+<span id="cb89-4"><a href="data-basics.html#cb89-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-5"><a href="data-basics.html#cb89-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;midfieldr&quot;</span>)</span>
+<span id="cb89-6"><a href="data-basics.html#cb89-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;data.table&quot;</span>)</span>
+<span id="cb89-7"><a href="data-basics.html#cb89-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb89-8"><a href="data-basics.html#cb89-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;gapminder&quot;</span>)</span>
+<span id="cb89-9"><a href="data-basics.html#cb89-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-10"><a href="data-basics.html#cb89-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional code to control data.table printing</span></span>
+<span id="cb89-11"><a href="data-basics.html#cb89-11" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(</span>
+<span id="cb89-12"><a href="data-basics.html#cb89-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">datatable.print.nrows =</span> <span class="dv">10</span>,</span>
+<span id="cb89-13"><a href="data-basics.html#cb89-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">datatable.print.topn =</span> <span class="dv">5</span>,</span>
+<span id="cb89-14"><a href="data-basics.html#cb89-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">datatable.print.class =</span> <span class="cn">TRUE</span></span>
+<span id="cb89-15"><a href="data-basics.html#cb89-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>If you get an error like this one after running the script,</p>
 <pre><code>    Error in library(&quot;gapminder&quot;) : there is no package called &#39;gapminder&#39;</code></pre>
 <p>then the package needs to be installed. If you need a refresher on installing packages, see <a href="install-everything.html#install-cran-packages">Install CRAN packages</a>. Once the missing package is installed, you can rerun the script.</p>
@@ -323,6 +373,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

@@ -1005,7 +1005,7 @@ You create objects my assigning them names.
 \begin{itemize}
 \tightlist
 \item
-  \texttt{\textless{}-} is the assignment operator, keyboard shortcut: \texttt{alt}\(-\) (Mac OS \texttt{option}\(-\))
+  \texttt{\textless{}-} is the assignment operator, keyboard shortcut: \texttt{alt}\(-\) , i.e., the ALT key plus the hyphen key. (Mac OS \texttt{option}\(-\))
 \end{itemize}
 
 \begin{Shaded}
@@ -1286,7 +1286,7 @@ Functions to examine columns (variables) in a data frame.
 \item
   \texttt{sort()} and \texttt{unique()} often used together
 \item
-  \texttt{is.na()} to return TRUE for every NA element in an object, otherwise TRUE
+  \texttt{is.na()} to return TRUE for every NA element in an object, otherwise FALSE
 \item
   \texttt{sum()} applied to \texttt{is.na()} converts logical TRUE to 1 and FALSE to 0 and adds the elements. The resulting integer is the number of NA values in the vector.
 \end{itemize}
@@ -1526,7 +1526,7 @@ If you have a data.frame object that is not a data.table, e.g.~the \texttt{airqu
 \end{Highlighting}
 \end{Shaded}
 
-You can convert it to data.table object with \texttt{as.data.table()} and assign it to a \_slightly) different name.
+You can convert it to data.table object with \texttt{as.data.table()} and assign it to a slightly different name.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1887,7 +1887,7 @@ Windows / Linux & Action & Mac OS \\
 \texttt{ctrl\ X,\ C,\ V} & Cut, copy, paste & \texttt{cmd\ X,\ C,\ V} \\
 \texttt{ctrl\ F} & Find in text & \texttt{cmd\ F} \\
 \texttt{ctrl\ I} & Indent or re-indent lines & \texttt{cmd\ I} \\
-\texttt{alt} -- & Insert the assignment operator \texttt{\textless{}-} & \texttt{option} -- \\
+\texttt{alt} \(-\) & Insert the assignment operator \texttt{\textless{}-} & \texttt{option} \(-\) \\
 \texttt{ctrl\ alt\ B} & Run from beginning to line & \texttt{cmd\ option\ B} \\
 \texttt{ctrl\ alt\ E} & Run from line to end & \texttt{cmd\ option\ E} \\
 \texttt{ctrl\ Enter} & Run selected line(s) & \texttt{cmd\ Return} \\
@@ -1947,11 +1947,746 @@ Create a new script for this tutorial.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Graph basics }
+\CommentTok{\# Name }
+\CommentTok{\# Date }
+
+\CommentTok{\# Packages used in this tutorial}
+\FunctionTok{library}\NormalTok{(}\StringTok{"midfieldr"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"midfielddata"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"data.table"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"gapminder"}\NormalTok{)}
+
+\CommentTok{\# Optional code to control data.table printing}
+\FunctionTok{options}\NormalTok{(}
+  \AttributeTok{datatable.print.nrows =} \DecValTok{10}\NormalTok{,}
+  \AttributeTok{datatable.print.topn =} \DecValTok{5}\NormalTok{,}
+  \AttributeTok{datatable.print.class =} \ConstantTok{TRUE}
+\NormalTok{)}
+
+\CommentTok{\# Load midfielddata data sets to use later}
+\FunctionTok{data}\NormalTok{(student)}
+\FunctionTok{data}\NormalTok{(term) }
+\end{Highlighting}
+\end{Shaded}
+
+If you get an error like this one after running the script,
+
+\begin{verbatim}
+    Error in library("gapminder") : there is no package called 'gapminder'
+\end{verbatim}
+
+then the package needs to be installed. If you need a refresher on installing packages, see \protect\hyperlink{install-cran-packages}{Install CRAN packages}. Once the missing package is installed, you can rerun the script.
+
+Guidelines
+
+\begin{itemize}
+\tightlist
+\item
+  As you work through the tutorial, type a line or chunk of code then \emph{File \textgreater{} Save} and run the script.\\
+\item
+  Confirm that your result matches the tutorial result.\\
+\item
+  The \textbf{exercises} give you chance to practice your new skills to learn by doing (but you knew that already)!
+\end{itemize}
+
+\hypertarget{expected-data-structure}{%
+\section{Expected data structure}\label{expected-data-structure}}
+
+Data for analysis and graphing are often laid out in ``block record'' or ``long'' form with every key variable and response variable in their own columns \citep{Mount+Zumel:2019:fluid-data}. Database designers call this a ``denormalized'' form; many R users would recognize it as the so-called ``tidy'' form \citep{Wickham+Grolemund:2017}.
+
+We use this form regularly for preparing data for graphing using the ggplot2 package. The gapminder data we're using in this tutorial is in block-record form. To view its help page, run
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"gapminder"}\NormalTok{)}
+\NormalTok{? gapminder}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Convert the data frame to a data.table structure }
+\NormalTok{gapminder }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{(gapminder)}
+\end{Highlighting}
+\end{Shaded}
+
+And we can just type its name to see a few rows. Note at the top of each column under the column name, the class of the variable is shown: factor \texttt{\textless{}fctr\textgreater{}}, integer \texttt{\textless{}int\textgreater{}}, and double-precision \texttt{\textless{}num\textgreater{}}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder}
+\CommentTok{\#\textgreater{}           country continent  year lifeExp      pop gdpPercap}
+\CommentTok{\#\textgreater{}            \textless{}fctr\textgreater{}    \textless{}fctr\textgreater{} \textless{}int\textgreater{}   \textless{}num\textgreater{}    \textless{}int\textgreater{}     \textless{}num\textgreater{}}
+\CommentTok{\#\textgreater{}    1: Afghanistan      Asia  1952  28.801  8425333  779.4453}
+\CommentTok{\#\textgreater{}    2: Afghanistan      Asia  1957  30.332  9240934  820.8530}
+\CommentTok{\#\textgreater{}    3: Afghanistan      Asia  1962  31.997 10267083  853.1007}
+\CommentTok{\#\textgreater{}    4: Afghanistan      Asia  1967  34.020 11537966  836.1971}
+\CommentTok{\#\textgreater{}    5: Afghanistan      Asia  1972  36.088 13079460  739.9811}
+\CommentTok{\#\textgreater{}   {-}{-}{-}                                                       }
+\CommentTok{\#\textgreater{} 1700:    Zimbabwe    Africa  1987  62.351  9216418  706.1573}
+\CommentTok{\#\textgreater{} 1701:    Zimbabwe    Africa  1992  60.377 10704340  693.4208}
+\CommentTok{\#\textgreater{} 1702:    Zimbabwe    Africa  1997  46.809 11404948  792.4500}
+\CommentTok{\#\textgreater{} 1703:    Zimbabwe    Africa  2002  39.989 11926563  672.0386}
+\CommentTok{\#\textgreater{} 1704:    Zimbabwe    Africa  2007  43.487 12311143  469.7093}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exercise}{%
+\subsection{Exercise}\label{exercise}}
+
+\begin{itemize}
+\tightlist
+\item
+  Examine the \texttt{student} data from midfielddata. (Type its name in the console.)
+\item
+  How many variables? How many observations?
+\item
+  How many of the variables are numeric? How many are character type?
+\item
+  Is the data set in block-record form?
+\item
+  Check your work by comparing your result to the \texttt{student} help page (link below).
+\end{itemize}
+
+Help pages for more information:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://midfieldr.github.io/midfielddata/reference/student.html}{\texttt{student}}
+\item
+  \href{https://www.rdocumentation.org/packages/gapminder/versions/0.3.0/topics/gapminder}{\texttt{gapminder}}
+\end{itemize}
+
+\hypertarget{anatomy-of-a-graph}{%
+\section{Anatomy of a graph}\label{anatomy-of-a-graph}}
+
+\texttt{ggplot()} is a our basic plotting function. The \texttt{data\ =\ ...} argument assigns the data frame. The plot is empty because we haven't mapped the data to coordinates yet.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ gapminder)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/fig01-1}
+
+Next we use the mapping argument \texttt{mapping\ =\ aes(...)} to assign variables (column names) from the data frame to specific aesthetic properties of the graph such as the x-coordinate, the y-coordinate color, fill, etc.
+
+Here we map continent (a categorical variable) to \texttt{x} and life expectancy (a quantitative variable) to \texttt{y}. To reduce the number of times we repeat lines of code, we can assign a name (\texttt{life\_gdp}) to the empty graph to which we can add layers later.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Demonstrate aesthetic mapping}
+\NormalTok{life\_exp }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ gapminder, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ continent, }\AttributeTok{y =}\NormalTok{ lifeExp))}
+\end{Highlighting}
+\end{Shaded}
+
+If we print the graph by typing the name of the graph object (everything in R is an object), we get a graph with a range on each axis (from the mapping) but no data shown. We haven't specified the type of visual encoding we want.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Examine the result}
+\NormalTok{life\_exp}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/unnamed-chunk-55-1}
+
+A box-and-whisker plot (or box plot) is designed for displaying the distribution of a single quantitative variable. The visual encoding is specified using the \texttt{geom\_boxplot()} layer, where a ``geom'' is a geometric object. The \texttt{geom\_boxplot()} function requires the quantitative variable assigned to \texttt{y} and the categorical variable (if any) to \texttt{x}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Demonstrate adding a geometric object }
+\NormalTok{life\_exp }\OtherTok{\textless{}{-}}\NormalTok{ life\_exp }\SpecialCharTok{+} 
+  \FunctionTok{geom\_boxplot}\NormalTok{()}
+
+\CommentTok{\# Examine the result}
+\NormalTok{life\_exp}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/unnamed-chunk-56-1}
+
+Notice that the default axis labels are the variables names from the data frame. We can edit those with another layer
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Demonstrate editing axis labels}
+\NormalTok{life\_exp }\OtherTok{\textless{}{-}}\NormalTok{ life\_exp }\SpecialCharTok{+} 
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Continent"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Life expectancy (years)"}\NormalTok{)}
+
+\CommentTok{\# Examine the result}
+\NormalTok{life\_exp}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/unnamed-chunk-57-1}
+
+You can always write all the layers in one code chunk and obtain the same result.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Demonstrate all layers in one code chunk }
+\NormalTok{p }\OtherTok{\textless{}{-}}  \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ gapminder, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ continent, }\AttributeTok{y =}\NormalTok{ lifeExp)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Continent"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Life expectancy (years)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+To reduce typing, the first two arguments \texttt{data} and \texttt{mapping} are often used without naming them explicitly, e.g.,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Demonstrate implicit data and mapping arguments}
+\NormalTok{life\_exp }\OtherTok{\textless{}{-}}  \FunctionTok{ggplot}\NormalTok{(gapminder, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ continent, }\AttributeTok{y =}\NormalTok{ lifeExp)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Continent"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Life expectancy (years)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Next, we often want the categorical variable ordered by the quantitative variable instead of alphabetically. Because \texttt{continent} is a factor, we can use the \texttt{reorder()} function inside the \texttt{aes()} argument.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Demonstrate reordering a categorical variable }
+\NormalTok{life\_exp }\SpecialCharTok{+} 
+  \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{reorder}\NormalTok{(continent, lifeExp), }\AttributeTok{y =}\NormalTok{ lifeExp)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/unnamed-chunk-60-1}
+
+Summary. The basics steps for building up the layers of any graph consist of,
+
+\begin{itemize}
+\tightlist
+\item
+  assign the data frame
+\item
+  map variables (columns names) to aesthetic properties\\
+\item
+  choose geoms\\
+\item
+  adjust scales, labels, ordering, etc.
+\end{itemize}
+
+\hypertarget{exercise-1}{%
+\subsection{Exercise}\label{exercise-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  Examine the \texttt{term} data set from midfielddata.
+\item
+  Create a boxplot of the hours per term quantity conditioned by the student level.
+\item
+  What is the rational for leaving the categorical variable in its native order?
+\item
+  Check your work by comparing your result to the graph below.
+\end{itemize}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/unnamed-chunk-61-1}
+
+Help pages for more information:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://midfieldr.github.io/midfielddata/reference/term.html}{\texttt{term}}
+\item
+  \href{https://ggplot2.tidyverse.org/reference/aes.html}{\texttt{aes()}}~\\
+\item
+  \href{https://ggplot2.tidyverse.org/reference/geom_boxplot.html}{\texttt{geom\_boxplot()}}
+\item
+  \href{https://ggplot2.tidyverse.org/reference/labs.html}{\texttt{geom\_labs()}}
+\end{itemize}
+
+\hypertarget{layer-points}{%
+\section{Layer: points}\label{layer-points}}
+
+A two-dimensional scatterplot reveals the strength of the relationship between two quantitative variables. The ggplot geom for scatterplots is \texttt{geom\_point()}. To illustrate a scatterplot, we graph life expectancy as a function of GDP.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{life\_gdp }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(gapminder, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ gdpPercap, }\AttributeTok{y =}\NormalTok{ lifeExp)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"GDP per capita (USD)"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Life expectancy (years)"}\NormalTok{)}
+
+\NormalTok{life\_gdp}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/unnamed-chunk-62-1}
+
+Help pages for more information:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ggplot2.tidyverse.org/reference/geom_point.html}{\texttt{geom\_point()}}
+\end{itemize}
+
+\hypertarget{layer-smooth-fit}{%
+\section{Layer: smooth fit}\label{layer-smooth-fit}}
+
+Suppose you wanted a smooth fit curve, not necessarily linear. Add a \texttt{geom\_smooth()} layer. The name \emph{loess} (pronounced like the proper name Lois) is a nonparametric curve-fitting method based on \emph{local regression}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{life\_gdp }\SpecialCharTok{+} 
+  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"loess"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/unnamed-chunk-63-1}
+
+The \texttt{se} argument controls whether or not the confidence interval is displayed. Setting \texttt{se\ =\ TRUE} yields,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{life\_gdp }\SpecialCharTok{+} 
+  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"loess"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/unnamed-chunk-64-1}
+
+For a linear-fit layer, we add a layer with \texttt{method} set to \texttt{lm} (short for linear model). The linear fit is not particularly good in this case, but now you know how to do one.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{life\_gdp }\SpecialCharTok{+} 
+  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/unnamed-chunk-65-1}
+
+Help pages for more information:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ggplot2.tidyverse.org/reference/geom_smooth.html}{geom\_smooth()}
+\end{itemize}
+
+\hypertarget{exercise-2}{%
+\subsection{Exercise}\label{exercise-2}}
+
+In this exercise, we do some data manipulation without explaining the steps. We cover such details in the \protect\hyperlink{data-basics}{Data basics} tutorial. Here we are focusing on constructing graphs.
+
+\begin{itemize}
+\tightlist
+\item
+  Use the following code chunk to create a random sample of the \texttt{student} data set with columns for SAT math and verbal scores.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# We only need two columns for the plot}
+\NormalTok{cols\_we\_want }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"sat\_math"}\NormalTok{, }\StringTok{"sat\_verbal"}\NormalTok{)}
+\NormalTok{sat }\OtherTok{\textless{}{-}}\NormalTok{ student[, ..cols\_we\_want]}
+
+\CommentTok{\# Before sampling, we remove NA values }
+\NormalTok{sat }\OtherTok{\textless{}{-}} \FunctionTok{na.omit}\NormalTok{(sat)}
+
+\CommentTok{\# We sample to reduce computational time }
+\NormalTok{sat }\OtherTok{\textless{}{-}}\NormalTok{ sat[}\FunctionTok{sample}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(sat), }\DecValTok{3000}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Use the resulting \texttt{dtf} data frame and create a scatterplot of verbal scores \texttt{sat\_verbal} as a function of math scores \texttt{sat\_math}.\\
+\item
+  Add a loess fit.\\
+\item
+  Check your work by comparing your result to the graph below.
+\end{itemize}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/unnamed-chunk-67-1}
+
+\hypertarget{layer-scale}{%
+\section{Layer: scale}\label{layer-scale}}
+
+We have orders of magnitude differences in the GDP per capita variable. To confirm, we can create a \texttt{summary()} of the \texttt{gdpPercap} variable. The output shows that the minimum is 241, the median 3532, and the maximum 113,523.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# statistical summary of one variable }
+\FunctionTok{summary}\NormalTok{(gapminder[, gdpPercap])}
+\CommentTok{\#\textgreater{}     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. }
+\CommentTok{\#\textgreater{}    241.2   1202.1   3531.8   7215.3   9325.5 113523.1}
+\end{Highlighting}
+\end{Shaded}
+
+In exploring a graph like this, it might be useful to add a layer that changes the horizontal scale to a log-base-10 scale.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{life\_gdp }\OtherTok{\textless{}{-}}\NormalTok{ life\_gdp }\SpecialCharTok{+}
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{trans =} \StringTok{"log10"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+Update the axis labels,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{life\_gdp }\OtherTok{\textless{}{-}}\NormalTok{ life\_gdp }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"GDP per capita, USD (log10 scale)"}\NormalTok{, }
+       \AttributeTok{y =} \StringTok{"Life expectancy (years)"}\NormalTok{)}
+
+\NormalTok{life\_gdp }\CommentTok{\# display the graph}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/unnamed-chunk-71-1}
+
+In summary, all the layers could have been be coded at once, for example,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(gapminder, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ gdpPercap, }\AttributeTok{y =}\NormalTok{ lifeExp)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{trans =} \StringTok{"log10"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"GDP per capita, USD (log10 scale)"}\NormalTok{, }
+       \AttributeTok{y =} \StringTok{"Life expectancy (years)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+With all the layers in one place, we can see that we've coded all the basic steps, that is,
+
+\begin{itemize}
+\tightlist
+\item
+  assign the data frame\\
+\item
+  map variables (columns names) to aesthetic properties\\
+\item
+  choose geoms\\
+\item
+  adjust scales, labels, ordering, etc.
+\end{itemize}
+
+\hypertarget{exercise-3}{%
+\subsection{Exercise}\label{exercise-3}}
+
+Again we do some data manipulation without explaining the steps. We cover such details in the \protect\hyperlink{data-basics}{Data basics} tutorial. Here we are focusing on constructing graphs.
+
+We often use graphs to show numbers of students with a log-scale to compare totals that differ by orders of magnitude.
+
+\begin{itemize}
+\tightlist
+\item
+  Use the following code chunk to count the number students ever enrolled in the sample data by race/ethnicity/sex.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Access a data set included with midfieldr}
+\NormalTok{dtf }\OtherTok{\textless{}{-}} \FunctionTok{copy}\NormalTok{(study\_stickiness)}
+
+\CommentTok{\# Create a combined categorical column }
+\NormalTok{dtf[, race\_sex }\SpecialCharTok{:}\ErrorTok{=} \FunctionTok{paste}\NormalTok{(race, sex)]}
+
+\CommentTok{\# Sum the number of students by this category }
+\NormalTok{dtf[, ever }\SpecialCharTok{:}\ErrorTok{=} \FunctionTok{sum}\NormalTok{(ever), by }\OtherTok{=} \StringTok{"race\_sex"}\NormalTok{]}
+
+\CommentTok{\# Factor class enables reordering }
+\NormalTok{dtf[, race\_sex }\SpecialCharTok{:}\ErrorTok{=} \FunctionTok{factor}\NormalTok{(race\_sex)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Use the resulting \texttt{dtf} data frame to graph \texttt{ever} on the x-axis with \texttt{race\_sex} on the y-axis.\\
+\item
+  Reorder \texttt{race\_sex} by \texttt{ever}.\\
+\item
+  Use a log-base-2 scale.\\
+\item
+  You can omit the y-axis label by setting \texttt{y\ =\ ""} in the \texttt{labs()} argument.\\
+\item
+  Check your work by comparing your result to the graph below.
+\end{itemize}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/unnamed-chunk-74-1}
+
+Help pages for more information:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ggplot2.tidyverse.org/reference/scale_continuous.html}{scale\_x\_continuous()}
+\end{itemize}
+
+\hypertarget{mapping-columns-to-aesthetics}{%
+\section{Mapping columns to aesthetics}\label{mapping-columns-to-aesthetics}}
+
+Mappings in the \texttt{aes()} function of \texttt{ggplot()} can involve the names of variables (column s) only. So far, the only mappings we've used are from column names to an x or y aesthetic.
+
+Another useful mapping is from a column name to the \texttt{color} argument, which then separates the data by the values of the categorical variable selected and automatically creates the appropriate legend.
+
+Here we map the \texttt{continent} column to the \texttt{color} aesthetic, adding a third data variable to the display.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(gapminder, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ gdpPercap, }\AttributeTok{y =}\NormalTok{ lifeExp, }\AttributeTok{color =}\NormalTok{ continent)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{trans =} \StringTok{"log10"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"GDP per capita, USD (log10 scale)"}\NormalTok{, }
+       \AttributeTok{y =} \StringTok{"Life expectancy (years)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/unnamed-chunk-75-1}
+
+\hypertarget{exercise-4}{%
+\subsection{Exercise}\label{exercise-4}}
+
+Use the following code chunk to construct a data frame with hours per term and level from \texttt{term} merged with \texttt{sex} data from \texttt{student}. Again, we leave explanations of the data manipulation to the \protect\hyperlink{data-basics}{Data basics} tutorial.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dtf }\OtherTok{\textless{}{-}} \FunctionTok{add\_race\_sex}\NormalTok{(term, }
+                    \AttributeTok{midfield\_student =}\NormalTok{ student)}
+\NormalTok{cols\_we\_want }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"mcid"}\NormalTok{, }\StringTok{"term"}\NormalTok{, }\StringTok{"hours\_term"}\NormalTok{, }\StringTok{"level"}\NormalTok{, }\StringTok{"sex"}\NormalTok{)}
+\NormalTok{dtf }\OtherTok{\textless{}{-}}\NormalTok{ dtf[, ..cols\_we\_want]}
+\NormalTok{dtf }\OtherTok{\textless{}{-}} \FunctionTok{unique}\NormalTok{(dtf)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Use the resulting \texttt{dtf} data frame to a boxplot of hours per term as a function of level like we did earlier.
+\item
+  Add a third column name to \texttt{aes()} to add \texttt{sex} by color to the graph.
+\item
+  Add the \texttt{coord\_flip()} layer to your graph to swap the position of the x, y coordinates to obtain a horizontal boxplot.
+\item
+  Check your work by comparing your result to the graph below.
+\end{itemize}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/unnamed-chunk-77-1}
+
+Help pages for more information:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://midfieldr.github.io/midfieldr/reference/add_race_sex.html}{\texttt{add\_race\_sex()}}
+\item
+  \href{https://ggplot2.tidyverse.org/reference/coord_flip.html}{\texttt{coord\_flip()}}
+\end{itemize}
+
+\hypertarget{layer-facets}{%
+\section{Layer: facets}\label{layer-facets}}
+
+In the earlier graph where we mapped continent to color, there was a lot of overprinting, making it difficult to compare the continents. Instead of using color to distinguish the continents, we can plot in different panels by continent.
+
+The \texttt{facet\_wrap()} layer separates the data into different panels (or facets). Like the \texttt{aes()} mapping, \texttt{facet\_wrap()} is applied to a variable (column name) in the data frame.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{life\_gdp }\OtherTok{\textless{}{-}}\NormalTok{ life\_gdp }\SpecialCharTok{+} 
+  \FunctionTok{facet\_wrap}\NormalTok{(}\AttributeTok{facets =} \FunctionTok{vars}\NormalTok{(continent))}
+
+\NormalTok{life\_gdp }\CommentTok{\# print the graph}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/unnamed-chunk-78-1}
+
+Comparisons are facilitated by having the facets appear in one column, by using the \texttt{ncol} argument of \texttt{facet\_wrap()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{life\_gdp }\OtherTok{\textless{}{-}}\NormalTok{ life\_gdp }\SpecialCharTok{+} \FunctionTok{facet\_wrap}\NormalTok{(}\AttributeTok{facets =} \FunctionTok{vars}\NormalTok{(continent), }\AttributeTok{ncol =} \DecValTok{1}\NormalTok{)}
+
+\NormalTok{life\_gdp }\CommentTok{\# print the graph}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/unnamed-chunk-79-1}
+
+In a faceted display, all panels have identical scales (the default) to facilitate comparison. Again, all the layers could have been be coded at once, for example,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(gapminder, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ gdpPercap, }\AttributeTok{y =}\NormalTok{ lifeExp)) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\AttributeTok{facets =} \FunctionTok{vars}\NormalTok{(continent), }\AttributeTok{ncol =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{trans =} \StringTok{"log10"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"GDP per capita, USD (log10 scale)"}\NormalTok{, }
+       \AttributeTok{y =} \StringTok{"Life expectancy (years)"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exercise-5}{%
+\subsection{Exercise}\label{exercise-5}}
+
+Use the following code chunk to construct a data frame of program stickiness by program, race/ethnicity, and sex.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Access a data set included with midfieldr}
+\NormalTok{stickiness }\OtherTok{\textless{}{-}} \FunctionTok{copy}\NormalTok{(study\_stickiness)}
+
+\CommentTok{\# Create a combined categorical column }
+\NormalTok{stickiness[, race\_sex }\SpecialCharTok{:}\ErrorTok{=} \FunctionTok{paste}\NormalTok{(race, sex)]}
+
+\CommentTok{\# Factor class enables reordering }
+\NormalTok{stickiness[, race\_sex }\SpecialCharTok{:}\ErrorTok{=} \FunctionTok{factor}\NormalTok{(race\_sex)]}
+\NormalTok{stickiness[, program }\SpecialCharTok{:}\ErrorTok{=} \FunctionTok{factor}\NormalTok{(program)]}
+
+\CommentTok{\# Omit ambiguous race/ethnicities and small populations}
+\NormalTok{stickiness }\OtherTok{\textless{}{-}}\NormalTok{ stickiness[}\SpecialCharTok{!}\NormalTok{race\_sex }\SpecialCharTok{\%ilike\%} \FunctionTok{c}\NormalTok{(}\StringTok{"Native|International|Other"}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Use the resulting \texttt{dtf} data frame plot stickiness (x-axis) as a function of race/ethnicity/sex (y-axis) and faceted by program.\\
+\item
+  When that graph seems OK, add a third column name to \texttt{aes()} to add \texttt{sex} by color to the graph.
+\item
+  Check your work by comparing your result to the graph below.
+\end{itemize}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/unnamed-chunk-82-1}
+
+Help pages for more information:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ggplot2.tidyverse.org/reference/facet_wrap.html}{facet\_wrap()}
+\end{itemize}
+
+\hypertarget{ordering-panels-and-rows}{%
+\section{Ordering panels and rows}\label{ordering-panels-and-rows}}
+
+Panels (facets) by default are nearly always ordered alphabetically. In most cases, ordering the panels by the data improves the display. Earlier, we used \texttt{reorder()} to order a set of boxplots. This function operates correctly on ``factor'' variables only.
+
+A factor is special data structure in R for categorical variables. In a factor, the levels of the category---typically character strings---are known and fixed. However, factors are stored internally as integers---a critical design tool for meaningfully ordering the rows and panels of a display involving categorical variables.
+
+In the gapminder data, the \texttt{continent} column is already a factors.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder}
+\CommentTok{\#\textgreater{}           country continent  year lifeExp      pop gdpPercap}
+\CommentTok{\#\textgreater{}            \textless{}fctr\textgreater{}    \textless{}fctr\textgreater{} \textless{}int\textgreater{}   \textless{}num\textgreater{}    \textless{}int\textgreater{}     \textless{}num\textgreater{}}
+\CommentTok{\#\textgreater{}    1: Afghanistan      Asia  1952  28.801  8425333  779.4453}
+\CommentTok{\#\textgreater{}    2: Afghanistan      Asia  1957  30.332  9240934  820.8530}
+\CommentTok{\#\textgreater{}    3: Afghanistan      Asia  1962  31.997 10267083  853.1007}
+\CommentTok{\#\textgreater{}    4: Afghanistan      Asia  1967  34.020 11537966  836.1971}
+\CommentTok{\#\textgreater{}    5: Afghanistan      Asia  1972  36.088 13079460  739.9811}
+\CommentTok{\#\textgreater{}   {-}{-}{-}                                                       }
+\CommentTok{\#\textgreater{} 1700:    Zimbabwe    Africa  1987  62.351  9216418  706.1573}
+\CommentTok{\#\textgreater{} 1701:    Zimbabwe    Africa  1992  60.377 10704340  693.4208}
+\CommentTok{\#\textgreater{} 1702:    Zimbabwe    Africa  1997  46.809 11404948  792.4500}
+\CommentTok{\#\textgreater{} 1703:    Zimbabwe    Africa  2002  39.989 11926563  672.0386}
+\CommentTok{\#\textgreater{} 1704:    Zimbabwe    Africa  2007  43.487 12311143  469.7093}
+\end{Highlighting}
+\end{Shaded}
+
+We can reorder the levels of the factor before graphing as follows,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder[, continent }\SpecialCharTok{:}\ErrorTok{=} \FunctionTok{reorder}\NormalTok{(continent, lifeExp)]}
+\end{Highlighting}
+\end{Shaded}
+
+Then graph using much the same code chunk as before with one addition. We add the \texttt{as.table\ =\ FALSE} argument to the \texttt{facet\_wrap()} function. ``Table-order'' of panels is increasing from top to bottom; ``graph-order'' increases (like a graph scale) from bottom to top.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(gapminder, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ gdpPercap, }\AttributeTok{y =}\NormalTok{ lifeExp)) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\AttributeTok{facets =} \FunctionTok{vars}\NormalTok{(continent), }\AttributeTok{ncol =} \DecValTok{1}\NormalTok{, }\AttributeTok{as.table =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{trans =} \StringTok{"log10"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"GDP per capita, USD (log10 scale)"}\NormalTok{, }
+       \AttributeTok{y =} \StringTok{"Life expectancy (years)"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/unnamed-chunk-85-1}
+
+\hypertarget{exercise-6}{%
+\subsection{Exercise}\label{exercise-6}}
+
+\begin{itemize}
+\tightlist
+\item
+  Continue using the \texttt{stickiness} data frame from the previous section.\\
+\item
+  Order the panels by the stickiness variable.
+\item
+  Order race/ethnicity/sex by the stickiness variable.
+\item
+  Check your work by comparing your result to the graph below.
+\end{itemize}
+
+\includegraphics[width=0.8\linewidth]{2021-ASEE-Workshop_files/figure-latex/unnamed-chunk-86-1}
+
+Help pages for more information:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/reorder.default}{reorder()}
+\end{itemize}
+
+\protect\hyperlink{start-with-R}{▲ top of page}
+
+\hypertarget{data-basics}{%
+\chapter{Data basics}\label{data-basics}}
+
+\hypertarget{introduction-2}{%
+\section{Introduction}\label{introduction-2}}
+
+This tutorial is an introduction to \ldots{}
+
+If you already have R experience, you might still want to browse this section in case you find something new.
+
+\protect\hyperlink{prerequisites}{Prerequisites} should be completed before proceeding. After that, the tutorial should take about an hour.
+
+Create a new script for this tutorial.
+
+\begin{itemize}
+\tightlist
+\item
+  See \protect\hyperlink{open-an-r-script}{Open an R script} if you need a refresher on creating, saving, and running an R script.
+\item
+  At the top of the script add a minimal header and install and load the packages indicated.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Data basics }
 \CommentTok{\# name }
 \CommentTok{\# date }
 
-\FunctionTok{library}\NormalTok{(}\StringTok{"gapminder"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"midfieldr"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"data.table"}\NormalTok{)}
 \FunctionTok{library}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"gapminder"}\NormalTok{)}
+
+\CommentTok{\# Optional code to control data.table printing}
+\FunctionTok{options}\NormalTok{(}
+  \AttributeTok{datatable.print.nrows =} \DecValTok{10}\NormalTok{,}
+  \AttributeTok{datatable.print.topn =} \DecValTok{5}\NormalTok{,}
+  \AttributeTok{datatable.print.class =} \ConstantTok{TRUE}
+\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1974,50 +2709,6 @@ Guidelines
 \item
   \textbf{Your turn} exercises give you chance to devise your own examples and check them out. You learn by doing (but you knew that already)!
 \end{itemize}
-
-\hypertarget{data-structure}{%
-\section{Data structure}\label{data-structure}}
-
-Data for analysis and graphing are often laid out in ``block record'' or ``long'' form with every key variable and response variable in their own columns \citep{Mount+Zumel:2019:fluid-data}. We use this form regularly, for example, in preparing data for graphing using the ggplot2 package.
-
-The \texttt{gapminder} data frame is tidy. We use \texttt{glimpse()} to get a look at the structure.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# glimpse(gapminder)}
-\end{Highlighting}
-\end{Shaded}
-
-And we can just type its name to see the first few rows,
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{gapminder}
-\CommentTok{\#\textgreater{} \# A tibble: 1,704 x 6}
-\CommentTok{\#\textgreater{}    country     continent  year lifeExp      pop gdpPercap}
-\CommentTok{\#\textgreater{}    \textless{}fct\textgreater{}       \textless{}fct\textgreater{}     \textless{}int\textgreater{}   \textless{}dbl\textgreater{}    \textless{}int\textgreater{}     \textless{}dbl\textgreater{}}
-\CommentTok{\#\textgreater{}  1 Afghanistan Asia       1952    28.8  8425333      779.}
-\CommentTok{\#\textgreater{}  2 Afghanistan Asia       1957    30.3  9240934      821.}
-\CommentTok{\#\textgreater{}  3 Afghanistan Asia       1962    32.0 10267083      853.}
-\CommentTok{\#\textgreater{}  4 Afghanistan Asia       1967    34.0 11537966      836.}
-\CommentTok{\#\textgreater{}  5 Afghanistan Asia       1972    36.1 13079460      740.}
-\CommentTok{\#\textgreater{}  6 Afghanistan Asia       1977    38.4 14880372      786.}
-\CommentTok{\#\textgreater{}  7 Afghanistan Asia       1982    39.9 12881816      978.}
-\CommentTok{\#\textgreater{}  8 Afghanistan Asia       1987    40.8 13867957      852.}
-\CommentTok{\#\textgreater{}  9 Afghanistan Asia       1992    41.7 16317921      649.}
-\CommentTok{\#\textgreater{} 10 Afghanistan Asia       1997    41.8 22227415      635.}
-\CommentTok{\#\textgreater{} \# ... with 1,694 more rows}
-\end{Highlighting}
-\end{Shaded}
-
-\protect\hyperlink{start-with-R}{▲ top of page}
-
-\hypertarget{data-basics}{%
-\chapter{Data basics}\label{data-basics}}
-
-This tutorial is an introduction to \ldots{}
-
-\protect\hyperlink{prerequisites}{Prerequisites} should be completed before proceeding. After that, the tutorial should take no longer than 50 minutes.
 
 \protect\hyperlink{start-with-R}{▲ top of page}
 
