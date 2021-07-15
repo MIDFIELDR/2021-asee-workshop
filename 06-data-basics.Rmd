@@ -1,0 +1,73 @@
+# Data basics {#data-basics}
+
+```{r echo = FALSE}
+library(knitr)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+knitr::opts_chunk$set(echo = TRUE, comment = "#>", collapse = TRUE) 
+knitr::knit_hooks$set(inline = function(x) {
+        if (!is.numeric(x)) { 
+                x 
+        } else if (x >= 10000) { 
+                prettyNum(round(x, 2), big.mark = ",")
+        } else {
+                prettyNum(round(x, 2))
+        }
+})
+options(
+  datatable.print.nrows = 10,
+  datatable.print.topn = 5,
+  datatable.print.class = TRUE
+)
+```
+
+## Introduction 
+
+This tutorial is an introduction to ...
+
+
+If you already have R experience, you might still want to browse this section in case you find something new. 
+
+[Prerequisites] should be completed before proceeding. After that, the tutorial should take about an hour. 
+
+Create a new script for this tutorial. 
+
+- See [Open an R script] if you need a refresher on creating, saving, and running an R script. 
+- At the top of the script add a minimal header and install and load the packages indicated.  
+
+```{r}
+# Data basics 
+# name 
+# date 
+
+library("midfieldr")
+library("data.table")
+library("ggplot2")
+library("gapminder")
+
+# Optional code to control data.table printing
+options(
+  datatable.print.nrows = 10,
+  datatable.print.topn = 5,
+  datatable.print.class = TRUE
+)
+```
+
+If you get an error like this one after running the script, 
+
+        Error in library("gapminder") : there is no package called 'gapminder'
+
+then the package needs to be installed. If you need a refresher on installing packages, see [Install CRAN packages]. Once the missing package is installed, you can rerun the script. 
+
+Guidelines 
+
+- As you work through the tutorial, type a line or chunk of code then *File &gt; Save* and run the script.    
+- Confirm that your result matches the tutorial result.  
+- **Your turn** exercises give you chance to devise your own examples and check them out. You learn by doing (but you knew that already)!
+ 
+
+
+
+
+
+<br>
+[&#9650; top of page](#start-with-R)

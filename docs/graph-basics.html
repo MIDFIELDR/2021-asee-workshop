@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Graph basics | Engaging with MIDFIELD Data</title>
+  <meta name="description" content="Workshop at the 2021 ASEE Annual Conference" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Graph basics | Engaging with MIDFIELD Data" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="/figures/midfield-grad-logo.png" />
+  <meta property="og:description" content="Workshop at the 2021 ASEE Annual Conference" />
+  <meta name="github-repo" content="MIDFIELDR/2021-asee-workshop" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Graph basics | Engaging with MIDFIELD Data" />
+  
+  <meta name="twitter:description" content="Workshop at the 2021 ASEE Annual Conference" />
+  <meta name="twitter:image" content="/figures/midfield-grad-logo.png" />
+
+<meta name="author" content="Susan Lord, Matthew Ohland, Marisa Orr, Richard Layton, and Russell Long" />
+
+
+<meta name="date" content="2021-07-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="R-basics.html"/>
+<link rel="next" href="data-basics.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">2021 ASEE Workshop</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#objectives"><i class="fa fa-check"></i><b>1.1</b> Objectives</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#description"><i class="fa fa-check"></i><b>1.2</b> Description</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#pre-workshop-homework"><i class="fa fa-check"></i><b>1.3</b> Pre-workshop homework</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#agenda"><i class="fa fa-check"></i><b>1.4</b> Agenda</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#facilitators"><i class="fa fa-check"></i><b>1.5</b> Facilitators</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#licenses"><i class="fa fa-check"></i><b>1.6</b> Licenses</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i><b>1.7</b> Acknowledgement</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="install-everything.html"><a href="install-everything.html"><i class="fa fa-check"></i><b>2</b> Install everything</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="install-everything.html"><a href="install-everything.html#already-installed"><i class="fa fa-check"></i><b>2.1</b> Already installed?</a></li>
+<li class="chapter" data-level="2.2" data-path="install-everything.html"><a href="install-everything.html#install-r-and-rstudio"><i class="fa fa-check"></i><b>2.2</b> Install R and RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="install-everything.html"><a href="install-everything.html#create-a-project"><i class="fa fa-check"></i><b>2.3</b> Create a project</a></li>
+<li class="chapter" data-level="2.4" data-path="install-everything.html"><a href="install-everything.html#add-some-folders"><i class="fa fa-check"></i><b>2.4</b> Add some folders</a></li>
+<li class="chapter" data-level="2.5" data-path="install-everything.html"><a href="install-everything.html#install-cran-packages"><i class="fa fa-check"></i><b>2.5</b> Install CRAN packages</a></li>
+<li class="chapter" data-level="2.6" data-path="install-everything.html"><a href="install-everything.html#install-midfield-packages"><i class="fa fa-check"></i><b>2.6</b> Install MIDFIELD packages</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="install-everything.html"><a href="install-everything.html#midfieldr"><i class="fa fa-check"></i><b>2.6.1</b> midfieldr</a></li>
+<li class="chapter" data-level="2.6.2" data-path="install-everything.html"><a href="install-everything.html#midfielddata"><i class="fa fa-check"></i><b>2.6.2</b> midfielddata</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="install-everything.html"><a href="install-everything.html#exiting-r-and-rstudio"><i class="fa fa-check"></i><b>2.7</b> Exiting R and RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="work-with-R.html"><a href="work-with-R.html"><i class="fa fa-check"></i><b>3</b> Working with R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="work-with-R.html"><a href="work-with-R.html#prerequisites"><i class="fa fa-check"></i><b>3.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="3.2" data-path="work-with-R.html"><a href="work-with-R.html#new-to-r"><i class="fa fa-check"></i><b>3.2</b> New to R?</a></li>
+<li class="chapter" data-level="3.3" data-path="work-with-R.html"><a href="work-with-R.html#familiar-with-r"><i class="fa fa-check"></i><b>3.3</b> Familiar with R?</a></li>
+<li class="chapter" data-level="3.4" data-path="work-with-R.html"><a href="work-with-R.html#after-the-workshop"><i class="fa fa-check"></i><b>3.4</b> After the workshop</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="work-with-R.html"><a href="work-with-R.html#developing-r-skills"><i class="fa fa-check"></i><b>3.4.1</b> Developing R skills</a></li>
+<li class="chapter" data-level="3.4.2" data-path="work-with-R.html"><a href="work-with-R.html#continuing-the-case-study"><i class="fa fa-check"></i><b>3.4.2</b> Continuing the case study</a></li>
+<li class="chapter" data-level="3.4.3" data-path="work-with-R.html"><a href="work-with-R.html#exploring-midfieldr-functions"><i class="fa fa-check"></i><b>3.4.3</b> Exploring midfieldr functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="R-basics.html"><a href="R-basics.html"><i class="fa fa-check"></i><b>4</b> R basics</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="R-basics.html"><a href="R-basics.html#style-guide"><i class="fa fa-check"></i><b>4.1</b> Style guide</a></li>
+<li class="chapter" data-level="4.2" data-path="R-basics.html"><a href="R-basics.html#open-an-r-script"><i class="fa fa-check"></i><b>4.2</b> Open an R script</a></li>
+<li class="chapter" data-level="4.3" data-path="R-basics.html"><a href="R-basics.html#everything-in-r-has-a-name"><i class="fa fa-check"></i><b>4.3</b> Everything in R has a name</a></li>
+<li class="chapter" data-level="4.4" data-path="R-basics.html"><a href="R-basics.html#everything-in-r-is-an-object"><i class="fa fa-check"></i><b>4.4</b> Everything in R is an object</a></li>
+<li class="chapter" data-level="4.5" data-path="R-basics.html"><a href="R-basics.html#r-functions-do-things"><i class="fa fa-check"></i><b>4.5</b> R functions do things</a></li>
+<li class="chapter" data-level="4.6" data-path="R-basics.html"><a href="R-basics.html#r-functions-come-in-packages"><i class="fa fa-check"></i><b>4.6</b> R functions come in packages</a></li>
+<li class="chapter" data-level="4.7" data-path="R-basics.html"><a href="R-basics.html#r-objects-have-class"><i class="fa fa-check"></i><b>4.7</b> R objects have class</a></li>
+<li class="chapter" data-level="4.8" data-path="R-basics.html"><a href="R-basics.html#r-objects-have-structure"><i class="fa fa-check"></i><b>4.8</b> R objects have structure</a></li>
+<li class="chapter" data-level="4.9" data-path="R-basics.html"><a href="R-basics.html#r-only-does-what-you-tell-it"><i class="fa fa-check"></i><b>4.9</b> R only does what you tell it</a></li>
+<li class="chapter" data-level="4.10" data-path="R-basics.html"><a href="R-basics.html#to-get-help"><i class="fa fa-check"></i><b>4.10</b> To get help</a></li>
+<li class="chapter" data-level="4.11" data-path="R-basics.html"><a href="R-basics.html#keyboard-shortcuts"><i class="fa fa-check"></i><b>4.11</b> Keyboard shortcuts</a></li>
+<li class="chapter" data-level="4.12" data-path="R-basics.html"><a href="R-basics.html#next-steps"><i class="fa fa-check"></i><b>4.12</b> Next steps</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="graph-basics.html"><a href="graph-basics.html"><i class="fa fa-check"></i><b>5</b> Graph basics</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="graph-basics.html"><a href="graph-basics.html#introduction-1"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="graph-basics.html"><a href="graph-basics.html#expected-data-structure"><i class="fa fa-check"></i><b>5.2</b> Expected data structure</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise"><i class="fa fa-check"></i><b>5.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="graph-basics.html"><a href="graph-basics.html#anatomy-of-a-graph"><i class="fa fa-check"></i><b>5.3</b> Anatomy of a graph</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-1"><i class="fa fa-check"></i><b>5.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="graph-basics.html"><a href="graph-basics.html#layer-points"><i class="fa fa-check"></i><b>5.4</b> Layer: points</a></li>
+<li class="chapter" data-level="5.5" data-path="graph-basics.html"><a href="graph-basics.html#layer-smooth-fit"><i class="fa fa-check"></i><b>5.5</b> Layer: smooth fit</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-2"><i class="fa fa-check"></i><b>5.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="graph-basics.html"><a href="graph-basics.html#layer-scale"><i class="fa fa-check"></i><b>5.6</b> Layer: scale</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-3"><i class="fa fa-check"></i><b>5.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="graph-basics.html"><a href="graph-basics.html#mapping-columns-to-aesthetics"><i class="fa fa-check"></i><b>5.7</b> Mapping columns to aesthetics</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-4"><i class="fa fa-check"></i><b>5.7.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="graph-basics.html"><a href="graph-basics.html#layer-facets"><i class="fa fa-check"></i><b>5.8</b> Layer: facets</a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-5"><i class="fa fa-check"></i><b>5.8.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="graph-basics.html"><a href="graph-basics.html#ordering-panels-and-rows"><i class="fa fa-check"></i><b>5.9</b> Ordering panels and rows</a>
+<ul>
+<li class="chapter" data-level="5.9.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-6"><i class="fa fa-check"></i><b>5.9.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-basics.html"><a href="data-basics.html"><i class="fa fa-check"></i><b>6</b> Data basics</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-basics.html"><a href="data-basics.html#introduction-2"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="display-design.html"><a href="display-design.html"><i class="fa fa-check"></i><b>7</b> Designing effective displays</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="display-design.html"><a href="display-design.html#stuff"><i class="fa fa-check"></i><b>7.1</b> Stuff</a></li>
+<li class="chapter" data-level="7.2" data-path="display-design.html"><a href="display-design.html#more-stuff"><i class="fa fa-check"></i><b>7.2</b> More stuff</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>8</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/MIDFIELDR/2021-asee-workshop" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Engaging with MIDFIELD Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="graph-basics" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Graph basics</h1>
+<p><img src="figures/xkcd-decline.png" alt="logo" style="left:0px; padding:0px;" width="400"/>
+<small>
+<br>
+<i>Decline</i> by Randall Munroe (xkcd.com) is licensed under <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC BY-NC 2.5</a>
+</small>
+<br></p>
+<div id="introduction-1" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Introduction</h2>
+<p>This tutorial is an introduction to ggplot2 adapted from Chapter 3 from <span class="citation"><a href="references.html#ref-Healy:2019" role="doc-biblioref">[1]</a></span>. If you already have R experience, you might still want to browse this section in case you find something new.</p>
+<p><a href="work-with-R.html#prerequisites">Prerequisites</a> should be completed before proceeding. After that, the tutorial should take about an hour.</p>
+<p>Create a new script for this tutorial.</p>
+<ul>
+<li>See <a href="R-basics.html#open-an-r-script">Open an R script</a> if you need a refresher on creating, saving, and running an R script.</li>
+<li>At the top of the script add a minimal header and install and load the packages indicated.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="graph-basics.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Graph basics </span></span>
+<span id="cb1-2"><a href="graph-basics.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Name </span></span>
+<span id="cb1-3"><a href="graph-basics.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Date </span></span>
+<span id="cb1-4"><a href="graph-basics.html#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="graph-basics.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Packages used in this tutorial</span></span>
+<span id="cb1-6"><a href="graph-basics.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;midfieldr&quot;</span>)</span>
+<span id="cb1-7"><a href="graph-basics.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;midfielddata&quot;</span>)</span>
+<span id="cb1-8"><a href="graph-basics.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;data.table&quot;</span>)</span>
+<span id="cb1-9"><a href="graph-basics.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb1-10"><a href="graph-basics.html#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;gapminder&quot;</span>)</span>
+<span id="cb1-11"><a href="graph-basics.html#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="graph-basics.html#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional code to control data.table printing</span></span>
+<span id="cb1-13"><a href="graph-basics.html#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(</span>
+<span id="cb1-14"><a href="graph-basics.html#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">datatable.print.nrows =</span> <span class="dv">10</span>,</span>
+<span id="cb1-15"><a href="graph-basics.html#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">datatable.print.topn =</span> <span class="dv">5</span>,</span>
+<span id="cb1-16"><a href="graph-basics.html#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">datatable.print.class =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-17"><a href="graph-basics.html#cb1-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-18"><a href="graph-basics.html#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="graph-basics.html#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Load midfielddata data sets to use later</span></span>
+<span id="cb1-20"><a href="graph-basics.html#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(student)</span>
+<span id="cb1-21"><a href="graph-basics.html#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(term) </span></code></pre></div>
+<p>If you get an error like this one after running the script,</p>
+<pre><code>    Error in library(&quot;gapminder&quot;) : there is no package called &#39;gapminder&#39;</code></pre>
+<p>then the package needs to be installed. If you need a refresher on installing packages, see <a href="install-everything.html#install-cran-packages">Install CRAN packages</a>. Once the missing package is installed, you can rerun the script.</p>
+<p>Guidelines</p>
+<ul>
+<li>As you work through the tutorial, type a line or chunk of code then <em>File &gt; Save</em> and run the script.<br />
+</li>
+<li>Confirm that your result matches the tutorial result.<br />
+</li>
+<li>The <strong>exercises</strong> give you chance to practice your new skills to learn by doing (but you knew that already)!</li>
+</ul>
+</div>
+<div id="expected-data-structure" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Expected data structure</h2>
+<p>Data for analysis and graphing are often laid out in “block record” or “long” form with every key variable and response variable in their own columns <span class="citation"><a href="references.html#ref-Mount+Zumel:2019:fluid-data" role="doc-biblioref">[2]</a></span>. Database designers call this a “denormalized” form; many R users would recognize it as the so-called “tidy” form <span class="citation"><a href="references.html#ref-Wickham+Grolemund:2017" role="doc-biblioref">[3]</a></span>.</p>
+<p>We use this form regularly for preparing data for graphing using the ggplot2 package. The gapminder data we’re using in this tutorial is in block-record form. To view its help page, run</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="graph-basics.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;gapminder&quot;</span>)</span>
+<span id="cb3-2"><a href="graph-basics.html#cb3-2" aria-hidden="true" tabindex="-1"></a>? gapminder</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="graph-basics.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the data frame to a data.table structure </span></span>
+<span id="cb4-2"><a href="graph-basics.html#cb4-2" aria-hidden="true" tabindex="-1"></a>gapminder <span class="ot">&lt;-</span> <span class="fu">data.table</span>(gapminder)</span></code></pre></div>
+<p>And we can just type its name to see a few rows. Note at the top of each column under the column name, the class of the variable is shown: factor <code>&lt;fctr&gt;</code>, integer <code>&lt;int&gt;</code>, and double-precision <code>&lt;num&gt;</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="graph-basics.html#cb5-1" aria-hidden="true" tabindex="-1"></a>gapminder</span>
+<span id="cb5-2"><a href="graph-basics.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           country continent  year lifeExp      pop gdpPercap</span></span>
+<span id="cb5-3"><a href="graph-basics.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            &lt;fctr&gt;    &lt;fctr&gt; &lt;int&gt;   &lt;num&gt;    &lt;int&gt;     &lt;num&gt;</span></span>
+<span id="cb5-4"><a href="graph-basics.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    1: Afghanistan      Asia  1952  28.801  8425333  779.4453</span></span>
+<span id="cb5-5"><a href="graph-basics.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    2: Afghanistan      Asia  1957  30.332  9240934  820.8530</span></span>
+<span id="cb5-6"><a href="graph-basics.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    3: Afghanistan      Asia  1962  31.997 10267083  853.1007</span></span>
+<span id="cb5-7"><a href="graph-basics.html#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    4: Afghanistan      Asia  1967  34.020 11537966  836.1971</span></span>
+<span id="cb5-8"><a href="graph-basics.html#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    5: Afghanistan      Asia  1972  36.088 13079460  739.9811</span></span>
+<span id="cb5-9"><a href="graph-basics.html#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ---                                                       </span></span>
+<span id="cb5-10"><a href="graph-basics.html#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1700:    Zimbabwe    Africa  1987  62.351  9216418  706.1573</span></span>
+<span id="cb5-11"><a href="graph-basics.html#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1701:    Zimbabwe    Africa  1992  60.377 10704340  693.4208</span></span>
+<span id="cb5-12"><a href="graph-basics.html#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1702:    Zimbabwe    Africa  1997  46.809 11404948  792.4500</span></span>
+<span id="cb5-13"><a href="graph-basics.html#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1703:    Zimbabwe    Africa  2002  39.989 11926563  672.0386</span></span>
+<span id="cb5-14"><a href="graph-basics.html#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1704:    Zimbabwe    Africa  2007  43.487 12311143  469.7093</span></span></code></pre></div>
+<div id="exercise" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Exercise</h3>
+<ul>
+<li>Examine the <code>student</code> data from midfielddata. (Type its name in the console.)</li>
+<li>How many variables? How many observations?</li>
+<li>How many of the variables are numeric? How many are character type?</li>
+<li>Is the data set in block-record form?</li>
+<li>Check your work by comparing your result to the <code>student</code> help page (link below).</li>
+</ul>
+<p>Help pages for more information:</p>
+<ul>
+<li><a href="https://midfieldr.github.io/midfielddata/reference/student.html"><code>student</code></a></li>
+<li><a href="https://www.rdocumentation.org/packages/gapminder/versions/0.3.0/topics/gapminder"><code>gapminder</code></a></li>
+</ul>
+</div>
+</div>
+<div id="anatomy-of-a-graph" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Anatomy of a graph</h2>
+<p><code>ggplot()</code> is a our basic plotting function. The <code>data = ...</code> argument assigns the data frame. The plot is empty because we haven’t mapped the data to coordinates yet.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="graph-basics.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder)</span></code></pre></div>
+<p><img src="2021-ASEE-Workshop_files/figure-html/fig01-1.png" width="80%" /></p>
+<p>Next we use the mapping argument <code>mapping = aes(...)</code> to assign variables (column names) from the data frame to specific aesthetic properties of the graph such as the x-coordinate, the y-coordinate color, fill, etc.</p>
+<p>Here we map continent (a categorical variable) to <code>x</code> and life expectancy (a quantitative variable) to <code>y</code>. To reduce the number of times we repeat lines of code, we can assign a name (<code>life_gdp</code>) to the empty graph to which we can add layers later.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="graph-basics.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate aesthetic mapping</span></span>
+<span id="cb7-2"><a href="graph-basics.html#cb7-2" aria-hidden="true" tabindex="-1"></a>life_exp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> gapminder, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> lifeExp))</span></code></pre></div>
+<p>If we print the graph by typing the name of the graph object (everything in R is an object), we get a graph with a range on each axis (from the mapping) but no data shown. We haven’t specified the type of visual encoding we want.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="graph-basics.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine the result</span></span>
+<span id="cb8-2"><a href="graph-basics.html#cb8-2" aria-hidden="true" tabindex="-1"></a>life_exp</span></code></pre></div>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-7-1.png" width="80%" /></p>
+<p>A box-and-whisker plot (or box plot) is designed for displaying the distribution of a single quantitative variable. The visual encoding is specified using the <code>geom_boxplot()</code> layer, where a “geom” is a geometric object. The <code>geom_boxplot()</code> function requires the quantitative variable assigned to <code>y</code> and the categorical variable (if any) to <code>x</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="graph-basics.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate adding a geometric object </span></span>
+<span id="cb9-2"><a href="graph-basics.html#cb9-2" aria-hidden="true" tabindex="-1"></a>life_exp <span class="ot">&lt;-</span> life_exp <span class="sc">+</span> </span>
+<span id="cb9-3"><a href="graph-basics.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb9-4"><a href="graph-basics.html#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="graph-basics.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine the result</span></span>
+<span id="cb9-6"><a href="graph-basics.html#cb9-6" aria-hidden="true" tabindex="-1"></a>life_exp</span></code></pre></div>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-8-1.png" width="80%" /></p>
+<p>Notice that the default axis labels are the variables names from the data frame. We can edit those with another layer</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="graph-basics.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate editing axis labels</span></span>
+<span id="cb10-2"><a href="graph-basics.html#cb10-2" aria-hidden="true" tabindex="-1"></a>life_exp <span class="ot">&lt;-</span> life_exp <span class="sc">+</span> </span>
+<span id="cb10-3"><a href="graph-basics.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Continent&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>)</span>
+<span id="cb10-4"><a href="graph-basics.html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="graph-basics.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine the result</span></span>
+<span id="cb10-6"><a href="graph-basics.html#cb10-6" aria-hidden="true" tabindex="-1"></a>life_exp</span></code></pre></div>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-9-1.png" width="80%" /></p>
+<p>You can always write all the layers in one code chunk and obtain the same result.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="graph-basics.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate all layers in one code chunk </span></span>
+<span id="cb11-2"><a href="graph-basics.html#cb11-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span>  <span class="fu">ggplot</span>(<span class="at">data =</span> gapminder, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="graph-basics.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb11-4"><a href="graph-basics.html#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Continent&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>)</span></code></pre></div>
+<p>To reduce typing, the first two arguments <code>data</code> and <code>mapping</code> are often used without naming them explicitly, e.g.,</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="graph-basics.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate implicit data and mapping arguments</span></span>
+<span id="cb12-2"><a href="graph-basics.html#cb12-2" aria-hidden="true" tabindex="-1"></a>life_exp <span class="ot">&lt;-</span>  <span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="graph-basics.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb12-4"><a href="graph-basics.html#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Continent&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>)</span></code></pre></div>
+<p>Next, we often want the categorical variable ordered by the quantitative variable instead of alphabetically. Because <code>continent</code> is a factor, we can use the <code>reorder()</code> function inside the <code>aes()</code> argument.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="graph-basics.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate reordering a categorical variable </span></span>
+<span id="cb13-2"><a href="graph-basics.html#cb13-2" aria-hidden="true" tabindex="-1"></a>life_exp <span class="sc">+</span> </span>
+<span id="cb13-3"><a href="graph-basics.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(continent, lifeExp), <span class="at">y =</span> lifeExp)</span></code></pre></div>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-12-1.png" width="80%" /></p>
+<p>Summary. The basics steps for building up the layers of any graph consist of,</p>
+<ul>
+<li>assign the data frame</li>
+<li>map variables (columns names) to aesthetic properties<br />
+</li>
+<li>choose geoms<br />
+</li>
+<li>adjust scales, labels, ordering, etc.</li>
+</ul>
+<div id="exercise-1" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Exercise</h3>
+<ul>
+<li>Examine the <code>term</code> data set from midfielddata.</li>
+<li>Create a boxplot of the hours per term quantity conditioned by the student level.</li>
+<li>What is the rational for leaving the categorical variable in its native order?</li>
+<li>Check your work by comparing your result to the graph below.</li>
+</ul>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-13-1.png" width="80%" /></p>
+<p>Help pages for more information:</p>
+<ul>
+<li><a href="https://midfieldr.github.io/midfielddata/reference/term.html"><code>term</code></a></li>
+<li><a href="https://ggplot2.tidyverse.org/reference/aes.html"><code>aes()</code></a><br />
+</li>
+<li><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html"><code>geom_boxplot()</code></a></li>
+<li><a href="https://ggplot2.tidyverse.org/reference/labs.html"><code>geom_labs()</code></a></li>
+</ul>
+</div>
+</div>
+<div id="layer-points" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Layer: points</h2>
+<p>A two-dimensional scatterplot reveals the strength of the relationship between two quantitative variables. The ggplot geom for scatterplots is <code>geom_point()</code>. To illustrate a scatterplot, we graph life expectancy as a function of GDP.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="graph-basics.html#cb14-1" aria-hidden="true" tabindex="-1"></a>life_gdp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="graph-basics.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb14-3"><a href="graph-basics.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;GDP per capita (USD)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>)</span>
+<span id="cb14-4"><a href="graph-basics.html#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="graph-basics.html#cb14-5" aria-hidden="true" tabindex="-1"></a>life_gdp</span></code></pre></div>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-14-1.png" width="80%" /></p>
+<p>Help pages for more information:</p>
+<ul>
+<li><a href="https://ggplot2.tidyverse.org/reference/geom_point.html"><code>geom_point()</code></a></li>
+</ul>
+</div>
+<div id="layer-smooth-fit" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Layer: smooth fit</h2>
+<p>Suppose you wanted a smooth fit curve, not necessarily linear. Add a <code>geom_smooth()</code> layer. The name <em>loess</em> (pronounced like the proper name Lois) is a nonparametric curve-fitting method based on <em>local regression</em>.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="graph-basics.html#cb15-1" aria-hidden="true" tabindex="-1"></a>life_gdp <span class="sc">+</span> </span>
+<span id="cb15-2"><a href="graph-basics.html#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;loess&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-15-1.png" width="80%" /></p>
+<p>The <code>se</code> argument controls whether or not the confidence interval is displayed. Setting <code>se = TRUE</code> yields,</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="graph-basics.html#cb16-1" aria-hidden="true" tabindex="-1"></a>life_gdp <span class="sc">+</span> </span>
+<span id="cb16-2"><a href="graph-basics.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;loess&quot;</span>, <span class="at">se =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-16-1.png" width="80%" /></p>
+<p>For a linear-fit layer, we add a layer with <code>method</code> set to <code>lm</code> (short for linear model). The linear fit is not particularly good in this case, but now you know how to do one.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="graph-basics.html#cb17-1" aria-hidden="true" tabindex="-1"></a>life_gdp <span class="sc">+</span> </span>
+<span id="cb17-2"><a href="graph-basics.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-17-1.png" width="80%" /></p>
+<p>Help pages for more information:</p>
+<ul>
+<li><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth()</a></li>
+</ul>
+<div id="exercise-2" class="section level3" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Exercise</h3>
+<p>In this exercise, we do some data manipulation without explaining the steps. We cover such details in the <a href="data-basics.html#data-basics">Data basics</a> tutorial. Here we are focusing on constructing graphs.</p>
+<ul>
+<li>Use the following code chunk to create a random sample of the <code>student</code> data set with columns for SAT math and verbal scores.</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="graph-basics.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We only need two columns for the plot</span></span>
+<span id="cb18-2"><a href="graph-basics.html#cb18-2" aria-hidden="true" tabindex="-1"></a>cols_we_want <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;sat_math&quot;</span>, <span class="st">&quot;sat_verbal&quot;</span>)</span>
+<span id="cb18-3"><a href="graph-basics.html#cb18-3" aria-hidden="true" tabindex="-1"></a>sat <span class="ot">&lt;-</span> student[, ..cols_we_want]</span>
+<span id="cb18-4"><a href="graph-basics.html#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="graph-basics.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Before sampling, we remove NA values </span></span>
+<span id="cb18-6"><a href="graph-basics.html#cb18-6" aria-hidden="true" tabindex="-1"></a>sat <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(sat)</span>
+<span id="cb18-7"><a href="graph-basics.html#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="graph-basics.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># We sample to reduce computational time </span></span>
+<span id="cb18-9"><a href="graph-basics.html#cb18-9" aria-hidden="true" tabindex="-1"></a>sat <span class="ot">&lt;-</span> sat[<span class="fu">sample</span>(<span class="fu">nrow</span>(sat), <span class="dv">3000</span>)]</span></code></pre></div>
+<ul>
+<li>Use the resulting <code>dtf</code> data frame and create a scatterplot of verbal scores <code>sat_verbal</code> as a function of math scores <code>sat_math</code>.<br />
+</li>
+<li>Add a loess fit.<br />
+</li>
+<li>Check your work by comparing your result to the graph below.</li>
+</ul>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-19-1.png" width="80%" /></p>
+</div>
+</div>
+<div id="layer-scale" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Layer: scale</h2>
+<p>We have orders of magnitude differences in the GDP per capita variable. To confirm, we can create a <code>summary()</code> of the <code>gdpPercap</code> variable. The output shows that the minimum is 241, the median 3532, and the maximum 113,523.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="graph-basics.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># statistical summary of one variable </span></span>
+<span id="cb19-2"><a href="graph-basics.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gapminder[, gdpPercap])</span>
+<span id="cb19-3"><a href="graph-basics.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. </span></span>
+<span id="cb19-4"><a href="graph-basics.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    241.2   1202.1   3531.8   7215.3   9325.5 113523.1</span></span></code></pre></div>
+<p>In exploring a graph like this, it might be useful to add a layer that changes the horizontal scale to a log-base-10 scale.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="graph-basics.html#cb20-1" aria-hidden="true" tabindex="-1"></a>life_gdp <span class="ot">&lt;-</span> life_gdp <span class="sc">+</span></span>
+<span id="cb20-2"><a href="graph-basics.html#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">&quot;log10&quot;</span>) </span></code></pre></div>
+<p>Update the axis labels,</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="graph-basics.html#cb21-1" aria-hidden="true" tabindex="-1"></a>life_gdp <span class="ot">&lt;-</span> life_gdp <span class="sc">+</span></span>
+<span id="cb21-2"><a href="graph-basics.html#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;GDP per capita, USD (log10 scale)&quot;</span>, </span>
+<span id="cb21-3"><a href="graph-basics.html#cb21-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>)</span>
+<span id="cb21-4"><a href="graph-basics.html#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="graph-basics.html#cb21-5" aria-hidden="true" tabindex="-1"></a>life_gdp <span class="co"># display the graph</span></span></code></pre></div>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-23-1.png" width="80%" /></p>
+<p>In summary, all the layers could have been be coded at once, for example,</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="graph-basics.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb22-2"><a href="graph-basics.html#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-3"><a href="graph-basics.html#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">&quot;log10&quot;</span>) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="graph-basics.html#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;GDP per capita, USD (log10 scale)&quot;</span>, </span>
+<span id="cb22-5"><a href="graph-basics.html#cb22-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>)</span></code></pre></div>
+<p>With all the layers in one place, we can see that we’ve coded all the basic steps, that is,</p>
+<ul>
+<li>assign the data frame<br />
+</li>
+<li>map variables (columns names) to aesthetic properties<br />
+</li>
+<li>choose geoms<br />
+</li>
+<li>adjust scales, labels, ordering, etc.</li>
+</ul>
+<div id="exercise-3" class="section level3" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> Exercise</h3>
+<p>Again we do some data manipulation without explaining the steps. We cover such details in the <a href="data-basics.html#data-basics">Data basics</a> tutorial. Here we are focusing on constructing graphs.</p>
+<p>We often use graphs to show numbers of students with a log-scale to compare totals that differ by orders of magnitude.</p>
+<ul>
+<li>Use the following code chunk to count the number students ever enrolled in the sample data by race/ethnicity/sex.</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="graph-basics.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access a data set included with midfieldr</span></span>
+<span id="cb23-2"><a href="graph-basics.html#cb23-2" aria-hidden="true" tabindex="-1"></a>dtf <span class="ot">&lt;-</span> <span class="fu">copy</span>(study_stickiness)</span>
+<span id="cb23-3"><a href="graph-basics.html#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="graph-basics.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a combined categorical column </span></span>
+<span id="cb23-5"><a href="graph-basics.html#cb23-5" aria-hidden="true" tabindex="-1"></a>dtf[, race_sex <span class="sc">:</span><span class="er">=</span> <span class="fu">paste</span>(race, sex)]</span>
+<span id="cb23-6"><a href="graph-basics.html#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="graph-basics.html#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum the number of students by this category </span></span>
+<span id="cb23-8"><a href="graph-basics.html#cb23-8" aria-hidden="true" tabindex="-1"></a>dtf[, ever <span class="sc">:</span><span class="er">=</span> <span class="fu">sum</span>(ever), by <span class="ot">=</span> <span class="st">&quot;race_sex&quot;</span>]</span>
+<span id="cb23-9"><a href="graph-basics.html#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="graph-basics.html#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Factor class enables reordering </span></span>
+<span id="cb23-11"><a href="graph-basics.html#cb23-11" aria-hidden="true" tabindex="-1"></a>dtf[, race_sex <span class="sc">:</span><span class="er">=</span> <span class="fu">factor</span>(race_sex)]</span></code></pre></div>
+<ul>
+<li>Use the resulting <code>dtf</code> data frame to graph <code>ever</code> on the x-axis with <code>race_sex</code> on the y-axis.<br />
+</li>
+<li>Reorder <code>race_sex</code> by <code>ever</code>.<br />
+</li>
+<li>Use a log-base-2 scale.<br />
+</li>
+<li>You can omit the y-axis label by setting <code>y = ""</code> in the <code>labs()</code> argument.<br />
+</li>
+<li>Check your work by comparing your result to the graph below.</li>
+</ul>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-26-1.png" width="80%" /></p>
+<p>Help pages for more information:</p>
+<ul>
+<li><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous()</a></li>
+</ul>
+</div>
+</div>
+<div id="mapping-columns-to-aesthetics" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> Mapping columns to aesthetics</h2>
+<p>Mappings in the <code>aes()</code> function of <code>ggplot()</code> can involve the names of variables (column s) only. So far, the only mappings we’ve used are from column names to an x or y aesthetic.</p>
+<p>Another useful mapping is from a column name to the <code>color</code> argument, which then separates the data by the values of the categorical variable selected and automatically creates the appropriate legend.</p>
+<p>Here we map the <code>continent</code> column to the <code>color</code> aesthetic, adding a third data variable to the display.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="graph-basics.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="graph-basics.html#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb24-3"><a href="graph-basics.html#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">&quot;log10&quot;</span>) <span class="sc">+</span></span>
+<span id="cb24-4"><a href="graph-basics.html#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;GDP per capita, USD (log10 scale)&quot;</span>, </span>
+<span id="cb24-5"><a href="graph-basics.html#cb24-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>)</span></code></pre></div>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-27-1.png" width="80%" /></p>
+<div id="exercise-4" class="section level3" number="5.7.1">
+<h3><span class="header-section-number">5.7.1</span> Exercise</h3>
+<p>Use the following code chunk to construct a data frame with hours per term and level from <code>term</code> merged with <code>sex</code> data from <code>student</code>. Again, we leave explanations of the data manipulation to the <a href="data-basics.html#data-basics">Data basics</a> tutorial.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="graph-basics.html#cb25-1" aria-hidden="true" tabindex="-1"></a>dtf <span class="ot">&lt;-</span> <span class="fu">add_race_sex</span>(term, </span>
+<span id="cb25-2"><a href="graph-basics.html#cb25-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">midfield_student =</span> student)</span>
+<span id="cb25-3"><a href="graph-basics.html#cb25-3" aria-hidden="true" tabindex="-1"></a>cols_we_want <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;mcid&quot;</span>, <span class="st">&quot;term&quot;</span>, <span class="st">&quot;hours_term&quot;</span>, <span class="st">&quot;level&quot;</span>, <span class="st">&quot;sex&quot;</span>)</span>
+<span id="cb25-4"><a href="graph-basics.html#cb25-4" aria-hidden="true" tabindex="-1"></a>dtf <span class="ot">&lt;-</span> dtf[, ..cols_we_want]</span>
+<span id="cb25-5"><a href="graph-basics.html#cb25-5" aria-hidden="true" tabindex="-1"></a>dtf <span class="ot">&lt;-</span> <span class="fu">unique</span>(dtf)</span></code></pre></div>
+<ul>
+<li>Use the resulting <code>dtf</code> data frame to a boxplot of hours per term as a function of level like we did earlier.</li>
+<li>Add a third column name to <code>aes()</code> to add <code>sex</code> by color to the graph.</li>
+<li>Add the <code>coord_flip()</code> layer to your graph to swap the position of the x, y coordinates to obtain a horizontal boxplot.</li>
+<li>Check your work by comparing your result to the graph below.</li>
+</ul>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-29-1.png" width="80%" /></p>
+<p>Help pages for more information:</p>
+<ul>
+<li><a href="https://midfieldr.github.io/midfieldr/reference/add_race_sex.html"><code>add_race_sex()</code></a></li>
+<li><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html"><code>coord_flip()</code></a></li>
+</ul>
+</div>
+</div>
+<div id="layer-facets" class="section level2" number="5.8">
+<h2><span class="header-section-number">5.8</span> Layer: facets</h2>
+<p>In the earlier graph where we mapped continent to color, there was a lot of overprinting, making it difficult to compare the continents. Instead of using color to distinguish the continents, we can plot in different panels by continent.</p>
+<p>The <code>facet_wrap()</code> layer separates the data into different panels (or facets). Like the <code>aes()</code> mapping, <code>facet_wrap()</code> is applied to a variable (column name) in the data frame.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="graph-basics.html#cb26-1" aria-hidden="true" tabindex="-1"></a>life_gdp <span class="ot">&lt;-</span> life_gdp <span class="sc">+</span> </span>
+<span id="cb26-2"><a href="graph-basics.html#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="at">facets =</span> <span class="fu">vars</span>(continent))</span>
+<span id="cb26-3"><a href="graph-basics.html#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="graph-basics.html#cb26-4" aria-hidden="true" tabindex="-1"></a>life_gdp <span class="co"># print the graph</span></span></code></pre></div>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-30-1.png" width="80%" /></p>
+<p>Comparisons are facilitated by having the facets appear in one column, by using the <code>ncol</code> argument of <code>facet_wrap()</code>.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="graph-basics.html#cb27-1" aria-hidden="true" tabindex="-1"></a>life_gdp <span class="ot">&lt;-</span> life_gdp <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="at">facets =</span> <span class="fu">vars</span>(continent), <span class="at">ncol =</span> <span class="dv">1</span>)</span>
+<span id="cb27-2"><a href="graph-basics.html#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="graph-basics.html#cb27-3" aria-hidden="true" tabindex="-1"></a>life_gdp <span class="co"># print the graph</span></span></code></pre></div>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-31-1.png" width="80%" /></p>
+<p>In a faceted display, all panels have identical scales (the default) to facilitate comparison. Again, all the layers could have been be coded at once, for example,</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="graph-basics.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb28-2"><a href="graph-basics.html#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="at">facets =</span> <span class="fu">vars</span>(continent), <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb28-3"><a href="graph-basics.html#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb28-4"><a href="graph-basics.html#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">&quot;log10&quot;</span>) <span class="sc">+</span></span>
+<span id="cb28-5"><a href="graph-basics.html#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;GDP per capita, USD (log10 scale)&quot;</span>, </span>
+<span id="cb28-6"><a href="graph-basics.html#cb28-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>) </span></code></pre></div>
+<div id="exercise-5" class="section level3" number="5.8.1">
+<h3><span class="header-section-number">5.8.1</span> Exercise</h3>
+<p>Use the following code chunk to construct a data frame of program stickiness by program, race/ethnicity, and sex.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="graph-basics.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access a data set included with midfieldr</span></span>
+<span id="cb29-2"><a href="graph-basics.html#cb29-2" aria-hidden="true" tabindex="-1"></a>stickiness <span class="ot">&lt;-</span> <span class="fu">copy</span>(study_stickiness)</span>
+<span id="cb29-3"><a href="graph-basics.html#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="graph-basics.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a combined categorical column </span></span>
+<span id="cb29-5"><a href="graph-basics.html#cb29-5" aria-hidden="true" tabindex="-1"></a>stickiness[, race_sex <span class="sc">:</span><span class="er">=</span> <span class="fu">paste</span>(race, sex)]</span>
+<span id="cb29-6"><a href="graph-basics.html#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="graph-basics.html#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Factor class enables reordering </span></span>
+<span id="cb29-8"><a href="graph-basics.html#cb29-8" aria-hidden="true" tabindex="-1"></a>stickiness[, race_sex <span class="sc">:</span><span class="er">=</span> <span class="fu">factor</span>(race_sex)]</span>
+<span id="cb29-9"><a href="graph-basics.html#cb29-9" aria-hidden="true" tabindex="-1"></a>stickiness[, program <span class="sc">:</span><span class="er">=</span> <span class="fu">factor</span>(program)]</span>
+<span id="cb29-10"><a href="graph-basics.html#cb29-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-11"><a href="graph-basics.html#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Omit ambiguous race/ethnicities and small populations</span></span>
+<span id="cb29-12"><a href="graph-basics.html#cb29-12" aria-hidden="true" tabindex="-1"></a>stickiness <span class="ot">&lt;-</span> stickiness[<span class="sc">!</span>race_sex <span class="sc">%ilike%</span> <span class="fu">c</span>(<span class="st">&quot;Native|International|Other&quot;</span>)]</span></code></pre></div>
+<ul>
+<li>Use the resulting <code>dtf</code> data frame plot stickiness (x-axis) as a function of race/ethnicity/sex (y-axis) and faceted by program.<br />
+</li>
+<li>When that graph seems OK, add a third column name to <code>aes()</code> to add <code>sex</code> by color to the graph.</li>
+<li>Check your work by comparing your result to the graph below.</li>
+</ul>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-34-1.png" width="80%" /></p>
+<p>Help pages for more information:</p>
+<ul>
+<li><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></li>
+</ul>
+</div>
+</div>
+<div id="ordering-panels-and-rows" class="section level2" number="5.9">
+<h2><span class="header-section-number">5.9</span> Ordering panels and rows</h2>
+<p>Panels (facets) by default are nearly always ordered alphabetically. In most cases, ordering the panels by the data improves the display. Earlier, we used <code>reorder()</code> to order a set of boxplots. This function operates correctly on “factor” variables only.</p>
+<p>A factor is special data structure in R for categorical variables. In a factor, the levels of the category—typically character strings—are known and fixed. However, factors are stored internally as integers—a critical design tool for meaningfully ordering the rows and panels of a display involving categorical variables.</p>
+<p>In the gapminder data, the <code>continent</code> column is already a factors.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="graph-basics.html#cb30-1" aria-hidden="true" tabindex="-1"></a>gapminder</span>
+<span id="cb30-2"><a href="graph-basics.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           country continent  year lifeExp      pop gdpPercap</span></span>
+<span id="cb30-3"><a href="graph-basics.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            &lt;fctr&gt;    &lt;fctr&gt; &lt;int&gt;   &lt;num&gt;    &lt;int&gt;     &lt;num&gt;</span></span>
+<span id="cb30-4"><a href="graph-basics.html#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    1: Afghanistan      Asia  1952  28.801  8425333  779.4453</span></span>
+<span id="cb30-5"><a href="graph-basics.html#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    2: Afghanistan      Asia  1957  30.332  9240934  820.8530</span></span>
+<span id="cb30-6"><a href="graph-basics.html#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    3: Afghanistan      Asia  1962  31.997 10267083  853.1007</span></span>
+<span id="cb30-7"><a href="graph-basics.html#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    4: Afghanistan      Asia  1967  34.020 11537966  836.1971</span></span>
+<span id="cb30-8"><a href="graph-basics.html#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    5: Afghanistan      Asia  1972  36.088 13079460  739.9811</span></span>
+<span id="cb30-9"><a href="graph-basics.html#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ---                                                       </span></span>
+<span id="cb30-10"><a href="graph-basics.html#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1700:    Zimbabwe    Africa  1987  62.351  9216418  706.1573</span></span>
+<span id="cb30-11"><a href="graph-basics.html#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1701:    Zimbabwe    Africa  1992  60.377 10704340  693.4208</span></span>
+<span id="cb30-12"><a href="graph-basics.html#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1702:    Zimbabwe    Africa  1997  46.809 11404948  792.4500</span></span>
+<span id="cb30-13"><a href="graph-basics.html#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1703:    Zimbabwe    Africa  2002  39.989 11926563  672.0386</span></span>
+<span id="cb30-14"><a href="graph-basics.html#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1704:    Zimbabwe    Africa  2007  43.487 12311143  469.7093</span></span></code></pre></div>
+<p>We can reorder the levels of the factor before graphing as follows,</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="graph-basics.html#cb31-1" aria-hidden="true" tabindex="-1"></a>gapminder[, continent <span class="sc">:</span><span class="er">=</span> <span class="fu">reorder</span>(continent, lifeExp)]</span></code></pre></div>
+<p>Then graph using much the same code chunk as before with one addition. We add the <code>as.table = FALSE</code> argument to the <code>facet_wrap()</code> function. “Table-order” of panels is increasing from top to bottom; “graph-order” increases (like a graph scale) from bottom to top.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="graph-basics.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb32-2"><a href="graph-basics.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="at">facets =</span> <span class="fu">vars</span>(continent), <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">as.table =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb32-3"><a href="graph-basics.html#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb32-4"><a href="graph-basics.html#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">&quot;log10&quot;</span>) <span class="sc">+</span></span>
+<span id="cb32-5"><a href="graph-basics.html#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;GDP per capita, USD (log10 scale)&quot;</span>, </span>
+<span id="cb32-6"><a href="graph-basics.html#cb32-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>) </span></code></pre></div>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-37-1.png" width="80%" /></p>
+<div id="exercise-6" class="section level3" number="5.9.1">
+<h3><span class="header-section-number">5.9.1</span> Exercise</h3>
+<ul>
+<li>Continue using the <code>stickiness</code> data frame from the previous section.<br />
+</li>
+<li>Order the panels by the stickiness variable.</li>
+<li>Order race/ethnicity/sex by the stickiness variable.</li>
+<li>Check your work by comparing your result to the graph below.</li>
+</ul>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-38-1.png" width="80%" /></p>
+<p>Help pages for more information:</p>
+<ul>
+<li><a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/reorder.default">reorder()</a></li>
+</ul>
+<p><br>
+<a href="#start-with-R">▲ top of page</a></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="R-basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-basics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/MIDFIELDR/2021-asee-workshop/edit/main/05-graph-basics.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["2021 ASEE Workshop.pdf", "2021 ASEE Workshop.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-# Working with R {#work-with-R}
+# R basics {#R-basics}
 
 ```{r echo = FALSE}
 library(knitr)
@@ -20,158 +20,11 @@ options(
 )
 ```
 
-```{r echo = FALSE}
-# if internet available, find and save current number of R packages
-library("pingr")
-if (pingr::is_online()) {
-	n_pkg <- nrow(available.packages(contrib.url("https://cloud.r-project.org/")))
-	# round down to nearest 250
-	n_pkg <- 250 * floor(n_pkg / 250)
-	n_pkg <- format(n_pkg, big.mark = ",", trim = TRUE, digits = 0, scientific = FALSE)
-	date_pkg <- format(Sys.Date(), "%b %Y")
-	info_pkg <- c(n_pkg, date_pkg)
-	saveRDS(info_pkg, "data/info_pkg.rds")
-}
-
-# use saved values 
-info_pkg <- readRDS("data/info_pkg.rds")
-n_pkg    <- info_pkg[1]
-date_pkg <- info_pkg[2]
-```
-
-R is an open source language and environment for statistical computing and graphics [@R-base], ranked by IEEE in 2020 as the 6th most popular programming language (Python, Java, and C are the top three) [@Cass:2020]. If you are new to R, some of its best features, paraphrasing Wickham  [-@wickham2014advanced], are: 
-
-- R is free, open source, and available on every major platform. 
-- R packages provide effective tools for data analysis and visualization. 
-- More than `r n_pkg` open-source R packages are available (`r date_pkg`). Many are cutting-edge tools. 
-
-RStudio, an integrated development environment (IDE) for R, includes a console, editor, and tools for plotting, history, debugging, and workspace management as well as access to GitHub for collaboration and version control  [@2016rstudio]. 
-
-
-
-
-## Prerequisites
-
-Before proceeding, you should have completed
-
-- [Install everything]    
-- Launched your workshop project---`workshop.Rproj` or other name that you selected---to start the R session     
-
-With these prerequisites accomplished, and working in your RStudio  `workshop.Rproj` project, you can create a save a script by:
-
-- Use the pulldown menu, _File &gt; New File &gt; R Script_ 
-- File menu > Save As... 
-- In the dialog box, navigate to your `scripts` directory, type a file name, for example, `01-R-basics.R` (file names in R can start with numerals), and _Save_. 
-
-We suggest you start a new R script for each tutorial and save it to the `scripts` directory. For example, at the end of the workshop, your scripts directory might contain the following files:     
-
-``` r
-        \scripts    
-            \01-R-basics.R    
-            \02-getting-started.R    
-            \03-case-study-programs.R    
-            \04-case-study-students.R     
-            etc.  
-```
-
-
-
-## New to R? 
-
-[Prerequisites] should be completed before proceeding. By the end of the workshop, our R beginners will have made progress on two or possibly three tutorials:  
-
-- [R basics] An introduction to R. 
-- [Getting started](https://midfieldr.github.io/midfieldr/articles/art-000-getting-started.html){target="_blank"}: Examine the MIDFIELD practice data  
-- [Case study programs](https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html){target="_blank"} Gather CIP codes and program names
-
-If there is still time remaining, continue to any tutorial listed in the [After the workshop] section.  
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Familiar with R? 
-
-[Prerequisites] should be completed before proceeding. By the end of the workshop, our more experienced R users will have made substantive progress on two or possibly three tutorials: 
-
-- [Getting started](https://midfieldr.github.io/midfieldr/articles/art-000-getting-started.html){target="_blank"}: Examine the MIDFIELD practice data  
-- [Case study programs](https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html){target="_blank"} Gather CIP codes and program names 
-- [Case study students](https://midfieldr.github.io/midfieldr/articles/art-120-case-study-students.html){target="_blank"} Gather students who pass the data sufficiency criterion. 
-
-
-
-If there is still time remaining, continue to any tutorial listed in the [After the workshop] section.  
- 
- 
- 
- 
-## After the workshop 
-
-At his point, the learning is self-directed. Choose the skills you want to continue working on. We have a set of tutorials for 
-
-- [Developing R skills] 
-- [Continuing the case study]
-- [Exploring midfieldr functions]
-
-
-
-
-
-### Developing R skills
-
-The basic skills tutorials take about 50 minutes each. 
-
-- [R basics] 
-- [Graph basics]  
-- [Data basics]   
-
-
-
-
-
-### Continuing the case study
-
-The case study is a quick tour of a typical workflow using student unit record data. This is a “big picture” development---functions are used without detailed explanations or development so that we can focus on the logic of the analysis. For exploring midfieldr functions and methods in greater detail, see the vignettes listed in the next section.  
-
-- [Case study programs](https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html){target="_blank"}
-- [Case study students](https://midfieldr.github.io/midfieldr/articles/art-120-case-study-students.html){target="_blank"} 
-- [Case study stickiness](https://midfieldr.github.io/midfieldr/articles/art-130-case-study-stickiness.html){target="_blank"} 
-- [Case study graduation rate](https://midfieldr.github.io/midfieldr/articles/art-140-case-study-grad-rate.html){target="_blank"}
-
-
-
-
-
-### Exploring midfieldr functions
-
-Deep dive into the midfieldr functionality. The work flow follows the same general pattern as the quicker case study, but pauses to explore each function in more detail, exploring the arguments and strategies for use. In general, each tutorial is self-contained so you may enter at almost any point. 
-
-- [Program codes and names](https://midfieldr.github.io/midfieldr/articles/art-010-program-codes.html){target="_blank"} Practice strategies of searching `cip` for programs we want to study. 
-- [Subsetting MIDFIELD data](https://midfieldr.github.io/midfieldr/articles/art-015-subsetting-midfield-data.html){target="_blank"} Use programs codes to subset the MIDFIELD data tables. 
-- [Data sufficiency](https://midfieldr.github.io/midfieldr/articles/art-020-data-sufficiency.html){target="_blank"} What it is and how it is applied to student unit-record (SUR) data. 
-- [Timely completion](https://midfieldr.github.io/midfieldr/articles/art-030-timely-completion.html){target="_blank"} What it is and how it is applied to SUR data. 
-- [FYE programs](https://midfieldr.github.io/midfieldr/articles/art-040-fye-programs.html){target="_blank"} What they are and how they are accommodated with SUR data. 
-- [Multiway graphs](https://midfieldr.github.io/midfieldr/articles/art-050-multiway-graphs.html){target="_blank"} How to graph and interpret a common data structure encountered when working with SUR data. 
-- [Tabulating data](https://midfieldr.github.io/midfieldr/articles/art-060-tabulating-data.html){target="_blank"} How to tabulate multiway data for publication. 
-
-
-
-## R basics
-
 This tutorial is an introduction to R adapted from [@Healy:2019:Ch.2] with extra material from [@Matloff:2019]. If you already have R experience, you might still want to browse this section in case you find something new. 
 
 [Prerequisites] should be completed before proceeding. After that, the tutorial should take no longer than 50 minutes.
 
-
-### Style guide
+## Style guide
 
 A style guide is about making your script readable. We ask you to observe a small set of guidelines that will help us help you when you have questions about your script. 
 
@@ -231,28 +84,45 @@ saveRDS(speed_ski, "data/speed_ski.rds")
 For more information of R scripting style generally see McConnell [-@McConnell:2004] and Wickham [-@Wickham:2019:styleguide].
 
 
-### Open an R script
+
+
+
+
+
+## Open an R script
 
 Use *File &gt; New File &gt; R Script* to create a new R script
 
 - Name the script `01-R-basics.R`. By using a number at the start of the file name, the files stay in order in your directory.  
 - Save it in the `scripts` directory.
-- (optional) Add a minimal header at the top of the script, e.g.: 
+- Code chunks like the one below can be copied and pasted to your R script. Add a minimal header at the top of the script. Use `library()` to load the packages we will be using. 
+
 
 ```{r}
 # R basics 
-# 2021 ASEE Workshop: Engaging with MIDFIELD Data
-# Name 
-# 2021-07-26
-```
+# name 
+# date 
 
-- Use `library()` to load the packages we will use 
-
-```{r}
-# Packages can be loaded only if they have previously been installed
+# packages
 library("midfieldr")
 library("data.table")
+```
 
+After adding a code chunk to your script, run the script. Options for running a script:
+
+- To run an entire script, select all lines with `ctrl A` then run the lines using `ctrl Enter` (for the Mac OS: `cmd A` and `cmd Return`). 
+- To run select lines, use the cursor to select the lines you want to run, then `ctrl Enter` (for the Mac OS: `cmd Return`). 
+- To run from the beginning to a line, place your cursor at the line, then  `ctrl alt B` (`cmd option B` Mac OS)
+
+If you get an error similar to: 
+
+        Error in library("data.table") : there is no package called 'data.table'
+
+then the package needs to be installed. If you need a refresher on installing packages, see [Install CRAN packages]. Once the missing package is installed, you can rerun the script. 
+
+The following code chunk is optional for controlling the number of rows of a data frame that are printed to the Console screen. 
+
+```{r}
 # Optional code to control data.table printing
 options(
   datatable.print.nrows = 10,
@@ -261,13 +131,14 @@ options(
 )
 ```
 
-Code chunks like the one above can be copied and pasted to your R script. 
+Guidelines 
+
+- As you work through the tutorial, type a line or chunk of code then *File &gt; Save* and run the script.    
+- Confirm that your result matches the tutorial result.  
+- **Your turn** exercises give you chance to devise your own examples and check them out. You learn by doing (but you knew that already)!
 
 
-
-
-
-### Everything in R has a name 
+## Everything in R has a name 
 
 In R, every object has a name. 
 
@@ -311,7 +182,7 @@ If the name is in use, a help page appears in the RStudio Help pane.
 
 
 
-### Everything in R is an object 
+## Everything in R is an object 
 
 Origins of R objects  
 
@@ -327,11 +198,6 @@ Type this line of code in your script, *Save.* `c()` is the function to combine 
 c(1, 2, 3, 1, 3, 25)
 ```
 
-Options for running a script:
-
-- Select a line (or lines) and `ctrl Enter` (Mac OS `cmd Return`) 
-- To run from the beginning to a line `ctrl alt B` (Mac OS `cmd option B`)
-
 Run the script and your Console should show `[1]  1  2  3  1  3 25`. 
 
 In these notes, when we show results printed in your Console, we preface the printout with `#>` (which does not appear on your screen) to distinguish the results from the script. For example, we show the line from above and its output like this:   
@@ -345,7 +211,7 @@ The `[1]` that leads the output line is a label identifying the index of the ele
 
 You create objects my assigning them names. 
 
-- `<-` is the assignment operator, keyboard shortcut: `alt`$-$ (Mac OS `option`$-$) 
+- `<-` is the assignment operator, keyboard shortcut: `alt`$-$ , i.e., the ALT key plus the hyphen key. (Mac OS `option`$-$) 
 
 ```{r}
 # Practice assigning an object to a name
@@ -424,7 +290,7 @@ The "toy" data sets in midfieldr (`toy_student`, `toy_course`, `toy_term`, and `
 
 
 
-### R functions do things
+## R functions do things
 
 Functions do something useful 
 
@@ -489,7 +355,7 @@ tail(toy_student)
 Functions to examine columns (variables) in a data frame.
 
 - `sort()` and `unique()` often used together
-- `is.na()` to return TRUE for every NA element in an object, otherwise TRUE
+- `is.na()` to return TRUE for every NA element in an object, otherwise FALSE 
 - `sum()` applied to `is.na()` converts logical TRUE to 1 and FALSE to 0 and adds the elements. The resulting integer is the number of NA values in the vector. 
 
 ```{r}
@@ -537,7 +403,7 @@ The help pages for functions are accessed via the Console. By viewing the help p
 
 
 
-### R functions come in packages
+## R functions come in packages
 
 Functions are bundled in packages  
 
@@ -599,7 +465,7 @@ Don't panic! We will use only a small number of these functions from data.table.
 
 
 
-### R objects have class
+## R objects have class
 
 Everything is an object and every object has a class. 
 
@@ -649,7 +515,7 @@ class(airquality)
 head(airquality)
 ```
 
-You can convert it to  data.table object with `as.data.table()` and assign it to a _slightly) different name. 
+You can convert it to  data.table object with `as.data.table()` and assign it to a slightly different name. 
 
 ```{r}
 air_quality <- as.data.table(airquality)
@@ -671,7 +537,7 @@ class(air_quality)
 
 
 
-### R objects have structure
+## R objects have structure
 
 
 To see inside an object ask for its structure using the `str()` function.
@@ -689,7 +555,7 @@ str(air_quality)
 
 
 
-### R only does what you tell it
+## R only does what you tell it
 
 Healy [-@Healy:2019] offers this advice for specific things to watch out for: 
 
@@ -762,7 +628,7 @@ This can be read as "Take DT, subset/reorder rows using `i`, then calculate `j`,
 
 
 
-### To get help
+## To get help
 
 **Online resources**
 
@@ -849,8 +715,7 @@ example("add_institution")
 
 
 
-
-### Keyboard shortcuts
+## Keyboard shortcuts
 
 If you are working in RStudio, you can see the menu of keyboard
 shortcuts using the menu _Tools &gt; Keyboard Shortcuts Help_. The
@@ -863,7 +728,7 @@ shortcuts we use regularly include
 | `ctrl X, C, V`  | Cut, copy, paste                    | `cmd X, C, V`  |
 | `ctrl F`        | Find in text                        | `cmd F`        |
 | `ctrl I`        | Indent or re-indent lines           | `cmd I`        |
-| `alt` –         | Insert the assignment operator `<-` | `option` –     |
+| `alt` $-$       | Insert the assignment operator `<-` | `option` $-$     |
 | `ctrl alt B`    | Run from beginning to line          | `cmd option B` |
 | `ctrl alt E`    | Run from line to end                | `cmd option E` |
 | `ctrl Enter`    | Run selected line(s)                | `cmd Return`   |
@@ -877,28 +742,13 @@ Lastly, any time you want a fresh start in your working environment,
 - Use the pulldown menu _Session &gt; Restart R_ 
 
 
-### Next steps
+## Next steps
 
 That concludes our brief introduction to R. To continue, return to your starting point (links below) and from there, select the next link in your progression. 
 
 - [New to R?]    
 - [Familiar with R?]    
 - [After the workshop]    
-
-
-## Graph basics
-
-Coming soon (after the workshop)
-
-
-## Data basics
-
-Coming soon (after the workshop)
-
-
-
-
-
 
 
 <br>

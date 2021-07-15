@@ -588,28 +588,6 @@ You finished your homework!
 
 \protect\hyperlink{install-everything}{▲ top of page}
 
-\hypertarget{materials}{%
-\chapter{Workshop materials}\label{materials}}
-
-\hypertarget{stuff}{%
-\section{Stuff}\label{stuff}}
-
-\hypertarget{more-stuff}{%
-\section{More stuff}\label{more-stuff}}
-
-\protect\hyperlink{materials}{▲ top of page}
-
-\hypertarget{stories}{%
-\chapter{Exploring the data structure}\label{stories}}
-
-\hypertarget{stuff-1}{%
-\section{Stuff}\label{stuff-1}}
-
-\hypertarget{more-stuff-1}{%
-\section{More stuff}\label{more-stuff-1}}
-
-\protect\hyperlink{stories}{▲ top of page}
-
 \hypertarget{work-with-R}{%
 \chapter{Working with R}\label{work-with-R}}
 
@@ -673,11 +651,11 @@ We suggest you start a new R script for each tutorial and save it to the \texttt
 \begin{itemize}
 \tightlist
 \item
-  \protect\hyperlink{r-basics}{R basics} An introduction to R.
+  \protect\hyperlink{R-basics}{R basics} An introduction to R.
 \item
   \href{https://midfieldr.github.io/midfieldr/articles/art-000-getting-started.html}{Getting started}: Examine the MIDFIELD practice data\\
 \item
-  \href{https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html}{Case study programs} Gather CIP codes and program names
+  \href{https://midfieldr.github.io/midfieldr/articles/art-002-case-study-programs.html}{Case study programs} Gather CIP codes and program names
 \end{itemize}
 
 If there is still time remaining, continue to any tutorial listed in the \protect\hyperlink{after-the-workshop}{After the workshop} section.
@@ -692,9 +670,9 @@ If there is still time remaining, continue to any tutorial listed in the \protec
 \item
   \href{https://midfieldr.github.io/midfieldr/articles/art-000-getting-started.html}{Getting started}: Examine the MIDFIELD practice data\\
 \item
-  \href{https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html}{Case study programs} Gather CIP codes and program names
+  \href{https://midfieldr.github.io/midfieldr/articles/art-002-case-study-programs.html}{Case study programs} Gather CIP codes and program names
 \item
-  \href{https://midfieldr.github.io/midfieldr/articles/art-120-case-study-students.html}{Case study students} Gather students who pass the data sufficiency criterion.
+  \href{https://midfieldr.github.io/midfieldr/articles/art-004-case-study-students.html}{Case study students} Gather students who pass the data sufficiency criterion.
 \end{itemize}
 
 If there is still time remaining, continue to any tutorial listed in the \protect\hyperlink{after-the-workshop}{After the workshop} section.
@@ -722,7 +700,7 @@ The basic skills tutorials take about 50 minutes each.
 \begin{itemize}
 \tightlist
 \item
-  \protect\hyperlink{r-basics}{R basics}
+  \protect\hyperlink{R-basics}{R basics}
 \item
   \protect\hyperlink{graph-basics}{Graph basics}\\
 \item
@@ -737,13 +715,13 @@ The case study is a quick tour of a typical workflow using student unit record d
 \begin{itemize}
 \tightlist
 \item
-  \href{https://midfieldr.github.io/midfieldr/articles/art-110-case-study-programs.html}{Case study programs}
+  \href{https://midfieldr.github.io/midfieldr/articles/art-002-case-study-programs.html}{Case study programs}
 \item
-  \href{https://midfieldr.github.io/midfieldr/articles/art-120-case-study-students.html}{Case study students}
+  \href{https://midfieldr.github.io/midfieldr/articles/art-004-case-study-students.html}{Case study students}
 \item
-  \href{https://midfieldr.github.io/midfieldr/articles/art-130-case-study-stickiness.html}{Case study stickiness}
+  \href{https://midfieldr.github.io/midfieldr/articles/art-006-case-study-stickiness.html}{Case study stickiness}
 \item
-  \href{https://midfieldr.github.io/midfieldr/articles/art-140-case-study-grad-rate.html}{Case study graduation rate}
+  \href{https://midfieldr.github.io/midfieldr/articles/art-008-case-study-grad-rate.html}{Case study graduation rate}
 \end{itemize}
 
 \hypertarget{exploring-midfieldr-functions}{%
@@ -769,15 +747,17 @@ Deep dive into the midfieldr functionality. The work flow follows the same gener
   \href{https://midfieldr.github.io/midfieldr/articles/art-060-tabulating-data.html}{Tabulating data} How to tabulate multiway data for publication.
 \end{itemize}
 
-\hypertarget{r-basics}{%
-\section{R basics}\label{r-basics}}
+\protect\hyperlink{start-with-R}{▲ top of page}
+
+\hypertarget{R-basics}{%
+\chapter{R basics}\label{R-basics}}
 
 This tutorial is an introduction to R adapted from \citep{Healy:2019:Ch.2} with extra material from \citep{Matloff:2019}. If you already have R experience, you might still want to browse this section in case you find something new.
 
 \protect\hyperlink{prerequisites}{Prerequisites} should be completed before proceeding. After that, the tutorial should take no longer than 50 minutes.
 
 \hypertarget{style-guide}{%
-\subsection{Style guide}\label{style-guide}}
+\section{Style guide}\label{style-guide}}
 
 A style guide is about making your script readable. We ask you to observe a small set of guidelines that will help us help you when you have questions about your script.
 
@@ -847,7 +827,7 @@ Instead, group chunks of code into paragraphs separated by blank lines to reveal
 For more information of R scripting style generally see McConnell \citeyearpar{McConnell:2004} and Wickham \citeyearpar{Wickham:2019:styleguide}.
 
 \hypertarget{open-an-r-script}{%
-\subsection{Open an R script}\label{open-an-r-script}}
+\section{Open an R script}\label{open-an-r-script}}
 
 Use \emph{File \textgreater{} New File \textgreater{} R Script} to create a new R script
 
@@ -858,30 +838,45 @@ Use \emph{File \textgreater{} New File \textgreater{} R Script} to create a new 
 \item
   Save it in the \texttt{scripts} directory.
 \item
-  (optional) Add a minimal header at the top of the script, e.g.:
+  Code chunks like the one below can be copied and pasted to your R script. Add a minimal header at the top of the script. Use \texttt{library()} to load the packages we will be using.
 \end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# R basics }
-\CommentTok{\# 2021 ASEE Workshop: Engaging with MIDFIELD Data}
-\CommentTok{\# Name }
-\CommentTok{\# 2021{-}07{-}26}
+\CommentTok{\# name }
+\CommentTok{\# date }
+
+\CommentTok{\# packages}
+\FunctionTok{library}\NormalTok{(}\StringTok{"midfieldr"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"data.table"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+After adding a code chunk to your script, run the script. Options for running a script:
 
 \begin{itemize}
 \tightlist
 \item
-  Use \texttt{library()} to load the packages we will use
+  To run an entire script, select all lines with \texttt{ctrl\ A} then run the lines using \texttt{ctrl\ Enter} (for the Mac OS: \texttt{cmd\ A} and \texttt{cmd\ Return}).
+\item
+  To run select lines, use the cursor to select the lines you want to run, then \texttt{ctrl\ Enter} (for the Mac OS: \texttt{cmd\ Return}).
+\item
+  To run from the beginning to a line, place your cursor at the line, then \texttt{ctrl\ alt\ B} (\texttt{cmd\ option\ B} Mac OS)
 \end{itemize}
+
+If you get an error similar to:
+
+\begin{verbatim}
+    Error in library("data.table") : there is no package called 'data.table'
+\end{verbatim}
+
+then the package needs to be installed. If you need a refresher on installing packages, see \protect\hyperlink{install-cran-packages}{Install CRAN packages}. Once the missing package is installed, you can rerun the script.
+
+The following code chunk is optional for controlling the number of rows of a data frame that are printed to the Console screen.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Packages can be loaded only if they have previously been installed}
-\FunctionTok{library}\NormalTok{(}\StringTok{"midfieldr"}\NormalTok{)}
-\FunctionTok{library}\NormalTok{(}\StringTok{"data.table"}\NormalTok{)}
-
 \CommentTok{\# Optional code to control data.table printing}
 \FunctionTok{options}\NormalTok{(}
   \AttributeTok{datatable.print.nrows =} \DecValTok{10}\NormalTok{,}
@@ -891,10 +886,20 @@ Use \emph{File \textgreater{} New File \textgreater{} R Script} to create a new 
 \end{Highlighting}
 \end{Shaded}
 
-Code chunks like the one above can be copied and pasted to your R script.
+Guidelines
+
+\begin{itemize}
+\tightlist
+\item
+  As you work through the tutorial, type a line or chunk of code then \emph{File \textgreater{} Save} and run the script.\\
+\item
+  Confirm that your result matches the tutorial result.\\
+\item
+  \textbf{Your turn} exercises give you chance to devise your own examples and check them out. You learn by doing (but you knew that already)!
+\end{itemize}
 
 \hypertarget{everything-in-r-has-a-name}{%
-\subsection{Everything in R has a name}\label{everything-in-r-has-a-name}}
+\section{Everything in R has a name}\label{everything-in-r-has-a-name}}
 
 In R, every object has a name.
 
@@ -959,7 +964,7 @@ If you want to know if a name has already been used in a package you have loaded
 If the name is in use, a help page appears in the RStudio Help pane.
 
 \hypertarget{everything-in-r-is-an-object}{%
-\subsection{Everything in R is an object}\label{everything-in-r-is-an-object}}
+\section{Everything in R is an object}\label{everything-in-r-is-an-object}}
 
 Origins of R objects
 
@@ -981,16 +986,6 @@ Type this line of code in your script, \emph{Save.} \texttt{c()} is the function
 \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{25}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-Options for running a script:
-
-\begin{itemize}
-\tightlist
-\item
-  Select a line (or lines) and \texttt{ctrl\ Enter} (Mac OS \texttt{cmd\ Return})
-\item
-  To run from the beginning to a line \texttt{ctrl\ alt\ B} (Mac OS \texttt{cmd\ option\ B})
-\end{itemize}
 
 Run the script and your Console should show \texttt{{[}1{]}\ \ 1\ \ 2\ \ 3\ \ 1\ \ 3\ 25}.
 
@@ -1161,7 +1156,7 @@ Here you can see how the row labels in the printed output work. There are 5 IDs 
 The ``toy'' data sets in midfieldr (\texttt{toy\_student}, \texttt{toy\_course}, \texttt{toy\_term}, and \texttt{toy\_degree}) include student unit records for only 100 students---not a statistically representative sample---used for package examples like those above.
 
 \hypertarget{r-functions-do-things}{%
-\subsection{R functions do things}\label{r-functions-do-things}}
+\section{R functions do things}\label{r-functions-do-things}}
 
 Functions do something useful
 
@@ -1372,7 +1367,7 @@ The help pages for functions are accessed via the Console. By viewing the help p
 \end{itemize}
 
 \hypertarget{r-functions-come-in-packages}{%
-\subsection{R functions come in packages}\label{r-functions-come-in-packages}}
+\section{R functions come in packages}\label{r-functions-come-in-packages}}
 
 Functions are bundled in packages
 
@@ -1444,7 +1439,7 @@ Don't panic! We will use only a small number of these functions from data.table.
 \end{Shaded}
 
 \hypertarget{r-objects-have-class}{%
-\subsection{R objects have class}\label{r-objects-have-class}}
+\section{R objects have class}\label{r-objects-have-class}}
 
 Everything is an object and every object has a class.
 
@@ -1570,7 +1565,7 @@ The data frame as a whole has a class; so do the individual columns.
 \end{Shaded}
 
 \hypertarget{r-objects-have-structure}{%
-\subsection{R objects have structure}\label{r-objects-have-structure}}
+\section{R objects have structure}\label{r-objects-have-structure}}
 
 To see inside an object ask for its structure using the \texttt{str()} function.
 
@@ -1611,7 +1606,7 @@ To see inside an object ask for its structure using the \texttt{str()} function.
 \end{Shaded}
 
 \hypertarget{r-only-does-what-you-tell-it}{%
-\subsection{R only does what you tell it}\label{r-only-does-what-you-tell-it}}
+\section{R only does what you tell it}\label{r-only-does-what-you-tell-it}}
 
 Healy \citeyearpar{Healy:2019} offers this advice for specific things to watch out for:
 
@@ -1730,7 +1725,7 @@ In data table syntax, we go one step further and add a grouping index, that is
 This can be read as ``Take DT, subset/reorder rows using \texttt{i}, then calculate \texttt{j}, grouped by \texttt{by}.'' You don't have to go into it any more deeply than this for now---we will illustrate it by example in the midfieldr tutorials.
 
 \hypertarget{to-get-help}{%
-\subsection{To get help}\label{to-get-help}}
+\section{To get help}\label{to-get-help}}
 
 \textbf{Online resources}
 
@@ -1876,7 +1871,7 @@ try one of the midfieldr function examples,
 \end{Shaded}
 
 \hypertarget{keyboard-shortcuts}{%
-\subsection{Keyboard shortcuts}\label{keyboard-shortcuts}}
+\section{Keyboard shortcuts}\label{keyboard-shortcuts}}
 
 If you are working in RStudio, you can see the menu of keyboard
 shortcuts using the menu \emph{Tools \textgreater{} Keyboard Shortcuts Help}. The
@@ -1911,7 +1906,7 @@ Lastly, any time you want a fresh start in your working environment,
 \end{itemize}
 
 \hypertarget{next-steps}{%
-\subsection{Next steps}\label{next-steps}}
+\section{Next steps}\label{next-steps}}
 
 That concludes our brief introduction to R. To continue, return to your starting point (links below) and from there, select the next link in your progression.
 
@@ -1925,26 +1920,115 @@ That concludes our brief introduction to R. To continue, return to your starting
   \protect\hyperlink{after-the-workshop}{After the workshop}
 \end{itemize}
 
-\hypertarget{graph-basics}{%
-\section{Graph basics}\label{graph-basics}}
+\protect\hyperlink{start-with-R}{▲ top of page}
 
-Coming soon (after the workshop)
+\hypertarget{graph-basics}{%
+\chapter{Graph basics}\label{graph-basics}}
+
+Decline by Randall Munroe (xkcd.com) is licensed under CC BY-NC 2.5
+
+\hypertarget{introduction-1}{%
+\section{Introduction}\label{introduction-1}}
+
+This tutorial is an introduction to ggplot2 adapted from Chapter 3 from \citep{Healy:2019}. If you already have R experience, you might still want to browse this section in case you find something new.
+
+\protect\hyperlink{prerequisites}{Prerequisites} should be completed before proceeding. After that, the tutorial should take about an hour.
+
+Create a new script for this tutorial.
+
+\begin{itemize}
+\tightlist
+\item
+  See \protect\hyperlink{open-an-r-script}{Open an R script} if you need a refresher on creating, saving, and running an R script.
+\item
+  At the top of the script add a minimal header and install and load the packages indicated.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Graph basics }
+\CommentTok{\# name }
+\CommentTok{\# date }
+
+\FunctionTok{library}\NormalTok{(}\StringTok{"gapminder"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+If you get an error like this one after running the script,
+
+\begin{verbatim}
+    Error in library("gapminder") : there is no package called 'gapminder'
+\end{verbatim}
+
+then the package needs to be installed. If you need a refresher on installing packages, see \protect\hyperlink{install-cran-packages}{Install CRAN packages}. Once the missing package is installed, you can rerun the script.
+
+Guidelines
+
+\begin{itemize}
+\tightlist
+\item
+  As you work through the tutorial, type a line or chunk of code then \emph{File \textgreater{} Save} and run the script.\\
+\item
+  Confirm that your result matches the tutorial result.\\
+\item
+  \textbf{Your turn} exercises give you chance to devise your own examples and check them out. You learn by doing (but you knew that already)!
+\end{itemize}
+
+\hypertarget{data-structure}{%
+\section{Data structure}\label{data-structure}}
+
+Data for analysis and graphing are often laid out in ``block record'' or ``long'' form with every key variable and response variable in their own columns \citep{Mount+Zumel:2019:fluid-data}. We use this form regularly, for example, in preparing data for graphing using the ggplot2 package.
+
+The \texttt{gapminder} data frame is tidy. We use \texttt{glimpse()} to get a look at the structure.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# glimpse(gapminder)}
+\end{Highlighting}
+\end{Shaded}
+
+And we can just type its name to see the first few rows,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder}
+\CommentTok{\#\textgreater{} \# A tibble: 1,704 x 6}
+\CommentTok{\#\textgreater{}    country     continent  year lifeExp      pop gdpPercap}
+\CommentTok{\#\textgreater{}    \textless{}fct\textgreater{}       \textless{}fct\textgreater{}     \textless{}int\textgreater{}   \textless{}dbl\textgreater{}    \textless{}int\textgreater{}     \textless{}dbl\textgreater{}}
+\CommentTok{\#\textgreater{}  1 Afghanistan Asia       1952    28.8  8425333      779.}
+\CommentTok{\#\textgreater{}  2 Afghanistan Asia       1957    30.3  9240934      821.}
+\CommentTok{\#\textgreater{}  3 Afghanistan Asia       1962    32.0 10267083      853.}
+\CommentTok{\#\textgreater{}  4 Afghanistan Asia       1967    34.0 11537966      836.}
+\CommentTok{\#\textgreater{}  5 Afghanistan Asia       1972    36.1 13079460      740.}
+\CommentTok{\#\textgreater{}  6 Afghanistan Asia       1977    38.4 14880372      786.}
+\CommentTok{\#\textgreater{}  7 Afghanistan Asia       1982    39.9 12881816      978.}
+\CommentTok{\#\textgreater{}  8 Afghanistan Asia       1987    40.8 13867957      852.}
+\CommentTok{\#\textgreater{}  9 Afghanistan Asia       1992    41.7 16317921      649.}
+\CommentTok{\#\textgreater{} 10 Afghanistan Asia       1997    41.8 22227415      635.}
+\CommentTok{\#\textgreater{} \# ... with 1,694 more rows}
+\end{Highlighting}
+\end{Shaded}
+
+\protect\hyperlink{start-with-R}{▲ top of page}
 
 \hypertarget{data-basics}{%
-\section{Data basics}\label{data-basics}}
+\chapter{Data basics}\label{data-basics}}
 
-Coming soon (after the workshop)
+This tutorial is an introduction to \ldots{}
+
+\protect\hyperlink{prerequisites}{Prerequisites} should be completed before proceeding. After that, the tutorial should take no longer than 50 minutes.
 
 \protect\hyperlink{start-with-R}{▲ top of page}
 
 \hypertarget{display-design}{%
 \chapter{Designing effective displays}\label{display-design}}
 
-\hypertarget{stuff-2}{%
-\section{Stuff}\label{stuff-2}}
+\hypertarget{stuff}{%
+\section{Stuff}\label{stuff}}
 
-\hypertarget{more-stuff-2}{%
-\section{More stuff}\label{more-stuff-2}}
+\hypertarget{more-stuff}{%
+\section{More stuff}\label{more-stuff}}
 
 \protect\hyperlink{display-design}{▲ top of page}
 
