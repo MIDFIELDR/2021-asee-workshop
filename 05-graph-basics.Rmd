@@ -293,11 +293,7 @@ Help pages for more information:
    
 ### Exercise
 
-In this exercise, we do some data manipulation without explaining the steps. We cover such details in the [Data basics] tutorial. Here we are focusing on constructing graphs. 
-
-- Use the following code chunk to create a random sample of the `student` data set with columns for SAT math and verbal scores.   
-
-```{r}
+```{r include = FALSE}
 # We only need two columns for the plot
 cols_we_want <- c("sat_math", "sat_verbal")
 sat <- student[, ..cols_we_want]
@@ -307,6 +303,14 @@ sat <- na.omit(sat)
 
 # We sample to reduce computational time 
 sat <- sat[sample(nrow(sat), 3000)]
+
+fwrite(sat, "data/sat.csv")
+```
+
+A data set has been extracted from the midfieldr `student` table with a sample of 3000 student SAT scores. 
+
+```{r}
+sat <- fread("https://github.com/MIDFIELDR/2021-asee-workshop/tree/main/data/sat.csv")
 ```
 
 - Use the resulting `dtf` data frame and create a scatterplot of verbal scores `sat_verbal` as a function of math scores `sat_math`.     
