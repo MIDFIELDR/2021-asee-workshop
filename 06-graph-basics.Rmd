@@ -659,10 +659,20 @@ dir('data')
 # [7] "sat.csv"              "student_demogr.csv"  
 # [9] "student_demogr.txt"   "student_demogr_2.txt"
 
-zip(zipfile = "data/testZip", files = c("data/student_demogr.txt"))
-
 library(zip)
-zip("data/test.zip", c("data/student_demogr.txt"))
+zip(
+  zipfile = "data/workshop_data.zip",
+  files = c("data/student_demogr.txt"),
+  include_directories = FALSE,
+  root = ".",
+  mode = "cherry-pick"
+)
+
+
+
+zip_url <- "https://github.com/MIDFIELDR/2021-asee-workshop/raw/main/data/test.zip"
+
+download.file(zip_url, destfile = "data/download_zip.zip")
 
 ```
 
