@@ -48,22 +48,36 @@ zipfile <- "data/prepared_data.zip"
 
 This tutorial is an introduction to ggplot2 adapted from Chapter 3 from [@Healy:2019]. If you already have R experience, you might still want to browse this section in case you find something new. 
 
-Some preliminaries: 
+[Prerequisites] should be completed before proceeding. After that, the tutorial should take about an hour. 
 
-- [Prerequisites] should be completed before proceeding. After that, the tutorial should take about an hour. 
-- Download the `prepared_data_graph_basics.zip` file from the workshop website with the following code. (You can copy and paste the code to the Console; you only have to run this once.) The destination file assumes you have a `data` directory in your project. 
+- As you work through the tutorial, type a line or chunk of code then *File &gt; Save* and run the script.    
+- Confirm that your result matches the tutorial result.  
+- The **exercises** give you chance to practice your new skills to learn by doing (but you knew that already)!
+
+### Download prepared data
+
+Download the `prepared_data_graph_basics.zip` file from the workshop website with the following code. 
+
+- You can copy and paste the code to the Console; you only have to run this once.  
+- The destination file assumes you have a `data` directory in your project.  
 
 ``` r
     zip_url <- paste0("https://github.com/MIDFIELDR/2021-asee-workshop/",
                       "raw/main/data/prepared_data.zip")
     download.file(zip_url, destfile = "data/prepared_data.zip")
 ```
-- Navigate to your `data` directory and extract the compressed files
-- Move the files from the `prepared_data_graph_basics` folder up one level to the `data` folder. 
-- Your data directory should now include the following RDS data files used in the exercises in the tutorial. 
 
+If the download is successful, 
+
+- Navigate to your `data` directory and extract the compressed files.    
+- Move the files into the top level of the `data` folder, which should now include:    
+
+``` r
         data\
             sat.rds
+```
+
+### Start a new script
 
 Create a new script for this tutorial. 
 
@@ -100,11 +114,7 @@ If you get an error like this one after running the script,
 
 then the package needs to be installed. If you need a refresher on installing packages, see [Install CRAN packages]. Once the missing package is installed, you can rerun the script. 
 
-Guidelines 
 
-- As you work through the tutorial, type a line or chunk of code then *File &gt; Save* and run the script.    
-- Confirm that your result matches the tutorial result.  
-- The **exercises** give you chance to practice your new skills to learn by doing (but you knew that already)!
  
 
 
@@ -315,7 +325,7 @@ Help pages for more information:
    
 ### Exercise
 
-```{r eval = FALSE}
+```{r eval = FALSE, echo = FALSE}
 # Create sat.rds to zip
 
 # We only need two columns for the plot
@@ -341,14 +351,14 @@ zip(
 )
 ```
 
-A data set has been extracted from the midfieldr `student` table with a sample of 3000 student SAT scores. Download the file using the data.table  `fread()` function as follows. (If the download fails, instructions for manually downloading the file are [here]().)
+A data set has been extracted from the midfieldr `student` table with a sample of 3000 student SAT scores. These data, `sat.rds` are part of the prepared data from the `.zip` files  you downloaded earlier. Here we read the data in using `readRDS()`. 
 
 ```{r}
-# Prepared data
+# Prepared data from the downloaded zip file
 sat <- readRDS("data/sat.rds")
 ```
 
-- Use the `sat` data frame and create a scatterplot of verbal scores `sat_verbal` as a function of math scores `sat_math`.     
+- Use the `sat` data and create a scatterplot of verbal scores `sat_verbal` as a function of math scores `sat_math`.     
 - Add a loess fit.     
 - Check your work by comparing your result to the graph below.
 
@@ -418,21 +428,27 @@ With all the layers in one place, we can see that we've coded all the basic step
 
 ### Exercise
 
-The midfieldr `student` table has been summarized by counting the number of students by race/ethnicity and sex, omitting "International" and "Other/Unknown" race values. 
+```{r eval = FALSE, echo = FALSE}
+# Create student_demogr.rds and append to prepared_data.zip
+DT <- copy(student)[, .(race, sex)]
+DT[, race_sex := paste(race, sex)]
+DT[, c("race", "sex") := NULL]
+DT <- DT[, .N, by = "race_sex"]
+DT <- DT[!race_sex %ilike% "Other|International"]
 
-```{r include = FALSE}
-# # Access a data set included with midfieldr
-# DT <- copy(student)[, .(race, sex)]
-# 
-# # Create a combined categorical column
-# DT[, race_sex := paste(race, sex)]
-# DT[, c("race", "sex") := NULL]
-# 
-# # Sum the number of students by this category
-# DT <- DT[, .N, by = "race_sex"]
-# DT <- DT[!race_sex %ilike% "Other|International"]
-# fwrite(DT, file = "data/student_demogr.csv")
+# save as RDS
+saveRDS(DT, "data/student_demogr.rds")
+
+zip_append(
+  zipfile = zipfile,
+  files = c("data/student_demogr.rds"),
+  include_directories = FALSE,
+  root = ".",
+  mode = "cherry-pick"
+)
 ```
+
+The midfieldr `student` table has been summarized by counting the number of students by race/ethnicity and sex, omitting "International" and "Other/Unknown" race values. 
 
 ```{r}
 student_demogr <- readRDS("data/student_demogr.rds")
