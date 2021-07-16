@@ -75,6 +75,7 @@ If the download is successful,
 ``` r
         data\
             sat.rds
+            student_demogr.rds
 ```
 
 ### Start a new script
@@ -435,6 +436,8 @@ DT[, race_sex := paste(race, sex)]
 DT[, c("race", "sex") := NULL]
 DT <- DT[, .N, by = "race_sex"]
 DT <- DT[!race_sex %ilike% "Other|International"]
+DT[, race_sex := factor(race_sex)]
+DT[, race_sex := reorder(race_sex, N)]
 
 # save as RDS
 saveRDS(DT, "data/student_demogr.rds")
@@ -448,9 +451,10 @@ zip_append(
 )
 ```
 
-The midfieldr `student` table has been summarized by counting the number of students by race/ethnicity and sex, omitting "International" and "Other/Unknown" race values. 
+The midfieldr `student` table has been summarized by counting the number of students by race/ethnicity and sex, omitting "International" and "Other/Unknown" race values. These data, `student_demogr.rds` are part of the prepared data from the `.zip` file you downloaded earlier. Again,  we read the data in using `readRDS()`. 
 
 ```{r}
+# Prepared data from the downloaded zip file
 student_demogr <- readRDS("data/student_demogr.rds")
 ```
 
