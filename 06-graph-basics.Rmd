@@ -38,11 +38,27 @@ htmltools::img(src = knitr::include_graphics("figures/xkcd-decline.png"),
 </small>
 <br>
 
+```{r echo = FALSE}
+# setup for zipping prepared data 
+library(zip)
+zipfile <- "data/prepared_data_graph_basics.zip"
+```
+
+
 ## Introduction 
 
 This tutorial is an introduction to ggplot2 adapted from Chapter 3 from [@Healy:2019]. If you already have R experience, you might still want to browse this section in case you find something new. 
 
 [Prerequisites] should be completed before proceeding. After that, the tutorial should take about an hour. 
+
+Download the `.zip` file from the workshop website. 
+
+```{r}
+zip_url <- paste0("https://github.com/MIDFIELDR/2021-asee-workshop/",
+                  "raw/main/data/prepared_data_graph_basics.zip")
+download.file(zip_url, destfile = "data/prepared_data_graph_basics.zip")
+```
+
 
 Create a new script for this tutorial. 
 
@@ -122,8 +138,8 @@ gapminder
 
 Help pages for more information: 
 
-- [`student`](https://midfieldr.github.io/midfielddata/reference/student.html)
-- [`gapminder`](https://www.rdocumentation.org/packages/gapminder/versions/0.3.0/topics/gapminder)
+- [`student`](https://midfieldr.github.io/midfielddata/reference/student.html){target="_blank"}
+- [`gapminder`](https://www.rdocumentation.org/packages/gapminder/versions/0.3.0/topics/gapminder){target="_blank"}
 
 
 
@@ -145,6 +161,13 @@ Here we map continent (a categorical variable) to `x` and life expectancy (a qua
 life_exp <- ggplot(data = gapminder, mapping = aes(x = continent, y = lifeExp))
 ```
 
+To reduce typing, the first two arguments `data` and `mapping` are often used without naming them explicitly, e.g., 
+
+```{r}
+# Demonstrate implicit data and mapping arguments
+life_exp <- ggplot(gapminder, aes(x = continent, y = lifeExp))
+```
+
 If we print the graph by typing the name of the graph object (everything in R is an object), we get a graph with a range on each axis (from the mapping) but no data shown. We haven't specified the type of visual encoding we want.  
 
 ```{r}
@@ -163,7 +186,6 @@ life_exp <- life_exp +
 life_exp
 ```
  
-
 Notice that the default axis labels are the variables names from the data frame. We can edit those with another layer 
 
 ```{r}
@@ -175,24 +197,6 @@ life_exp <- life_exp +
 life_exp
 ```
 
-You can always write all the layers in one code chunk and obtain the same result.
-
-```{r}
-# Demonstrate all layers in one code chunk 
-p <-  ggplot(data = gapminder, mapping = aes(x = continent, y = lifeExp)) +
-  geom_boxplot() +
-  labs(x = "Continent", y = "Life expectancy (years)")
-```
-
-To reduce typing, the first two arguments `data` and `mapping` are often used without naming them explicitly, e.g., 
-
-```{r}
-# Demonstrate implicit data and mapping arguments
-life_exp <-  ggplot(gapminder, aes(x = continent, y = lifeExp)) +
-  geom_boxplot() +
-  labs(x = "Continent", y = "Life expectancy (years)")
-```
-
 Next, we often want the categorical variable ordered by the quantitative variable instead of alphabetically. Because `continent` is a factor, we can use the `reorder()` function inside the `aes()` argument. 
 
 ```{r}
@@ -202,12 +206,21 @@ life_exp +
 ```
 
 
-Summary. The basics steps for building up the layers of any graph consist of, 
+Summary. The basics steps for building up the layers of any graph: 
 
 - assign the data frame 
 - map variables (columns names) to aesthetic properties  
 - choose geoms  
 - adjust scales, labels, ordering, etc. 
+
+Lastly, while we separate the layers as we work to focus on that specific layer, the layers can always be written in a single code chunk, e.g, 
+
+``` r
+ggplot(gapminder, aes(x = reorder(continent, lifeExp), y = lifeExp)) +
+  geom_boxplot() +
+  labs(x = "Continent", y = "Life expectancy (years)")
+```
+
 
 
 
@@ -229,10 +242,10 @@ ggplot(term, aes(y = hours_term, x = level)) +
 
 Help pages for more information: 
 
-- [`term`](https://midfieldr.github.io/midfielddata/reference/term.html)
-- [`aes()`](https://ggplot2.tidyverse.org/reference/aes.html)  
-- [`geom_boxplot()`](https://ggplot2.tidyverse.org/reference/geom_boxplot.html) 
-- [`geom_labs()`](https://ggplot2.tidyverse.org/reference/labs.html)  
+- [`term`](https://midfieldr.github.io/midfielddata/reference/term.html){target="_blank"}
+- [`aes()`](https://ggplot2.tidyverse.org/reference/aes.html){target="_blank"}  
+- [`geom_boxplot()`](https://ggplot2.tidyverse.org/reference/geom_boxplot.html){target="_blank"} 
+- [`geom_labs()`](https://ggplot2.tidyverse.org/reference/labs.html){target="_blank"}  
 
 
 
@@ -252,7 +265,7 @@ life_gdp
 
 Help pages for more information: 
 
-- [`geom_point()`](https://ggplot2.tidyverse.org/reference/geom_point.html)
+- [`geom_point()`](https://ggplot2.tidyverse.org/reference/geom_point.html){target="_blank"}
 
 
     
@@ -277,7 +290,7 @@ life_gdp +
   geom_smooth(method = "loess", se = TRUE)
 ```
 
-For a linear-fit layer, we add a layer with `method` set to `lm` (short for linear model). The linear fit is not particularly good in this case, but now you know how to do one. 
+For a linear-fit layer, we change `method` to `lm` (short for linear model). The linear fit is not particularly good in this case, but now you know how to do one. 
 
 ```{r}
 life_gdp + 
@@ -287,7 +300,7 @@ life_gdp +
 
 Help pages for more information: 
 
-- [geom_smooth()](https://ggplot2.tidyverse.org/reference/geom_smooth.html) 
+- [geom_smooth()](https://ggplot2.tidyverse.org/reference/geom_smooth.html){target="_blank"} 
 
    
    
@@ -298,17 +311,29 @@ Help pages for more information:
 ### Exercise
 
 ```{r include = FALSE}
-# # We only need two columns for the plot
-# cols_we_want <- c("sat_math", "sat_verbal")
-# sat <- student[, ..cols_we_want]
-# 
-# # Before sampling, we remove NA values 
-# sat <- na.omit(sat)
-# 
-# # We sample to reduce computational time 
-# sat <- sat[sample(nrow(sat), 3000)]
-# 
-# fwrite(sat, "data/sat.csv")
+# Create sat.rds to zip
+
+# We only need two columns for the plot
+cols_we_want <- c("sat_math", "sat_verbal")
+sat <- student[, ..cols_we_want]
+
+# Before sampling, we remove NA values
+sat <- na.omit(sat)
+
+# We sample to reduce computational time
+sat <- sat[sample(nrow(sat), 3000)]
+
+# save as RDS
+saveRDS(sat, "data/sat.rds")
+
+# start the zipped file
+zip(
+  zipfile = zipfile,
+  files = c("data/sat.rds"),
+  include_directories = FALSE,
+  root = ".",
+  mode = "cherry-pick"
+)
 ```
 
 A data set has been extracted from the midfieldr `student` table with a sample of 3000 student SAT scores. Download the file using the data.table  `fread()` function as follows. (If the download fails, instructions for manually downloading the file are [here]().)
@@ -440,7 +465,7 @@ ggplot(student_demogr, aes(x = N, y = race_sex)) +
 
 Help pages for more information:  
 
-- [scale_x_continuous()](https://ggplot2.tidyverse.org/reference/scale_continuous.html) 
+- [scale_x_continuous()](https://ggplot2.tidyverse.org/reference/scale_continuous.html){target="_blank"} 
 
 
 
@@ -489,8 +514,8 @@ ggplot(dtf, aes(y = hours_term, x = level, color = sex)) +
 
 Help pages for more information:  
 
-- [`add_race_sex()`](https://midfieldr.github.io/midfieldr/reference/add_race_sex.html)
-- [`coord_flip()`](https://ggplot2.tidyverse.org/reference/coord_flip.html)
+- [`add_race_sex()`](https://midfieldr.github.io/midfieldr/reference/add_race_sex.html){target="_blank"}
+- [`coord_flip()`](https://ggplot2.tidyverse.org/reference/coord_flip.html){target="_blank"}
 
 
 
@@ -567,7 +592,7 @@ ggplot(stickiness, aes(x = stick,
 
 Help pages for more information: 
 
-- [facet_wrap()](https://ggplot2.tidyverse.org/reference/facet_wrap.html) 
+- [facet_wrap()](https://ggplot2.tidyverse.org/reference/facet_wrap.html){target="_blank"} 
 
 
 
@@ -628,7 +653,7 @@ ggplot(stickiness, aes(x = stick,
 
 Help pages for more information: 
 
-- [reorder()](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/reorder.default)
+- [reorder()](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/reorder.default){target="_blank"}
 
 
 
@@ -651,27 +676,49 @@ student_demogr <- fread(data_location, colClasses = c(race_sex = "factor"))
 
 
 
-```{r}
+```{r include = FALSE}
 dir('data')
-# [1] "case2_course.rds"     "case2_degree.rds"    
-# [3] "case2_student.rds"    "case2_term.rds"      
-# [5] "example2.xlsx"        "info_pkg.rds"        
-# [7] "sat.csv"              "student_demogr.csv"  
+# [1] "case2_course.rds"     "case2_degree.rds"
+# [3] "case2_student.rds"    "case2_term.rds"
+# [5] "example2.xlsx"        "info_pkg.rds"
+# [7] "sat.csv"              "student_demogr.csv"
 # [9] "student_demogr.txt"   "student_demogr_2.txt"
+# 
+# data_location  <- "data/student_demogr.txt"
+# student_demogr <- fread(data_location, colClasses = c(race_sex = "factor"))
+# student_demogr[, race_sex := reorder(race_sex, N) ]
+# ggplot(student_demogr, aes(x = N, y = race_sex)) +
+#   geom_point() +
+#   scale_x_continuous(trans = "log2") +
+#   labs(x = "Number of students admitted (log-2 scale)", y = "")
 
-library(zip)
+saveRDS(student_demogr, "data/student_demogr.rds")
+student_demogr <- readRDS("data/workshop_data/student_demogr.rds")
+
+
 zip(
-  zipfile = "data/workshop_data.zip",
-  files = c("data/student_demogr.txt"),
+  zipfile = zipfile,
+  files = c("data/student_demogr.rds"),
+  include_directories = FALSE,
+  root = ".",
+  mode = "cherry-pick"
+)
+zip_append(
+  zipfile = zipfile,
+  files = c("data/student_demogr.rds"),
   include_directories = FALSE,
   root = ".",
   mode = "cherry-pick"
 )
 
+student_demogr <- readRDS("data/workshop_data/student_demogr.rds")
+ggplot(student_demogr, aes(x = N, y = race_sex)) +
+  geom_point() +
+  scale_x_continuous(trans = "log2") +
+  labs(x = "Number of students admitted (log-2 scale)", y = "")
 
-
-zip_url <- "https://github.com/MIDFIELDR/2021-asee-workshop/raw/main/data/test.zip"
-
+zip_url <- paste0("https://github.com/MIDFIELDR/2021-asee-workshop/",
+                  "raw/main/data/workshop_data.zip")
 download.file(zip_url, destfile = "data/download_zip.zip")
 
 ```

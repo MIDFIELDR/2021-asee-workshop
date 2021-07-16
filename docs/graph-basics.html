@@ -368,8 +368,8 @@ div.csl-indent {
 </ul>
 <p>Help pages for more information:</p>
 <ul>
-<li><a href="https://midfieldr.github.io/midfielddata/reference/student.html"><code>student</code></a></li>
-<li><a href="https://www.rdocumentation.org/packages/gapminder/versions/0.3.0/topics/gapminder"><code>gapminder</code></a></li>
+<li><a href="https://midfieldr.github.io/midfielddata/reference/student.html" target="_blank"><code>student</code></a></li>
+<li><a href="https://www.rdocumentation.org/packages/gapminder/versions/0.3.0/topics/gapminder" target="_blank"><code>gapminder</code></a></li>
 </ul>
 </div>
 </div>
@@ -382,42 +382,35 @@ div.csl-indent {
 <p>Here we map continent (a categorical variable) to <code>x</code> and life expectancy (a quantitative variable) to <code>y</code>. To reduce the number of times we repeat lines of code, we can assign a name (<code>life_gdp</code>) to the empty graph to which we can add layers later.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="graph-basics.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate aesthetic mapping</span></span>
 <span id="cb7-2"><a href="graph-basics.html#cb7-2" aria-hidden="true" tabindex="-1"></a>life_exp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> gapminder, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> lifeExp))</span></code></pre></div>
+<p>To reduce typing, the first two arguments <code>data</code> and <code>mapping</code> are often used without naming them explicitly, e.g.,</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="graph-basics.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate implicit data and mapping arguments</span></span>
+<span id="cb8-2"><a href="graph-basics.html#cb8-2" aria-hidden="true" tabindex="-1"></a>life_exp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> lifeExp))</span></code></pre></div>
 <p>If we print the graph by typing the name of the graph object (everything in R is an object), we get a graph with a range on each axis (from the mapping) but no data shown. We haven’t specified the type of visual encoding we want.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="graph-basics.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine the result</span></span>
-<span id="cb8-2"><a href="graph-basics.html#cb8-2" aria-hidden="true" tabindex="-1"></a>life_exp</span></code></pre></div>
-<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-7-1.png" width="80%" /></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="graph-basics.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine the result</span></span>
+<span id="cb9-2"><a href="graph-basics.html#cb9-2" aria-hidden="true" tabindex="-1"></a>life_exp</span></code></pre></div>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-9-1.png" width="80%" /></p>
 <p>A box-and-whisker plot (or box plot) is designed for displaying the distribution of a single quantitative variable. The visual encoding is specified using the <code>geom_boxplot()</code> layer, where a “geom” is a geometric object. The <code>geom_boxplot()</code> function requires the quantitative variable assigned to <code>y</code> and the categorical variable (if any) to <code>x</code>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="graph-basics.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate adding a geometric object </span></span>
-<span id="cb9-2"><a href="graph-basics.html#cb9-2" aria-hidden="true" tabindex="-1"></a>life_exp <span class="ot">&lt;-</span> life_exp <span class="sc">+</span> </span>
-<span id="cb9-3"><a href="graph-basics.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
-<span id="cb9-4"><a href="graph-basics.html#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="graph-basics.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine the result</span></span>
-<span id="cb9-6"><a href="graph-basics.html#cb9-6" aria-hidden="true" tabindex="-1"></a>life_exp</span></code></pre></div>
-<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-8-1.png" width="80%" /></p>
-<p>Notice that the default axis labels are the variables names from the data frame. We can edit those with another layer</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="graph-basics.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate editing axis labels</span></span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="graph-basics.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate adding a geometric object </span></span>
 <span id="cb10-2"><a href="graph-basics.html#cb10-2" aria-hidden="true" tabindex="-1"></a>life_exp <span class="ot">&lt;-</span> life_exp <span class="sc">+</span> </span>
-<span id="cb10-3"><a href="graph-basics.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Continent&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>)</span>
+<span id="cb10-3"><a href="graph-basics.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
 <span id="cb10-4"><a href="graph-basics.html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-5"><a href="graph-basics.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine the result</span></span>
 <span id="cb10-6"><a href="graph-basics.html#cb10-6" aria-hidden="true" tabindex="-1"></a>life_exp</span></code></pre></div>
-<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-9-1.png" width="80%" /></p>
-<p>You can always write all the layers in one code chunk and obtain the same result.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="graph-basics.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate all layers in one code chunk </span></span>
-<span id="cb11-2"><a href="graph-basics.html#cb11-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span>  <span class="fu">ggplot</span>(<span class="at">data =</span> gapminder, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
-<span id="cb11-3"><a href="graph-basics.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb11-4"><a href="graph-basics.html#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Continent&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>)</span></code></pre></div>
-<p>To reduce typing, the first two arguments <code>data</code> and <code>mapping</code> are often used without naming them explicitly, e.g.,</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="graph-basics.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate implicit data and mapping arguments</span></span>
-<span id="cb12-2"><a href="graph-basics.html#cb12-2" aria-hidden="true" tabindex="-1"></a>life_exp <span class="ot">&lt;-</span>  <span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
-<span id="cb12-3"><a href="graph-basics.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb12-4"><a href="graph-basics.html#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Continent&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>)</span></code></pre></div>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-10-1.png" width="80%" /></p>
+<p>Notice that the default axis labels are the variables names from the data frame. We can edit those with another layer</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="graph-basics.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate editing axis labels</span></span>
+<span id="cb11-2"><a href="graph-basics.html#cb11-2" aria-hidden="true" tabindex="-1"></a>life_exp <span class="ot">&lt;-</span> life_exp <span class="sc">+</span> </span>
+<span id="cb11-3"><a href="graph-basics.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Continent&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>)</span>
+<span id="cb11-4"><a href="graph-basics.html#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="graph-basics.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine the result</span></span>
+<span id="cb11-6"><a href="graph-basics.html#cb11-6" aria-hidden="true" tabindex="-1"></a>life_exp</span></code></pre></div>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-11-1.png" width="80%" /></p>
 <p>Next, we often want the categorical variable ordered by the quantitative variable instead of alphabetically. Because <code>continent</code> is a factor, we can use the <code>reorder()</code> function inside the <code>aes()</code> argument.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="graph-basics.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate reordering a categorical variable </span></span>
-<span id="cb13-2"><a href="graph-basics.html#cb13-2" aria-hidden="true" tabindex="-1"></a>life_exp <span class="sc">+</span> </span>
-<span id="cb13-3"><a href="graph-basics.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(continent, lifeExp), <span class="at">y =</span> lifeExp)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="graph-basics.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate reordering a categorical variable </span></span>
+<span id="cb12-2"><a href="graph-basics.html#cb12-2" aria-hidden="true" tabindex="-1"></a>life_exp <span class="sc">+</span> </span>
+<span id="cb12-3"><a href="graph-basics.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(continent, lifeExp), <span class="at">y =</span> lifeExp)</span></code></pre></div>
 <p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-12-1.png" width="80%" /></p>
-<p>Summary. The basics steps for building up the layers of any graph consist of,</p>
+<p>Summary. The basics steps for building up the layers of any graph:</p>
 <ul>
 <li>assign the data frame</li>
 <li>map variables (columns names) to aesthetic properties<br />
@@ -426,6 +419,10 @@ div.csl-indent {
 </li>
 <li>adjust scales, labels, ordering, etc.</li>
 </ul>
+<p>Lastly, while we separate the layers as we work to focus on that specific layer, the layers can always be written in a single code chunk, e.e.g,</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="graph-basics.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(continent, lifeExp), <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="graph-basics.html#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb13-3"><a href="graph-basics.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Continent&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>)</span></code></pre></div>
 <div id="exercise-1" class="section level3" number="6.3.1">
 <h3><span class="header-section-number">6.3.1</span> Exercise</h3>
 <ul>
@@ -437,11 +434,11 @@ div.csl-indent {
 <p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-13-1.png" width="80%" /></p>
 <p>Help pages for more information:</p>
 <ul>
-<li><a href="https://midfieldr.github.io/midfielddata/reference/term.html"><code>term</code></a></li>
-<li><a href="https://ggplot2.tidyverse.org/reference/aes.html"><code>aes()</code></a><br />
+<li><a href="https://midfieldr.github.io/midfielddata/reference/term.html" target="_blank"><code>term</code></a></li>
+<li><a href="https://ggplot2.tidyverse.org/reference/aes.html" target="_blank"><code>aes()</code></a><br />
 </li>
-<li><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html"><code>geom_boxplot()</code></a></li>
-<li><a href="https://ggplot2.tidyverse.org/reference/labs.html"><code>geom_labs()</code></a></li>
+<li><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html" target="_blank"><code>geom_boxplot()</code></a></li>
+<li><a href="https://ggplot2.tidyverse.org/reference/labs.html" target="_blank"><code>geom_labs()</code></a></li>
 </ul>
 </div>
 </div>
@@ -456,7 +453,7 @@ div.csl-indent {
 <p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-14-1.png" width="80%" /></p>
 <p>Help pages for more information:</p>
 <ul>
-<li><a href="https://ggplot2.tidyverse.org/reference/geom_point.html"><code>geom_point()</code></a></li>
+<li><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" target="_blank"><code>geom_point()</code></a></li>
 </ul>
 </div>
 <div id="layer-smooth-fit" class="section level2" number="6.5">
@@ -475,7 +472,7 @@ div.csl-indent {
 <p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-17-1.png" width="80%" /></p>
 <p>Help pages for more information:</p>
 <ul>
-<li><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth()</a></li>
+<li><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html" target="_blank">geom_smooth()</a></li>
 </ul>
 <div id="exercise-2" class="section level3" number="6.5.1">
 <h3><span class="header-section-number">6.5.1</span> Exercise</h3>
@@ -556,7 +553,7 @@ div.csl-indent {
 <p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-29-1.png" width="80%" /></p>
 <p>Help pages for more information:</p>
 <ul>
-<li><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous()</a></li>
+<li><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" target="_blank">scale_x_continuous()</a></li>
 </ul>
 </div>
 </div>
@@ -588,8 +585,8 @@ div.csl-indent {
 <p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-32-1.png" width="80%" /></p>
 <p>Help pages for more information:</p>
 <ul>
-<li><a href="https://midfieldr.github.io/midfieldr/reference/add_race_sex.html"><code>add_race_sex()</code></a></li>
-<li><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html"><code>coord_flip()</code></a></li>
+<li><a href="https://midfieldr.github.io/midfieldr/reference/add_race_sex.html" target="_blank"><code>add_race_sex()</code></a></li>
+<li><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html" target="_blank"><code>coord_flip()</code></a></li>
 </ul>
 </div>
 </div>
@@ -638,7 +635,7 @@ div.csl-indent {
 <p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-35-1.png" width="80%" /></p>
 <p>Help pages for more information:</p>
 <ul>
-<li><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></li>
+<li><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" target="_blank">facet_wrap()</a></li>
 </ul>
 </div>
 </div>
@@ -683,7 +680,7 @@ div.csl-indent {
 <p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-39-1.png" width="80%" /></p>
 <p>Help pages for more information:</p>
 <ul>
-<li><a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/reorder.default">reorder()</a></li>
+<li><a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/reorder.default" target="_blank">reorder()</a></li>
 </ul>
 </div>
 </div>
