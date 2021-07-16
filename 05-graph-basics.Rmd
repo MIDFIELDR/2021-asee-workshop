@@ -294,26 +294,27 @@ Help pages for more information:
 ### Exercise
 
 ```{r include = FALSE}
-# We only need two columns for the plot
-cols_we_want <- c("sat_math", "sat_verbal")
-sat <- student[, ..cols_we_want]
-
-# Before sampling, we remove NA values 
-sat <- na.omit(sat)
-
-# We sample to reduce computational time 
-sat <- sat[sample(nrow(sat), 3000)]
-
-fwrite(sat, "data/sat.csv")
+# # We only need two columns for the plot
+# cols_we_want <- c("sat_math", "sat_verbal")
+# sat <- student[, ..cols_we_want]
+# 
+# # Before sampling, we remove NA values 
+# sat <- na.omit(sat)
+# 
+# # We sample to reduce computational time 
+# sat <- sat[sample(nrow(sat), 3000)]
+# 
+# fwrite(sat, "data/sat.csv")
 ```
 
-A data set has been extracted from the midfieldr `student` table with a sample of 3000 student SAT scores. 
+A data set has been extracted from the midfieldr `student` table with a sample of 3000 student SAT scores. Download the file using the data.table  `fread()` function as follows: 
 
 ```{r}
-sat <- fread("https://github.com/MIDFIELDR/2021-asee-workshop/tree/main/data/sat.csv")
+data_url <- "https://raw.githubusercontent.com/MIDFIELDR/2021-asee-workshop/main/data/sat.csv"
+sat <- fread(data_url)
 ```
 
-- Use the resulting `dtf` data frame and create a scatterplot of verbal scores `sat_verbal` as a function of math scores `sat_math`.     
+- Use the `sat` data frame and create a scatterplot of verbal scores `sat_verbal` as a function of math scores `sat_math`.     
 - Add a loess fit.     
 - Check your work by comparing your result to the graph below.
 
@@ -383,24 +384,32 @@ With all the layers in one place, we can see that we've coded all the basic step
 
 ### Exercise
 
-Again we do some data manipulation without explaining the steps. We cover such details in the [Data basics] tutorial. Here we are focusing on constructing graphs. 
-
-We often use graphs to show numbers of students with a log-scale to compare totals that differ by orders of magnitude.
-
-- Use the following code chunk to count the number students ever enrolled in the sample data by race/ethnicity/sex.    
+The midfieldr `student` table has been summarized by counting the number of students by race/ethnicity and sex, omitting "International" and "Other/Unknown" race values. 
 
 ```{r}
-# Access a data set included with midfieldr
-dtf <- copy(study_stickiness)
+# # Access a data set included with midfieldr
+# DT <- copy(student)[, .(race, sex)]
+# 
+# # Create a combined categorical column
+# DT[, race_sex := paste(race, sex)]
+# DT[, c("race", "sex") := NULL]
+# 
+# # Sum the number of students by this category
+# DT <- DT[, .N, by = "race_sex"]
+# DT <- DT[!race_sex %ilike% "Other|International"]
+# 
+# # Factor class enables reordering
+# DT[, race_sex := factor(race_sex)]
+# DT[, race_sex := reorder(race_sex, N)]
+# fwrite(DT, "data/student_demographic.csv")
+# saveRDS(DT, "data/student_demographic.rds")
+```
 
-# Create a combined categorical column 
-dtf[, race_sex := paste(race, sex)]
+Download the file using the readRDS
 
-# Sum the number of students by this category 
-dtf[, ever := sum(ever), by = "race_sex"]
-
-# Factor class enables reordering 
-dtf[, race_sex := factor(race_sex)]
+```{r}
+student_demogr <- readRDS("data/student_demographic.rds")
+student_demogr
 ```
 
 - Use the resulting `dtf` data frame to graph `ever` on the x-axis with `race_sex` on the y-axis.    
@@ -410,10 +419,10 @@ dtf[, race_sex := factor(race_sex)]
 - Check your work by comparing your result to the graph below.
 
 ```{r echo = FALSE, fig.asp = 1/3}
-ggplot(dtf, aes(x = ever, y = reorder(race_sex, ever))) +
+ggplot(student_demogr, aes(x = N, y = race_sex)) +
   geom_point() +
   scale_x_continuous(trans = "log2") +
-  labs(x = "Number of students enrolled (log-2 scale)", y = "")
+  labs(x = "Number of students admitted (log-2 scale)", y = "")
 ```
 
 Help pages for more information:  
