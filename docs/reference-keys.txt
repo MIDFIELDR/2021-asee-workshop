@@ -60,10 +60,10 @@ layer-facets
 exercise-5
 ordering-panels-and-rows
 exercise-6
+downloading-files-manually
 data-basics
 introduction-2
 display-design
 stuff
 more-stuff
 references
-downloading-files-manually
