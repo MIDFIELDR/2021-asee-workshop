@@ -252,6 +252,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="6.9.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-6"><i class="fa fa-check"></i><b>6.9.1</b> Exercise</a></li>
 </ul></li>
+<li class="chapter" data-level="6.10" data-path="graph-basics.html"><a href="graph-basics.html#downloading-files-manually"><i class="fa fa-check"></i><b>6.10</b> Downloading files manually</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="data-basics.html"><a href="data-basics.html"><i class="fa fa-check"></i><b>7</b> Data basics</a>
 <ul>
@@ -478,9 +479,11 @@ div.csl-indent {
 </ul>
 <div id="exercise-2" class="section level3" number="6.5.1">
 <h3><span class="header-section-number">6.5.1</span> Exercise</h3>
-<p>A data set has been extracted from the midfieldr <code>student</code> table with a sample of 3000 student SAT scores. Download the file using the data.table <code>fread()</code> function as follows:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="graph-basics.html#cb18-1" aria-hidden="true" tabindex="-1"></a>data_url <span class="ot">&lt;-</span> <span class="st">&quot;https://raw.githubusercontent.com/MIDFIELDR/2021-asee-workshop/main/data/sat.csv&quot;</span></span>
-<span id="cb18-2"><a href="graph-basics.html#cb18-2" aria-hidden="true" tabindex="-1"></a>sat <span class="ot">&lt;-</span> <span class="fu">fread</span>(data_url)</span></code></pre></div>
+<p>A data set has been extracted from the midfieldr <code>student</code> table with a sample of 3000 student SAT scores. Download the file using the data.table <code>fread()</code> function as follows. (If the download fails, instructions for manually downloading the file are <a href="">here</a>.)</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="graph-basics.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download data from the workshop data folder</span></span>
+<span id="cb18-2"><a href="graph-basics.html#cb18-2" aria-hidden="true" tabindex="-1"></a>data_url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;https://raw.githubusercontent.com/MIDFIELDR/&quot;</span>, </span>
+<span id="cb18-3"><a href="graph-basics.html#cb18-3" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;2021-asee-workshop/main/data/sat.csv&quot;</span>)</span>
+<span id="cb18-4"><a href="graph-basics.html#cb18-4" aria-hidden="true" tabindex="-1"></a>sat <span class="ot">&lt;-</span> <span class="fu">fread</span>(data_url)</span></code></pre></div>
 <ul>
 <li>Use the <code>sat</code> data frame and create a scatterplot of verbal scores <code>sat_verbal</code> as a function of math scores <code>sat_math</code>.<br />
 </li>
@@ -527,24 +530,18 @@ div.csl-indent {
 <div id="exercise-3" class="section level3" number="6.6.1">
 <h3><span class="header-section-number">6.6.1</span> Exercise</h3>
 <p>The midfieldr <code>student</code> table has been summarized by counting the number of students by race/ethnicity and sex, omitting “International” and “Other/Unknown” race values.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="graph-basics.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # Access a data set included with midfieldr</span></span>
-<span id="cb23-2"><a href="graph-basics.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># DT &lt;- copy(student)[, .(race, sex)]</span></span>
-<span id="cb23-3"><a href="graph-basics.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb23-4"><a href="graph-basics.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># # Create a combined categorical column</span></span>
-<span id="cb23-5"><a href="graph-basics.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># DT[, race_sex := paste(race, sex)]</span></span>
-<span id="cb23-6"><a href="graph-basics.html#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># DT[, c(&quot;race&quot;, &quot;sex&quot;) := NULL]</span></span>
-<span id="cb23-7"><a href="graph-basics.html#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb23-8"><a href="graph-basics.html#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co"># # Sum the number of students by this category</span></span>
-<span id="cb23-9"><a href="graph-basics.html#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co"># DT &lt;- DT[, .N, by = &quot;race_sex&quot;]</span></span>
-<span id="cb23-10"><a href="graph-basics.html#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co"># DT &lt;- DT[!race_sex %ilike% &quot;Other|International&quot;]</span></span>
-<span id="cb23-11"><a href="graph-basics.html#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb23-12"><a href="graph-basics.html#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="co"># # Factor class enables reordering</span></span>
-<span id="cb23-13"><a href="graph-basics.html#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="co"># DT[, race_sex := factor(race_sex)]</span></span>
-<span id="cb23-14"><a href="graph-basics.html#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="co"># DT[, race_sex := reorder(race_sex, N)]</span></span>
-<span id="cb23-15"><a href="graph-basics.html#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="co"># student_demogr &lt;- copy(DT)</span></span>
-<span id="cb23-16"><a href="graph-basics.html#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="co"># save(student_demogr, file = &quot;data/student_demographic.RData&quot;)</span></span></code></pre></div>
-<p>Download the file</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="graph-basics.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;data/student_demographic.RData&quot;</span>)</span></code></pre></div>
+<p>Download the file from the URL given:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="graph-basics.html#cb23-1" aria-hidden="true" tabindex="-1"></a>data_location <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;https://raw.githubusercontent.com/MIDFIELDR/&quot;</span>, </span>
+<span id="cb23-2"><a href="graph-basics.html#cb23-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;2021-asee-workshop/main/data/student_demogr.csv&quot;</span>)</span>
+<span id="cb23-3"><a href="graph-basics.html#cb23-3" aria-hidden="true" tabindex="-1"></a>student_demogr <span class="ot">&lt;-</span> <span class="fu">fread</span>(data_location, <span class="at">colClasses =</span> <span class="fu">c</span>(<span class="at">race_sex =</span> <span class="st">&quot;factor&quot;</span>))</span></code></pre></div>
+<p>If the download fails,</p>
+<ul>
+<li>Navigate to the <a href="https://github.com/MIDFIELDR/2021-asee-workshop/blob/main/data/student_demogr.csv">Workshop source files</a> on GitHub</li>
+<li>Right-click on <em>Raw</em></li>
+<li>Select <em>Save link as…</em> to download and save to your <code>workshop/data/</code> directory.</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="graph-basics.html#cb24-1" aria-hidden="true" tabindex="-1"></a>data_location <span class="ot">&lt;-</span> <span class="st">&quot;data/student_demogr.txt&quot;</span></span>
+<span id="cb24-2"><a href="graph-basics.html#cb24-2" aria-hidden="true" tabindex="-1"></a>student_demogr <span class="ot">&lt;-</span> <span class="fu">fread</span>(data_location, <span class="at">colClasses =</span> <span class="fu">c</span>(<span class="at">race_sex =</span> <span class="st">&quot;factor&quot;</span>))</span></code></pre></div>
 <ul>
 <li>Use the resulting <code>dtf</code> data frame to graph <code>ever</code> on the x-axis with <code>race_sex</code> on the y-axis.<br />
 </li>
@@ -556,7 +553,7 @@ div.csl-indent {
 </li>
 <li>Check your work by comparing your result to the graph below.</li>
 </ul>
-<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-28-1.png" width="80%" /></p>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-29-1.png" width="80%" /></p>
 <p>Help pages for more information:</p>
 <ul>
 <li><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous()</a></li>
@@ -573,7 +570,7 @@ div.csl-indent {
 <span id="cb25-3"><a href="graph-basics.html#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">&quot;log10&quot;</span>) <span class="sc">+</span></span>
 <span id="cb25-4"><a href="graph-basics.html#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;GDP per capita, USD (log10 scale)&quot;</span>, </span>
 <span id="cb25-5"><a href="graph-basics.html#cb25-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>)</span></code></pre></div>
-<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-29-1.png" width="80%" /></p>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-30-1.png" width="80%" /></p>
 <div id="exercise-4" class="section level3" number="6.7.1">
 <h3><span class="header-section-number">6.7.1</span> Exercise</h3>
 <p>Use the following code chunk to construct a data frame with hours per term and level from <code>term</code> merged with <code>sex</code> data from <code>student</code>. Again, we leave explanations of the data manipulation to the <a href="data-basics.html#data-basics">Data basics</a> tutorial.</p>
@@ -588,7 +585,7 @@ div.csl-indent {
 <li>Add the <code>coord_flip()</code> layer to your graph to swap the position of the x, y coordinates to obtain a horizontal boxplot.</li>
 <li>Check your work by comparing your result to the graph below.</li>
 </ul>
-<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-31-1.png" width="80%" /></p>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-32-1.png" width="80%" /></p>
 <p>Help pages for more information:</p>
 <ul>
 <li><a href="https://midfieldr.github.io/midfieldr/reference/add_race_sex.html"><code>add_race_sex()</code></a></li>
@@ -604,7 +601,7 @@ div.csl-indent {
 <span id="cb27-2"><a href="graph-basics.html#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="at">facets =</span> <span class="fu">vars</span>(continent))</span>
 <span id="cb27-3"><a href="graph-basics.html#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-4"><a href="graph-basics.html#cb27-4" aria-hidden="true" tabindex="-1"></a>life_gdp <span class="co"># print the graph</span></span></code></pre></div>
-<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-32-1.png" width="80%" /></p>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-33-1.png" width="80%" /></p>
 <p>Comparisons are facilitated by having the facets appear in one column, by using the <code>ncol</code> argument of <code>facet_wrap()</code>.</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="graph-basics.html#cb28-1" aria-hidden="true" tabindex="-1"></a>life_gdp <span class="ot">&lt;-</span> life_gdp <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="at">facets =</span> <span class="fu">vars</span>(continent), <span class="at">ncol =</span> <span class="dv">1</span>)</span>
 <span id="cb28-2"><a href="graph-basics.html#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -638,7 +635,7 @@ div.csl-indent {
 <li>When that graph seems OK, add a third column name to <code>aes()</code> to add <code>sex</code> by color to the graph.</li>
 <li>Check your work by comparing your result to the graph below.</li>
 </ul>
-<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-34-1.png" width="80%" /></p>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-35-1.png" width="80%" /></p>
 <p>Help pages for more information:</p>
 <ul>
 <li><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></li>
@@ -673,7 +670,7 @@ div.csl-indent {
 <span id="cb33-4"><a href="graph-basics.html#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">&quot;log10&quot;</span>) <span class="sc">+</span></span>
 <span id="cb33-5"><a href="graph-basics.html#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;GDP per capita, USD (log10 scale)&quot;</span>, </span>
 <span id="cb33-6"><a href="graph-basics.html#cb33-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>) </span></code></pre></div>
-<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-37-1.png" width="80%" /></p>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-38-1.png" width="80%" /></p>
 <div id="exercise-6" class="section level3" number="6.9.1">
 <h3><span class="header-section-number">6.9.1</span> Exercise</h3>
 <ul>
@@ -683,15 +680,28 @@ div.csl-indent {
 <li>Order race/ethnicity/sex by the stickiness variable.</li>
 <li>Check your work by comparing your result to the graph below.</li>
 </ul>
-<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-38-1.png" width="80%" /></p>
+<p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-39-1.png" width="80%" /></p>
 <p>Help pages for more information:</p>
 <ul>
 <li><a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/reorder.default">reorder()</a></li>
 </ul>
+</div>
+</div>
+<div id="downloading-files-manually" class="section level2" number="6.10">
+<h2><span class="header-section-number">6.10</span> Downloading files manually</h2>
+<p>If a download using <code>fread()</code> fails,</p>
+<ul>
+<li>Navigate to the <a href="https://github.com/MIDFIELDR/2021-asee-workshop/tree/main/data">Workshop source files</a> on GitHub</li>
+<li>Click on the file you want, taking you to its page.</li>
+<li>Right-click on <em>Raw</em></li>
+<li>Download by selecting <em>Save link as…</em> save to your <code>workshop/data/</code> directory.</li>
+</ul>
+<p>Use <code>fread()</code> as before to read the file. For example,</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="graph-basics.html#cb34-1" aria-hidden="true" tabindex="-1"></a>data_location  <span class="ot">&lt;-</span> <span class="st">&quot;data/student_demogr.txt&quot;</span></span>
+<span id="cb34-2"><a href="graph-basics.html#cb34-2" aria-hidden="true" tabindex="-1"></a>student_demogr <span class="ot">&lt;-</span> <span class="fu">fread</span>(data_location, <span class="at">colClasses =</span> <span class="fu">c</span>(<span class="at">race_sex =</span> <span class="st">&quot;factor&quot;</span>))</span></code></pre></div>
 <p><br>
 <a href="graph-basics.html#graph-basics">▲ top of page</a></p>
 
-</div>
 </div>
 </div>
             </section>
