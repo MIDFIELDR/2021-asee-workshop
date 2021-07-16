@@ -1,0 +1,204 @@
+# Explore the data {#explore-the-data}
+
+```{r echo = FALSE}
+library(knitr)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+knitr::opts_chunk$set(echo = TRUE, comment = "#>", collapse = TRUE) 
+knitr::knit_hooks$set(inline = function(x) {
+        if (!is.numeric(x)) { 
+                x 
+        } else if (x >= 10000) { 
+                prettyNum(round(x, 2), big.mark = ",")
+        } else {
+                prettyNum(round(x, 2))
+        }
+})
+kable2html <- function(x, font_size = NULL, caption = NULL) {
+  font_size <- ifelse(is.null(font_size), 11, font_size)
+  kable_in <- knitr::kable(x, format = "html", caption = caption)
+  kableExtra::kable_styling(kable_input = kable_in, font_size = font_size)
+}
+options(
+  datatable.print.nrows = 10,
+  datatable.print.topn = 5,
+  datatable.print.class = TRUE
+)
+```
+
+
+
+
+
+
+
+
+## Case 2
+
+We selected a student from the midfielddata practice data and extracted the student's unit records from the four MIDFIELD tables.
+
+```{r echo = FALSE}
+library(data.table)
+library(midfieldr)
+library(midfielddata)
+
+# data(student)
+# data(term)
+# data(course)
+# data(degree)
+# 
+# case2_mcid <- "MID26035311"
+# 
+# case2_student <- student[mcid == case2_mcid]
+# case2_term    <- term[mcid == case2_mcid]
+# case2_course  <- course[mcid == case2_mcid]
+# case2_degree  <- degree[mcid == case2_mcid]
+# 
+# saveRDS(case2_student, "data/case2_student.rds")
+# saveRDS(case2_term,    "data/case2_term.rds")
+# saveRDS(case2_course,  "data/case2_course.rds")
+# saveRDS(case2_degree,  "data/case2_degree.rds")
+```
+
+
+### student record
+
+```{r echo = FALSE}
+case2 <- readRDS("data/case2_student.rds")
+n <- ncol(case2)
+sel_1 <- paste(names(case2)[1:7], sep = ", ")
+sel_2 <- paste(names(case2)[8:n], sep = ", ")
+group_1 <- case2[, ..sel_1]
+group_2 <- case2[, ..sel_2]
+```
+
+[`student`](https://midfieldr.github.io/midfielddata/reference/student.html) Link to data dictionary 
+
+<br>
+*student data* for the selected student (part 1)
+```{r echo = FALSE}
+kable2html(group_1)
+```
+
+<br>
+*student data* for the selected student (part 2)
+```{r echo = FALSE}
+kable2html(group_2)
+```
+
+
+
+
+
+
+
+
+
+### term record
+
+```{r echo = FALSE}
+case2 <- readRDS("data/case2_term.rds")
+n <- ncol(case2)
+sel_1 <- paste(names(case2)[1:7], sep = ", ")
+sel_2 <- paste(names(case2)[8:n], sep = ", ")
+group_1 <- case2[, ..sel_1]
+group_2 <- case2[, ..sel_2]
+```
+
+[`term`](https://midfieldr.github.io/midfielddata/reference/term.html) Link to data dictionary 
+
+<br>
+*term data* for the selected student (part 1)
+```{r echo = FALSE}
+kable2html(group_1)
+```
+
+<br>
+*decoding* the CIP
+```{r echo = FALSE}
+# Decoding the CIP
+program <- filter_search(cip, keep_text = c("140701", "141001"))
+program <- program[, .(cip6, cip4name)]
+kable2html(program)
+```
+
+
+<br>
+*term data* for the selected student (part 2)
+```{r echo = FALSE}
+kable2html(group_2)
+```
+
+
+
+
+
+
+
+
+### course record
+
+```{r echo = FALSE}
+case2 <- readRDS("data/case2_course.rds")
+n <- ncol(case2)
+sel_1 <- paste(names(case2)[1:6], sep = ", ")
+sel_2 <- paste(names(case2)[7:n], sep = ", ")
+group_1 <- case2[, ..sel_1]
+group_2 <- case2[, ..sel_2]
+```
+
+[`course`](https://midfieldr.github.io/midfielddata/reference/course.html) Link to data dictionary 
+
+<br>
+*course data* for the selected student (part 1)
+```{r echo = FALSE}
+kable2html(group_1)
+```
+
+<br>
+*course data* for the selected student (part 2)
+```{r echo = FALSE}
+kable2html(group_2)
+```
+
+
+
+
+
+
+
+### degree record
+
+```{r echo = FALSE}
+case2 <- readRDS("data/case2_degree.rds")
+n <- ncol(case2)
+sel_1 <- paste(names(case2), sep = ", ")
+group_1 <- case2[, ..sel_1]
+```
+
+[`degree`](https://midfieldr.github.io/midfielddata/reference/degree.html) Link to data dictionary  
+
+<br>
+*degree data* for the selected student
+```{r echo = FALSE}
+kable2html(group_1)
+```
+
+<br>
+*decoding* the CIP
+```{r echo = FALSE}
+# Decoding the CIP
+program <- filter_search(cip, keep_text = c("141001"))
+program <- program[, .(cip6, cip4name)]
+kable2html(program)
+```
+
+
+
+
+
+
+
+
+<br>
+[&#9650; top of page](#explore-the-data)
+

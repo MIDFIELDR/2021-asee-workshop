@@ -100,7 +100,7 @@ Our three hours are organized approximately as shown.
 df <- wrapr::build_frame(
 	"Min", "Topic" |
 		"15", "Introduction" |
-		"35", "Exploring the data structure" |
+		"35", "Exploring the data" |
 		"35", "Working with R" |
 		"15", "Break" |
 		"20", "Designing effective displays" |

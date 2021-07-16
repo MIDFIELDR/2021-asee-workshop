@@ -387,29 +387,28 @@ With all the layers in one place, we can see that we've coded all the basic step
 The midfieldr `student` table has been summarized by counting the number of students by race/ethnicity and sex, omitting "International" and "Other/Unknown" race values. 
 
 ```{r}
-# # Access a data set included with midfieldr
-# DT <- copy(student)[, .(race, sex)]
-# 
-# # Create a combined categorical column
-# DT[, race_sex := paste(race, sex)]
-# DT[, c("race", "sex") := NULL]
-# 
-# # Sum the number of students by this category
-# DT <- DT[, .N, by = "race_sex"]
-# DT <- DT[!race_sex %ilike% "Other|International"]
-# 
-# # Factor class enables reordering
-# DT[, race_sex := factor(race_sex)]
-# DT[, race_sex := reorder(race_sex, N)]
-# fwrite(DT, "data/student_demographic.csv")
-# saveRDS(DT, "data/student_demographic.rds")
+# Access a data set included with midfieldr
+DT <- copy(student)[, .(race, sex)]
+
+# Create a combined categorical column
+DT[, race_sex := paste(race, sex)]
+DT[, c("race", "sex") := NULL]
+
+# Sum the number of students by this category
+DT <- DT[, .N, by = "race_sex"]
+DT <- DT[!race_sex %ilike% "Other|International"]
+
+# Factor class enables reordering
+DT[, race_sex := factor(race_sex)]
+DT[, race_sex := reorder(race_sex, N)]
+student_demogr <- copy(DT)
+save(student_demogr, file = "data/student_demogr.rda")
 ```
 
-Download the file using the readRDS
+Download the file
 
 ```{r}
-student_demogr <- readRDS("data/student_demographic.rds")
-student_demogr
+load("data/student_demogr.rda")
 ```
 
 - Use the resulting `dtf` data frame to graph `ever` on the x-axis with `race_sex` on the y-axis.    
@@ -502,7 +501,7 @@ life_gdp # print the graph
 
 Comparisons are facilitated by having the facets appear in one column, by using the `ncol` argument of `facet_wrap()`. 
 
-```{r fig.asp = 1.5}
+```{r L505, fig.asp = 1.5}
 life_gdp <- life_gdp + facet_wrap(facets = vars(continent), ncol = 1)
 
 life_gdp # print the graph
@@ -510,7 +509,7 @@ life_gdp # print the graph
 
 In a faceted display, all panels have identical scales (the default) to facilitate comparison. Again, all the layers could have been be coded at once, for example, 
 
-```{r eval = FALSE}
+```{r L512, eval = FALSE}
 ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
   facet_wrap(facets = vars(continent), ncol = 1) +
   geom_point() +
@@ -619,4 +618,4 @@ Help pages for more information:
 
 
 <br>
-[&#9650; top of page](#start-with-R)
+[&#9650; top of page](#graph-basics)

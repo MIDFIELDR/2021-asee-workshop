@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 R basics | Engaging with MIDFIELD Data</title>
+  <title>5 R basics | Engaging with MIDFIELD Data</title>
   <meta name="description" content="Workshop at the 2021 ASEE Annual Conference" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 R basics | Engaging with MIDFIELD Data" />
+  <meta property="og:title" content="5 R basics | Engaging with MIDFIELD Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="/figures/midfield-grad-logo.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="MIDFIELDR/2021-asee-workshop" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 R basics | Engaging with MIDFIELD Data" />
+  <meta name="twitter:title" content="5 R basics | Engaging with MIDFIELD Data" />
   
   <meta name="twitter:description" content="Workshop at the 2021 ASEE Annual Conference" />
   <meta name="twitter:image" content="/figures/midfield-grad-logo.png" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="work-with-R.html"/>
-<link rel="next" href="graph-basics.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -53,6 +53,8 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -183,76 +185,44 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2.7" data-path="install-everything.html"><a href="install-everything.html#exiting-r-and-rstudio"><i class="fa fa-check"></i><b>2.7</b> Exiting R and RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="work-with-R.html"><a href="work-with-R.html"><i class="fa fa-check"></i><b>3</b> Working with R</a>
+<li class="chapter" data-level="3" data-path="explore-the-data.html"><a href="explore-the-data.html"><i class="fa fa-check"></i><b>3</b> Explore the data</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="work-with-R.html"><a href="work-with-R.html#prerequisites"><i class="fa fa-check"></i><b>3.1</b> Prerequisites</a></li>
-<li class="chapter" data-level="3.2" data-path="work-with-R.html"><a href="work-with-R.html#new-to-r"><i class="fa fa-check"></i><b>3.2</b> New to R?</a></li>
-<li class="chapter" data-level="3.3" data-path="work-with-R.html"><a href="work-with-R.html#familiar-with-r"><i class="fa fa-check"></i><b>3.3</b> Familiar with R?</a></li>
-<li class="chapter" data-level="3.4" data-path="work-with-R.html"><a href="work-with-R.html#after-the-workshop"><i class="fa fa-check"></i><b>3.4</b> After the workshop</a>
+<li class="chapter" data-level="3.1" data-path="explore-the-data.html"><a href="explore-the-data.html#case-2"><i class="fa fa-check"></i><b>3.1</b> Case 2</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="work-with-R.html"><a href="work-with-R.html#developing-r-skills"><i class="fa fa-check"></i><b>3.4.1</b> Developing R skills</a></li>
-<li class="chapter" data-level="3.4.2" data-path="work-with-R.html"><a href="work-with-R.html#continuing-the-case-study"><i class="fa fa-check"></i><b>3.4.2</b> Continuing the case study</a></li>
-<li class="chapter" data-level="3.4.3" data-path="work-with-R.html"><a href="work-with-R.html#exploring-midfieldr-functions"><i class="fa fa-check"></i><b>3.4.3</b> Exploring midfieldr functions</a></li>
+<li class="chapter" data-level="3.1.1" data-path="explore-the-data.html"><a href="explore-the-data.html#student-record"><i class="fa fa-check"></i><b>3.1.1</b> student record</a></li>
+<li class="chapter" data-level="3.1.2" data-path="explore-the-data.html"><a href="explore-the-data.html#term-record"><i class="fa fa-check"></i><b>3.1.2</b> term record</a></li>
+<li class="chapter" data-level="3.1.3" data-path="explore-the-data.html"><a href="explore-the-data.html#course-record"><i class="fa fa-check"></i><b>3.1.3</b> course record</a></li>
+<li class="chapter" data-level="3.1.4" data-path="explore-the-data.html"><a href="explore-the-data.html#degree-record"><i class="fa fa-check"></i><b>3.1.4</b> degree record</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="R-basics.html"><a href="R-basics.html"><i class="fa fa-check"></i><b>4</b> R basics</a>
+<li class="chapter" data-level="4" data-path="work-with-R.html"><a href="work-with-R.html"><i class="fa fa-check"></i><b>4</b> Working with R</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="R-basics.html"><a href="R-basics.html#style-guide"><i class="fa fa-check"></i><b>4.1</b> Style guide</a></li>
-<li class="chapter" data-level="4.2" data-path="R-basics.html"><a href="R-basics.html#open-an-r-script"><i class="fa fa-check"></i><b>4.2</b> Open an R script</a></li>
-<li class="chapter" data-level="4.3" data-path="R-basics.html"><a href="R-basics.html#everything-in-r-has-a-name"><i class="fa fa-check"></i><b>4.3</b> Everything in R has a name</a></li>
-<li class="chapter" data-level="4.4" data-path="R-basics.html"><a href="R-basics.html#everything-in-r-is-an-object"><i class="fa fa-check"></i><b>4.4</b> Everything in R is an object</a></li>
-<li class="chapter" data-level="4.5" data-path="R-basics.html"><a href="R-basics.html#r-functions-do-things"><i class="fa fa-check"></i><b>4.5</b> R functions do things</a></li>
-<li class="chapter" data-level="4.6" data-path="R-basics.html"><a href="R-basics.html#r-functions-come-in-packages"><i class="fa fa-check"></i><b>4.6</b> R functions come in packages</a></li>
-<li class="chapter" data-level="4.7" data-path="R-basics.html"><a href="R-basics.html#r-objects-have-class"><i class="fa fa-check"></i><b>4.7</b> R objects have class</a></li>
-<li class="chapter" data-level="4.8" data-path="R-basics.html"><a href="R-basics.html#r-objects-have-structure"><i class="fa fa-check"></i><b>4.8</b> R objects have structure</a></li>
-<li class="chapter" data-level="4.9" data-path="R-basics.html"><a href="R-basics.html#r-only-does-what-you-tell-it"><i class="fa fa-check"></i><b>4.9</b> R only does what you tell it</a></li>
-<li class="chapter" data-level="4.10" data-path="R-basics.html"><a href="R-basics.html#to-get-help"><i class="fa fa-check"></i><b>4.10</b> To get help</a></li>
-<li class="chapter" data-level="4.11" data-path="R-basics.html"><a href="R-basics.html#keyboard-shortcuts"><i class="fa fa-check"></i><b>4.11</b> Keyboard shortcuts</a></li>
-<li class="chapter" data-level="4.12" data-path="R-basics.html"><a href="R-basics.html#next-steps"><i class="fa fa-check"></i><b>4.12</b> Next steps</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="graph-basics.html"><a href="graph-basics.html"><i class="fa fa-check"></i><b>5</b> Graph basics</a>
+<li class="chapter" data-level="4.1" data-path="work-with-R.html"><a href="work-with-R.html#prerequisites"><i class="fa fa-check"></i><b>4.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="4.2" data-path="work-with-R.html"><a href="work-with-R.html#new-to-r"><i class="fa fa-check"></i><b>4.2</b> New to R?</a></li>
+<li class="chapter" data-level="4.3" data-path="work-with-R.html"><a href="work-with-R.html#familiar-with-r"><i class="fa fa-check"></i><b>4.3</b> Familiar with R?</a></li>
+<li class="chapter" data-level="4.4" data-path="work-with-R.html"><a href="work-with-R.html#after-the-workshop"><i class="fa fa-check"></i><b>4.4</b> After the workshop</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="graph-basics.html"><a href="graph-basics.html#introduction-1"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="graph-basics.html"><a href="graph-basics.html#expected-data-structure"><i class="fa fa-check"></i><b>5.2</b> Expected data structure</a>
-<ul>
-<li class="chapter" data-level="5.2.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise"><i class="fa fa-check"></i><b>5.2.1</b> Exercise</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="graph-basics.html"><a href="graph-basics.html#anatomy-of-a-graph"><i class="fa fa-check"></i><b>5.3</b> Anatomy of a graph</a>
-<ul>
-<li class="chapter" data-level="5.3.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-1"><i class="fa fa-check"></i><b>5.3.1</b> Exercise</a></li>
-</ul></li>
-<li class="chapter" data-level="5.4" data-path="graph-basics.html"><a href="graph-basics.html#layer-points"><i class="fa fa-check"></i><b>5.4</b> Layer: points</a></li>
-<li class="chapter" data-level="5.5" data-path="graph-basics.html"><a href="graph-basics.html#layer-smooth-fit"><i class="fa fa-check"></i><b>5.5</b> Layer: smooth fit</a>
-<ul>
-<li class="chapter" data-level="5.5.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-2"><i class="fa fa-check"></i><b>5.5.1</b> Exercise</a></li>
-</ul></li>
-<li class="chapter" data-level="5.6" data-path="graph-basics.html"><a href="graph-basics.html#layer-scale"><i class="fa fa-check"></i><b>5.6</b> Layer: scale</a>
-<ul>
-<li class="chapter" data-level="5.6.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-3"><i class="fa fa-check"></i><b>5.6.1</b> Exercise</a></li>
-</ul></li>
-<li class="chapter" data-level="5.7" data-path="graph-basics.html"><a href="graph-basics.html#mapping-columns-to-aesthetics"><i class="fa fa-check"></i><b>5.7</b> Mapping columns to aesthetics</a>
-<ul>
-<li class="chapter" data-level="5.7.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-4"><i class="fa fa-check"></i><b>5.7.1</b> Exercise</a></li>
-</ul></li>
-<li class="chapter" data-level="5.8" data-path="graph-basics.html"><a href="graph-basics.html#layer-facets"><i class="fa fa-check"></i><b>5.8</b> Layer: facets</a>
-<ul>
-<li class="chapter" data-level="5.8.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-5"><i class="fa fa-check"></i><b>5.8.1</b> Exercise</a></li>
-</ul></li>
-<li class="chapter" data-level="5.9" data-path="graph-basics.html"><a href="graph-basics.html#ordering-panels-and-rows"><i class="fa fa-check"></i><b>5.9</b> Ordering panels and rows</a>
-<ul>
-<li class="chapter" data-level="5.9.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-6"><i class="fa fa-check"></i><b>5.9.1</b> Exercise</a></li>
+<li class="chapter" data-level="4.4.1" data-path="work-with-R.html"><a href="work-with-R.html#developing-r-skills"><i class="fa fa-check"></i><b>4.4.1</b> Developing R skills</a></li>
+<li class="chapter" data-level="4.4.2" data-path="work-with-R.html"><a href="work-with-R.html#continuing-the-case-study"><i class="fa fa-check"></i><b>4.4.2</b> Continuing the case study</a></li>
+<li class="chapter" data-level="4.4.3" data-path="work-with-R.html"><a href="work-with-R.html#exploring-midfieldr-functions"><i class="fa fa-check"></i><b>4.4.3</b> Exploring midfieldr functions</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="data-basics.html"><a href="data-basics.html"><i class="fa fa-check"></i><b>6</b> Data basics</a>
+<li class="chapter" data-level="5" data-path="R-basics.html"><a href="R-basics.html"><i class="fa fa-check"></i><b>5</b> R basics</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="data-basics.html"><a href="data-basics.html#introduction-2"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.1" data-path="R-basics.html"><a href="R-basics.html#style-guide"><i class="fa fa-check"></i><b>5.1</b> Style guide</a></li>
+<li class="chapter" data-level="5.2" data-path="R-basics.html"><a href="R-basics.html#open-an-r-script"><i class="fa fa-check"></i><b>5.2</b> Open an R script</a></li>
+<li class="chapter" data-level="5.3" data-path="R-basics.html"><a href="R-basics.html#everything-in-r-has-a-name"><i class="fa fa-check"></i><b>5.3</b> Everything in R has a name</a></li>
+<li class="chapter" data-level="5.4" data-path="R-basics.html"><a href="R-basics.html#everything-in-r-is-an-object"><i class="fa fa-check"></i><b>5.4</b> Everything in R is an object</a></li>
+<li class="chapter" data-level="5.5" data-path="R-basics.html"><a href="R-basics.html#r-functions-do-things"><i class="fa fa-check"></i><b>5.5</b> R functions do things</a></li>
+<li class="chapter" data-level="5.6" data-path="R-basics.html"><a href="R-basics.html#r-functions-come-in-packages"><i class="fa fa-check"></i><b>5.6</b> R functions come in packages</a></li>
+<li class="chapter" data-level="5.7" data-path="R-basics.html"><a href="R-basics.html#r-objects-have-class"><i class="fa fa-check"></i><b>5.7</b> R objects have class</a></li>
+<li class="chapter" data-level="5.8" data-path="R-basics.html"><a href="R-basics.html#r-objects-have-structure"><i class="fa fa-check"></i><b>5.8</b> R objects have structure</a></li>
+<li class="chapter" data-level="5.9" data-path="R-basics.html"><a href="R-basics.html#r-only-does-what-you-tell-it"><i class="fa fa-check"></i><b>5.9</b> R only does what you tell it</a></li>
+<li class="chapter" data-level="5.10" data-path="R-basics.html"><a href="R-basics.html#to-get-help"><i class="fa fa-check"></i><b>5.10</b> To get help</a></li>
+<li class="chapter" data-level="5.11" data-path="R-basics.html"><a href="R-basics.html#keyboard-shortcuts"><i class="fa fa-check"></i><b>5.11</b> Keyboard shortcuts</a></li>
+<li class="chapter" data-level="5.12" data-path="R-basics.html"><a href="R-basics.html#next-steps"><i class="fa fa-check"></i><b>5.12</b> Next steps</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="display-design.html"><a href="display-design.html"><i class="fa fa-check"></i><b>7</b> Designing effective displays</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="display-design.html"><a href="display-design.html#stuff"><i class="fa fa-check"></i><b>7.1</b> Stuff</a></li>
-<li class="chapter" data-level="7.2" data-path="display-design.html"><a href="display-design.html#more-stuff"><i class="fa fa-check"></i><b>7.2</b> More stuff</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>8</b> References</a></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/MIDFIELDR/2021-asee-workshop" target="blank">Published with bookdown</a></li>
 
@@ -273,12 +243,12 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="R-basics" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> R basics</h1>
+<div id="R-basics" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> R basics</h1>
 <p>This tutorial is an introduction to R adapted from <span class="citation"><a href="references.html#ref-Healy:2019:Ch.2" role="doc-biblioref">[8]</a></span> with extra material from <span class="citation"><a href="references.html#ref-Matloff:2019" role="doc-biblioref">[9]</a></span>. If you already have R experience, you might still want to browse this section in case you find something new.</p>
 <p><a href="work-with-R.html#prerequisites">Prerequisites</a> should be completed before proceeding. After that, the tutorial should take no longer than 50 minutes.</p>
-<div id="style-guide" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Style guide</h2>
+<div id="style-guide" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Style guide</h2>
 <p>A style guide is about making your script readable. We ask you to observe a small set of guidelines that will help us help you when you have questions about your script.</p>
 <p><strong>Comments</strong> in R are denoted by a hash tag <code>#</code>.</p>
 <ul>
@@ -322,8 +292,8 @@ div.csl-indent {
 <span id="cb13-19"><a href="R-basics.html#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(speed_ski, <span class="st">&quot;data/speed_ski.rds&quot;</span>)</span></code></pre></div>
 <p>For more information of R scripting style generally see McConnell <span class="citation"><a href="references.html#ref-McConnell:2004" role="doc-biblioref">[10]</a></span> and Wickham <span class="citation"><a href="references.html#ref-Wickham:2019:styleguide" role="doc-biblioref">[11]</a></span>.</p>
 </div>
-<div id="open-an-r-script" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Open an R script</h2>
+<div id="open-an-r-script" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Open an R script</h2>
 <p>Use <em>File &gt; New File &gt; R Script</em> to create a new R script</p>
 <ul>
 <li>Name the script <code>01-R-basics.R</code>. By using a number at the start of the file name, the files stay in order in your directory.<br />
@@ -363,8 +333,8 @@ div.csl-indent {
 <li><strong>Your turn</strong> exercises give you chance to devise your own examples and check them out. You learn by doing (but you knew that already)!</li>
 </ul>
 </div>
-<div id="everything-in-r-has-a-name" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Everything in R has a name</h2>
+<div id="everything-in-r-has-a-name" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Everything in R has a name</h2>
 <p>In R, every object has a name.</p>
 <ul>
 <li>named entities, like <code>x</code> or <code>y</code><br />
@@ -399,8 +369,8 @@ div.csl-indent {
 <span id="cb17-3"><a href="R-basics.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">? mean()</span><span class="st">`</span></span></code></pre></div>
 <p>If the name is in use, a help page appears in the RStudio Help pane.</p>
 </div>
-<div id="everything-in-r-is-an-object" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Everything in R is an object</h2>
+<div id="everything-in-r-is-an-object" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Everything in R is an object</h2>
 <p>Origins of R objects</p>
 <ul>
 <li>Some objects are built in to R</li>
@@ -518,8 +488,8 @@ div.csl-indent {
 <p>Here you can see how the row labels in the printed output work. There are 5 IDs per row, so the second row starts with the 6th ID, indicated by <code>[6]</code>. The last row starts with the 96th value <code>[96]</code> and ends with the 100th value.</p>
 <p>The “toy” data sets in midfieldr (<code>toy_student</code>, <code>toy_course</code>, <code>toy_term</code>, and <code>toy_degree</code>) include student unit records for only 100 students—not a statistically representative sample—used for package examples like those above.</p>
 </div>
-<div id="r-functions-do-things" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> R functions do things</h2>
+<div id="r-functions-do-things" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> R functions do things</h2>
 <p>Functions do something useful</p>
 <ul>
 <li>Functions are objects the perform actions for you</li>
@@ -661,8 +631,8 @@ div.csl-indent {
 <li><code>? sum()</code></li>
 </ul>
 </div>
-<div id="r-functions-come-in-packages" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> R functions come in packages</h2>
+<div id="r-functions-come-in-packages" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> R functions come in packages</h2>
 <p>Functions are bundled in packages</p>
 <ul>
 <li>Families of useful functions are bundled into packages that you can install, load, and use</li>
@@ -702,8 +672,8 @@ div.csl-indent {
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="R-basics.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type in the Console to view the help page </span></span>
 <span id="cb37-2"><a href="R-basics.html#cb37-2" aria-hidden="true" tabindex="-1"></a>? <span class="st">`</span><span class="at">%ilike%</span><span class="st">`</span> </span></code></pre></div>
 </div>
-<div id="r-objects-have-class" class="section level2" number="4.7">
-<h2><span class="header-section-number">4.7</span> R objects have class</h2>
+<div id="r-objects-have-class" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> R objects have class</h2>
 <p>Everything is an object and every object has a class.</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="R-basics.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span>
 <span id="cb38-2"><a href="R-basics.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;numeric&quot;</span></span>
@@ -785,8 +755,8 @@ div.csl-indent {
 <span id="cb43-4"><a href="R-basics.html#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(air_quality)</span>
 <span id="cb43-5"><a href="R-basics.html#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;data.table&quot; &quot;data.frame&quot;</span></span></code></pre></div>
 </div>
-<div id="r-objects-have-structure" class="section level2" number="4.8">
-<h2><span class="header-section-number">4.8</span> R objects have structure</h2>
+<div id="r-objects-have-structure" class="section level2" number="5.8">
+<h2><span class="header-section-number">5.8</span> R objects have structure</h2>
 <p>To see inside an object ask for its structure using the <code>str()</code> function.</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="R-basics.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(x)</span>
 <span id="cb44-2"><a href="R-basics.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  num [1:6] 1 2 3 1 3 25</span></span>
@@ -820,8 +790,8 @@ div.csl-indent {
 <span id="cb44-30"><a href="R-basics.html#cb44-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Day    : int  1 2 3 4 5 6 7 8 9 10 ...</span></span>
 <span id="cb44-31"><a href="R-basics.html#cb44-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  - attr(*, &quot;.internal.selfref&quot;)=&lt;externalptr&gt;</span></span></code></pre></div>
 </div>
-<div id="r-only-does-what-you-tell-it" class="section level2" number="4.9">
-<h2><span class="header-section-number">4.9</span> R only does what you tell it</h2>
+<div id="r-only-does-what-you-tell-it" class="section level2" number="5.9">
+<h2><span class="header-section-number">5.9</span> R only does what you tell it</h2>
 <p>Healy <span class="citation"><a href="references.html#ref-Healy:2019" role="doc-biblioref">[12]</a></span> offers this advice for specific things to watch out for:</p>
 <ul>
 <li>Make sure parentheses are balanced—that every opening <code>(</code> has a corresponding closing <code>)</code>.<br />
@@ -895,8 +865,8 @@ div.csl-indent {
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="R-basics.html#cb50-1" aria-hidden="true" tabindex="-1"></a>DT[i, j, by]</span></code></pre></div>
 <p>This can be read as “Take DT, subset/reorder rows using <code>i</code>, then calculate <code>j</code>, grouped by <code>by</code>.” You don’t have to go into it any more deeply than this for now—we will illustrate it by example in the midfieldr tutorials.</p>
 </div>
-<div id="to-get-help" class="section level2" number="4.10">
-<h2><span class="header-section-number">4.10</span> To get help</h2>
+<div id="to-get-help" class="section level2" number="5.10">
+<h2><span class="header-section-number">5.10</span> To get help</h2>
 <p><strong>Online resources</strong></p>
 <p><em>Tutorial</em></p>
 <ul>
@@ -984,8 +954,8 @@ div.csl-indent {
 <span id="cb56-36"><a href="R-basics.html#cb56-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; add_ns&gt; nrow(DT2)</span></span>
 <span id="cb56-37"><a href="R-basics.html#cb56-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 100</span></span></code></pre></div>
 </div>
-<div id="keyboard-shortcuts" class="section level2" number="4.11">
-<h2><span class="header-section-number">4.11</span> Keyboard shortcuts</h2>
+<div id="keyboard-shortcuts" class="section level2" number="5.11">
+<h2><span class="header-section-number">5.11</span> Keyboard shortcuts</h2>
 <p>If you are working in RStudio, you can see the menu of keyboard
 shortcuts using the menu <em>Tools &gt; Keyboard Shortcuts Help</em>. The
 shortcuts we use regularly include</p>
@@ -1065,8 +1035,8 @@ shortcuts we use regularly include</p>
 <li>Use the pulldown menu <em>Session &gt; Restart R</em></li>
 </ul>
 </div>
-<div id="next-steps" class="section level2" number="4.12">
-<h2><span class="header-section-number">4.12</span> Next steps</h2>
+<div id="next-steps" class="section level2" number="5.12">
+<h2><span class="header-section-number">5.12</span> Next steps</h2>
 <p>That concludes our brief introduction to R. To continue, return to your starting point (links below) and from there, select the next link in your progression.</p>
 <ul>
 <li><a href="work-with-R.html#new-to-r">New to R?</a><br />
@@ -1086,7 +1056,7 @@ shortcuts we use regularly include</p>
         </div>
       </div>
 <a href="work-with-R.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="graph-basics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1118,7 +1088,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/MIDFIELDR/2021-asee-workshop/edit/main/04-R-basics.Rmd",
+"link": "https://github.com/MIDFIELDR/2021-asee-workshop/edit/main/05-R-basics.Rmd",
 "text": "Edit"
 },
 "history": {

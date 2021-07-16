@@ -16,6 +16,12 @@ install-midfield-packages
 midfieldr
 midfielddata
 exiting-r-and-rstudio
+explore-the-data
+case-2
+student-record
+term-record
+course-record
+degree-record
 work-with-R
 prerequisites
 new-to-r
