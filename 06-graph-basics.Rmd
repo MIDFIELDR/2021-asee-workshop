@@ -386,34 +386,36 @@ With all the layers in one place, we can see that we've coded all the basic step
 
 The midfieldr `student` table has been summarized by counting the number of students by race/ethnicity and sex, omitting "International" and "Other/Unknown" race values. 
 
-```{r}
-# # Access a data set included with midfieldr
-# DT <- copy(student)[, .(race, sex)]
-# 
-# # Create a combined categorical column
-# DT[, race_sex := paste(race, sex)]
-# DT[, c("race", "sex") := NULL]
-# 
-# # Sum the number of students by this category
-# DT <- DT[, .N, by = "race_sex"]
-# DT <- DT[!race_sex %ilike% "Other|International"]
-# 
-# # Factor class enables reordering
-# DT[, race_sex := factor(race_sex)]
-# DT[, race_sex := reorder(race_sex, N)]
-# student_demogr <- copy(DT)
-# save(student_demogr, file = "data/student_demogr.rda")
+```{r include = FALSE}
+# Access a data set included with midfieldr
+DT <- copy(student)[, .(race, sex)]
+
+# Create a combined categorical column
+DT[, race_sex := paste(race, sex)]
+DT[, c("race", "sex") := NULL]
+
+# Sum the number of students by this category
+DT <- DT[, .N, by = "race_sex"]
+DT <- DT[!race_sex %ilike% "Other|International"]
+
+# Factor class enables reordering
+DT[, race_sex := factor(race_sex)]
+DT[, race_sex := reorder(race_sex, N)]
+student_demogr <- copy(DT)
+fwrite(student_demogr, file = "data/student_demogr.csv")
 ```
 
 Download the file
 
 ```{r}
+read_url <- function(url, ...){
+  tmpFile <- tempfile()
+  download.file(url, destfile = tmpFile, method = "curl")
+  url.data <- fread(tmpFile, ...)
+  return(url.data)
+}
 
-
-githubURL <-"https://github.com/MIDFIELDR/2021-asee-workshop/blob/main/data/student_demogr.rda"
-load(url(githubURL))
-
-
+read_url("https://github.com/MIDFIELDR/2021-asee-workshop/blob/main/data/student_demogr.csv")
 
 ```
 
