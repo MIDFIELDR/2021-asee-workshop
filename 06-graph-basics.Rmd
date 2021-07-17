@@ -76,8 +76,11 @@ If the download is successful,
         data\
             hours_per_term.rds
             sat.rds
+            stickiness.rds
             student_demogr.rds
 ```
+
+These data files are used in the exercises. We use RDS format because it preserves the order (if any) of factors. 
 
 ### Start a new script
 
@@ -519,10 +522,10 @@ zip_append(
 The prepared data you downloaded earlier includes the file `hours_per_term.rds`. Again, we read the data using `readRDS()`. 
 
 ```{r}
-hours_per_term<- readRDS("data/hours_per_term.rds")
+hours_per_term <- readRDS("data/hours_per_term.rds")
 ```
 
-- Use `hours_per_termd` data to create a boxplot of hours per term as a function of level. 
+- Use `hours_per_term` data to create a boxplot of hours per term as a function of level. 
 - Add a third column name to `aes()` to add `sex` by color to the graph. 
 - Add the `coord_flip()` layer to your graph to swap the position of the x, y coordinates to obtain a horizontal boxplot. 
 - Check your work by comparing your result to the graph below.
@@ -581,24 +584,36 @@ ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
 
 ### Exercise
 
-Use the following code chunk to construct a data frame of program stickiness by program, race/ethnicity, and sex. 
-
-```{r}
-# Access a data set included with midfieldr
-stickiness <- copy(study_stickiness)
-
-# Create a combined categorical column 
-stickiness[, race_sex := paste(race, sex)]
-
-# Factor class enables reordering 
-stickiness[, race_sex := factor(race_sex)]
-stickiness[, program := factor(program)]
+```{r echo = FALSE, eval = FALSE}
+DT <- copy(study_stickiness)
+DT[, race_sex := paste(race, sex)]
+DT[, race_sex := factor(race_sex)]
+DT[, race_sex := reorder(race_sex, stick)]
+DT[, program  := factor(program)]
+DT[, program  := reorder(program, stick)]
 
 # Omit ambiguous race/ethnicities and small populations
-stickiness <- stickiness[!race_sex %ilike% c("Native|International|Other")]
+DT <- DT[!race_sex %ilike% c("Native|International|Other")]
+
+# save as RDS
+saveRDS(DT, "data/stickiness.rds")
+
+zip_append(
+  zipfile = zipfile,
+  files = c("data/stickiness.rds"),
+  include_directories = FALSE,
+  root = ".",
+  mode = "cherry-pick"
+)
 ```
 
-- Use the resulting `dtf` data frame plot stickiness (x-axis) as a function of race/ethnicity/sex (y-axis) and faceted by program.  
+The prepared data you downloaded earlier includes the file `stickiness.rds`. Again, we read the data using `readRDS()`. 
+
+```{r}
+stickiness <- readRDS("data/stickiness.rds")
+```
+
+- Use the `stickiness` data frame and plot stickiness (x-axis) as a function of race/ethnicity/sex (y-axis) and faceted by program.  
 - When that graph seems OK, add a third column name to `aes()` to add `sex` by color to the graph. 
 - Check your work by comparing your result to the graph below.
 
@@ -610,7 +625,6 @@ ggplot(stickiness, aes(x = stick,
   geom_point() +
   labs(y = "", x = "Stickiness (%)")
 ```
-
 
 Help pages for more information: 
 
@@ -677,73 +691,6 @@ Help pages for more information:
 
 - [reorder()](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/reorder.default){target="_blank"}
 
-
-
-
-## Downloading files manually
-
-If a download using `fread()` fails, 
-
-- Navigate to the [Workshop source files](https://github.com/MIDFIELDR/2021-asee-workshop/tree/main/data) on GitHub 
-- Click on the file you want, taking you to its page. 
-- Right-click on *Raw* 
-- Download by selecting *Save link as...* save to your `workshop/data/` directory. 
-
-Use `fread()` as before to read the file. For example, 
-
-```{r eval = FALSE}
-data_location  <- "data/student_demogr.txt"
-student_demogr <- fread(data_location, colClasses = c(race_sex = "factor"))
-```
-
-
-
-```{r eval = FALSE}
-dir('data')
-# [1] "case2_course.rds"     "case2_degree.rds"
-# [3] "case2_student.rds"    "case2_term.rds"
-# [5] "example2.xlsx"        "info_pkg.rds"
-# [7] "sat.csv"              "student_demogr.csv"
-# [9] "student_demogr.txt"   "student_demogr_2.txt"
-# 
-# data_location  <- "data/student_demogr.txt"
-# student_demogr <- fread(data_location, colClasses = c(race_sex = "factor"))
-# student_demogr[, race_sex := reorder(race_sex, N) ]
-# ggplot(student_demogr, aes(x = N, y = race_sex)) +
-#   geom_point() +
-#   scale_x_continuous(trans = "log2") +
-#   labs(x = "Number of students admitted (log-2 scale)", y = "")
-
-saveRDS(student_demogr, "data/student_demogr.rds")
-student_demogr <- readRDS("data/workshop_data/student_demogr.rds")
-
-
-zip(
-  zipfile = zipfile,
-  files = c("data/student_demogr.rds"),
-  include_directories = FALSE,
-  root = ".",
-  mode = "cherry-pick"
-)
-zip_append(
-  zipfile = zipfile,
-  files = c("data/student_demogr.rds"),
-  include_directories = FALSE,
-  root = ".",
-  mode = "cherry-pick"
-)
-
-student_demogr <- readRDS("data/workshop_data/student_demogr.rds")
-ggplot(student_demogr, aes(x = N, y = race_sex)) +
-  geom_point() +
-  scale_x_continuous(trans = "log2") +
-  labs(x = "Number of students admitted (log-2 scale)", y = "")
-
-zip_url <- paste0("https://github.com/MIDFIELDR/2021-asee-workshop/",
-                  "raw/main/data/workshop_data.zip")
-download.file(zip_url, destfile = "data/download_zip.zip")
-
-```
 
 
 <br>
