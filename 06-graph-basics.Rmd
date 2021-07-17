@@ -585,12 +585,11 @@ ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
 ### Exercise
 
 ```{r echo = FALSE, eval = FALSE}
+# not ordered. leave ordering for the next section 
 DT <- copy(study_stickiness)
 DT[, race_sex := paste(race, sex)]
 DT[, race_sex := factor(race_sex)]
-DT[, race_sex := reorder(race_sex, stick)]
 DT[, program  := factor(program)]
-DT[, program  := reorder(program, stick)]
 
 # Omit ambiguous race/ethnicities and small populations
 DT <- DT[!race_sex %ilike% c("Native|International|Other")]
@@ -670,8 +669,8 @@ ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
 ### Exercise
 
 - Continue using the `stickiness` data frame from the previous section.  
-- Order the panels by the stickiness variable. 
-- Order race/ethnicity/sex by the stickiness variable. 
+- Order the rows and panels to match by the stickiness variable. 
+- Use the `as.table = FALSE` argument to impose "graph-order" panels. 
 - Check your work by comparing your result to the graph below.
 
 ```{r echo = FALSE, fig.asp = 1/1}
@@ -684,8 +683,6 @@ ggplot(stickiness, aes(x = stick,
   geom_point() +
   labs(y = "", x = "Stickiness (%)")
 ```
-
-
 
 Help pages for more information: 
 
