@@ -24,7 +24,12 @@ This tutorial is an introduction to R adapted from [@Healy:2019:Ch.2] with extra
 
 [Prerequisites] should be completed before proceeding. After that, the tutorial should take no longer than 50 minutes.
 
-## Style guide
+
+
+
+
+
+## R style guide
 
 A style guide is about making your script readable. We ask you to observe a small set of guidelines that will help us help you when you have questions about your script. 
 
@@ -89,7 +94,7 @@ For more information of R scripting style generally see McConnell [-@McConnell:2
 
 
 
-## Open an R script
+## R follows a script
 
 Use *File &gt; New File &gt; R Script* to create a new R script
 
@@ -114,6 +119,9 @@ After adding a code chunk to your script, run the script. Options for running a 
 - To run select lines, use the cursor to select the lines you want to run, then `ctrl Enter` (for the Mac OS: `cmd Return`). 
 - To run from the beginning to a line, place your cursor at the line, then  `ctrl alt B` (`cmd option B` Mac OS)
 
+
+**Errors** 
+
 If you get an error similar to: 
 
         Error in library("data.table") : there is no package called 'data.table'
@@ -131,11 +139,43 @@ options(
 )
 ```
 
-Guidelines 
+
+Healy [-@Healy:2019] offers this advice for specific things to watch out for: 
+
+- Make sure parentheses are balanced---that every opening `(` has a corresponding closing `)`.  
+- Expect to make errors and don't worry when that happens.  You won't break anything. 
+- Make sure you complete your expressions. If you see a `+` in the Console instead of the usual prompt `>`, R thinks your expression is incomplete. For example, if you type the following and try to run it, 
+
+``` r
+    str(airquality
+```
+
+the output in your Console reports:
+
+``` r
+    #> str(airquality
+    #> + 
+```
+The plus sign indicates that the expression is incomplete...in this case a missing closing parenthesis. To recover,  hit `Esc` or `ctrl C`. Then correct the code. 
+
+**Interrupting R**
+
+If R seems to be taking too long to conclude a process, here are some things to try (depends on your OS) to recover. 
+
+- `Esc`  
+- `ctrl C`  
+-  RStudio pulldown menu *Session &gt; Terminate R... &gt; Yes*
+
+
+**Guidelines** 
 
 - As you work through the tutorial, type a line or chunk of code then *File &gt; Save* and run the script.    
 - Confirm that your result matches the tutorial result.  
-- **Your turn** exercises give you chance to devise your own examples and check them out. You learn by doing (but you knew that already)!
+- The exercises give you chance to devise your own examples and check them out. You learn by doing (but you knew that already)!
+
+
+
+
 
 
 ## Everything in R has a name 
@@ -555,25 +595,9 @@ str(air_quality)
 
 
 
-## R only does what you tell it
 
-Healy [-@Healy:2019] offers this advice for specific things to watch out for: 
 
-- Make sure parentheses are balanced---that every opening `(` has a corresponding closing `)`.  
-- Expect to make errors and don't worry when that happens.  You won't break anything. 
-- Make sure you complete your expressions. If you see a `+` in the Console instead of the usual prompt `>`, R thinks your expression is incomplete. For example, if you type the following and try to run it, 
-
-``` r
-    str(air_quality
-```
-
-the output in your Console reports:
-
-``` r
-    #> str(air_quality
-    + 
-```
-The plus sign indicates that the expression is incomplete...in this case a missing closing parenthesis. To recover,  hit `Esc` or `ctrl C`. Then correct the code. 
+## R syntax comes in many flavors
 
 As you work through the MIDFIELD tutorials, we'll introduce syntax by example from both base R and the data.table package. There can be subtle differences that we will attempt to avoid by consistent usage. 
 
@@ -628,7 +652,7 @@ This can be read as "Take DT, subset/reorder rows using `i`, then calculate `j`,
 
 
 
-## To get help
+## Help with R 
 
 **Online resources**
 
