@@ -56,7 +56,7 @@ This tutorial is an introduction to ggplot2 adapted from Chapter 3 from [@Healy:
 
 ### Download prepared data
 
-Download the `prepared_data_graph_basics.zip` file from the workshop website with the following code. 
+Download the `prepared_data.zip` file from the workshop website with the following code. 
 
 - You can copy and paste the code to the Console; you only have to run this once.  
 - The destination file assumes you have a `data` directory in your project.  
@@ -70,14 +70,14 @@ Download the `prepared_data_graph_basics.zip` file from the workshop website wit
 If the download is successful, 
 
 - Navigate to your `data` directory and extract the compressed files.    
-- Move the files into the top level of the `data` folder, which should now include:    
+- Manually move the files into the top level of the `data` folder:    
 
 ``` r
-        data\
-            hours_per_term.rds
-            sat.rds
-            stickiness.rds
-            student_demogr.rds
+    data\
+        hours_per_term.rds
+        sat.rds
+        stickiness.rds
+        student_demogr.rds
 ```
 
 These data files are used in the exercises. We use RDS format because it preserves the order (if any) of factors. 
@@ -668,9 +668,10 @@ ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
 
 ### Exercise
 
-- Continue using the `stickiness` data frame from the previous section.  
-- Order the rows and panels to match by the stickiness variable. 
-- Use the `as.table = FALSE` argument to impose "graph-order" panels. 
+Continue using the `stickiness` data frame from the previous section.  
+
+- The `race_sex` and `program` columns are factors. Order both factors by the stickiness variable. 
+- Use `as.table` to impose "graph-order" on the panels. 
 - Check your work by comparing your result to the graph below.
 
 ```{r echo = FALSE, fig.asp = 1/1}
@@ -687,6 +688,16 @@ ggplot(stickiness, aes(x = stick,
 Help pages for more information: 
 
 - [reorder()](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/reorder.default){target="_blank"}
+
+
+## Next steps
+
+That concludes our brief introduction to graph basics using ggplot2. To continue, select your preferred next step in your progression. 
+
+- [R skills]    
+- [Case study]    
+- [Vignettes] 
+
 
 
 

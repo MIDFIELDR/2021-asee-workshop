@@ -26,7 +26,164 @@ options(
 ```
 
 
+## Case 1
 
+We selected a student from the midfielddata practice data and extracted the student's unit records from the four MIDFIELD tables.
+
+```{r echo = FALSE}
+library(data.table)
+library(midfieldr)
+library(midfielddata)
+
+# data(student)
+# data(term)
+# data(course)
+# data(degree)
+# 
+# case_mcid <- "MID25836044"
+# 
+# case_student <- student[mcid == case_mcid]
+# case_term    <- term[mcid == case_mcid]
+# case_course  <- course[mcid == case_mcid]
+# case_degree  <- degree[mcid == case_mcid]
+# 
+# saveRDS(case_student, "data/case1_student.rds")
+# saveRDS(case_term,    "data/case1_term.rds")
+# saveRDS(case_course,  "data/case1_course.rds")
+# saveRDS(case_degree,  "data/case1_degree.rds")
+```
+
+
+
+
+
+### Case 1 `student` record
+
+```{r echo = FALSE}
+case <- readRDS("data/case1_student.rds")
+n <- ncol(case)
+sel_1 <- paste(names(case)[1:7], sep = ", ")
+sel_2 <- paste(names(case)[8:n], sep = ", ")
+group_1 <- case[, ..sel_1]
+group_2 <- case[, ..sel_2]
+```
+
+[`student`](https://midfieldr.github.io/midfielddata/reference/student.html) Link to data dictionary 
+
+<br>
+*student data* for the selected student (part 1)
+```{r echo = FALSE}
+kable2html(group_1)
+```
+
+<br>
+*student data* for the selected student (part 2)
+```{r echo = FALSE}
+kable2html(group_2)
+```
+
+
+
+
+
+
+### Case 1 `term` record
+
+```{r echo = FALSE}
+case <- readRDS("data/case1_term.rds")
+n <- ncol(case)
+sel_1 <- paste(names(case)[1:7], sep = ", ")
+sel_2 <- paste(names(case)[8:n], sep = ", ")
+group_1 <- case[, ..sel_1]
+group_2 <- case[, ..sel_2]
+```
+
+[`term`](https://midfieldr.github.io/midfielddata/reference/term.html) Link to data dictionary 
+
+<br>
+*term data* for the selected student (part 1)
+```{r echo = FALSE}
+kable2html(group_1)
+```
+
+<br>
+*decoding* the CIP
+```{r echo = FALSE}
+# Decoding the CIP
+program <- filter_search(cip, keep_text = c("140102", "140801"))
+program <- program[, .(cip6, cip4name)]
+kable2html(program)
+```
+
+
+<br>
+*term data* for the selected student (part 2)
+```{r echo = FALSE}
+kable2html(group_2)
+```
+
+
+
+
+
+
+
+### Case 1 `course` record
+
+```{r echo = FALSE}
+case <- readRDS("data/case1_course.rds")
+n <- ncol(case)
+sel_1 <- paste(names(case)[1:6], sep = ", ")
+sel_2 <- paste(names(case)[7:n], sep = ", ")
+group_1 <- case[, ..sel_1]
+group_2 <- case[, ..sel_2]
+```
+
+[`course`](https://midfieldr.github.io/midfielddata/reference/course.html) Link to data dictionary 
+
+<br>
+*course data* for the selected student (part 1)
+```{r echo = FALSE}
+kable2html(group_1)
+```
+
+<br>
+*course data* for the selected student (part 2)
+```{r echo = FALSE}
+kable2html(group_2)
+```
+
+
+
+
+
+
+
+### Case 1 `degree` record
+
+```{r echo = FALSE}
+case <- readRDS("data/case1_degree.rds")
+n <- ncol(case)
+sel_1 <- paste(names(case), sep = ", ")
+group_1 <- case[, ..sel_1]
+```
+
+[`degree`](https://midfieldr.github.io/midfielddata/reference/degree.html) Link to data dictionary  
+
+<br>
+*degree data* for the selected student
+```{r echo = FALSE}
+kable2html(group_1)
+```
+
+<br>
+*decoding* the CIP
+```{r echo = FALSE}
+# Decoding the CIP
+program <- filter_search(cip, keep_text = c("140801"))
+program <- program[, .(cip6, cip4name)]
+kable2html(program)
+```
 
 
 
@@ -60,7 +217,7 @@ library(midfielddata)
 ```
 
 
-### student record
+### Case 2 `student` record
 
 ```{r echo = FALSE}
 case2 <- readRDS("data/case2_student.rds")
@@ -93,7 +250,7 @@ kable2html(group_2)
 
 
 
-### term record
+### Case 2 `term` record
 
 ```{r echo = FALSE}
 case2 <- readRDS("data/case2_term.rds")
@@ -135,7 +292,7 @@ kable2html(group_2)
 
 
 
-### course record
+### Case 2 `course` record
 
 ```{r echo = FALSE}
 case2 <- readRDS("data/case2_course.rds")
@@ -166,7 +323,7 @@ kable2html(group_2)
 
 
 
-### degree record
+### Case 2 `degree` record
 
 ```{r echo = FALSE}
 case2 <- readRDS("data/case2_degree.rds")
@@ -194,6 +351,9 @@ kable2html(program)
 
 
 
+## Next steps
+
+[Agenda] to see what's next.  
 
 
 

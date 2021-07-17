@@ -256,6 +256,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="6.9.1" data-path="graph-basics.html"><a href="graph-basics.html#exercise-6"><i class="fa fa-check"></i><b>6.9.1</b> Exercise</a></li>
 </ul></li>
+<li class="chapter" data-level="6.10" data-path="graph-basics.html"><a href="graph-basics.html#next-steps-1"><i class="fa fa-check"></i><b>6.10</b> Next steps</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="data-basics.html"><a href="data-basics.html"><i class="fa fa-check"></i><b>7</b> Data basics</a>
 <ul>
@@ -308,7 +309,7 @@ div.csl-indent {
 </ul>
 <div id="download-prepared-data" class="section level3" number="6.1.1">
 <h3><span class="header-section-number">6.1.1</span> Download prepared data</h3>
-<p>Download the <code>prepared_data_graph_basics.zip</code> file from the workshop website with the following code.</p>
+<p>Download the <code>prepared_data.zip</code> file from the workshop website with the following code.</p>
 <ul>
 <li>You can copy and paste the code to the Console; you only have to run this once.<br />
 </li>
@@ -321,13 +322,13 @@ div.csl-indent {
 <ul>
 <li>Navigate to your <code>data</code> directory and extract the compressed files.<br />
 </li>
-<li>Move the files into the top level of the <code>data</code> folder, which should now include:</li>
+<li>Manually move the files into the top level of the <code>data</code> folder:</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="graph-basics.html#cb2-1" aria-hidden="true" tabindex="-1"></a>        data\</span>
-<span id="cb2-2"><a href="graph-basics.html#cb2-2" aria-hidden="true" tabindex="-1"></a>            hours_per_term.rds</span>
-<span id="cb2-3"><a href="graph-basics.html#cb2-3" aria-hidden="true" tabindex="-1"></a>            sat.rds</span>
-<span id="cb2-4"><a href="graph-basics.html#cb2-4" aria-hidden="true" tabindex="-1"></a>            stickiness.rds</span>
-<span id="cb2-5"><a href="graph-basics.html#cb2-5" aria-hidden="true" tabindex="-1"></a>            student_demogr.rds</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="graph-basics.html#cb2-1" aria-hidden="true" tabindex="-1"></a>    data\</span>
+<span id="cb2-2"><a href="graph-basics.html#cb2-2" aria-hidden="true" tabindex="-1"></a>        hours_per_term.rds</span>
+<span id="cb2-3"><a href="graph-basics.html#cb2-3" aria-hidden="true" tabindex="-1"></a>        sat.rds</span>
+<span id="cb2-4"><a href="graph-basics.html#cb2-4" aria-hidden="true" tabindex="-1"></a>        stickiness.rds</span>
+<span id="cb2-5"><a href="graph-basics.html#cb2-5" aria-hidden="true" tabindex="-1"></a>        student_demogr.rds</span></code></pre></div>
 <p>These data files are used in the exercises. We use RDS format because it preserves the order (if any) of factors.</p>
 </div>
 <div id="start-a-new-script" class="section level3" number="6.1.2">
@@ -668,11 +669,10 @@ div.csl-indent {
 <p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-39-1.png" width="80%" /></p>
 <div id="exercise-6" class="section level3" number="6.9.1">
 <h3><span class="header-section-number">6.9.1</span> Exercise</h3>
+<p>Continue using the <code>stickiness</code> data frame from the previous section.</p>
 <ul>
-<li>Continue using the <code>stickiness</code> data frame from the previous section.<br />
-</li>
-<li>Order the panels by the stickiness variable.</li>
-<li>Order race/ethnicity/sex by the stickiness variable.</li>
+<li>The <code>race_sex</code> and <code>program</code> columns are factors. Order both factors by the stickiness variable.</li>
+<li>Use <code>as.table</code> to impose “graph-order” on the panels.</li>
 <li>Check your work by comparing your result to the graph below.</li>
 </ul>
 <p><img src="2021-ASEE-Workshop_files/figure-html/unnamed-chunk-40-1.png" width="80%" /></p>
@@ -680,10 +680,21 @@ div.csl-indent {
 <ul>
 <li><a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/reorder.default" target="_blank">reorder()</a></li>
 </ul>
+</div>
+</div>
+<div id="next-steps-1" class="section level2" number="6.10">
+<h2><span class="header-section-number">6.10</span> Next steps</h2>
+<p>That concludes our brief introduction to graph basics using ggplot2. To continue, select your preferred next step in your progression.</p>
+<ul>
+<li><a href="work-with-R.html#developing-r-skills">Developing R skills</a><br />
+</li>
+<li><a href="work-with-R.html#continuing-the-case-study">Continuing the case study</a><br />
+</li>
+<li><a href="work-with-R.html#exploring-midfieldr-functions">Exploring midfieldr functions</a></li>
+</ul>
 <p><br>
 <a href="graph-basics.html#graph-basics">▲ top of page</a></p>
 
-</div>
 </div>
 </div>
             </section>

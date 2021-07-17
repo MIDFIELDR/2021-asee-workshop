@@ -1,4 +1,4 @@
-# Working with R {#work-with-R}
+# Work with R {#work-with-R}
 
 ```{r echo = FALSE}
 library(knitr)
@@ -115,19 +115,11 @@ If there is still time remaining, continue to any tutorial listed in the [After 
  
 ## After the workshop 
 
-At his point, the learning is self-directed. Choose the skills you want to continue working on. We have a set of tutorials for 
+At his point, your learning is self-directed. Choose the skills you want to continue working on. We have tutorials for graph basics and data basics, for continuing the case study tour of midfieldr, and detailed vignettes for closer study of the midfieldr functionality and student unit record analysis. 
 
-- [Developing R skills] 
-- [Continuing the case study]
-- [Exploring midfieldr functions]
+### R skills
 
-
-
-
-
-### Developing R skills
-
-The basic skills tutorials take about 50 minutes each. 
+The basic skills tutorials take about an hour each.
 
 - [R basics] 
 - [Graph basics]  
@@ -137,9 +129,9 @@ The basic skills tutorials take about 50 minutes each.
 
 
 
-### Continuing the case study
+### Case study 
 
-The case study is a quick tour of a typical workflow using student unit record data. This is a “big picture” development---functions are used without detailed explanations or development so that we can focus on the logic of the analysis. For exploring midfieldr functions and methods in greater detail, see the vignettes listed in the next section.  
+The case study is a quick tour of a typical workflow using Student Unit Record (SUR) data. This is a “big picture” development---functions are used without detailed explanations or development so that we can focus on the logic of the analysis.  
 
 - [Case study programs](https://midfieldr.github.io/midfieldr/articles/art-002-case-study-programs.html){target="_blank"}
 - [Case study students](https://midfieldr.github.io/midfieldr/articles/art-004-case-study-students.html){target="_blank"} 
@@ -150,7 +142,7 @@ The case study is a quick tour of a typical workflow using student unit record d
 
 
 
-### Exploring midfieldr functions
+### Vignettes
 
 Deep dive into the midfieldr functionality. The work flow follows the same general pattern as the quicker case study, but pauses to explore each function in more detail, exploring the arguments and strategies for use. In general, each tutorial is self-contained so you may enter at almost any point. 
 

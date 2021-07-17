@@ -744,11 +744,12 @@ Lastly, any time you want a fresh start in your working environment,
 
 ## Next steps
 
-That concludes our brief introduction to R. To continue, return to your starting point (links below) and from there, select the next link in your progression. 
+That concludes our brief introduction to R basics. Select one of the links to continue your progression. 
 
 - [New to R?]    
-- [Familiar with R?]    
+- [Familiar with R?]
 - [After the workshop]    
+
 
 
 <br>
