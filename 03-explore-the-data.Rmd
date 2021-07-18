@@ -113,12 +113,6 @@ group_2 <- add_row_num(group_2)
 [`term`](https://midfieldr.github.io/midfielddata/reference/term.html) Link to data dictionary 
 
 <br>
-*term data* for the selected student (part 1)
-```{r echo = FALSE}
-kable2html(group_1)
-```
-
-<br>
 *decoding* the CIP
 ```{r echo = FALSE}
 # Decoding the CIP
@@ -126,6 +120,14 @@ program <- filter_search(cip, keep_text = c("140102", "140801"))
 program <- program[, .(cip6, cip4name)]
 kable2html(program)
 ```
+
+
+<br>
+*term data* for the selected student (part 1)
+```{r echo = FALSE}
+kable2html(group_1)
+```
+
 
 
 <br>
@@ -187,11 +189,6 @@ group_1 <- add_row_num(group_1)
 
 [`degree`](https://midfieldr.github.io/midfielddata/reference/degree.html) Link to data dictionary  
 
-<br>
-*degree data* for the selected student
-```{r echo = FALSE}
-kable2html(group_1)
-```
 
 <br>
 *decoding* the CIP
@@ -202,6 +199,11 @@ program <- program[, .(cip6, cip4name)]
 kable2html(program)
 ```
 
+<br>
+*degree data* for the selected student
+```{r echo = FALSE}
+kable2html(group_1)
+```
 
 
 
@@ -287,12 +289,6 @@ group_2 <- add_row_num(group_2)
 [`term`](https://midfieldr.github.io/midfielddata/reference/term.html) Link to data dictionary 
 
 <br>
-*term data* for the selected student (part 1)
-```{r echo = FALSE}
-kable2html(group_1)
-```
-
-<br>
 *decoding* the CIP
 ```{r echo = FALSE}
 # Decoding the CIP
@@ -300,6 +296,14 @@ program <- filter_search(cip, keep_text = c("140701", "141001"))
 program <- program[, .(cip6, cip4name)]
 kable2html(program)
 ```
+
+
+<br>
+*term data* for the selected student (part 1)
+```{r echo = FALSE}
+kable2html(group_1)
+```
+
 
 
 <br>
@@ -363,12 +367,6 @@ group_1 <- add_row_num(group_1)
 [`degree`](https://midfieldr.github.io/midfielddata/reference/degree.html) Link to data dictionary  
 
 <br>
-*degree data* for the selected student
-```{r echo = FALSE}
-kable2html(group_1)
-```
-
-<br>
 *decoding* the CIP
 ```{r echo = FALSE}
 # Decoding the CIP
@@ -376,6 +374,14 @@ program <- filter_search(cip, keep_text = c("141001"))
 program <- program[, .(cip6, cip4name)]
 kable2html(program)
 ```
+
+
+<br>
+*degree data* for the selected student
+```{r echo = FALSE}
+kable2html(group_1)
+```
+
 
 
 
