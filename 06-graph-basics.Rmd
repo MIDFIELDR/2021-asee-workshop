@@ -54,23 +54,33 @@ This tutorial is an introduction to ggplot2 adapted from Chapter 3 from [@Healy:
 - Confirm that your result matches the tutorial result.  
 - The **exercises** give you chance to practice your new skills to learn by doing (but you knew that already)!
 
+
+
 ### Download prepared data
+
+Data sets used in the exercises have been prepared and saved in a .zip file in the workshop repository. The data are in .rds format, a native R format for single files that preserves variable types, including the order (if any) of factors. 
 
 Download the `prepared_data.zip` file from the workshop website with the following code. 
 
 - You can copy and paste the code to the Console; you only have to run this once.  
 - The destination file assumes you have a `data` directory in your project.  
 
-``` r
+```{r eval = FALSE}
     zip_url <- paste0("https://github.com/MIDFIELDR/2021-asee-workshop/",
                       "raw/main/data/prepared_data.zip")
     download.file(zip_url, destfile = "data/prepared_data.zip")
 ```
 
-If the download is successful, 
 
-- Navigate to your `data` directory and extract the compressed files.    
-- Manually move the files into the top level of the `data` folder:    
+**If the download is unsuccessful** 
+
+- Navigate to the [`prepared_data.zip`](https://github.com/MIDFIELDR/2021-asee-workshop/blob/main/data/prepared_data.zip) repository.
+- Click *Download* 
+
+**Once the download is successful** 
+
+- Extract the compressed files from the downloaded .zip file.   
+- Manually move the files into the top level of the workshop `data` folder. Your workshop data directory should now contain:     
 
 ``` r
     data\
@@ -80,7 +90,9 @@ If the download is successful,
         student_demogr.rds
 ```
 
-These data files are used in the exercises. We use RDS format because it preserves the order (if any) of factors. 
+
+
+
 
 ### Start a new script
 
