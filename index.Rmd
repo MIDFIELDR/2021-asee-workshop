@@ -103,7 +103,7 @@ df <- wrapr::build_frame(
 		"35", "[Explore the data]" |
 		"35", "[Work with R]" |
 		"15", "Break" |
-		"20", "Designing effective displays" |
+		"20", "Designing effective displays [[slides](publish_slides/effective-displays-2021-06-26.pdf)]" |
 		"50", "[Work with R] (continued)" |
 		"10", "Next steps & assessing the workshop" 
 )
@@ -111,7 +111,7 @@ knitr::kable(df, booktabs = TRUE)
 ```
 
 
-Introductions [[slides](publish_slides/01-2019-FIE-slides-introduction.pdf)]
+
 
 
 

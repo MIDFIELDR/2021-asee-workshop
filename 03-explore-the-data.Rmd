@@ -51,6 +51,11 @@ library(midfielddata)
 # saveRDS(case_term,    "data/case1_term.rds")
 # saveRDS(case_course,  "data/case1_course.rds")
 # saveRDS(case_degree,  "data/case1_degree.rds")
+
+add_row_num <- function(group) {
+  group[, row := row.names(group)]
+  setcolorder(group, c("row"))
+}
 ```
 
 
@@ -61,11 +66,15 @@ library(midfielddata)
 
 ```{r echo = FALSE}
 case <- readRDS("data/case1_student.rds")
+case <- data.table(case)
 n <- ncol(case)
-sel_1 <- paste(names(case)[1:7], sep = ", ")
-sel_2 <- paste(names(case)[8:n], sep = ", ")
+sel_1 <- paste(names(case)[1:6], sep = ", ")
+sel_2 <- paste(names(case)[7:n], sep = ", ")
 group_1 <- case[, ..sel_1]
 group_2 <- case[, ..sel_2]
+
+group_1 <- add_row_num(group_1)
+group_2 <- add_row_num(group_2)
 ```
 
 [`student`](https://midfieldr.github.io/midfielddata/reference/student.html) Link to data dictionary 
@@ -96,6 +105,9 @@ sel_1 <- paste(names(case)[1:7], sep = ", ")
 sel_2 <- paste(names(case)[8:n], sep = ", ")
 group_1 <- case[, ..sel_1]
 group_2 <- case[, ..sel_2]
+
+group_1 <- add_row_num(group_1)
+group_2 <- add_row_num(group_2)
 ```
 
 [`term`](https://midfieldr.github.io/midfielddata/reference/term.html) Link to data dictionary 
@@ -137,6 +149,9 @@ sel_1 <- paste(names(case)[1:6], sep = ", ")
 sel_2 <- paste(names(case)[7:n], sep = ", ")
 group_1 <- case[, ..sel_1]
 group_2 <- case[, ..sel_2]
+
+group_1 <- add_row_num(group_1)
+group_2 <- add_row_num(group_2)
 ```
 
 [`course`](https://midfieldr.github.io/midfielddata/reference/course.html) Link to data dictionary 
@@ -166,6 +181,8 @@ case <- readRDS("data/case1_degree.rds")
 n <- ncol(case)
 sel_1 <- paste(names(case), sep = ", ")
 group_1 <- case[, ..sel_1]
+
+group_1 <- add_row_num(group_1)
 ```
 
 [`degree`](https://midfieldr.github.io/midfielddata/reference/degree.html) Link to data dictionary  
@@ -226,6 +243,9 @@ sel_1 <- paste(names(case2)[1:7], sep = ", ")
 sel_2 <- paste(names(case2)[8:n], sep = ", ")
 group_1 <- case2[, ..sel_1]
 group_2 <- case2[, ..sel_2]
+
+group_1 <- add_row_num(group_1)
+group_2 <- add_row_num(group_2)
 ```
 
 [`student`](https://midfieldr.github.io/midfielddata/reference/student.html) Link to data dictionary 
@@ -259,6 +279,9 @@ sel_1 <- paste(names(case2)[1:7], sep = ", ")
 sel_2 <- paste(names(case2)[8:n], sep = ", ")
 group_1 <- case2[, ..sel_1]
 group_2 <- case2[, ..sel_2]
+
+group_1 <- add_row_num(group_1)
+group_2 <- add_row_num(group_2)
 ```
 
 [`term`](https://midfieldr.github.io/midfielddata/reference/term.html) Link to data dictionary 
@@ -301,6 +324,9 @@ sel_1 <- paste(names(case2)[1:6], sep = ", ")
 sel_2 <- paste(names(case2)[7:n], sep = ", ")
 group_1 <- case2[, ..sel_1]
 group_2 <- case2[, ..sel_2]
+
+group_1 <- add_row_num(group_1)
+group_2 <- add_row_num(group_2)
 ```
 
 [`course`](https://midfieldr.github.io/midfielddata/reference/course.html) Link to data dictionary 
@@ -330,6 +356,8 @@ case2 <- readRDS("data/case2_degree.rds")
 n <- ncol(case2)
 sel_1 <- paste(names(case2), sep = ", ")
 group_1 <- case2[, ..sel_1]
+
+group_1 <- add_row_num(group_1)
 ```
 
 [`degree`](https://midfieldr.github.io/midfielddata/reference/degree.html) Link to data dictionary  
