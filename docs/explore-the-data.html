@@ -6037,6 +6037,21 @@ Bachelor of Science
 <div id="next-steps" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Next steps</h2>
 <p><a href="index.html#agenda">Agenda</a> to see what’s next.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="explore-the-data.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(zip)</span>
+<span id="cb10-2"><a href="explore-the-data.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb10-3"><a href="explore-the-data.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;zip&#39;</span></span>
+<span id="cb10-4"><a href="explore-the-data.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:utils&#39;:</span></span>
+<span id="cb10-5"><a href="explore-the-data.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb10-6"><a href="explore-the-data.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     unzip, zip</span></span>
+<span id="cb10-7"><a href="explore-the-data.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">zip</span>(</span>
+<span id="cb10-8"><a href="explore-the-data.html#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">zipfile =</span> <span class="st">&quot;midfield-workshop-asee-2021.zip&quot;</span>,</span>
+<span id="cb10-9"><a href="explore-the-data.html#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">files =</span> <span class="fu">c</span>(<span class="st">&quot;wip/midfield-workshop-asee-2021/data/hours_per_term.rds&quot;</span>, <span class="st">&quot;wip/midfield-workshop-asee-2021/data/sat.rds&quot;</span>, <span class="st">&quot;wip/midfield-workshop-asee-2021/data/stickiness.rds&quot;</span>, <span class="st">&quot;wip/midfield-workshop-asee-2021/data/student_demogr.rds&quot;</span>),</span>
+<span id="cb10-10"><a href="explore-the-data.html#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">recurse =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb10-11"><a href="explore-the-data.html#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">compression_level =</span> <span class="dv">9</span>,</span>
+<span id="cb10-12"><a href="explore-the-data.html#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">include_directories =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb10-13"><a href="explore-the-data.html#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">root =</span> <span class="st">&quot;.&quot;</span>,</span>
+<span id="cb10-14"><a href="explore-the-data.html#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">mode =</span> <span class="st">&quot;cherry-pick&quot;</span></span>
+<span id="cb10-15"><a href="explore-the-data.html#cb10-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><br>
 <a href="explore-the-data.html#explore-the-data">▲ top of page</a></p>
 

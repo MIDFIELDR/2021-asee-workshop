@@ -390,6 +390,18 @@ kable2html(group_1)
 [Agenda] to see what's next.  
 
 
+```{r}
+library(zip)
+zip(
+  zipfile = "midfield-workshop-asee-2021.zip",
+  files = c("wip/midfield-workshop-asee-2021/data/hours_per_term.rds", "wip/midfield-workshop-asee-2021/data/sat.rds", "wip/midfield-workshop-asee-2021/data/stickiness.rds", "wip/midfield-workshop-asee-2021/data/student_demogr.rds"),
+  recurse = TRUE,
+  compression_level = 9,
+  include_directories = TRUE,
+  root = ".",
+  mode = "cherry-pick"
+)
+```
 
 
 
