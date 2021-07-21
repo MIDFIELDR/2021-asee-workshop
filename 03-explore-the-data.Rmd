@@ -107,7 +107,6 @@ kable2html(group_2)
 
 
 
-
 ### Case 1 `term` record
 
 ```{r echo = FALSE}
