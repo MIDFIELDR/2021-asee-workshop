@@ -43,7 +43,20 @@ htmltools::img(src = knitr::include_graphics("figures/midfield-four-datasets-inf
 
 
 
+## Guiding questions
 
+Here are some guiding questions for exploring a student’s academic “story”
+
+1. What can you tell about their demographics?
+2. What were their pre-college test scores?
+3. When did they start?
+4. What major did the student start in?
+5. Did they change majors? If so, from what to what and when?
+6. What courses did they do well in?
+7. Did they repeat any courses?
+8. Did they graduate?  How long did it take them?
+
+We will go through Case 1 together.  Then, we will break into small groups to summarize the story of Case 2. 
 
 ## Case 1
 

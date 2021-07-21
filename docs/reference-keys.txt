@@ -16,6 +16,7 @@ install-midfieldr
 install-midfielddata
 exiting-r-and-rstudio
 explore-the-data
+guiding-questions
 case-1
 case-1-student-record
 case-1-term-record
