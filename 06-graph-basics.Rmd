@@ -1,36 +1,14 @@
 # Graph basics {#graph-basics}
 
 ```{r echo = FALSE}
-library(knitr)
-knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
-knitr::opts_chunk$set(echo = TRUE, 
-                      comment = "#>", 
-                      collapse = TRUE, 
-                      message = FALSE, 
-                      out.width = "80%") 
-knitr::knit_hooks$set(inline = function(x) {
-        if (!is.numeric(x)) { 
-                x 
-        } else if (x >= 10000) { 
-                prettyNum(round(x, 2), big.mark = ",")
-        } else {
-                prettyNum(round(x, 2))
-        }
-})
-options(
-  datatable.print.nrows = 10,
-  datatable.print.topn = 5,
-  datatable.print.class = TRUE
-)
+source("utils.R")
 ```
 
- 
 ```{r echo = FALSE}
-opts_chunk$set(echo = TRUE)
 htmltools::img(src = knitr::include_graphics("figures/xkcd-decline.png"), 
-        alt   = "logo", 
-        style = "left:0px; padding:0px;", 
-        width = 400)
+               alt   = "logo", 
+               style = "left:0px; padding:0px;", 
+               width = 400)
 ```
 <small>
 <br>
@@ -98,7 +76,7 @@ Download the `prepared_data.zip` file from the workshop website with the followi
 
 Create a new script for this tutorial. 
 
-- See [Open an R script] if you need a refresher on creating, saving, and running an R script. 
+- See [Create a script] if you need a refresher on creating, saving, and running an R script. 
 - At the top of the script add a minimal header and install and load the packages indicated.  
 
 ```{r}

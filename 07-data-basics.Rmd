@@ -1,48 +1,61 @@
 # Data basics {#data-basics}
 
 ```{r echo = FALSE}
-library(knitr)
-knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
-knitr::opts_chunk$set(echo = TRUE, comment = "#>", collapse = TRUE) 
-knitr::knit_hooks$set(inline = function(x) {
-        if (!is.numeric(x)) { 
-                x 
-        } else if (x >= 10000) { 
-                prettyNum(round(x, 2), big.mark = ",")
-        } else {
-                prettyNum(round(x, 2))
-        }
-})
-options(
-  datatable.print.nrows = 10,
-  datatable.print.topn = 5,
-  datatable.print.class = TRUE
-)
+source("utils.R")
 ```
+
+```{r echo = FALSE, eval = FALSE}
+library(magick)
+img <- image_read("figures/header-data-basics.jpg")
+img  <- image_colorize(img,  opacity = 20, color = "blue")
+img2 <- image_flop(img)
+
+img <- image_append(c(img, img2), stack = FALSE)
+image_write(img, 
+        path = "figures/header-data-basics.png", 
+        format = "png")
+```
+
+
+```{r echo = FALSE}
+htmltools::img(src = knitr::include_graphics("figures/header-data-basics.png"), 
+        alt   = "logo", 
+        style = "left:0px; padding:0px;")
+```
+<small>
+<br>
+<i>Big Data Higgs</i> by KamiPhuc is licensed under <a href="https://creativecommons.org/licenses/by/2.0/legalcode">CC BY 2.0</a>
+</small>
+<br>
 
 ## Introduction 
 
-This tutorial is an introduction to ...
-
-
-If you already have R experience, you might still want to browse this section in case you find something new. 
+This tutorial is an introduction to data preparation using the data.table package for importing, exploring, and structuring data. Our goal is to transform, reshape, and join data frames to obtain the form we need for analysis and graphs. 
 
 [Prerequisites] should be completed before proceeding. After that, the tutorial should take about an hour. 
 
+- As you work through the tutorial, type a line or chunk of code then *File &gt; Save* and run the script.    
+- Confirm that your result matches the tutorial result.  
+- The **exercises** give you chance to practice your new skills to learn by doing (but you knew that already)!
+
+
+## Start a new script
+
 Create a new script for this tutorial. 
 
-- See [Open an R script] if you need a refresher on creating, saving, and running an R script. 
+- See [Create a script] if you need a refresher on creating, saving, and running an R script. 
 - At the top of the script add a minimal header and install and load the packages indicated.  
 
 ```{r}
 # Data basics 
-# name 
-# date 
+# Name 
+# Date 
 
+# Packages used in this tutorial
 library("midfieldr")
+library("midfielddata")
 library("data.table")
-library("ggplot2")
-library("gapminder")
+library("VIM")
 
 # Optional code to control data.table printing
 options(
@@ -50,24 +63,324 @@ options(
   datatable.print.topn = 5,
   datatable.print.class = TRUE
 )
+
+# Load midfielddata data sets to use later
+data(student)
+data(term) 
+data(degree) 
 ```
 
 If you get an error like this one after running the script, 
 
-        Error in library("gapminder") : there is no package called 'gapminder'
+        Error in library("VIM") : there is no package called 'VIM'
 
 then the package needs to be installed. If you need a refresher on installing packages, see [Install CRAN packages]. Once the missing package is installed, you can rerun the script. 
 
-Guidelines 
 
-- As you work through the tutorial, type a line or chunk of code then *File &gt; Save* and run the script.    
-- Confirm that your result matches the tutorial result.  
-- **Your turn** exercises give you chance to devise your own examples and check them out. You learn by doing (but you knew that already)!
- 
 
-## Under construction
 
-[slides](https://github.com/MIDFIELDR/2021-asee-workshop/blob/main/slides/effective-displays-2021-06-26.pdf)
+##  Data sets in R 
+
+Practice data sets are included with the basic R installation and with some R packages. To list the practice data sets available in R, type in the Console,
+
+```r
+# Type in the Console 
+data() 
+```
+
+which yields
+
+     #> Data sets in package ‘datasets’:
+     #>    
+     #> AirPassengers  Monthly Airline Passenger Numbers
+     #> BJsales        Sales Data with Leading Indicator
+     #> BOD            Biochemical Oxygen Demand
+     #> CO2            Carbon Dioxide Uptake in Grass Plants
+     #> Formaldehyde   Determination of Formaldehyde
+     etc.
+
+We use the `data()` function to list practice datasets included in a package (if any). For example, to determine what packages are bundled with the midfieldr package, type in the Console, 
+
+```r
+# Type in the Console 
+data(package = "midfieldr") 
+```
+
+which yields
+
+     #> Data sets in package ‘midfieldr’:
+     #>   
+     #> cip                   Table of academic programs
+     #> fye_start             Starting programs imputed for FYE students
+     #> study_grad_rate       Case-study graduation rate results
+     #> study_program         Case-study programs
+     #> study_stickiness      Case-study stickiness results
+     #> study_student         Case-study students
+     #> toy_course            Course data for examples
+     #> toy_degree            Degree data for examples
+     #> toy_student           Student data for examples
+     #> toy_term              Term data for examples
+
+Every data set in base R and in R packages has a help page that describes the data format and variable names. The data help page can be accessed using `help()`, for example, 
+
+```r
+# Type in the Console 
+help(cip, package = "midfieldr")
+```
+
+Alternatively, if the package is loaded, you may run the `? item-name` syntax in the Console,  
+
+```r
+# type in the Console
+library("midfieldr")
+? cip
+```
+
+yields
+
+```{r echo = FALSE}
+htmltools::img(src = knitr::include_graphics("figures/data-basics-cip-help.png"),
+               alt   = 'starwars help page',
+               style = 'left:0px; padding:0px;',
+               width = 600)
+```
+
+
+### Exercises
+
+
+1. Determine the names of the datasets available in the midfielddata package. 
+    
+    [*Check your work*](https://midfieldr.github.io/midfielddata/reference/index.html) 
+
+2. Determine the variables in the midfieldr `study_stickiness` data.
+
+    [*Check your work*](https://midfieldr.github.io/midfieldr/reference/study_stickiness.html) 
+
+3. Determine the variables in midfielddata `degree` data. 
+
+    [*Check your work*](https://midfieldr.github.io/midfielddata/reference/degree.html) 
+
+
+
+
+
+
+##  Data structure 
+
+When we encounter a data set, the first step is to characterize its structure including, 
+
+class
+: The class of the R data object, for example, vector, matrix, data frame, time series, list, etc. The R  data frame is the structure we use most often, typically in the enhanced `data.table` form. For data frames, we are also interested in the class of each column. 
+
+layout
+: How tables, rows, and columns are organized and keyed with  unique and invariant coordinates to data cells. Most data processing steps have a preferred format, so we have to be able to identify and transform layouts as needed. 
+
+The most common data layout we use is the *denormalized* form (what many R users recognize as the "tidy" form) with variables in columns, observations in rows, and a clear taxonomy of column roles: some columns are *keys* (i.e., coordinates that uniquely identify the row), one or more columns are *data* (called "payload" in SQL), and some columns may be *derived* (functions of  other columns). 
+
+For example, if we examine the first 5 rows of the `term` data (ordered by ID and term), 
+
+```{r}
+term[order(mcid, term)][1:5]
+```
+
+- Keys are `mcid` and `term`.  
+- Column `institution` is derived (assuming the student is affiliated with one institution only) because it is a function of student ID. 
+- The remaining variables are data. 
+- Column `gpa_cumul` is class *numeric* (double-precision); all other columns are class *character* (strings). 
+
+Applying a similar procedure to the aggregated `study_stickiness` data set loaded with midfieldr, 
+
+```{r}
+study_stickiness
+```
+
+- Keys are `program`, `race`, and `sex`. 
+- Number enrolled (`ever`) and number graduating (`grad`) are data. 
+- Program stickiness (`stick`) is derived (the ratio of `grad` to `ever`). 
+- The key columns are class *character*; `ever` and `grad` are class *integer*; and `stick` is class *numeric* (double-precision). 
+
+
+### Exercises
+
+The following midfieldr/midfielddata data frames are all in denormalized form. For each, identify their key(s), data, and derived (if any) columns.  
+
+1. `cip`  
+1. `study_student`  
+1. `student`  
+1. `course`  
+1. `degree `  
+
+
+
+## What is a `data.table`?
+
+In our tutorials and in our package functions, we manipulate data using the data.table package, primarily for its speed with large tables but also for its concise syntax and its zero dependencies. Thus, when you use a midfieldr function to operate on a data frame, the returned data frame is also a data.table object. 
+
+For R beginners, we try to keep our use of data.table in tutorials to an introductory level, though we will occasionally use a more complex syntax when the benefit is worth the cognitive load. 
+
+What is a data.table? The [data.table cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/datatable.png) defines data.table this way:
+
+> data.table is an extremely fast and memory efficient package    
+> for transforming data in R. It works by converting R's native    
+> data frame objects into data.tables with new and enhanced    
+> functionality. The basics of working with data.tables are:    
+>    
+> **DT[i,  j,  by]**    
+>    
+> Take data.table **DT**, subset rows using **i** and operate     
+> on columns with **j** grouped according to **by**.    
+>
+> data.tables are also data.frames---functions that work with     
+> data.frames therefore also work with data.tables.    
+
+
+
+
+```{r echo = FALSE, eval = FALSE}
+# Create student_demogr.rds and append to prepared_data.zip
+DT <- copy(student)[, .(race, sex)]
+DT[, race_sex := paste(race, sex)]
+DT[, c("race", "sex") := NULL]
+DT <- DT[, .N, by = "race_sex"]
+DT <- DT[!race_sex %ilike% "Other|International"]
+DT[, race_sex := factor(race_sex)]
+DT[, race_sex := reorder(race_sex, N)]
+
+
+
+# Create student_demogr.rds and append to prepared_data.zip
+DT <- add_race_sex(term, midfield_student = student)
+cols_we_want <- c("mcid", "term", "hours_term", "level", "sex")
+DT <- DT[, ..cols_we_want]
+DT <- unique(DT)
+
+DT <- copy(study_stickiness)
+DT[, race_sex := paste(race, sex)]
+DT[, race_sex := factor(race_sex)]
+DT[, program  := factor(program)]
+
+# Omit ambiguous race/ethnicities and small populations
+DT <- DT[!race_sex %ilike% c("Native|International|Other")]
+```
+
+
+
+
+
+
+## Subset rows
+
+- `i` 
+- `na.omit()`
+- `%chin%`,  `%ilike%`
+
+```{r echo = FALSE, eval = FALSE}
+# Before sampling, we remove NA values
+# sat <- na.omit(sat)
+# DT <- DT[!race_sex %ilike% "Other|International"]
+```
+
+Typically we create a Boolean statement to subset rows. A row is retained if the statement yields TRUE for that row and dropped in the statement yields FALSE. 
+
+For example, if we wanted to subset `term` for all rows for a particular student, we write (in data.table fashion)
+
+```{r}
+# Subset all term data for one student by their ID
+DT <- term[mcid == "MID25836044"]
+
+# Examine the result
+DT
+```
+
+If we wanted to extract the same student's data from all the MIDFIELD tables, we can assign the ID to a name, 
+
+```{r}
+mcid_we_want <- "MID25836044"
+student[mcid == mcid_we_want]
+degree[mcid == mcid_we_want]
+```
+
+Because a row-subset argument can have multiple clauses, we often construct the Boolean statement on its own line to promote clarity. In this case we must use the `df$col` syntax, where `df` = name of the data.frame and `col` = name of the column in the data frame. 
+
+```{r}
+# Create a TRUE/FALSE vector with as many entries as term has rows 
+rows_we_want <- term$mcid == "MID25836044" & term$cip6 == "140102"
+
+# Examine the result
+str(rows_we_want)
+
+# Confirm the TRUE/FALSE vector has as many entries as term has rows 
+nrow(term)
+```
+
+If the argument  returns TRUE for a row, that row is retained, otherwise it is dropped. 
+
+```{r}
+# Retain rows for which rows_we_want is TRUE
+DT <- term[rows_we_want]
+
+# examine the result
+DT
+```
+
+The commonly used Boolean operators are equal to (`==`),  not equal to (`!=`), and (`&`), or (`|`), less than (`<`), greater than (`>`), less than or equal to (`<=`), and greater than or equal to (`>=`). 
+
+
+
+
+
+
+
+
+
+## Select columns 
+
+
+
+```{r echo = FALSE, eval = FALSE}
+# We only need two columns for the plot
+cols_we_want <- c("sat_math", "sat_verbal")
+sat <- student[, ..cols_we_want]
+```
+
+
+
+
+## Operate on columns 
+
+- delete
+- create 
+- apply function 
+
+
+
+```{r echo = FALSE, eval = FALSE}
+DT <- copy(student)[, .(race, sex)]
+DT[, race_sex := paste(race, sex)]
+DT[, c("race", "sex") := NULL]
+
+
+DT[, race_sex := factor(race_sex)]
+DT[, race_sex := reorder(race_sex, N)]
+```
+
+
+## Grouping 
+
+- by 
+- .SD
+
+
+
+```{r echo = FALSE, eval = FALSE}
+DT <- DT[, .N, by = "race_sex"]
+```
+
+## Reference semantics
+
+## Reshaping
+
 
 
 

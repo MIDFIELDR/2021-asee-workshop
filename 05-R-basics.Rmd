@@ -1,24 +1,33 @@
 # R basics {#R-basics}
 
 ```{r echo = FALSE}
-library(knitr)
-knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
-knitr::opts_chunk$set(echo = TRUE, comment = "#>", collapse = TRUE) 
-knitr::knit_hooks$set(inline = function(x) {
-        if (!is.numeric(x)) { 
-                x 
-        } else if (x >= 10000) { 
-                prettyNum(round(x, 2), big.mark = ",")
-        } else {
-                prettyNum(round(x, 2))
-        }
-})
-options(
-  datatable.print.nrows = 10,
-  datatable.print.topn = 5,
-  datatable.print.class = TRUE
-)
+source("utils.R")
 ```
+
+
+```{r echo = FALSE, eval = FALSE}
+library(magick)
+
+# crop out width:100px and height:150px starting +50px from the left
+# 812 wide x 757 high
+img  <- image_read("figures/script3.png")
+img1 <- image_crop(img, "550x290+0+0")
+img2 <- image_crop(img, "550x290+0+285")
+img  <- image_append(c(img1, img2), stack = FALSE)
+# img  <- image_colorize(img,  opacity = 20, color = "black")
+img  <- image_noise(img)
+
+image_write(img, 
+        path = "figures/header-r-basics.png", 
+        format = "png")
+```
+
+```{r echo = FALSE}
+htmltools::img(src = knitr::include_graphics("figures/header-r-basics.png"), 
+        alt   = "logo", 
+        style = "left:0px; padding:0px;")
+```
+
 
 This tutorial is an introduction to R adapted from [@Healy:2019:Ch.2] with extra material from [@Matloff:2019]. If you already have R experience, you might still want to browse this section in case you find something new. 
 

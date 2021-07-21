@@ -1,26 +1,31 @@
 # Install everything {#install-everything}
 
 ```{r echo = FALSE}
-library("knitr")
-knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
-knitr::opts_chunk$set(echo = FALSE) 
-knitr::knit_hooks$set(inline = function(x) {
-        if (!is.numeric(x)) { 
-                x 
-        } else if (x >= 10000) { 
-                prettyNum(round(x, 2), big.mark = ",")
-        } else {
-                prettyNum(round(x, 2))
-        }
-})
+source("utils.R")
 ```
 
-```{r}
+```{r echo = FALSE}
 htmltools::img(src = knitr::include_graphics("figures/logo-R.png"), 
         alt    = "logo", 
         style  = "left:0px; padding:5px;", 
         height = "110px")
 htmltools::img(src = knitr::include_graphics("figures/logo-RStudio.png"), 
+        alt    = "logo", 
+        style  = "left:0px; padding:5px;", 
+        height = "110px")
+htmltools::img(src = knitr::include_graphics("figures/data.table-logo.png"), 
+        alt    = "logo", 
+        style  = "left:0px; padding:5px;", 
+        height = "110px")
+htmltools::img(src = knitr::include_graphics("figures/ggplot2-logo.png"), 
+        alt    = "logo", 
+        style  = "left:0px; padding:5px;", 
+        height = "110px")
+htmltools::img(src = knitr::include_graphics("figures/midfieldr-logo.svg"), 
+        alt    = "logo", 
+        style  = "left:0px; padding:5px;", 
+        height = "110px")
+htmltools::img(src = knitr::include_graphics("figures/midfielddata-logo.svg"), 
         alt    = "logo", 
         style  = "left:0px; padding:5px;", 
         height = "110px")
@@ -35,7 +40,8 @@ This chapter describes all of the pre-workshop homework:
 - [Create a project]  
 - [Add some folders] 
 - [Install CRAN packages] 
-- [Install MIDFIELD packages] 
+- [Install midfieldr] 
+- [Install midfielddata] 
 
 
 ## Already installed?
@@ -274,9 +280,7 @@ install.packages(packages_we_use)
 
 
 
-## Install MIDFIELD packages
-
-### midfieldr 
+## Install midfieldr
 
 midfieldr is not yet available from [CRAN](https://cran.r-project.org/). To install the development version of midfieldr from its `drat` repository, type in the Console: 
 
@@ -307,7 +311,7 @@ htmltools::img(src = knitr::include_graphics("figures/README-midfieldr-help-page
         width = "700px")
 ```
 
-### midfielddata
+## Install midfielddata
 
 Because of its size, the data package is stored in a `drat` repository instead of CRAN. Installation takes time; please be patient and wait for the Console prompt ">" to reappear. 
 

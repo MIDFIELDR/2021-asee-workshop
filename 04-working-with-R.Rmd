@@ -1,23 +1,7 @@
 # Work with R {#work-with-R}
 
 ```{r echo = FALSE}
-library(knitr)
-knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
-knitr::opts_chunk$set(echo = TRUE, comment = "#>", collapse = TRUE) 
-knitr::knit_hooks$set(inline = function(x) {
-        if (!is.numeric(x)) { 
-                x 
-        } else if (x >= 10000) { 
-                prettyNum(round(x, 2), big.mark = ",")
-        } else {
-                prettyNum(round(x, 2))
-        }
-})
-options(
-  datatable.print.nrows = 10,
-  datatable.print.topn = 5,
-  datatable.print.class = TRUE
-)
+source("utils.R")
 ```
 
 ```{r echo = FALSE}
@@ -39,6 +23,17 @@ n_pkg    <- info_pkg[1]
 date_pkg <- info_pkg[2]
 ```
 
+```{r echo = FALSE}
+htmltools::img(src = knitr::include_graphics("figures/lots-of-Rs.png"), 
+        alt   = "logo", 
+        style = "left:0px; padding:0px;")
+```
+<small>
+<i>R</i> by Monceau and by Duncan C are licensed under <a href="https://creativecommons.org/licenses/by-nc/2.0/legalcode">CC BY-NC 2.0</a>, by Marco Isler <a href="https://creativecommons.org/licenses/by-nd/2.0/legalcode">CC BY-ND 2.0</a>, by Joanna Poe <a href="https://creativecommons.org/licenses/by-sa/2.0/legalcode">CC BY-SA 2.0</a>
+</small>
+<br>
+
+
 R is an open source language and environment for statistical computing and graphics [@R-base], ranked by IEEE in 2020 as the 6th most popular programming language (Python, Java, and C are the top three) [@Cass:2020]. If you are new to R, some of its best features, paraphrasing Wickham  [-@wickham2014advanced], are: 
 
 - R is free, open source, and available on every major platform. 
@@ -52,12 +47,22 @@ RStudio, an integrated development environment (IDE) for R, includes a console, 
 
 ## Prerequisites {#prerequisites}
 
-Before proceeding, you should have completed
+Before proceeding, you should have completed [Install everything] which covers:  
 
-- [Install everything]    
-- Launched your workshop project---`workshop.Rproj` or other name that you selected---to start the R session     
+- [Already installed?]  
+- [Install R and RStudio]  
+- [Create a project]  
+- [Add some folders]  
+- [Install CRAN packages]  
+- [Install midfieldr]  
+- [Install midfielddata]  
 
-With these prerequisites accomplished, and working in your RStudio  `workshop.Rproj` project, you can create a save a script by:
+
+## Create a script
+
+Launch your workshop project---`workshop.Rproj` or other name that you selected---to start the R session. Always work in an RStudio project environment.     
+
+Create a script by:
 
 - Use the pulldown menu, _File &gt; New File &gt; R Script_ 
 - File menu > Save As... 
@@ -136,7 +141,6 @@ The case study is a quick tour of a typical workflow using Student Unit Record (
 - [Case study programs](https://midfieldr.github.io/midfieldr/articles/art-002-case-study-programs.html){target="_blank"}
 - [Case study students](https://midfieldr.github.io/midfieldr/articles/art-004-case-study-students.html){target="_blank"} 
 - [Case study stickiness](https://midfieldr.github.io/midfieldr/articles/art-006-case-study-stickiness.html){target="_blank"} 
-- [Case study graduation rate](https://midfieldr.github.io/midfieldr/articles/art-008-case-study-grad-rate.html){target="_blank"}
 
 
 

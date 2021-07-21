@@ -17,41 +17,22 @@ cover-image: "figures/midfield-grad-logo.png"
 # Introduction {#introduction}
 
 ```{r echo = FALSE}
-library("knitr")
-knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
-knitr::opts_chunk$set(echo = FALSE) 
-knitr::knit_hooks$set(inline = function(x) {
-	if (!is.numeric(x)) { 
-		x 
-	} else if (x >= 10000) { 
-		prettyNum(round(x, 2), big.mark = ",")
-	} else {
-		prettyNum(round(x, 2))
-	}
-})
+source("utils.R")
 ```
 
-```{r include=FALSE}
+```{r include = FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
-	.packages(), 'bookdown', 'knitr', 'rmarkdown', 'data.table', 'wrapr', 'midfieldr', 'midfielddata', 'ggplot2', 'remotes'
+	.packages(), 'bookdown', 'knitr', 'rmarkdown', 'data.table', 'wrapr', 'midfieldr', 'midfielddata', 'ggplot2', 'gapminder'
 ), 'packages.bib')
 ```
 
-```{r}
+```{r echo = FALSE}
 htmltools::img(src = knitr::include_graphics("figures/midfield-grad-logo.png"), 
 							 alt = 'midfield logo', 
 							 style = 'left:0px; padding:10px;',
 							 width = 200)
 ```
-
-
-```{r eval = FALSE}
-# clean html files before building the book
-
-```
-
-
 
 ## Objectives 
 
@@ -154,7 +135,7 @@ The following licenses apply to the text, data, and code in these workshops. Our
 
 Funding provided by the National Science Foundation Grant 1545667 "Expanding Access to and Participation in the Multiple-Institution Database for Investigating Engineering Longitudinal Development." 
 
-```{r}
+```{r echo = FALSE}
 htmltools::img(src = 
 knitr::include_graphics("figures/NSF_4-Color_bitmap_Logo.png"), 
                alt = 'NSF logo', 
