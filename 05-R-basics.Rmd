@@ -219,8 +219,8 @@ If you want to know if a name has already been used in a package you have loaded
 
 ```r
 # Type in the Console
-`? c()` 
-`? mean()`
+? c()
+? mean()
 ```
 
 If the name is in use, a help page appears in the RStudio Help pane.  
@@ -258,9 +258,7 @@ c(1, 2, 3, 1, 3, 25)          # <- typed in the script
 
 The `[1]` that leads the output line is a label identifying the index of the element that starts that line. More on that in a little while.  
 
-You create objects my assigning them names. 
-
-- `<-` is the assignment operator, keyboard shortcut: `alt`$-$ , i.e., the ALT key plus the hyphen key. (Mac OS `option`$-$) 
+You create objects my assigning them names using the `<-` operator. The keyboard shortcut for the assignment operator is `alt`$-$ , i.e., the ALT key plus the hyphen key. (Mac OS `option`$-$) 
 
 ```{r}
 # Practice assigning an object to a name
@@ -654,7 +652,7 @@ In data table syntax, we go one step further and add a grouping index, that is
 DT[i, j, by]
 
 ```
-This can be read as "Take DT, subset/reorder rows using `i`, then calculate `j`, grouped by `by`."  You don't have to go into it any more deeply than this for now---we will illustrate it by example in the midfieldr tutorials. 
+This can be read as "Take DT, subset/reorder rows using `i`, then calculate `j`, grouped by `by`." The midfieldr tutorials illustrate this usage in practice. For more detail you can work through the [Data basics] tutorial. 
 
 
 

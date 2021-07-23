@@ -53,8 +53,6 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -122,28 +120,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -279,13 +255,21 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="7.4.1" data-path="data-basics.html"><a href="data-basics.html#exercises-1"><i class="fa fa-check"></i><b>7.4.1</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="7.5" data-path="data-basics.html"><a href="data-basics.html#what-is-a-data.table"><i class="fa fa-check"></i><b>7.5</b> What is a <code>data.table</code>?</a></li>
-<li class="chapter" data-level="7.6" data-path="data-basics.html"><a href="data-basics.html#subset-rows"><i class="fa fa-check"></i><b>7.6</b> Subset rows</a></li>
+<li class="chapter" data-level="7.5" data-path="data-basics.html"><a href="data-basics.html#what-is-a-data.table"><i class="fa fa-check"></i><b>7.5</b> What is a data.table?</a></li>
+<li class="chapter" data-level="7.6" data-path="data-basics.html"><a href="data-basics.html#subset-rows"><i class="fa fa-check"></i><b>7.6</b> Subset rows</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="data-basics.html"><a href="data-basics.html#logical-operators"><i class="fa fa-check"></i><b>7.6.1</b> Logical operators</a></li>
+<li class="chapter" data-level="7.6.2" data-path="data-basics.html"><a href="data-basics.html#character-matching"><i class="fa fa-check"></i><b>7.6.2</b> Character matching</a></li>
+</ul></li>
 <li class="chapter" data-level="7.7" data-path="data-basics.html"><a href="data-basics.html#select-columns"><i class="fa fa-check"></i><b>7.7</b> Select columns</a></li>
 <li class="chapter" data-level="7.8" data-path="data-basics.html"><a href="data-basics.html#operate-on-columns"><i class="fa fa-check"></i><b>7.8</b> Operate on columns</a></li>
 <li class="chapter" data-level="7.9" data-path="data-basics.html"><a href="data-basics.html#grouping"><i class="fa fa-check"></i><b>7.9</b> Grouping</a></li>
-<li class="chapter" data-level="7.10" data-path="data-basics.html"><a href="data-basics.html#reference-semantics"><i class="fa fa-check"></i><b>7.10</b> Reference semantics</a></li>
-<li class="chapter" data-level="7.11" data-path="data-basics.html"><a href="data-basics.html#reshaping"><i class="fa fa-check"></i><b>7.11</b> Reshaping</a></li>
+<li class="chapter" data-level="7.10" data-path="data-basics.html"><a href="data-basics.html#other-row-operations"><i class="fa fa-check"></i><b>7.10</b> Other row operations</a>
+<ul>
+<li class="chapter" data-level="7.10.1" data-path="data-basics.html"><a href="data-basics.html#unique-rows"><i class="fa fa-check"></i><b>7.10.1</b> Unique rows</a></li>
+</ul></li>
+<li class="chapter" data-level="7.11" data-path="data-basics.html"><a href="data-basics.html#reference-semantics"><i class="fa fa-check"></i><b>7.11</b> Reference semantics</a></li>
+<li class="chapter" data-level="7.12" data-path="data-basics.html"><a href="data-basics.html#reshaping"><i class="fa fa-check"></i><b>7.12</b> Reshaping</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>8</b> References</a></li>
 <li class="divider"></li>
@@ -335,27 +319,27 @@ div.csl-indent {
 <li>See <a href="work-with-R.html#create-a-script">Create a script</a> if you need a refresher on creating, saving, and running an R script.</li>
 <li>At the top of the script add a minimal header and install and load the packages indicated.</li>
 </ul>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-basics.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data basics </span></span>
-<span id="cb91-2"><a href="data-basics.html#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Name </span></span>
-<span id="cb91-3"><a href="data-basics.html#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Date </span></span>
-<span id="cb91-4"><a href="data-basics.html#cb91-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-5"><a href="data-basics.html#cb91-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Packages used in this tutorial</span></span>
-<span id="cb91-6"><a href="data-basics.html#cb91-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;midfieldr&quot;</span>)</span>
-<span id="cb91-7"><a href="data-basics.html#cb91-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;midfielddata&quot;</span>)</span>
-<span id="cb91-8"><a href="data-basics.html#cb91-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;data.table&quot;</span>)</span>
-<span id="cb91-9"><a href="data-basics.html#cb91-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;VIM&quot;</span>)</span>
-<span id="cb91-10"><a href="data-basics.html#cb91-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-11"><a href="data-basics.html#cb91-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional code to control data.table printing</span></span>
-<span id="cb91-12"><a href="data-basics.html#cb91-12" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(</span>
-<span id="cb91-13"><a href="data-basics.html#cb91-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">datatable.print.nrows =</span> <span class="dv">10</span>,</span>
-<span id="cb91-14"><a href="data-basics.html#cb91-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">datatable.print.topn =</span> <span class="dv">5</span>,</span>
-<span id="cb91-15"><a href="data-basics.html#cb91-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">datatable.print.class =</span> <span class="cn">TRUE</span></span>
-<span id="cb91-16"><a href="data-basics.html#cb91-16" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb91-17"><a href="data-basics.html#cb91-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-18"><a href="data-basics.html#cb91-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Load midfielddata data sets to use later</span></span>
-<span id="cb91-19"><a href="data-basics.html#cb91-19" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(student)</span>
-<span id="cb91-20"><a href="data-basics.html#cb91-20" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(term) </span>
-<span id="cb91-21"><a href="data-basics.html#cb91-21" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(degree) </span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data-basics.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data basics </span></span>
+<span id="cb1-2"><a href="data-basics.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Name </span></span>
+<span id="cb1-3"><a href="data-basics.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Date </span></span>
+<span id="cb1-4"><a href="data-basics.html#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="data-basics.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Packages used in this tutorial</span></span>
+<span id="cb1-6"><a href="data-basics.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;midfieldr&quot;</span>)</span>
+<span id="cb1-7"><a href="data-basics.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;midfielddata&quot;</span>)</span>
+<span id="cb1-8"><a href="data-basics.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;data.table&quot;</span>)</span>
+<span id="cb1-9"><a href="data-basics.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;VIM&quot;</span>)</span>
+<span id="cb1-10"><a href="data-basics.html#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="data-basics.html#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional code to control data.table printing</span></span>
+<span id="cb1-12"><a href="data-basics.html#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(</span>
+<span id="cb1-13"><a href="data-basics.html#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">datatable.print.nrows =</span> <span class="dv">10</span>,</span>
+<span id="cb1-14"><a href="data-basics.html#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">datatable.print.topn =</span> <span class="dv">5</span>,</span>
+<span id="cb1-15"><a href="data-basics.html#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">datatable.print.class =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-16"><a href="data-basics.html#cb1-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-17"><a href="data-basics.html#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="data-basics.html#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Load midfielddata data sets to use later</span></span>
+<span id="cb1-19"><a href="data-basics.html#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(student)</span>
+<span id="cb1-20"><a href="data-basics.html#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(term) </span>
+<span id="cb1-21"><a href="data-basics.html#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(degree) </span></code></pre></div>
 <p>If you get an error like this one after running the script,</p>
 <pre><code>    Error in library(&quot;VIM&quot;) : there is no package called &#39;VIM&#39;</code></pre>
 <p>then the package needs to be installed. If you need a refresher on installing packages, see <a href="install-everything.html#install-cran-packages">Install CRAN packages</a>. Once the missing package is installed, you can rerun the script.</p>
@@ -363,8 +347,8 @@ div.csl-indent {
 <div id="data-sets-in-r" class="section level2" number="7.3">
 <h2><span class="header-section-number">7.3</span> Data sets in R</h2>
 <p>Practice data sets are included with the basic R installation and with some R packages. To list the practice data sets available in R, type in the Console,</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-basics.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type in the Console </span></span>
-<span id="cb93-2"><a href="data-basics.html#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="data-basics.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type in the Console </span></span>
+<span id="cb3-2"><a href="data-basics.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>() </span></code></pre></div>
 <p>which yields</p>
 <pre><code> #&gt; Data sets in package ‘datasets’:
  #&gt;    
@@ -375,8 +359,8 @@ div.csl-indent {
  #&gt; Formaldehyde   Determination of Formaldehyde
  etc.</code></pre>
 <p>We use the <code>data()</code> function to list practice datasets included in a package (if any). For example, to determine what packages are bundled with the midfieldr package, type in the Console,</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-basics.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type in the Console </span></span>
-<span id="cb95-2"><a href="data-basics.html#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package =</span> <span class="st">&quot;midfieldr&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="data-basics.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type in the Console </span></span>
+<span id="cb5-2"><a href="data-basics.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package =</span> <span class="st">&quot;midfieldr&quot;</span>) </span></code></pre></div>
 <p>which yields</p>
 <pre><code> #&gt; Data sets in package ‘midfieldr’:
  #&gt;   
@@ -391,14 +375,21 @@ div.csl-indent {
  #&gt; toy_student           Student data for examples
  #&gt; toy_term              Term data for examples</code></pre>
 <p>Every data set in base R and in R packages has a help page that describes the data format and variable names. The data help page can be accessed using <code>help()</code>, for example,</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-basics.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type in the Console </span></span>
-<span id="cb97-2"><a href="data-basics.html#cb97-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(cip, <span class="at">package =</span> <span class="st">&quot;midfieldr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="data-basics.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type in the Console </span></span>
+<span id="cb7-2"><a href="data-basics.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(cip, <span class="at">package =</span> <span class="st">&quot;midfieldr&quot;</span>)</span></code></pre></div>
 <p>Alternatively, if the package is loaded, you may run the <code>? item-name</code> syntax in the Console,</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data-basics.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the Console</span></span>
-<span id="cb98-2"><a href="data-basics.html#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;midfieldr&quot;</span>)</span>
-<span id="cb98-3"><a href="data-basics.html#cb98-3" aria-hidden="true" tabindex="-1"></a>? cip</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="data-basics.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the Console</span></span>
+<span id="cb8-2"><a href="data-basics.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;midfieldr&quot;</span>)</span>
+<span id="cb8-3"><a href="data-basics.html#cb8-3" aria-hidden="true" tabindex="-1"></a>? cip</span></code></pre></div>
 <p>yields</p>
 <p><img src="figures/data-basics-cip-help.png" alt="starwars help page" style="left:0px; padding:0px;" width="600"/></p>
+<p>The midfieldr “toy” data sets are small subsets by row and column of the MIDFIELD tables that we use later in the vignette examples. You can view their help pages by running, e.g., <code>? toy_student</code>, or by clicking the links to the same information online.</p>
+<ul>
+<li><a href="https://midfieldr.github.io/midfieldr/reference/toy_student.html"><code>toy_student</code></a></li>
+<li><a href="https://midfieldr.github.io/midfieldr/reference/toy_course.html"><code>toy_course</code></a></li>
+<li><a href="https://midfieldr.github.io/midfieldr/reference/toy_term.html"><code>toy_term</code></a></li>
+<li><a href="https://midfieldr.github.io/midfieldr/reference/toy_degree.html"><code>toy_degree</code></a></li>
+</ul>
 <div id="exercises" class="section level3" number="7.3.1">
 <h3><span class="header-section-number">7.3.1</span> Exercises</h3>
 <ol style="list-style-type: decimal">
@@ -416,7 +407,7 @@ div.csl-indent {
 <p>When we encounter a data set, the first step is to characterize its structure including,</p>
 <dl>
 <dt>class</dt>
-<dd>The class of the R data object, for example, vector, matrix, data frame, time series, list, etc. The R data frame is the structure we use most often, typically in the enhanced <code>data.table</code> form. For data frames, we are also interested in the class of each column.
+<dd>The class of the R data object, for example, vector, matrix, data frame, time series, list, etc. The R data frame is the structure we use most often, typically in the enhanced <a href="https://rdatatable.gitlab.io/data.table/"><code>data.table</code></a> form. For data frames, we are also interested in the class of each column.
 </dd>
 <dt>layout</dt>
 <dd>How tables, rows, and columns are organized and keyed with unique and invariant coordinates to data cells. Most data processing steps have a preferred format, so we have to be able to identify and transform layouts as needed.
@@ -424,28 +415,28 @@ div.csl-indent {
 </dl>
 <p>The most common data layout we use is the <em>denormalized</em> form (what many R users recognize as the “tidy” form) with variables in columns, observations in rows, and a clear taxonomy of column roles: some columns are <em>keys</em> (i.e., coordinates that uniquely identify the row), one or more columns are <em>data</em> (called “payload” in SQL), and some columns may be <em>derived</em> (functions of other columns).</p>
 <p>For example, if we examine the first 5 rows of the <code>term</code> data (ordered by ID and term),</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-basics.html#cb99-1" aria-hidden="true" tabindex="-1"></a>term[<span class="fu">order</span>(mcid, term)][<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb99-2"><a href="data-basics.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           mcid   institution   term   cip6        level      standing   coop</span></span>
-<span id="cb99-3"><a href="data-basics.html#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;char&gt;        &lt;char&gt; &lt;char&gt; &lt;char&gt;       &lt;char&gt;        &lt;char&gt; &lt;char&gt;</span></span>
-<span id="cb99-4"><a href="data-basics.html#cb99-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1: MID25783135 Institution M  19911 520101  01 Freshman Good Standing     No</span></span>
-<span id="cb99-5"><a href="data-basics.html#cb99-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2: MID25783135 Institution M  19913 520101 02 Sophomore Good Standing     No</span></span>
-<span id="cb99-6"><a href="data-basics.html#cb99-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3: MID25783147 Institution M  20041 131202  01 Freshman Good Standing     No</span></span>
-<span id="cb99-7"><a href="data-basics.html#cb99-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4: MID25783147 Institution M  20043 131210 02 Sophomore Good Standing     No</span></span>
-<span id="cb99-8"><a href="data-basics.html#cb99-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5: MID25783147 Institution M  20051 131210 02 Sophomore Good Standing     No</span></span>
-<span id="cb99-9"><a href="data-basics.html#cb99-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    hours_term hours_term_attempt hours_cumul hours_cumul_attempt gpa_term</span></span>
-<span id="cb99-10"><a href="data-basics.html#cb99-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;num&gt;              &lt;num&gt;       &lt;num&gt;               &lt;num&gt;    &lt;num&gt;</span></span>
-<span id="cb99-11"><a href="data-basics.html#cb99-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1:         19                 19          19                  19     2.47</span></span>
-<span id="cb99-12"><a href="data-basics.html#cb99-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2:         14                 14          33                  33     3.21</span></span>
-<span id="cb99-13"><a href="data-basics.html#cb99-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3:         17                 13          17                  13     3.76</span></span>
-<span id="cb99-14"><a href="data-basics.html#cb99-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4:         18                 18          35                  31     2.67</span></span>
-<span id="cb99-15"><a href="data-basics.html#cb99-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5:         15                 15          50                  46     3.20</span></span>
-<span id="cb99-16"><a href="data-basics.html#cb99-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    gpa_cumul</span></span>
-<span id="cb99-17"><a href="data-basics.html#cb99-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        &lt;num&gt;</span></span>
-<span id="cb99-18"><a href="data-basics.html#cb99-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1:      2.47</span></span>
-<span id="cb99-19"><a href="data-basics.html#cb99-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2:      2.79</span></span>
-<span id="cb99-20"><a href="data-basics.html#cb99-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3:      3.76</span></span>
-<span id="cb99-21"><a href="data-basics.html#cb99-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4:      3.13</span></span>
-<span id="cb99-22"><a href="data-basics.html#cb99-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5:      3.15</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="data-basics.html#cb9-1" aria-hidden="true" tabindex="-1"></a>term[<span class="fu">order</span>(mcid, term)][<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb9-2"><a href="data-basics.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           mcid   institution   term   cip6        level      standing   coop</span></span>
+<span id="cb9-3"><a href="data-basics.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;char&gt;        &lt;char&gt; &lt;char&gt; &lt;char&gt;       &lt;char&gt;        &lt;char&gt; &lt;char&gt;</span></span>
+<span id="cb9-4"><a href="data-basics.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1: MID25783135 Institution M  19911 520101  01 Freshman Good Standing     No</span></span>
+<span id="cb9-5"><a href="data-basics.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2: MID25783135 Institution M  19913 520101 02 Sophomore Good Standing     No</span></span>
+<span id="cb9-6"><a href="data-basics.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3: MID25783147 Institution M  20041 131202  01 Freshman Good Standing     No</span></span>
+<span id="cb9-7"><a href="data-basics.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4: MID25783147 Institution M  20043 131210 02 Sophomore Good Standing     No</span></span>
+<span id="cb9-8"><a href="data-basics.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5: MID25783147 Institution M  20051 131210 02 Sophomore Good Standing     No</span></span>
+<span id="cb9-9"><a href="data-basics.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    hours_term hours_term_attempt hours_cumul hours_cumul_attempt gpa_term</span></span>
+<span id="cb9-10"><a href="data-basics.html#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;num&gt;              &lt;num&gt;       &lt;num&gt;               &lt;num&gt;    &lt;num&gt;</span></span>
+<span id="cb9-11"><a href="data-basics.html#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1:         19                 19          19                  19     2.47</span></span>
+<span id="cb9-12"><a href="data-basics.html#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2:         14                 14          33                  33     3.21</span></span>
+<span id="cb9-13"><a href="data-basics.html#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3:         17                 13          17                  13     3.76</span></span>
+<span id="cb9-14"><a href="data-basics.html#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4:         18                 18          35                  31     2.67</span></span>
+<span id="cb9-15"><a href="data-basics.html#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5:         15                 15          50                  46     3.20</span></span>
+<span id="cb9-16"><a href="data-basics.html#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    gpa_cumul</span></span>
+<span id="cb9-17"><a href="data-basics.html#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        &lt;num&gt;</span></span>
+<span id="cb9-18"><a href="data-basics.html#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1:      2.47</span></span>
+<span id="cb9-19"><a href="data-basics.html#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2:      2.79</span></span>
+<span id="cb9-20"><a href="data-basics.html#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3:      3.76</span></span>
+<span id="cb9-21"><a href="data-basics.html#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4:      3.13</span></span>
+<span id="cb9-22"><a href="data-basics.html#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5:      3.15</span></span></code></pre></div>
 <ul>
 <li>Keys are <code>mcid</code> and <code>term</code>.<br />
 </li>
@@ -454,20 +445,20 @@ div.csl-indent {
 <li>Column <code>gpa_cumul</code> is class <em>numeric</em> (double-precision); all other columns are class <em>character</em> (strings).</li>
 </ul>
 <p>Applying a similar procedure to the aggregated <code>study_stickiness</code> data set loaded with midfieldr,</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="data-basics.html#cb100-1" aria-hidden="true" tabindex="-1"></a>study_stickiness</span>
-<span id="cb100-2"><a href="data-basics.html#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        program            race    sex  ever  grad stick</span></span>
-<span id="cb100-3"><a href="data-basics.html#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;char&gt;          &lt;char&gt; &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;num&gt;</span></span>
-<span id="cb100-4"><a href="data-basics.html#cb100-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1:      Civil           Asian Female    17    12  70.6</span></span>
-<span id="cb100-5"><a href="data-basics.html#cb100-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2:      Civil           Black Female    54    28  51.9</span></span>
-<span id="cb100-6"><a href="data-basics.html#cb100-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3:      Civil           White Female   329   232  70.5</span></span>
-<span id="cb100-7"><a href="data-basics.html#cb100-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4:      Civil           Asian   Male    37    24  64.9</span></span>
-<span id="cb100-8"><a href="data-basics.html#cb100-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5:      Civil           Black   Male    98    43  43.9</span></span>
-<span id="cb100-9"><a href="data-basics.html#cb100-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---                                                    </span></span>
-<span id="cb100-10"><a href="data-basics.html#cb100-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 34: Mechanical Hispanic/Latinx   Male    76    47  61.8</span></span>
-<span id="cb100-11"><a href="data-basics.html#cb100-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 35: Mechanical   International   Male    37    19  51.4</span></span>
-<span id="cb100-12"><a href="data-basics.html#cb100-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 36: Mechanical Native American   Male    14     8  57.1</span></span>
-<span id="cb100-13"><a href="data-basics.html#cb100-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 37: Mechanical   Other/Unknown   Male    48    28  58.3</span></span>
-<span id="cb100-14"><a href="data-basics.html#cb100-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 38: Mechanical           White   Male  1940  1265  65.2</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="data-basics.html#cb10-1" aria-hidden="true" tabindex="-1"></a>study_stickiness</span>
+<span id="cb10-2"><a href="data-basics.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        program            race    sex  ever  grad stick</span></span>
+<span id="cb10-3"><a href="data-basics.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;char&gt;          &lt;char&gt; &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;num&gt;</span></span>
+<span id="cb10-4"><a href="data-basics.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1:      Civil           Asian Female    17    12  70.6</span></span>
+<span id="cb10-5"><a href="data-basics.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2:      Civil           Black Female    54    28  51.9</span></span>
+<span id="cb10-6"><a href="data-basics.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3:      Civil           White Female   329   232  70.5</span></span>
+<span id="cb10-7"><a href="data-basics.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4:      Civil           Asian   Male    37    24  64.9</span></span>
+<span id="cb10-8"><a href="data-basics.html#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5:      Civil           Black   Male    98    43  43.9</span></span>
+<span id="cb10-9"><a href="data-basics.html#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---                                                    </span></span>
+<span id="cb10-10"><a href="data-basics.html#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 34: Mechanical Hispanic/Latinx   Male    76    47  61.8</span></span>
+<span id="cb10-11"><a href="data-basics.html#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 35: Mechanical   International   Male    37    19  51.4</span></span>
+<span id="cb10-12"><a href="data-basics.html#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 36: Mechanical Native American   Male    14     8  57.1</span></span>
+<span id="cb10-13"><a href="data-basics.html#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 37: Mechanical   Other/Unknown   Male    48    28  58.3</span></span>
+<span id="cb10-14"><a href="data-basics.html#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 38: Mechanical           White   Male  1940  1265  65.2</span></span></code></pre></div>
 <ul>
 <li>Keys are <code>program</code>, <code>race</code>, and <code>sex</code>.</li>
 <li>Number enrolled (<code>ever</code>) and number graduating (<code>grad</code>) are data.</li>
@@ -491,115 +482,297 @@ div.csl-indent {
 </div>
 </div>
 <div id="what-is-a-data.table" class="section level2" number="7.5">
-<h2><span class="header-section-number">7.5</span> What is a <code>data.table</code>?</h2>
+<h2><span class="header-section-number">7.5</span> What is a data.table?</h2>
 <p>In our tutorials and in our package functions, we manipulate data using the data.table package, primarily for its speed with large tables but also for its concise syntax and its zero dependencies. Thus, when you use a midfieldr function to operate on a data frame, the returned data frame is also a data.table object.</p>
 <p>For R beginners, we try to keep our use of data.table in tutorials to an introductory level, though we will occasionally use a more complex syntax when the benefit is worth the cognitive load.</p>
 <p>What is a data.table? The <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/datatable.png">data.table cheat sheet</a> defines data.table this way:</p>
 <blockquote>
-<p>data.table is an extremely fast and memory efficient package<br />
-for transforming data in R. It works by converting R’s native<br />
-data frame objects into data.tables with new and enhanced<br />
-functionality. The basics of working with data.tables are:</p>
-<p><strong>DT[i, j, by]</strong></p>
-<p>Take data.table <strong>DT</strong>, subset rows using <strong>i</strong> and operate<br />
-on columns with <strong>j</strong> grouped according to <strong>by</strong>.</p>
-<p>data.tables are also data.frames—functions that work with<br />
-data.frames therefore also work with data.tables.</p>
+<p>data.table is an extremely fast and memory efficient package for<br />
+transforming data in R. The basics of working with data.tables are:</p>
+<pre><code>    DT[i,  j,  by]    </code></pre>
 </blockquote>
+<p>Here <code>i</code> can subset or reorder rows, <code>j</code> is used to select, summarize, compute with, or create or delete columns, and <code>by</code> is the grouping operator.</p>
+<p>A <code>data.table</code> is also a <code>data.frame</code>—functions that work with a <code>data.frame</code> therefore also work with a <code>data.table</code>.</p>
 </div>
 <div id="subset-rows" class="section level2" number="7.6">
 <h2><span class="header-section-number">7.6</span> Subset rows</h2>
-<ul>
-<li><code>i</code></li>
-<li><code>na.omit()</code></li>
-<li><code>%chin%</code>, <code>%ilike%</code></li>
-</ul>
-<p>Typically we create a Boolean statement to subset rows. A row is retained if the statement yields TRUE for that row and dropped in the statement yields FALSE.</p>
-<p>For example, if we wanted to subset <code>term</code> for all rows for a particular student, we write (in data.table fashion)</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-basics.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset all term data for one student by their ID</span></span>
-<span id="cb101-2"><a href="data-basics.html#cb101-2" aria-hidden="true" tabindex="-1"></a>DT <span class="ot">&lt;-</span> term[mcid <span class="sc">==</span> <span class="st">&quot;MID25836044&quot;</span>]</span>
-<span id="cb101-3"><a href="data-basics.html#cb101-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb101-4"><a href="data-basics.html#cb101-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine the result</span></span>
-<span id="cb101-5"><a href="data-basics.html#cb101-5" aria-hidden="true" tabindex="-1"></a>DT</span>
-<span id="cb101-6"><a href="data-basics.html#cb101-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           mcid   institution   term   cip6        level      standing   coop</span></span>
-<span id="cb101-7"><a href="data-basics.html#cb101-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;char&gt;        &lt;char&gt; &lt;char&gt; &lt;char&gt;       &lt;char&gt;        &lt;char&gt; &lt;char&gt;</span></span>
-<span id="cb101-8"><a href="data-basics.html#cb101-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1: MID25836044 Institution M  20001 140102  01 Freshman Good Standing     No</span></span>
-<span id="cb101-9"><a href="data-basics.html#cb101-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2: MID25836044 Institution M  20003 140102  01 Freshman Good Standing     No</span></span>
-<span id="cb101-10"><a href="data-basics.html#cb101-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3: MID25836044 Institution M  20011 140801 02 Sophomore Good Standing     No</span></span>
-<span id="cb101-11"><a href="data-basics.html#cb101-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4: MID25836044 Institution M  20013 140801 02 Sophomore Good Standing     No</span></span>
-<span id="cb101-12"><a href="data-basics.html#cb101-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5: MID25836044 Institution M  20021 140801    03 Junior Good Standing     No</span></span>
-<span id="cb101-13"><a href="data-basics.html#cb101-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6: MID25836044 Institution M  20023 140801    03 Junior Good Standing     No</span></span>
-<span id="cb101-14"><a href="data-basics.html#cb101-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7: MID25836044 Institution M  20025 140801    04 Senior Good Standing     No</span></span>
-<span id="cb101-15"><a href="data-basics.html#cb101-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8: MID25836044 Institution M  20031 140801    04 Senior Good Standing     No</span></span>
-<span id="cb101-16"><a href="data-basics.html#cb101-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9: MID25836044 Institution M  20033 140801    04 Senior Good Standing     No</span></span>
-<span id="cb101-17"><a href="data-basics.html#cb101-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    hours_term hours_term_attempt hours_cumul hours_cumul_attempt gpa_term</span></span>
-<span id="cb101-18"><a href="data-basics.html#cb101-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;num&gt;              &lt;num&gt;       &lt;num&gt;               &lt;num&gt;    &lt;num&gt;</span></span>
-<span id="cb101-19"><a href="data-basics.html#cb101-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1:         11                 15          11                  15     3.07</span></span>
-<span id="cb101-20"><a href="data-basics.html#cb101-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2:         15                 15          26                  30     3.80</span></span>
-<span id="cb101-21"><a href="data-basics.html#cb101-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3:         15                 15          41                  45     2.93</span></span>
-<span id="cb101-22"><a href="data-basics.html#cb101-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4:         12                 15          53                  60     2.86</span></span>
-<span id="cb101-23"><a href="data-basics.html#cb101-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5:         16                 16          69                  76     3.13</span></span>
-<span id="cb101-24"><a href="data-basics.html#cb101-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6:         16                 16          85                  95     3.06</span></span>
-<span id="cb101-25"><a href="data-basics.html#cb101-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7:          7                  7          92                  99     3.00</span></span>
-<span id="cb101-26"><a href="data-basics.html#cb101-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8:         15                 15         107                 114     3.00</span></span>
-<span id="cb101-27"><a href="data-basics.html#cb101-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9:         15                 15         122                 129     3.20</span></span>
-<span id="cb101-28"><a href="data-basics.html#cb101-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    gpa_cumul</span></span>
-<span id="cb101-29"><a href="data-basics.html#cb101-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        &lt;num&gt;</span></span>
-<span id="cb101-30"><a href="data-basics.html#cb101-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1:      3.07</span></span>
-<span id="cb101-31"><a href="data-basics.html#cb101-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2:      3.43</span></span>
-<span id="cb101-32"><a href="data-basics.html#cb101-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3:      3.26</span></span>
-<span id="cb101-33"><a href="data-basics.html#cb101-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4:      3.16</span></span>
-<span id="cb101-34"><a href="data-basics.html#cb101-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5:      3.15</span></span>
-<span id="cb101-35"><a href="data-basics.html#cb101-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6:      3.13</span></span>
-<span id="cb101-36"><a href="data-basics.html#cb101-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7:      3.13</span></span>
-<span id="cb101-37"><a href="data-basics.html#cb101-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8:      3.11</span></span>
-<span id="cb101-38"><a href="data-basics.html#cb101-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9:      3.12</span></span></code></pre></div>
-<p>If we wanted to extract the same student’s data from all the MIDFIELD tables, we can assign the ID to a name,</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-basics.html#cb102-1" aria-hidden="true" tabindex="-1"></a>mcid_we_want <span class="ot">&lt;-</span> <span class="st">&quot;MID25836044&quot;</span></span>
-<span id="cb102-2"><a href="data-basics.html#cb102-2" aria-hidden="true" tabindex="-1"></a>student[mcid <span class="sc">==</span> mcid_we_want]</span>
-<span id="cb102-3"><a href="data-basics.html#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           mcid   institution              transfer hours_transfer   race    sex</span></span>
-<span id="cb102-4"><a href="data-basics.html#cb102-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;char&gt;        &lt;char&gt;                &lt;char&gt;          &lt;num&gt; &lt;char&gt; &lt;char&gt;</span></span>
-<span id="cb102-5"><a href="data-basics.html#cb102-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1: MID25836044 Institution M First-Time in College             NA  White Female</span></span>
-<span id="cb102-6"><a href="data-basics.html#cb102-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      age us_citizen home_zip high_school sat_math sat_verbal act_comp</span></span>
-<span id="cb102-7"><a href="data-basics.html#cb102-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;num&gt;     &lt;char&gt;   &lt;char&gt;      &lt;char&gt;    &lt;num&gt;      &lt;num&gt;    &lt;num&gt;</span></span>
-<span id="cb102-8"><a href="data-basics.html#cb102-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1:    17        Yes    29469      411425      690        596       27</span></span>
-<span id="cb102-9"><a href="data-basics.html#cb102-9" aria-hidden="true" tabindex="-1"></a>degree[mcid <span class="sc">==</span> mcid_we_want]</span>
-<span id="cb102-10"><a href="data-basics.html#cb102-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           mcid   institution   term   cip6              degree</span></span>
-<span id="cb102-11"><a href="data-basics.html#cb102-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;char&gt;        &lt;char&gt; &lt;char&gt; &lt;char&gt;              &lt;char&gt;</span></span>
-<span id="cb102-12"><a href="data-basics.html#cb102-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1: MID25836044 Institution M  20033 140801 Bachelor of Science</span></span></code></pre></div>
-<p>Because a row-subset argument can have multiple clauses, we often construct the Boolean statement on its own line to promote clarity. In this case we must use the <code>df$col</code> syntax, where <code>df</code> = name of the data.frame and <code>col</code> = name of the column in the data frame.</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="data-basics.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a TRUE/FALSE vector with as many entries as term has rows </span></span>
-<span id="cb103-2"><a href="data-basics.html#cb103-2" aria-hidden="true" tabindex="-1"></a>rows_we_want <span class="ot">&lt;-</span> term<span class="sc">$</span>mcid <span class="sc">==</span> <span class="st">&quot;MID25836044&quot;</span> <span class="sc">&amp;</span> term<span class="sc">$</span>cip6 <span class="sc">==</span> <span class="st">&quot;140102&quot;</span></span>
-<span id="cb103-3"><a href="data-basics.html#cb103-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb103-4"><a href="data-basics.html#cb103-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine the result</span></span>
-<span id="cb103-5"><a href="data-basics.html#cb103-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(rows_we_want)</span>
-<span id="cb103-6"><a href="data-basics.html#cb103-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  logi [1:727369] FALSE FALSE FALSE FALSE FALSE FALSE ...</span></span>
-<span id="cb103-7"><a href="data-basics.html#cb103-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb103-8"><a href="data-basics.html#cb103-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Confirm the TRUE/FALSE vector has as many entries as term has rows </span></span>
-<span id="cb103-9"><a href="data-basics.html#cb103-9" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(term)</span>
-<span id="cb103-10"><a href="data-basics.html#cb103-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 727369</span></span></code></pre></div>
-<p>If the argument returns TRUE for a row, that row is retained, otherwise it is dropped.</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="data-basics.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retain rows for which rows_we_want is TRUE</span></span>
-<span id="cb104-2"><a href="data-basics.html#cb104-2" aria-hidden="true" tabindex="-1"></a>DT <span class="ot">&lt;-</span> term[rows_we_want]</span>
-<span id="cb104-3"><a href="data-basics.html#cb104-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-4"><a href="data-basics.html#cb104-4" aria-hidden="true" tabindex="-1"></a><span class="co"># examine the result</span></span>
-<span id="cb104-5"><a href="data-basics.html#cb104-5" aria-hidden="true" tabindex="-1"></a>DT</span>
-<span id="cb104-6"><a href="data-basics.html#cb104-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           mcid   institution   term   cip6       level      standing   coop</span></span>
-<span id="cb104-7"><a href="data-basics.html#cb104-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;char&gt;        &lt;char&gt; &lt;char&gt; &lt;char&gt;      &lt;char&gt;        &lt;char&gt; &lt;char&gt;</span></span>
-<span id="cb104-8"><a href="data-basics.html#cb104-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1: MID25836044 Institution M  20001 140102 01 Freshman Good Standing     No</span></span>
-<span id="cb104-9"><a href="data-basics.html#cb104-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2: MID25836044 Institution M  20003 140102 01 Freshman Good Standing     No</span></span>
-<span id="cb104-10"><a href="data-basics.html#cb104-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    hours_term hours_term_attempt hours_cumul hours_cumul_attempt gpa_term</span></span>
-<span id="cb104-11"><a href="data-basics.html#cb104-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;num&gt;              &lt;num&gt;       &lt;num&gt;               &lt;num&gt;    &lt;num&gt;</span></span>
-<span id="cb104-12"><a href="data-basics.html#cb104-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1:         11                 15          11                  15     3.07</span></span>
-<span id="cb104-13"><a href="data-basics.html#cb104-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2:         15                 15          26                  30     3.80</span></span>
-<span id="cb104-14"><a href="data-basics.html#cb104-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    gpa_cumul</span></span>
-<span id="cb104-15"><a href="data-basics.html#cb104-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        &lt;num&gt;</span></span>
-<span id="cb104-16"><a href="data-basics.html#cb104-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1:      3.07</span></span>
-<span id="cb104-17"><a href="data-basics.html#cb104-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2:      3.43</span></span></code></pre></div>
+<p>Summary: In a data.table <code>DT[i, j, by]</code>, using <code>i</code> to keep or drop rows.</p>
+<p>Typically we create a Boolean statement to subset rows. A row is retained if the statement yields TRUE for that row and dropped in the statement yields FALSE. Thus the basic idea for row subsetting is to create a vector of TRUE and FALSE values the same length as there are rows in the data frame.</p>
+<div id="logical-operators" class="section level3" number="7.6.1">
+<h3><span class="header-section-number">7.6.1</span> Logical operators</h3>
 <p>The commonly used Boolean operators are equal to (<code>==</code>), not equal to (<code>!=</code>), and (<code>&amp;</code>), or (<code>|</code>), less than (<code>&lt;</code>), greater than (<code>&gt;</code>), less than or equal to (<code>&lt;=</code>), and greater than or equal to (<code>&gt;=</code>).</p>
+<p>For example, if we wanted to subset <code>toy_course</code> for all rows for a particular student, we write (in data.table fashion)</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="data-basics.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset course data for one student by their ID</span></span>
+<span id="cb12-2"><a href="data-basics.html#cb12-2" aria-hidden="true" tabindex="-1"></a>DT <span class="ot">&lt;-</span> toy_course[mcid <span class="sc">==</span> <span class="st">&quot;MID25783939&quot;</span>]</span>
+<span id="cb12-3"><a href="data-basics.html#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="data-basics.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine the result</span></span>
+<span id="cb12-5"><a href="data-basics.html#cb12-5" aria-hidden="true" tabindex="-1"></a>DT</span>
+<span id="cb12-6"><a href="data-basics.html#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            mcid   institution   term abbrev number  grade</span></span>
+<span id="cb12-7"><a href="data-basics.html#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          &lt;char&gt;        &lt;char&gt; &lt;char&gt; &lt;char&gt; &lt;char&gt; &lt;char&gt;</span></span>
+<span id="cb12-8"><a href="data-basics.html#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1: MID25783939 Institution M  19991    AVS    202      B</span></span>
+<span id="cb12-9"><a href="data-basics.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2: MID25783939 Institution M  19991    AVS    100      A</span></span>
+<span id="cb12-10"><a href="data-basics.html#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3: MID25783939 Institution M  19991   ENGL    101      B</span></span>
+<span id="cb12-11"><a href="data-basics.html#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4: MID25783939 Institution M  19991     CH    101      B</span></span>
+<span id="cb12-12"><a href="data-basics.html#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5: MID25783939 Institution M  19991   BIOL    103      B</span></span>
+<span id="cb12-13"><a href="data-basics.html#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---                                                      </span></span>
+<span id="cb12-14"><a href="data-basics.html#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 48: MID25783939 Institution M  20025   SPCH    250      A</span></span>
+<span id="cb12-15"><a href="data-basics.html#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 49: MID25783939 Institution M  20031    SOC    235      B</span></span>
+<span id="cb12-16"><a href="data-basics.html#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 50: MID25783939 Institution M  20031  AP EC    351      A</span></span>
+<span id="cb12-17"><a href="data-basics.html#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 51: MID25783939 Institution M  20031    AVS    406      A</span></span>
+<span id="cb12-18"><a href="data-basics.html#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 52: MID25783939 Institution M  20031   PHYS    208      B</span></span></code></pre></div>
+<p>We often construct the Boolean statement on its own line. To illustrate, the following lines produce equivalent results,</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="data-basics.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The subsetting line we used above</span></span>
+<span id="cb13-2"><a href="data-basics.html#cb13-2" aria-hidden="true" tabindex="-1"></a>DT <span class="ot">&lt;-</span> toy_course[mcid <span class="sc">==</span> <span class="st">&quot;MID25783939&quot;</span>]</span>
+<span id="cb13-3"><a href="data-basics.html#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="data-basics.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Equivalent form</span></span>
+<span id="cb13-5"><a href="data-basics.html#cb13-5" aria-hidden="true" tabindex="-1"></a>rows_we_want <span class="ot">&lt;-</span> term<span class="sc">$</span>mcid <span class="sc">==</span> <span class="st">&quot;MID25783939&quot;</span></span>
+<span id="cb13-6"><a href="data-basics.html#cb13-6" aria-hidden="true" tabindex="-1"></a>DT <span class="ot">&lt;-</span> toy_course[rows_we_want]</span></code></pre></div>
+<p>Note that in the second case we must use the <code>df$col</code> syntax, where <code>df</code> is the name of the data.frame and <code>col</code> is the name of the column in the data frame. This approach can be useful when the logical statement has multiple clauses, e.g., subset rows with CIP code 140102 at Institution M,</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="data-basics.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a TRUE/FALSE vector with as many entries as term has rows </span></span>
+<span id="cb14-2"><a href="data-basics.html#cb14-2" aria-hidden="true" tabindex="-1"></a>rows_we_want <span class="ot">&lt;-</span> toy_term<span class="sc">$</span>cip6 <span class="sc">==</span> <span class="st">&quot;140102&quot;</span> <span class="sc">&amp;</span> </span>
+<span id="cb14-3"><a href="data-basics.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  toy_term<span class="sc">$</span>institution <span class="sc">==</span> <span class="st">&quot;Institution M&quot;</span></span>
+<span id="cb14-4"><a href="data-basics.html#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="data-basics.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine the result</span></span>
+<span id="cb14-6"><a href="data-basics.html#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(rows_we_want)</span>
+<span id="cb14-7"><a href="data-basics.html#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  logi [1:169] FALSE FALSE FALSE FALSE FALSE FALSE ...</span></span>
+<span id="cb14-8"><a href="data-basics.html#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="data-basics.html#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Confirm the TRUE/FALSE vector has as many entries as term has rows </span></span>
+<span id="cb14-10"><a href="data-basics.html#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(toy_term)</span>
+<span id="cb14-11"><a href="data-basics.html#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 169</span></span></code></pre></div>
+<p>A row is retained if the logical statement yields TRUE for that row and dropped in the statement yields FALSE.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-basics.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retain rows for which rows_we_want is TRUE</span></span>
+<span id="cb15-2"><a href="data-basics.html#cb15-2" aria-hidden="true" tabindex="-1"></a>DT <span class="ot">&lt;-</span> toy_term[rows_we_want]</span>
+<span id="cb15-3"><a href="data-basics.html#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="data-basics.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># examine the result</span></span>
+<span id="cb15-5"><a href="data-basics.html#cb15-5" aria-hidden="true" tabindex="-1"></a>DT</span>
+<span id="cb15-6"><a href="data-basics.html#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            mcid   institution   term   cip6        level hours_term</span></span>
+<span id="cb15-7"><a href="data-basics.html#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          &lt;char&gt;        &lt;char&gt; &lt;char&gt; &lt;char&gt;       &lt;char&gt;      &lt;num&gt;</span></span>
+<span id="cb15-8"><a href="data-basics.html#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1: MID25828870 Institution M  19881 140102  01 Freshman         17</span></span>
+<span id="cb15-9"><a href="data-basics.html#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2: MID25828870 Institution M  19883 140102 02 Sophomore         14</span></span>
+<span id="cb15-10"><a href="data-basics.html#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3: MID25828870 Institution M  19891 140102 02 Sophomore         14</span></span>
+<span id="cb15-11"><a href="data-basics.html#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4: MID25846316 Institution M  19911 140102  01 Freshman         16</span></span>
+<span id="cb15-12"><a href="data-basics.html#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5: MID25846316 Institution M  19913 140102 02 Sophomore         14</span></span>
+<span id="cb15-13"><a href="data-basics.html#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---                                                                </span></span>
+<span id="cb15-14"><a href="data-basics.html#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8: MID25847220 Institution M  19896 140102 02 Sophomore          6</span></span>
+<span id="cb15-15"><a href="data-basics.html#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9: MID25848589 Institution M  19901 140102  01 Freshman         17</span></span>
+<span id="cb15-16"><a href="data-basics.html#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10: MID25848589 Institution M  19903 140102 02 Sophomore         18</span></span>
+<span id="cb15-17"><a href="data-basics.html#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11: MID25852023 Institution M  20051 140102  01 Freshman         16</span></span>
+<span id="cb15-18"><a href="data-basics.html#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12: MID25852023 Institution M  20053 140102 02 Sophomore         17</span></span></code></pre></div>
+<p>Logical expressions can have multiple clauses, for example, suppose we want all degree data for Institution A from 2000 through 2002.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="data-basics.html#cb16-1" aria-hidden="true" tabindex="-1"></a>rows_we_want <span class="ot">&lt;-</span> degree<span class="sc">$</span>institution <span class="sc">==</span> <span class="st">&quot;Institution A&quot;</span> <span class="sc">&amp;</span> </span>
+<span id="cb16-2"><a href="data-basics.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  degree<span class="sc">$</span>term <span class="sc">&gt;=</span> <span class="st">&quot;20001&quot;</span> <span class="sc">&amp;</span></span>
+<span id="cb16-3"><a href="data-basics.html#cb16-3" aria-hidden="true" tabindex="-1"></a>  degree<span class="sc">$</span>term <span class="sc">&lt;=</span> <span class="st">&quot;20026&quot;</span></span>
+<span id="cb16-4"><a href="data-basics.html#cb16-4" aria-hidden="true" tabindex="-1"></a>degree[rows_we_want]</span>
+<span id="cb16-5"><a href="data-basics.html#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             mcid   institution   term   cip6            degree</span></span>
+<span id="cb16-6"><a href="data-basics.html#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           &lt;char&gt;        &lt;char&gt; &lt;char&gt; &lt;char&gt;            &lt;char&gt;</span></span>
+<span id="cb16-7"><a href="data-basics.html#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   1: MID26134374 Institution A  20013 513801 Bachelor&#39;s Degree</span></span>
+<span id="cb16-8"><a href="data-basics.html#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   2: MID26135199 Institution A  20004 510701 Bachelor&#39;s Degree</span></span>
+<span id="cb16-9"><a href="data-basics.html#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   3: MID26135592 Institution A  20004 510701 Bachelor&#39;s Degree</span></span>
+<span id="cb16-10"><a href="data-basics.html#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   4: MID26136876 Institution A  20023 451001 Bachelor&#39;s Degree</span></span>
+<span id="cb16-11"><a href="data-basics.html#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   5: MID26136991 Institution A  20011 520201 Bachelor&#39;s Degree</span></span>
+<span id="cb16-12"><a href="data-basics.html#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ---                                                          </span></span>
+<span id="cb16-13"><a href="data-basics.html#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 308: MID26353580 Institution A  20021 520201 Bachelor&#39;s Degree</span></span>
+<span id="cb16-14"><a href="data-basics.html#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 309: MID26353683 Institution A  20023 400508 Bachelor&#39;s Degree</span></span>
+<span id="cb16-15"><a href="data-basics.html#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 310: MID26355018 Institution A  20021 451001 Bachelor&#39;s Degree</span></span>
+<span id="cb16-16"><a href="data-basics.html#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 311: MID26355315 Institution A  20003 540101 Bachelor&#39;s Degree</span></span>
+<span id="cb16-17"><a href="data-basics.html#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 312: MID26355582 Institution A  20013 140901 Bachelor&#39;s Degree</span></span></code></pre></div>
+</div>
+<div id="character-matching" class="section level3" number="7.6.2">
+<h3><span class="header-section-number">7.6.2</span> Character matching</h3>
+<p>We regularly use the data.table functions <code>%ilike%</code> and <code>%chin%</code> to create logical expressions for subsetting rows.</p>
+<p><code>%ilike%</code> is a convenience function for calling <code>grep()</code>, the base R function for character pattern matching. The <code>i</code> in <code>%ilike%</code> is the version that ignores case. View its help page by running,</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="data-basics.html#cb17-1" aria-hidden="true" tabindex="-1"></a>? <span class="st">`</span><span class="at">%ilike%</span><span class="st">`</span></span></code></pre></div>
+<p>For example, we often subset <code>student</code> data to omit populations with ambiguous race/ethnicity values such as International and Other/Unknown, as follows.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="data-basics.html#cb18-1" aria-hidden="true" tabindex="-1"></a>DT <span class="ot">&lt;-</span> toy_student</span>
+<span id="cb18-2"><a href="data-basics.html#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="data-basics.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine the unique values of race/ethnicity</span></span>
+<span id="cb18-4"><a href="data-basics.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">unique</span>(DT<span class="sc">$</span>race))</span>
+<span id="cb18-5"><a href="data-basics.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Asian&quot;           &quot;Black&quot;           &quot;Hispanic/Latinx&quot; &quot;International&quot;  </span></span>
+<span id="cb18-6"><a href="data-basics.html#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5] &quot;Native American&quot; &quot;Other/Unknown&quot;   &quot;White&quot;</span></span></code></pre></div>
+<p>To identify the rows with “Other/Unknown” or “International,” we construct a logical statement in which the search terms are in a single quoted character string separated by the logical OR <code>|</code> operator. Because <code>%ilike%</code> is based on <code>grep()</code>, partial matching is OK, so we don’t have to spell out the full strings.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="data-basics.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Logical vector that returns TRUE for the two values</span></span>
+<span id="cb19-2"><a href="data-basics.html#cb19-2" aria-hidden="true" tabindex="-1"></a>rows_we_omit <span class="ot">&lt;-</span> DT<span class="sc">$</span>race <span class="sc">%ilike%</span> <span class="st">&quot;Other|Internat&quot;</span></span>
+<span id="cb19-3"><a href="data-basics.html#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="data-basics.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine the logical vector </span></span>
+<span id="cb19-5"><a href="data-basics.html#cb19-5" aria-hidden="true" tabindex="-1"></a>rows_we_omit</span>
+<span id="cb19-6"><a href="data-basics.html#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE</span></span>
+<span id="cb19-7"><a href="data-basics.html#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [13] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE</span></span>
+<span id="cb19-8"><a href="data-basics.html#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></span>
+<span id="cb19-9"><a href="data-basics.html#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [37]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></span>
+<span id="cb19-10"><a href="data-basics.html#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [49] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></span>
+<span id="cb19-11"><a href="data-basics.html#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [61] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></span>
+<span id="cb19-12"><a href="data-basics.html#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [73] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></span>
+<span id="cb19-13"><a href="data-basics.html#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [85] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></span>
+<span id="cb19-14"><a href="data-basics.html#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [97] FALSE  TRUE FALSE FALSE</span></span>
+<span id="cb19-15"><a href="data-basics.html#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-16"><a href="data-basics.html#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the rows for Other and International </span></span>
+<span id="cb19-17"><a href="data-basics.html#cb19-17" aria-hidden="true" tabindex="-1"></a>DT[rows_we_omit]</span>
+<span id="cb19-18"><a href="data-basics.html#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           mcid   institution              transfer hours_transfer          race</span></span>
+<span id="cb19-19"><a href="data-basics.html#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;char&gt;        &lt;char&gt;                &lt;char&gt;          &lt;num&gt;        &lt;char&gt;</span></span>
+<span id="cb19-20"><a href="data-basics.html#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1: MID25841465 Institution M First-Time in College             NA Other/Unknown</span></span>
+<span id="cb19-21"><a href="data-basics.html#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2: MID25853332 Institution B First-Time in College             NA International</span></span>
+<span id="cb19-22"><a href="data-basics.html#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3: MID25887008 Institution B First-Time in College             NA Other/Unknown</span></span>
+<span id="cb19-23"><a href="data-basics.html#cb19-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4: MID26062203 Institution C   First-Time Transfer              7 Other/Unknown</span></span>
+<span id="cb19-24"><a href="data-basics.html#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5: MID26663803 Institution L First-Time in College             NA International</span></span>
+<span id="cb19-25"><a href="data-basics.html#cb19-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       sex</span></span>
+<span id="cb19-26"><a href="data-basics.html#cb19-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;char&gt;</span></span>
+<span id="cb19-27"><a href="data-basics.html#cb19-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1:   Male</span></span>
+<span id="cb19-28"><a href="data-basics.html#cb19-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2:   Male</span></span>
+<span id="cb19-29"><a href="data-basics.html#cb19-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3:   Male</span></span>
+<span id="cb19-30"><a href="data-basics.html#cb19-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4: Female</span></span>
+<span id="cb19-31"><a href="data-basics.html#cb19-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5:   Male</span></span></code></pre></div>
+<p>We see that in the toy student data, we have five students recorded as International or Other/Unknown. However, we want to omit these students from the data. To get the rows we want, we simply negate the <code>rows_we_omit</code> logical vector using the <code>!</code> operator.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="data-basics.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TRUE becomes FALSE; FALSE becomes TRUE</span></span>
+<span id="cb20-2"><a href="data-basics.html#cb20-2" aria-hidden="true" tabindex="-1"></a>rows_we_want <span class="ot">&lt;-</span> <span class="sc">!</span>rows_we_omit</span>
+<span id="cb20-3"><a href="data-basics.html#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="data-basics.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine the new logical vector </span></span>
+<span id="cb20-5"><a href="data-basics.html#cb20-5" aria-hidden="true" tabindex="-1"></a>rows_we_want</span>
+<span id="cb20-6"><a href="data-basics.html#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE</span></span>
+<span id="cb20-7"><a href="data-basics.html#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [13]  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE</span></span>
+<span id="cb20-8"><a href="data-basics.html#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [25]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</span></span>
+<span id="cb20-9"><a href="data-basics.html#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [37] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</span></span>
+<span id="cb20-10"><a href="data-basics.html#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [49]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</span></span>
+<span id="cb20-11"><a href="data-basics.html#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [61]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</span></span>
+<span id="cb20-12"><a href="data-basics.html#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [73]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</span></span>
+<span id="cb20-13"><a href="data-basics.html#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [85]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</span></span>
+<span id="cb20-14"><a href="data-basics.html#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [97]  TRUE FALSE  TRUE  TRUE</span></span>
+<span id="cb20-15"><a href="data-basics.html#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="data-basics.html#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Equivalently</span></span>
+<span id="cb20-17"><a href="data-basics.html#cb20-17" aria-hidden="true" tabindex="-1"></a>rows_we_want <span class="ot">&lt;-</span> <span class="sc">!</span>DT<span class="sc">$</span>race <span class="sc">%ilike%</span> <span class="st">&quot;Other|Internat&quot;</span></span>
+<span id="cb20-18"><a href="data-basics.html#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-19"><a href="data-basics.html#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the rows we want</span></span>
+<span id="cb20-20"><a href="data-basics.html#cb20-20" aria-hidden="true" tabindex="-1"></a>DT[rows_we_want]</span>
+<span id="cb20-21"><a href="data-basics.html#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            mcid   institution              transfer hours_transfer</span></span>
+<span id="cb20-22"><a href="data-basics.html#cb20-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          &lt;char&gt;        &lt;char&gt;                &lt;char&gt;          &lt;num&gt;</span></span>
+<span id="cb20-23"><a href="data-basics.html#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1: MID25783939 Institution M First-Time in College             NA</span></span>
+<span id="cb20-24"><a href="data-basics.html#cb20-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2: MID25784402 Institution M First-Time in College             NA</span></span>
+<span id="cb20-25"><a href="data-basics.html#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3: MID25805538 Institution M First-Time in College             NA</span></span>
+<span id="cb20-26"><a href="data-basics.html#cb20-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4: MID25808099 Institution M First-Time in College             NA</span></span>
+<span id="cb20-27"><a href="data-basics.html#cb20-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5: MID25816437 Institution M First-Time in College             NA</span></span>
+<span id="cb20-28"><a href="data-basics.html#cb20-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---                                                               </span></span>
+<span id="cb20-29"><a href="data-basics.html#cb20-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 91: MID26655230 Institution L First-Time in College             NA</span></span>
+<span id="cb20-30"><a href="data-basics.html#cb20-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 92: MID26656134 Institution L First-Time in College             NA</span></span>
+<span id="cb20-31"><a href="data-basics.html#cb20-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 93: MID26656367 Institution L First-Time in College             NA</span></span>
+<span id="cb20-32"><a href="data-basics.html#cb20-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 94: MID26678321 Institution L First-Time in College             NA</span></span>
+<span id="cb20-33"><a href="data-basics.html#cb20-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95: MID26692008 Institution L First-Time in College             NA</span></span>
+<span id="cb20-34"><a href="data-basics.html#cb20-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                race    sex</span></span>
+<span id="cb20-35"><a href="data-basics.html#cb20-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              &lt;char&gt; &lt;char&gt;</span></span>
+<span id="cb20-36"><a href="data-basics.html#cb20-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1:           White Female</span></span>
+<span id="cb20-37"><a href="data-basics.html#cb20-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2:           White   Male</span></span>
+<span id="cb20-38"><a href="data-basics.html#cb20-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3:           White Female</span></span>
+<span id="cb20-39"><a href="data-basics.html#cb20-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4:           White Female</span></span>
+<span id="cb20-40"><a href="data-basics.html#cb20-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5:           White   Male</span></span>
+<span id="cb20-41"><a href="data-basics.html#cb20-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---                       </span></span>
+<span id="cb20-42"><a href="data-basics.html#cb20-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 91:           White Female</span></span>
+<span id="cb20-43"><a href="data-basics.html#cb20-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 92: Native American   Male</span></span>
+<span id="cb20-44"><a href="data-basics.html#cb20-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 93: Hispanic/Latinx   Male</span></span>
+<span id="cb20-45"><a href="data-basics.html#cb20-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 94:           White Female</span></span>
+<span id="cb20-46"><a href="data-basics.html#cb20-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95:           White   Male</span></span></code></pre></div>
+<p>Of course, the logical statement for row subsetting can be placed within the brackets, and we replace the <code>DT$race</code> form with the column name <code>race</code> alone, yielding the same result.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data-basics.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Equivalent statement inside the []</span></span>
+<span id="cb21-2"><a href="data-basics.html#cb21-2" aria-hidden="true" tabindex="-1"></a>DT[<span class="sc">!</span>race <span class="sc">%ilike%</span> <span class="st">&quot;Other|Internat&quot;</span>]</span></code></pre></div>
+<p>Another character matching function we use regularly for subsetting rows is the data.table function <code>%chin%</code>, a fast versions of <code>match()</code>, <code>%in%</code> and <code>order()</code>, optimized for character vectors. <code>%chin%</code> operates on two character vectors, returning a vector of the positions of (first) matches of its first argument in its second. View its help page by running,</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="data-basics.html#cb22-1" aria-hidden="true" tabindex="-1"></a>? <span class="st">`</span><span class="at">%chin%</span><span class="st">`</span></span></code></pre></div>
+<p>To illustrate <code>%chin%</code> usage, we do the same subset by row that we did above with <code>%ilike%</code>. The first character vector is the <code>race</code> column in <code>DT</code>. The second vector is the vector of terms we are matching to, “International and”Other/Unknown”, that must be written in full (no partial matching) and are in a character vector (elements separated by commas).</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="data-basics.html#cb23-1" aria-hidden="true" tabindex="-1"></a>DT <span class="ot">&lt;-</span> toy_student</span>
+<span id="cb23-2"><a href="data-basics.html#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="data-basics.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset rows using %chin% </span></span>
+<span id="cb23-4"><a href="data-basics.html#cb23-4" aria-hidden="true" tabindex="-1"></a>rows_we_omit <span class="ot">&lt;-</span> DT<span class="sc">$</span>race <span class="sc">%chin%</span> <span class="fu">c</span>(<span class="st">&quot;International&quot;</span>, <span class="st">&quot;Other/Unknown&quot;</span>)</span>
+<span id="cb23-5"><a href="data-basics.html#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="data-basics.html#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># use the T/F vector to subset the data frame by row</span></span>
+<span id="cb23-7"><a href="data-basics.html#cb23-7" aria-hidden="true" tabindex="-1"></a>DT[<span class="sc">!</span>rows_we_omit]</span>
+<span id="cb23-8"><a href="data-basics.html#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            mcid   institution              transfer hours_transfer</span></span>
+<span id="cb23-9"><a href="data-basics.html#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          &lt;char&gt;        &lt;char&gt;                &lt;char&gt;          &lt;num&gt;</span></span>
+<span id="cb23-10"><a href="data-basics.html#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1: MID25783939 Institution M First-Time in College             NA</span></span>
+<span id="cb23-11"><a href="data-basics.html#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2: MID25784402 Institution M First-Time in College             NA</span></span>
+<span id="cb23-12"><a href="data-basics.html#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3: MID25805538 Institution M First-Time in College             NA</span></span>
+<span id="cb23-13"><a href="data-basics.html#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4: MID25808099 Institution M First-Time in College             NA</span></span>
+<span id="cb23-14"><a href="data-basics.html#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5: MID25816437 Institution M First-Time in College             NA</span></span>
+<span id="cb23-15"><a href="data-basics.html#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---                                                               </span></span>
+<span id="cb23-16"><a href="data-basics.html#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 91: MID26655230 Institution L First-Time in College             NA</span></span>
+<span id="cb23-17"><a href="data-basics.html#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 92: MID26656134 Institution L First-Time in College             NA</span></span>
+<span id="cb23-18"><a href="data-basics.html#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 93: MID26656367 Institution L First-Time in College             NA</span></span>
+<span id="cb23-19"><a href="data-basics.html#cb23-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 94: MID26678321 Institution L First-Time in College             NA</span></span>
+<span id="cb23-20"><a href="data-basics.html#cb23-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95: MID26692008 Institution L First-Time in College             NA</span></span>
+<span id="cb23-21"><a href="data-basics.html#cb23-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                race    sex</span></span>
+<span id="cb23-22"><a href="data-basics.html#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              &lt;char&gt; &lt;char&gt;</span></span>
+<span id="cb23-23"><a href="data-basics.html#cb23-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1:           White Female</span></span>
+<span id="cb23-24"><a href="data-basics.html#cb23-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2:           White   Male</span></span>
+<span id="cb23-25"><a href="data-basics.html#cb23-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3:           White Female</span></span>
+<span id="cb23-26"><a href="data-basics.html#cb23-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4:           White Female</span></span>
+<span id="cb23-27"><a href="data-basics.html#cb23-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5:           White   Male</span></span>
+<span id="cb23-28"><a href="data-basics.html#cb23-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---                       </span></span>
+<span id="cb23-29"><a href="data-basics.html#cb23-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 91:           White Female</span></span>
+<span id="cb23-30"><a href="data-basics.html#cb23-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 92: Native American   Male</span></span>
+<span id="cb23-31"><a href="data-basics.html#cb23-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 93: Hispanic/Latinx   Male</span></span>
+<span id="cb23-32"><a href="data-basics.html#cb23-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 94:           White Female</span></span>
+<span id="cb23-33"><a href="data-basics.html#cb23-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95:           White   Male</span></span></code></pre></div>
+<p>Of course, the logical operation can be inside the <code>[]</code> as well.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="data-basics.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Equivalent statement inside the []</span></span>
+<span id="cb24-2"><a href="data-basics.html#cb24-2" aria-hidden="true" tabindex="-1"></a>DT[<span class="sc">!</span>race <span class="sc">%chin%</span> <span class="fu">c</span>(<span class="st">&quot;International&quot;</span>, <span class="st">&quot;Other/Unknown&quot;</span>)]</span></code></pre></div>
+<p>In addition, it is sometimes useful to have the second vector named on its own, e.g.,</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="data-basics.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Another equivalent statement</span></span>
+<span id="cb25-2"><a href="data-basics.html#cb25-2" aria-hidden="true" tabindex="-1"></a>values_to_drop <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;International&quot;</span>, <span class="st">&quot;Other/Unknown&quot;</span>)</span>
+<span id="cb25-3"><a href="data-basics.html#cb25-3" aria-hidden="true" tabindex="-1"></a>DT[<span class="sc">!</span>race <span class="sc">%chin%</span> values_to_drop]</span></code></pre></div>
+</div>
 </div>
 <div id="select-columns" class="section level2" number="7.7">
 <h2><span class="header-section-number">7.7</span> Select columns</h2>
+<p>Summary: In a data.table <code>DT[i, j, by]</code>, using <code>j</code> to keep, drop or reorder columns.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="data-basics.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out the names of the columns</span></span>
+<span id="cb26-2"><a href="data-basics.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(toy_student)</span>
+<span id="cb26-3"><a href="data-basics.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;mcid&quot;           &quot;institution&quot;    &quot;transfer&quot;       &quot;hours_transfer&quot;</span></span>
+<span id="cb26-4"><a href="data-basics.html#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5] &quot;race&quot;           &quot;sex&quot;</span></span>
+<span id="cb26-5"><a href="data-basics.html#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="data-basics.html#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Select columns to keep</span></span>
+<span id="cb26-7"><a href="data-basics.html#cb26-7" aria-hidden="true" tabindex="-1"></a>toy_student[, <span class="fu">list</span>(mcid, race, sex)]</span>
+<span id="cb26-8"><a href="data-basics.html#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             mcid            race    sex</span></span>
+<span id="cb26-9"><a href="data-basics.html#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           &lt;char&gt;          &lt;char&gt; &lt;char&gt;</span></span>
+<span id="cb26-10"><a href="data-basics.html#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   1: MID25783939           White Female</span></span>
+<span id="cb26-11"><a href="data-basics.html#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   2: MID25784402           White   Male</span></span>
+<span id="cb26-12"><a href="data-basics.html#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   3: MID25805538           White Female</span></span>
+<span id="cb26-13"><a href="data-basics.html#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   4: MID25808099           White Female</span></span>
+<span id="cb26-14"><a href="data-basics.html#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   5: MID25816437           White   Male</span></span>
+<span id="cb26-15"><a href="data-basics.html#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ---                                   </span></span>
+<span id="cb26-16"><a href="data-basics.html#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  96: MID26656134 Native American   Male</span></span>
+<span id="cb26-17"><a href="data-basics.html#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  97: MID26656367 Hispanic/Latinx   Male</span></span>
+<span id="cb26-18"><a href="data-basics.html#cb26-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  98: MID26663803   International   Male</span></span>
+<span id="cb26-19"><a href="data-basics.html#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  99: MID26678321           White Female</span></span>
+<span id="cb26-20"><a href="data-basics.html#cb26-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 100: MID26692008           White   Male</span></span>
+<span id="cb26-21"><a href="data-basics.html#cb26-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-22"><a href="data-basics.html#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Equivalent</span></span>
+<span id="cb26-23"><a href="data-basics.html#cb26-23" aria-hidden="true" tabindex="-1"></a>toy_student[, .(mcid, race, sex)]</span>
+<span id="cb26-24"><a href="data-basics.html#cb26-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             mcid            race    sex</span></span>
+<span id="cb26-25"><a href="data-basics.html#cb26-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           &lt;char&gt;          &lt;char&gt; &lt;char&gt;</span></span>
+<span id="cb26-26"><a href="data-basics.html#cb26-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   1: MID25783939           White Female</span></span>
+<span id="cb26-27"><a href="data-basics.html#cb26-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   2: MID25784402           White   Male</span></span>
+<span id="cb26-28"><a href="data-basics.html#cb26-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   3: MID25805538           White Female</span></span>
+<span id="cb26-29"><a href="data-basics.html#cb26-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   4: MID25808099           White Female</span></span>
+<span id="cb26-30"><a href="data-basics.html#cb26-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   5: MID25816437           White   Male</span></span>
+<span id="cb26-31"><a href="data-basics.html#cb26-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ---                                   </span></span>
+<span id="cb26-32"><a href="data-basics.html#cb26-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  96: MID26656134 Native American   Male</span></span>
+<span id="cb26-33"><a href="data-basics.html#cb26-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  97: MID26656367 Hispanic/Latinx   Male</span></span>
+<span id="cb26-34"><a href="data-basics.html#cb26-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  98: MID26663803   International   Male</span></span>
+<span id="cb26-35"><a href="data-basics.html#cb26-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  99: MID26678321           White Female</span></span>
+<span id="cb26-36"><a href="data-basics.html#cb26-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 100: MID26692008           White   Male</span></span></code></pre></div>
+<p>When used for a data.table column operation, the notation <code>.()</code> is a shorthand substitute for <code>list()</code>. A third option that we use regularly is placing the quoted column names in a character vector, e.g.,</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="data-basics.html#cb27-1" aria-hidden="true" tabindex="-1"></a>cols_we_want <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;mcid&quot;</span>, <span class="st">&quot;race&quot;</span>, <span class="st">&quot;sex&quot;</span>) </span></code></pre></div>
+<p>and using the “double-dot” notation shown below (<code>..cols_we_want</code>) to subset the columns,</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="data-basics.html#cb28-1" aria-hidden="true" tabindex="-1"></a>toy_student[, ..cols_we_want]</span>
+<span id="cb28-2"><a href="data-basics.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             mcid            race    sex</span></span>
+<span id="cb28-3"><a href="data-basics.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           &lt;char&gt;          &lt;char&gt; &lt;char&gt;</span></span>
+<span id="cb28-4"><a href="data-basics.html#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   1: MID25783939           White Female</span></span>
+<span id="cb28-5"><a href="data-basics.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   2: MID25784402           White   Male</span></span>
+<span id="cb28-6"><a href="data-basics.html#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   3: MID25805538           White Female</span></span>
+<span id="cb28-7"><a href="data-basics.html#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   4: MID25808099           White Female</span></span>
+<span id="cb28-8"><a href="data-basics.html#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   5: MID25816437           White   Male</span></span>
+<span id="cb28-9"><a href="data-basics.html#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ---                                   </span></span>
+<span id="cb28-10"><a href="data-basics.html#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  96: MID26656134 Native American   Male</span></span>
+<span id="cb28-11"><a href="data-basics.html#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  97: MID26656367 Hispanic/Latinx   Male</span></span>
+<span id="cb28-12"><a href="data-basics.html#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  98: MID26663803   International   Male</span></span>
+<span id="cb28-13"><a href="data-basics.html#cb28-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  99: MID26678321           White Female</span></span>
+<span id="cb28-14"><a href="data-basics.html#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 100: MID26692008           White   Male</span></span></code></pre></div>
+<p>this last approach is particularly useful when we have a set of columns used several times for subsetting, grouping, and joining.</p>
 </div>
 <div id="operate-on-columns" class="section level2" number="7.8">
 <h2><span class="header-section-number">7.8</span> Operate on columns</h2>
@@ -616,11 +789,23 @@ data.frames therefore also work with data.tables.</p>
 <li>.SD</li>
 </ul>
 </div>
-<div id="reference-semantics" class="section level2" number="7.10">
-<h2><span class="header-section-number">7.10</span> Reference semantics</h2>
+<div id="other-row-operations" class="section level2" number="7.10">
+<h2><span class="header-section-number">7.10</span> Other row operations</h2>
+<div id="unique-rows" class="section level3" number="7.10.1">
+<h3><span class="header-section-number">7.10.1</span> Unique rows</h3>
+<p>Both the <code>term</code> and <code>course</code> data tables have multiple rows for the same student. When subsetting data like these and we want to eliminate duplicate rows, we use <code>unique()</code>.</p>
+<ul>
+<li><code>na.omit()</code></li>
+<li>order</li>
+<li>unique()</li>
+</ul>
 </div>
-<div id="reshaping" class="section level2" number="7.11">
-<h2><span class="header-section-number">7.11</span> Reshaping</h2>
+</div>
+<div id="reference-semantics" class="section level2" number="7.11">
+<h2><span class="header-section-number">7.11</span> Reference semantics</h2>
+</div>
+<div id="reshaping" class="section level2" number="7.12">
+<h2><span class="header-section-number">7.12</span> Reshaping</h2>
 <p><br>
 <a href="data-basics.html#data-basics">▲ top of page</a></p>
 
@@ -683,20 +868,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

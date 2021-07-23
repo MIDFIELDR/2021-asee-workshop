@@ -136,6 +136,9 @@ And we can just type its name to see a few rows. Note at the top of each column 
 
 ```{r}
 gapminder
+
+x <- gapminder$continent
+attributes(x)
 ```
 
 ### Exercise
@@ -164,7 +167,7 @@ ggplot(data = gapminder)
 
 Next we use the mapping argument `mapping = aes(...)` to assign variables (column names) from the data frame to specific aesthetic properties of the graph such as the x-coordinate, the y-coordinate color, fill, etc. 
 
-Here we map continent (a categorical variable) to `x` and life expectancy (a quantitative variable) to `y`. To reduce the number of times we repeat lines of code, we can assign a name (`life_gdp`) to the empty graph to which we can add layers later.  
+Here we map continent (a categorical variable) to `x` and life expectancy (a quantitative variable) to `y`. To reduce the number of times we repeat lines of code, we can assign a name (`life_exp`) to the empty graph to which we can add layers later.  
 
 ```{r}
 # Demonstrate aesthetic mapping
@@ -185,7 +188,7 @@ If we print the graph by typing the name of the graph object (everything in R is
 life_exp
 ```
 
-A box-and-whisker plot (or box plot) is designed for displaying the distribution of a single quantitative variable. The visual encoding is specified using the `geom_boxplot()` layer, where a "geom" is a geometric object. The `geom_boxplot()` function requires the quantitative variable assigned to `y` and the categorical variable (if any) to `x`. 
+A box-and-whisker plot (or box plot) is designed for displaying the distribution of a single quantitative variable. The visual encoding is specified using the `geom_boxplot()` layer, where a "geom" is a geometric object.
 
 ```{r}
 # Demonstrate adding a geometric object 
@@ -207,12 +210,12 @@ life_exp <- life_exp +
 life_exp
 ```
 
-Next, we often want the categorical variable ordered by the quantitative variable instead of alphabetically. Because `continent` is a factor, we can use the `reorder()` function inside the `aes()` argument. 
+Next, we often want the categorical variable ordered by the quantitative variable instead of alphabetically. Because `continent` is a factor, we can use the `reorder()` function inside the `aes()` argument to order the boxplots by the median life expectancy per continent. For more information on ordering data, see [Ordering factors]. 
 
 ```{r}
 # Demonstrate reordering a categorical variable 
 life_exp + 
-  aes(x = reorder(continent, lifeExp), y = lifeExp)
+  aes(x = reorder(continent, lifeExp, median), y = lifeExp)
 ```
 
 
@@ -517,14 +520,13 @@ hours_per_term <- readRDS("data/hours_per_term.rds")
 
 - Use `hours_per_term` data to create a boxplot of hours per term as a function of level. 
 - Add a third column name to `aes()` to add `sex` by color to the graph. 
-- Add the `coord_flip()` layer to your graph to swap the position of the x, y coordinates to obtain a horizontal boxplot. 
+- Swap the x, y mapping to obtain a horizontal boxplot. 
 - Check your work by comparing your result to the graph below.
 
 ```{r echo = FALSE, fig.asp = 1/1.6}
-ggplot(hours_per_term, aes(y = hours_term, x = level, color = sex)) +
+ggplot(hours_per_term, aes(x = hours_term, y = level, color = sex)) +
   geom_boxplot() +
-  labs(x = "Level", y = "Hours per term") +
-  coord_flip()
+  labs(y = "", x = "Hours per term")
 ```
 
 Help pages for more information:  
@@ -626,28 +628,87 @@ Help pages for more information:
 
 
 
-## Ordering panels and rows
+## Ordering factors
 
-Panels (facets) by default are nearly always ordered alphabetically. In most cases, ordering the panels by the data improves the display. Earlier, we used `reorder()` to order a set of boxplots. This function operates correctly on "factor" variables only. 
+Earlier, we used `reorder()` to order life expectancy boxplots by the increasing median life expectancy per continent. In general, we use `reorder()` to order every categorical variable we intend to display graphically. 
 
-A factor is special data structure in R for categorical variables. In a factor, the levels of the category---typically character strings---are known and fixed. However, factors are stored internally as integers---a critical design tool for meaningfully ordering the rows and panels of a display involving categorical variables.
+A factor is special data structure in R for categorical variables. In a factor, the levels of the category---typically character strings---are known and fixed. However, factors are stored internally as integers---a critical design tool for meaningfully ordering the elements of a display involving categorical variables.
 
-In the gapminder data, the `continent` column is already a factors. 
+For example, reviewing again the gapminder data frame, we see that the first two columns are factors. 
 
 ```{r}
 gapminder
 ```
 
-We can reorder the levels of the factor before graphing as follows, 
+A factor has at least two attributes, its class (all R objects have class) and its levels.  
 
 ```{r}
-gapminder[, continent := reorder(continent, lifeExp)]
+# Examine a factor variable 
+x <- gapminder$continent
+
+class(x)
+
+levels(x)
 ```
 
-Then graph using much the same code chunk as before with one addition. We add the `as.table = FALSE` argument to the `facet_wrap()` function. "Table-order" of panels is increasing from top to bottom; "graph-order" increases (like a graph scale) from bottom to top.
+The levels are the character strings we see as data values in the data frame column. However, factors are stored in memory as type integer, as shown by the `typeof()` function. 
+
+```{r}
+# Factors are stored internally as integers
+typeof(x)
+```
+
+If we `unclass()` the variable, we remove the class and reveal the hidden integers. For example, let's first print out 64 values of `continent`, 
+
+```{r}
+# Data values are character strings
+x[1:64]
+```
+
+Then remove the class to reveal the hidden integers.
+
+```{r}
+# But the levels are stored as integers
+unclass(x[1:64])
+```
+
+When factors are graphed, the integers determine the increasing order in which the levels are plotted. When we use `reorder()`, we are shuffling the mapping of integers to levels. 
+
+We can order the levels of `continent` by the median life expectancy per continent using, 
+
+```{r}
+x <- gapminder$continent
+y <- gapminder$lifeExp
+z <- reorder(x, y, median)
+```
+
+Examining the reordered factor `z`, notice the change in order of the levels in the printout. The levels are no longer in alphabetical order: the Americas and Asia have swapped positions. Asia is now mapped to the integer 2  where before it was mapped to 3. 
+
+```{r}
+levels(z)
+
+z[1:64]
+
+unclass(z[1:64])
+```
+
+The purpose of this detailed examination is to lay the foundation for using `reorder()` to condition categorical variables for graphing. One of the most common applications is to order the panels and rows of a multi-facet graph. Panels (facets) by default are nearly always ordered alphabetically. In most cases, ordering the panels by the data improves the display.
+
+In the next example, we again order the continents by the median life expectancy per continent, but here the ordering affects the order of the panels. 
+
+
+```{r}
+# Create a new memory location
+dframe <- copy(gapminder)
+
+# Order the levels of the factor 
+dframe[, continent := reorder(continent, lifeExp, median)]
+```
+
+We graph using much the same code chunk as before with one addition. We add the `as.table = FALSE` argument to the `facet_wrap()` function. "Table-order" of panels is increasing from top to bottom; what we want is "graph-order",  increases (like a graph scale) from bottom to top.
 
 ```{r fig.asp = 1.5}
-ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
+ggplot(dframe, aes(x = gdpPercap, y = lifeExp)) +
   facet_wrap(facets = vars(continent), ncol = 1, as.table = FALSE) +
   geom_point() +
   scale_x_continuous(trans = "log10") +

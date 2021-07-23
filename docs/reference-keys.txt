@@ -85,3 +85,9 @@ grouping
 reference-semantics
 reshaping
 references
+logical-operators
+character-matching
+other-row-operations
+unique-rows
+ordering-factors
+stuff

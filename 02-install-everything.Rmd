@@ -90,7 +90,8 @@ Skip the next section and continue the homework with
 - [Create a project]  
 - [Add some folders] 
 - [Install CRAN packages] 
-- [Install MIDFIELD packages] 
+- [Install midfieldr] 
+- [Install midfielddata]
 
 
 

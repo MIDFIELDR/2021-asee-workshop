@@ -121,6 +121,8 @@ which yields
      #> toy_student           Student data for examples
      #> toy_term              Term data for examples
 
+
+
 Every data set in base R and in R packages has a help page that describes the data format and variable names. The data help page can be accessed using `help()`, for example, 
 
 ```r
@@ -144,6 +146,18 @@ htmltools::img(src = knitr::include_graphics("figures/data-basics-cip-help.png")
                style = 'left:0px; padding:0px;',
                width = 600)
 ```
+
+The midfieldr  "toy" data sets are small subsets by row and column of the MIDFIELD tables that we use later in the vignette examples. You can view their help pages by running, e.g., `? toy_student`, or by clicking the links to the same information online. 
+
+- [`toy_student`](https://midfieldr.github.io/midfieldr/reference/toy_student.html)
+- [`toy_course`](https://midfieldr.github.io/midfieldr/reference/toy_course.html)
+- [`toy_term`](https://midfieldr.github.io/midfieldr/reference/toy_term.html)
+- [`toy_degree`](https://midfieldr.github.io/midfieldr/reference/toy_degree.html)
+
+
+
+
+
 
 
 ### Exercises
@@ -171,7 +185,7 @@ htmltools::img(src = knitr::include_graphics("figures/data-basics-cip-help.png")
 When we encounter a data set, the first step is to characterize its structure including, 
 
 class
-: The class of the R data object, for example, vector, matrix, data frame, time series, list, etc. The R  data frame is the structure we use most often, typically in the enhanced `data.table` form. For data frames, we are also interested in the class of each column. 
+: The class of the R data object, for example, vector, matrix, data frame, time series, list, etc. The R  data frame is the structure we use most often, typically in the enhanced [`data.table`](https://rdatatable.gitlab.io/data.table/) form. For data frames, we are also interested in the class of each column. 
 
 layout
 : How tables, rows, and columns are organized and keyed with  unique and invariant coordinates to data cells. Most data processing steps have a preferred format, so we have to be able to identify and transform layouts as needed. 
@@ -213,7 +227,10 @@ The following midfieldr/midfielddata data frames are all in denormalized form. F
 
 
 
-## What is a `data.table`?
+
+
+
+## What is a data.table?
 
 In our tutorials and in our package functions, we manipulate data using the data.table package, primarily for its speed with large tables but also for its concise syntax and its zero dependencies. Thus, when you use a midfieldr function to operate on a data frame, the returned data frame is also a data.table object. 
 
@@ -221,48 +238,17 @@ For R beginners, we try to keep our use of data.table in tutorials to an introdu
 
 What is a data.table? The [data.table cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/datatable.png) defines data.table this way:
 
-> data.table is an extremely fast and memory efficient package    
-> for transforming data in R. It works by converting R's native    
-> data frame objects into data.tables with new and enhanced    
-> functionality. The basics of working with data.tables are:    
+> data.table is an extremely fast and memory efficient package for    
+> transforming data in R. The basics of working with data.tables are:    
 >    
-> **DT[i,  j,  by]**    
->    
-> Take data.table **DT**, subset rows using **i** and operate     
-> on columns with **j** grouped according to **by**.    
->
-> data.tables are also data.frames---functions that work with     
-> data.frames therefore also work with data.tables.    
+>         DT[i,  j,  by]    
+  
+Here `i` can subset or reorder rows, `j` is used to select, summarize, compute with, or create or delete columns, and `by` is the grouping operator. 
 
 
+A `data.table` is also a `data.frame`---functions that work with a `data.frame` therefore also work with a `data.table`. 
 
 
-```{r echo = FALSE, eval = FALSE}
-# Create student_demogr.rds and append to prepared_data.zip
-DT <- copy(student)[, .(race, sex)]
-DT[, race_sex := paste(race, sex)]
-DT[, c("race", "sex") := NULL]
-DT <- DT[, .N, by = "race_sex"]
-DT <- DT[!race_sex %ilike% "Other|International"]
-DT[, race_sex := factor(race_sex)]
-DT[, race_sex := reorder(race_sex, N)]
-
-
-
-# Create student_demogr.rds and append to prepared_data.zip
-DT <- add_race_sex(term, midfield_student = student)
-cols_we_want <- c("mcid", "term", "hours_term", "level", "sex")
-DT <- DT[, ..cols_we_want]
-DT <- unique(DT)
-
-DT <- copy(study_stickiness)
-DT[, race_sex := paste(race, sex)]
-DT[, race_sex := factor(race_sex)]
-DT[, program  := factor(program)]
-
-# Omit ambiguous race/ethnicities and small populations
-DT <- DT[!race_sex %ilike% c("Native|International|Other")]
-```
 
 
 
@@ -271,61 +257,165 @@ DT <- DT[!race_sex %ilike% c("Native|International|Other")]
 
 ## Subset rows
 
-- `i` 
-- `na.omit()`
-- `%chin%`,  `%ilike%`
+Summary: In a data.table `DT[i, j, by]`, using `i` to keep or drop rows. 
 
-```{r echo = FALSE, eval = FALSE}
-# Before sampling, we remove NA values
-# sat <- na.omit(sat)
-# DT <- DT[!race_sex %ilike% "Other|International"]
-```
+Typically we create a Boolean statement to subset rows. A row is retained if the statement yields TRUE for that row and dropped in the statement yields FALSE.  Thus the basic idea for row subsetting is to create a vector of TRUE and FALSE values the same length as there are rows in the data frame. 
 
-Typically we create a Boolean statement to subset rows. A row is retained if the statement yields TRUE for that row and dropped in the statement yields FALSE. 
 
-For example, if we wanted to subset `term` for all rows for a particular student, we write (in data.table fashion)
+
+
+### Logical operators 
+
+The commonly used Boolean operators are equal to (`==`),  not equal to (`!=`), and (`&`), or (`|`), less than (`<`), greater than (`>`), less than or equal to (`<=`), and greater than or equal to (`>=`).
+
+For example, if we wanted to subset `toy_course` for all rows for a particular student, we write (in data.table fashion)
 
 ```{r}
-# Subset all term data for one student by their ID
-DT <- term[mcid == "MID25836044"]
+# Subset course data for one student by their ID
+DT <- toy_course[mcid == "MID25783939"]
 
 # Examine the result
 DT
 ```
 
-If we wanted to extract the same student's data from all the MIDFIELD tables, we can assign the ID to a name, 
+We often construct the Boolean statement on its own line. To illustrate, the following lines produce equivalent results, 
 
-```{r}
-mcid_we_want <- "MID25836044"
-student[mcid == mcid_we_want]
-degree[mcid == mcid_we_want]
+```r
+# The subsetting line we used above
+DT <- toy_course[mcid == "MID25783939"]
+
+# Equivalent form
+rows_we_want <- term$mcid == "MID25783939"
+DT <- toy_course[rows_we_want]
 ```
 
-Because a row-subset argument can have multiple clauses, we often construct the Boolean statement on its own line to promote clarity. In this case we must use the `df$col` syntax, where `df` = name of the data.frame and `col` = name of the column in the data frame. 
+Note that in the second case we must use the `df$col` syntax, where `df` is the name of the data.frame and `col` is the name of the column in the data frame. This approach  can be useful when the logical statement has multiple clauses, e.g., subset rows with CIP code 140102 at Institution M, 
 
 ```{r}
 # Create a TRUE/FALSE vector with as many entries as term has rows 
-rows_we_want <- term$mcid == "MID25836044" & term$cip6 == "140102"
+rows_we_want <- toy_term$cip6 == "140102" & 
+  toy_term$institution == "Institution M"
 
 # Examine the result
 str(rows_we_want)
 
 # Confirm the TRUE/FALSE vector has as many entries as term has rows 
-nrow(term)
+nrow(toy_term)
 ```
 
-If the argument  returns TRUE for a row, that row is retained, otherwise it is dropped. 
+A row is retained if the logical statement yields TRUE for that row and dropped in the statement yields FALSE.
 
 ```{r}
 # Retain rows for which rows_we_want is TRUE
-DT <- term[rows_we_want]
+DT <- toy_term[rows_we_want]
 
 # examine the result
 DT
 ```
 
-The commonly used Boolean operators are equal to (`==`),  not equal to (`!=`), and (`&`), or (`|`), less than (`<`), greater than (`>`), less than or equal to (`<=`), and greater than or equal to (`>=`). 
+Logical expressions can have multiple clauses, for example, suppose we want all degree data for Institution A from 2000 through 2002.  
 
+```{r}
+rows_we_want <- degree$institution == "Institution A" & 
+  degree$term >= "20001" &
+  degree$term <= "20026"
+degree[rows_we_want]
+```
+
+
+
+
+
+
+
+### Character matching 
+
+We regularly use the data.table functions `%ilike%` and `%chin%` to create logical expressions for subsetting rows. 
+
+
+`%ilike%` is a convenience function for calling `grep()`, the base R function for character pattern matching. The `i` in `%ilike%`  is the version that ignores case. View its help page by running, 
+ 
+``` r
+? `%ilike%`
+```
+
+For example, we often subset `student` data to omit populations with ambiguous race/ethnicity values such as International and Other/Unknown, as follows.
+
+```{r}
+DT <- toy_student
+
+# Examine the unique values of race/ethnicity
+sort(unique(DT$race))
+```
+
+To identify the rows with "Other/Unknown" or "International", we construct a logical statement in which the search terms are in a single quoted character string separated by the logical OR `|` operator.  Because `%ilike%` is based on `grep()`, partial matching is OK, so we don't have to spell out the full strings. 
+
+```{r}
+# Logical vector that returns TRUE for the two values
+rows_we_omit <- DT$race %ilike% "Other|Internat"
+
+# Examine the logical vector 
+rows_we_omit
+
+# Return the rows for Other and International 
+DT[rows_we_omit]
+```
+
+We see that in the toy student data, we have five students recorded as International or Other/Unknown. However, we want to omit these students from the data. To get the rows we want, we simply negate the `rows_we_omit` logical vector using the `!` operator. 
+
+```{r}
+# TRUE becomes FALSE; FALSE becomes TRUE
+rows_we_want <- !rows_we_omit
+
+# Examine the new logical vector 
+rows_we_want
+
+# Equivalently
+rows_we_want <- !DT$race %ilike% "Other|Internat"
+
+# Return the rows we want
+DT[rows_we_want]
+```
+
+Of course, the logical statement for row subsetting can be placed within the brackets, and we replace the  `DT$race` form with the column name `race` alone, yielding the same result. 
+
+``` r
+# Equivalent statement inside the []
+DT[!race %ilike% "Other|Internat"]
+```
+
+Another character matching function we use regularly for subsetting rows is the data.table function `%chin%`, a fast versions of `match()`, `%in%` and `order()`, optimized for character vectors. `%chin%` operates on two character vectors, returning a vector of the positions of (first) matches of its first argument in its second.  View its help page by running, 
+ 
+``` r
+? `%chin%`
+```
+
+To illustrate `%chin%` usage, we do the same subset by row that we did above with `%ilike%`. The first character vector is the `race` column in `DT`. The second vector is the vector of terms we are matching to, "International and "Other/Unknown",  that must be written in full (no partial matching) and are in a character vector (elements separated by commas). 
+
+```{r}
+DT <- toy_student
+
+# Subset rows using %chin% 
+rows_we_omit <- DT$race %chin% c("International", "Other/Unknown")
+
+# use the T/F vector to subset the data frame by row
+DT[!rows_we_omit]
+```
+
+Of course, the logical operation can be inside the `[]` as well. 
+
+``` r 
+# Equivalent statement inside the []
+DT[!race %chin% c("International", "Other/Unknown")]
+```
+
+In addition, it is sometimes useful to have the second vector named on its own, e.g., 
+
+``` r
+# Another equivalent statement
+values_to_drop <- c("International", "Other/Unknown")
+DT[!race %chin% values_to_drop]
+```
 
 
 
@@ -336,6 +426,34 @@ The commonly used Boolean operators are equal to (`==`),  not equal to (`!=`), a
 
 ## Select columns 
 
+Summary: In a data.table `DT[i, j, by]`, using `j` to keep, drop or reorder columns. 
+
+```{r}
+# Print out the names of the columns
+names(toy_student)
+
+# Select columns to keep
+toy_student[, list(mcid, race, sex)]
+
+# Equivalent
+toy_student[, .(mcid, race, sex)]
+```
+
+When used for a data.table column operation, the notation `.()` is a shorthand substitute for `list()`. A third option that we use regularly is placing the quoted column names in a character vector, e.g., 
+
+```{r}
+cols_we_want <- c("mcid", "race", "sex") 
+```
+
+and using the "double-dot" notation shown below (`..cols_we_want`) to subset the columns, 
+
+```{r}
+toy_student[, ..cols_we_want]
+```
+
+this last approach is particularly useful when we have a set of columns used several times for subsetting, grouping, and joining. 
+
+
 
 
 ```{r echo = FALSE, eval = FALSE}
@@ -343,6 +461,10 @@ The commonly used Boolean operators are equal to (`==`),  not equal to (`!=`), a
 cols_we_want <- c("sat_math", "sat_verbal")
 sat <- student[, ..cols_we_want]
 ```
+
+
+
+
 
 
 
@@ -356,14 +478,18 @@ sat <- student[, ..cols_we_want]
 
 
 ```{r echo = FALSE, eval = FALSE}
-DT <- copy(student)[, .(race, sex)]
-DT[, race_sex := paste(race, sex)]
-DT[, c("race", "sex") := NULL]
-
-
-DT[, race_sex := factor(race_sex)]
-DT[, race_sex := reorder(race_sex, N)]
+# DT <- copy(student)[, .(race, sex)]
+# DT[, race_sex := paste(race, sex)]
+# DT[, c("race", "sex") := NULL]
+# 
+# 
+# DT[, race_sex := factor(race_sex)]
+# DT[, race_sex := reorder(race_sex, N)]
 ```
+
+
+
+
 
 
 ## Grouping 
@@ -374,13 +500,76 @@ DT[, race_sex := reorder(race_sex, N)]
 
 
 ```{r echo = FALSE, eval = FALSE}
-DT <- DT[, .N, by = "race_sex"]
+# DT <- DT[, .N, by = "race_sex"]
 ```
+
+
+
+
+
+
+
+
+
+## Other row operations 
+
+
+### Unique rows
+
+Both the `term` and `course` data  tables have multiple rows for the same student. When subsetting data like these and we want to eliminate duplicate rows, we use `unique()`. 
+
+
+
+ 
+- `na.omit()`
+- order
+- unique()
+
+
+
+
+
+
+
+
 
 ## Reference semantics
 
+
+
+
+
+
+
+
+
+
 ## Reshaping
 
+
+```{r echo = FALSE, eval = FALSE}
+# # Create student_demogr.rds and append to prepared_data.zip
+# DT <- copy(student)[, .(race, sex)]
+# DT[, race_sex := paste(race, sex)]
+# DT[, c("race", "sex") := NULL]
+# DT <- DT[, .N, by = "race_sex"]
+# DT <- DT[!race_sex %ilike% "Other|International"]
+# DT[, race_sex := factor(race_sex)]
+# DT[, race_sex := reorder(race_sex, N)]
+# 
+# 
+# 
+# # Create student_demogr.rds and append to prepared_data.zip
+# DT <- add_race_sex(term, midfield_student = student)
+# cols_we_want <- c("mcid", "term", "hours_term", "level", "sex")
+# DT <- DT[, ..cols_we_want]
+# DT <- unique(DT)
+# 
+# DT <- copy(study_stickiness)
+# DT[, race_sex := paste(race, sex)]
+# DT[, race_sex := factor(race_sex)]
+# DT[, program  := factor(program)]
+```
 
 
 
